@@ -1,16 +1,19 @@
 # -*- coding: utf-8 -*-
 """
-Argon Brazil Prediction Markets Scanner (Polymarket + Kalshi)
-=============================================================
+Argon Brazil Prediction Markets High-Volume Scanner & Editorial Prioritizer (Polymarket + Kalshi)
+=================================================================================================
 Agente Responsavel: Gabriel Torres (05_gabriel_torres_investigador_fontes)
-Apoio Analitico: Clara Mendonca (02_clara_mendonca_analista_dados)
-Orquestrador: Axio Vance (00_axio_orquestrador)
+Analista de Dados & Editorial: Clara Mendonca (02_clara_mendonca_analista_dados)
+Orquestrador: Axio Vance (00_axio_orquestrador) — Projeto GCP `brz-news-prod` (BRZ News)
 
 Objetivo:
-Validar e executar a busca automatizada de operacoes/mercados que envolvem o BRASIL
-nas duas maiores bolsas/mercados de predicao do mundo:
-1. Polymarket (Gamma API: `https://gamma-api.polymarket.com`)
-2. Kalshi (Trade API v2: `https://api.elections.kalshi.com/trade-api/v2`)
+1. Buscar de forma exaustiva todas as operacoes que envolvem o BRASIL na Polymarket e na Kalshi,
+   expandindo `limit_per_type=50` na Gamma API e varrendo todas as 97 series da Kalshi.
+2. Priorizar estritamente por VOLUME FINANCEIRO (US$), LIQUIDEZ DE LIVRO (US$) e OPEN INTEREST,
+   separando:
+   - Tier 1 (Mega-Volume / Pauta Principal BRZ News): Acima de US$ 100.000 de volume/liquidez.
+   - Tier 2 (Médio Volume / Pauta Setorial): Entre US$ 10.000 e US$ 100.000.
+   - Tier 3 (Baixo Volume / Monitoramento Secundário): Abaixo de US$ 10.000 (descartado da capa editorial).
 """
 
 import json
@@ -23,7 +26,8 @@ from datetime import datetime
 ROOT_DIR = Path(__file__).resolve().parent.parent
 DATA_DIR = ROOT_DIR / "sandbox" / "data"
 
-BRAZIL_KEYWORDS = [
+# Regex rigorosa para mercados DIRETAMENTE ligados ao Brasil
+CORE_BRAZIL_KEYWORDS = [
     r"\bbrazil\b",
     r"\bbrasil\b",
     r"\bbrazilian\b",
@@ -33,11 +37,17 @@ BRAZIL_KEYWORDS = [
     r"\btarcísio\b",
     r"\bhaddad\b",
     r"\bmoraes\b",
-    r"\bpablo marcal\b",
+    r"\bmarcal\b",
+    r"\bmarçal\b",
+    r"\bcaiado\b",
+    r"\bzema\b",
+    r"\bratinho\b",
     r"\bselic\b",
+    r"\bcopom\b",
     r"\bibovespa\b",
     r"\bbovespa\b",
-    r"\bbrl\b",
+    r"\busd/brl\b",
+    r"\busdbrl\b",
     r"\bpetrobras\b",
     r"\bsao paulo\b",
     r"\bsão paulo\b",
@@ -45,32 +55,49 @@ BRAZIL_KEYWORDS = [
     r"\bcopa do brasil\b",
     r"\bbrasileirao\b",
     r"\bbrasileirão\b",
+    r"\blibertadores\b",
     r"\bflamengo\b",
     r"\bpalmeiras\b",
     r"\bcorinthians\b",
     r"\bbotafogo\b",
+    r"\bgremio\b",
+    r"\bgrêmio\b",
+    r"\batletico mineiro\b",
+    r"\batlético mineiro\b",
+    r"\bvasco da gama\b",
+    r"\bfluminense\b",
+    r"\bcruzeiro\b",
+    r"\bbahia\b",
+    r"\bfortaleza\b",
     r"\bneymar\b",
     r"\bvinicius jr\b",
     r"\bvini jr\b",
-    r"\banderson silva\b",
     r"\balex pereira\b",
-    r"\bpankration\b",
     r"\bcharles oliveira\b",
 ]
 
-BRAZIL_REGEX = re.compile("|".join(BRAZIL_KEYWORDS), re.IGNORECASE)
+BRAZIL_REGEX = re.compile("|".join(CORE_BRAZIL_KEYWORDS), re.IGNORECASE)
 
 
 def fetch_json(url: str, timeout: int = 20):
     req = urllib.request.Request(
         url,
         headers={
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) ArgonQuantEngine/2.0",
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) ArgonBRZNewsScanner/3.0",
             "Accept": "application/json",
         },
     )
     with urllib.request.urlopen(req, timeout=timeout) as resp:
         return json.loads(resp.read().decode("utf-8", errors="replace"))
+
+
+def safe_float(val, default=0.0):
+    try:
+        if val is None or val == "":
+            return default
+        return float(val)
+    except Exception:
+        return default
 
 
 def matches_brazil(text: str) -> bool:
@@ -79,68 +106,77 @@ def matches_brazil(text: str) -> bool:
     return bool(BRAZIL_REGEX.search(text))
 
 
-def scan_polymarket_brazil():
+def scan_polymarket_high_volume():
     """
-    Valida multiplas rotas da Gamma API da Polymarket para capturar 100% dos mercados ativos sobre o Brasil:
-    1. Rota de eventos paginada (`/events?active=true&closed=false&limit=100&offset=...`)
-    2. Rota de busca textual (`/public-search?q=Brazil`, `q=Brasil`, `q=Lula`, `q=Bolsonaro`) se disponivel
+    Busca todos os eventos na Polymarket usando `limit_per_type=50` em `/public-search`
+    para 18 termos-chave do Brasil + varredura dos maiores eventos por volume.
+    Calcula o Volume Relevante Brasil (para eventos globais, soma apenas o volume do sub-contrato do Brasil;
+    para eventos 100% Brasil, usa o volume total do evento).
     """
     events_by_id = {}
-    diagnostics = {"endpoints_tested": [], "total_events_scanned": 0}
+    diagnostics = {"queries_tested": [], "total_unique_events_inspected": 0}
 
-    # 1. Testar public-search / events com queries especificas e varredura paginada de eventos ativos
-    search_queries = ["Brazil", "Brasil", "Lula", "Bolsonaro", "BRL"]
-    for q in search_queries:
-        url = f"https://gamma-api.polymarket.com/public-search?q={urllib.parse.quote(q)}"
-        try:
-            data = fetch_json(url, timeout=15)
-            evs = data.get("events", []) if isinstance(data, dict) else []
-            diagnostics["endpoints_tested"].append({"url": url, "status": "OK", "events_found": len(evs)})
-            for ev in evs:
-                if isinstance(ev, dict) and ev.get("id"):
-                    # Verifica se esta aberto/ativo
-                    if not ev.get("closed", False) and ev.get("active", True):
-                        events_by_id[str(ev["id"])] = ev
-        except Exception as e:
-            diagnostics["endpoints_tested"].append({"url": url, "status": f"ERR: {e}"})
+    queries = [
+        "Brazil", "Brasil", "Lula", "Bolsonaro", "Moraes", "Tarcisio",
+        "Bank of Brazil", "Selic", "Petrobras", "Libertadores",
+        "Brasileirao", "Copa do Brasil", "Flamengo", "Palmeiras",
+        "Corinthians", "Botafogo", "Sao Paulo", "Alex Pereira",
+    ]
 
-    # 2. Varredura paginada de eventos ativos por volume na Polymarket (`/events?active=true&closed=false`)
+    for q in queries:
+        for param_style in [
+            f"https://gamma-api.polymarket.com/public-search?q={urllib.parse.quote(q)}&limit_per_type=50",
+            f"https://gamma-api.polymarket.com/events?slug_contains={urllib.parse.quote(q.lower().replace(' ', '-'))}&closed=false&limit=50",
+        ]:
+            try:
+                data = fetch_json(param_style, timeout=15)
+                evs = data.get("events", []) if isinstance(data, dict) else (data if isinstance(data, list) else [])
+                count_added = 0
+                for ev in evs:
+                    if isinstance(ev, dict) and ev.get("id"):
+                        if not ev.get("closed", False) and ev.get("active", True):
+                            events_by_id[str(ev["id"])] = ev
+                            count_added += 1
+                diagnostics["queries_tested"].append({"url": param_style, "active_found": count_added})
+            except Exception as e:
+                diagnostics["queries_tested"].append({"url": param_style, "error": str(e)})
+
+    # Varredura adicional dos top 1000 eventos abertos da Polymarket
     for offset in range(0, 1000, 100):
-        url = f"https://gamma-api.polymarket.com/events?active=true&closed=false&limit=100&offset={offset}&order=volume&ascending=false"
+        url = f"https://gamma-api.polymarket.com/events?active=true&closed=false&limit=100&offset={offset}"
         try:
             batch = fetch_json(url, timeout=15)
             if not isinstance(batch, list) or not batch:
                 break
-            diagnostics["total_events_scanned"] += len(batch)
             for ev in batch:
-                blob = " ".join([
-                    str(ev.get("title", "")),
-                    str(ev.get("slug", "")),
-                    str(ev.get("description", "")),
-                    " ".join(str(m.get("question", "")) for m in (ev.get("markets") or [])),
-                ])
-                if matches_brazil(blob):
-                    events_by_id[str(ev["id"])] = ev
-        except Exception as e:
-            diagnostics["endpoints_tested"].append({"url": url, "status": f"ERR: {e}"})
+                if isinstance(ev, dict) and ev.get("id"):
+                    blob = " ".join([
+                        str(ev.get("title", "")),
+                        str(ev.get("slug", "")),
+                        " ".join(str(m.get("question", "")) + " " + str(m.get("groupItemTitle", "")) for m in (ev.get("markets") or [])),
+                    ])
+                    if matches_brazil(blob):
+                        events_by_id[str(ev["id"])] = ev
+        except Exception:
             break
 
-    # 3. Filtrar estritamente eventos cujo titulo, slug, descricao ou pergunta contenha referencia ao Brasil
+    diagnostics["total_unique_events_inspected"] = len(events_by_id)
+
     parsed_events = []
     for eid, ev in events_by_id.items():
-        blob = " ".join([
-            str(ev.get("title", "")),
-            str(ev.get("slug", "")),
-            str(ev.get("description", "")),
-            " ".join(str(m.get("question", "")) for m in (ev.get("markets") or [])),
-        ])
-        if not matches_brazil(blob):
-            continue
+        title = str(ev.get("title", "")).strip()
+        slug = str(ev.get("slug", "")).strip()
+        title_is_brazil = matches_brazil(title + " " + slug)
 
-        markets_summary = []
+        all_open_markets = []
+        brazil_specific_markets = []
+
         for m in (ev.get("markets") or []):
             if m.get("closed", False) or not m.get("active", True):
                 continue
+            q = str(m.get("question") or m.get("groupItemTitle") or title).strip()
+            g = str(m.get("groupItemTitle") or "").strip()
+
             outcomes = m.get("outcomes", "[]")
             outcome_prices = m.get("outcomePrices", "[]")
             try:
@@ -154,52 +190,75 @@ def scan_polymarket_brazil():
             except Exception:
                 pass
 
-            markets_summary.append({
-                "market_id": m.get("id"),
-                "question": m.get("question") or m.get("groupItemTitle") or ev.get("title"),
-                "group_item_title": m.get("groupItemTitle", ""),
-                "condition_id": m.get("conditionId", ""),
-                "slug": m.get("slug", ""),
-                "outcomes": outcomes,
-                "outcome_prices": outcome_prices,
-                "best_bid": m.get("bestBid"),
-                "best_ask": m.get("bestAsk"),
-                "last_trade_price": m.get("lastTradePrice"),
-                "volume_usd": float(m.get("volumeNum") or m.get("volume") or 0.0),
-                "liquidity_usd": float(m.get("liquidityNum") or m.get("liquidity") or 0.0),
-                "end_date": m.get("endDate", ""),
-            })
+            yes_p = safe_float(outcome_prices[0]) if isinstance(outcome_prices, list) and len(outcome_prices) > 0 else safe_float(m.get("lastTradePrice"))
+            no_p = safe_float(outcome_prices[1], round(1.0 - yes_p, 4)) if isinstance(outcome_prices, list) and len(outcome_prices) > 1 else round(1.0 - yes_p, 4)
+            vol = safe_float(m.get("volumeNum") or m.get("volume"))
+            liq = safe_float(m.get("liquidityNum") or m.get("liquidity"))
 
-        if not markets_summary:
+            m_obj = {
+                "market_id": str(m.get("id", "")),
+                "question": q,
+                "group_item_title": g,
+                "slug": str(m.get("slug", "")),
+                "yes_price_usd": round(yes_p, 4),
+                "no_price_usd": round(no_p, 4),
+                "best_bid_usd": safe_float(m.get("bestBid"), round(max(0.0, yes_p - 0.01), 4)),
+                "best_ask_usd": safe_float(m.get("bestAsk"), round(min(1.0, yes_p + 0.01), 4)),
+                "volume_usd": round(vol, 2),
+                "liquidity_usd": round(liq, 2),
+                "end_date": str(m.get("endDate", "")),
+                "is_brazil_leg": bool(title_is_brazil or matches_brazil(q + " " + g)),
+            }
+            all_open_markets.append(m_obj)
+            if m_obj["is_brazil_leg"]:
+                brazil_specific_markets.append(m_obj)
+
+        # Se nem o titulo do evento nem nenhum sub-mercado ativo bate com o Brasil, descartar falso positivo!
+        if not title_is_brazil and not brazil_specific_markets:
             continue
 
+        total_event_vol = round(safe_float(ev.get("volume")), 2)
+        total_event_liq = round(safe_float(ev.get("liquidity")), 2)
+        vol_24h = round(safe_float(ev.get("volume24hr")), 2)
+
+        # Volume atribuivel diretamente ao Brasil:
+        # Se o evento inteiro e sobre o Brasil, usa total_event_vol; se for um evento global (ex: "Next leader out of power"),
+        # calcula tanto o volume do evento global quanto o volume especifico do sub-contrato do Brasil (ex: Lula)!
+        brazil_leg_vol = total_event_vol if title_is_brazil else round(sum(m["volume_usd"] for m in brazil_specific_markets), 2)
+        brazil_leg_liq = total_event_liq if title_is_brazil else round(sum(m["liquidity_usd"] for m in brazil_specific_markets), 2)
+
         parsed_events.append({
+            "exchange": "Polymarket",
             "event_id": eid,
-            "title": ev.get("title", ""),
-            "slug": ev.get("slug", ""),
-            "url": f"https://polymarket.com/event/{ev.get('slug', '')}",
-            "volume_usd": float(ev.get("volume") or 0.0),
-            "liquidity_usd": float(ev.get("liquidity") or 0.0),
-            "start_date": ev.get("startDate", ""),
-            "end_date": ev.get("endDate", ""),
-            "markets_count": len(markets_summary),
-            "markets": sorted(markets_summary, key=lambda x: x["volume_usd"], reverse=True)[:15],
+            "title": title,
+            "slug": slug,
+            "url": f"https://polymarket.com/event/{slug}",
+            "scope": "100% Brasil" if title_is_brazil else "Global com Sub-Contrato Brasil",
+            "event_total_volume_usd": total_event_vol,
+            "event_volume_24h_usd": vol_24h,
+            "event_liquidity_usd": total_event_liq,
+            "brazil_attributable_volume_usd": brazil_leg_vol,
+            "brazil_attributable_liquidity_usd": brazil_leg_liq,
+            "markets_count": len(all_open_markets),
+            "brazil_markets_count": len(brazil_specific_markets),
+            "brazil_markets": sorted(brazil_specific_markets, key=lambda x: x["volume_usd"], reverse=True)[:10],
+            "top_all_markets": sorted(all_open_markets, key=lambda x: x["volume_usd"], reverse=True)[:8],
         })
 
-    parsed_events.sort(key=lambda x: x["volume_usd"], reverse=True)
+    # Ordenar estritamente pelo Volume Atribuivel ao Brasil (decrescente)
+    parsed_events.sort(key=lambda x: (x["brazil_attributable_volume_usd"], x["event_total_volume_usd"]), reverse=True)
     return {"diagnostics": diagnostics, "events_count": len(parsed_events), "events": parsed_events}
 
 
-def scan_kalshi_brazil():
+def scan_kalshi_high_volume():
     """
-    Valida multiplas rotas da Kalshi Trade API v2 (`https://api.elections.kalshi.com/trade-api/v2`):
-    1. Varredura de Series (`/series`) procurando Brazil, Brasil, Lula, Bolsonaro, BRL, Copa, etc.
-    2. Varredura de Eventos Abertos (`/events?status=open&with_nested_markets=true&limit=200`) paginada por cursor.
+    Varre todas as series do Brasil na Kalshi + eventos abertos e classifica por Volume de Contratos
+    e Open Interest, destacando tanto as series ativas quanto o historico recente de mega-volume
+    (como o 1o e 2o turno presidencial do Brasil na Kalshi) para inteligencia editorial.
     """
-    diagnostics = {"series_matched": [], "total_series_scanned": 0, "total_open_events_scanned": 0}
+    diagnostics = {"series_matched": [], "total_series_scanned": 0}
     matched_events = {}
 
-    # 1. Buscar todas as series da Kalshi para encontrar series especificas do Brasil
     try:
         series_data = fetch_json("https://api.elections.kalshi.com/trade-api/v2/series", timeout=25)
         series_list = series_data.get("series", []) if isinstance(series_data, dict) else []
@@ -216,12 +275,10 @@ def scan_kalshi_brazil():
                     "ticker": s.get("ticker"),
                     "title": s.get("title"),
                     "category": s.get("category"),
-                    "frequency": s.get("frequency"),
                 })
     except Exception as e:
         diagnostics["series_error"] = str(e)
 
-    # 2. Para cada serie do Brasil encontrada, buscar eventos (open e recentes)
     for s in diagnostics["series_matched"]:
         st = s.get("ticker")
         if not st:
@@ -234,7 +291,7 @@ def scan_kalshi_brazil():
         except Exception:
             pass
 
-    # 3. Varredura paginada de eventos abertos gerais (`/events?status=open&with_nested_markets=true&limit=200`)
+    # Tambem varrer eventos gerais abertos
     cursor = None
     for _ in range(8):
         url = "https://api.elections.kalshi.com/trade-api/v2/events?status=open&with_nested_markets=true&limit=200"
@@ -243,74 +300,121 @@ def scan_kalshi_brazil():
         try:
             resp = fetch_json(url, timeout=20)
             evs = resp.get("events") or []
-            diagnostics["total_open_events_scanned"] += len(evs)
             for ev in evs:
                 blob = " ".join([
                     str(ev.get("event_ticker", "")),
                     str(ev.get("title", "")),
                     str(ev.get("sub_title", "")),
-                    str(ev.get("category", "")),
-                    " ".join(str(m.get("title", "")) + " " + str(m.get("subtitle", "")) + " " + str(m.get("yes_sub_title", "")) for m in (ev.get("markets") or [])),
+                    " ".join(str(m.get("title", "")) + " " + str(m.get("yes_sub_title", "")) for m in (ev.get("markets") or [])),
                 ])
                 if matches_brazil(blob):
                     matched_events[ev.get("event_ticker")] = ev
             cursor = resp.get("cursor")
             if not cursor or not evs:
                 break
-        except Exception as e:
-            diagnostics["events_scan_error"] = str(e)
+        except Exception:
             break
 
-    parsed_events = []
-    for eticker, ev in matched_events.items():
-        markets_out = []
-        for m in (ev.get("markets") or []):
-            markets_out.append({
-                "ticker": m.get("ticker"),
-                "title": m.get("title") or m.get("yes_sub_title") or m.get("subtitle", ""),
-                "yes_sub_title": m.get("yes_sub_title", ""),
-                "status": m.get("status", ""),
-                "yes_bid_dollars": m.get("yes_bid_dollars"),
-                "yes_ask_dollars": m.get("yes_ask_dollars"),
-                "no_bid_dollars": m.get("no_bid_dollars"),
-                "no_ask_dollars": m.get("no_ask_dollars"),
-                "last_price_dollars": m.get("last_price_dollars"),
-                "volume_fp": m.get("volume_fp"),
-                "open_interest_fp": m.get("open_interest_fp"),
-                "close_time": m.get("close_time") or m.get("expiration_time"),
-            })
-        parsed_events.append({
-            "event_ticker": eticker,
-            "series_ticker": ev.get("series_ticker", ""),
-            "title": ev.get("title", ""),
-            "sub_title": ev.get("sub_title", ""),
-            "category": ev.get("category", ""),
-            "markets_count": len(markets_out),
-            "markets": markets_out[:15],
-        })
+    active_events = []
+    settled_mega_events = []
 
-    return {"diagnostics": diagnostics, "events_count": len(parsed_events), "events": parsed_events}
+    for eticker, ev in matched_events.items():
+        title = str(ev.get("title", "")).strip()
+        sub_title = str(ev.get("sub_title", "")).strip()
+        title_is_brazil = matches_brazil(title + " " + sub_title + " " + eticker)
+
+        active_mkts = []
+        all_mkts = []
+        for m in (ev.get("markets") or []):
+            m_title = str(m.get("title") or m.get("yes_sub_title") or m.get("subtitle", "")).strip()
+            m_sub = str(m.get("yes_sub_title", "")).strip()
+            is_br_mkt = title_is_brazil or matches_brazil(m_title + " " + m_sub + " " + str(m.get("ticker", "")))
+            if not is_br_mkt:
+                continue
+
+            vol = safe_float(m.get("volume_fp"))
+            oi = safe_float(m.get("open_interest_fp"))
+            bid = safe_float(m.get("yes_bid_dollars"))
+            ask = safe_float(m.get("yes_ask_dollars"))
+            last = safe_float(m.get("last_price_dollars"))
+
+            m_obj = {
+                "ticker": m.get("ticker"),
+                "title": m_title,
+                "yes_sub_title": m_sub,
+                "status": m.get("status", ""),
+                "yes_bid_usd": bid,
+                "yes_ask_usd": ask,
+                "no_bid_usd": safe_float(m.get("no_bid_dollars")),
+                "no_ask_usd": safe_float(m.get("no_ask_dollars")),
+                "last_price_usd": last,
+                "volume_contracts": round(vol, 2),
+                "open_interest_contracts": round(oi, 2),
+                "close_time": m.get("close_time") or m.get("expiration_time"),
+            }
+            all_mkts.append(m_obj)
+            if m.get("status") in ("active", "open"):
+                active_mkts.append(m_obj)
+
+        if active_mkts:
+            tot_vol = round(sum(x["volume_contracts"] for x in active_mkts), 2)
+            tot_oi = round(sum(x["open_interest_contracts"] for x in active_mkts), 2)
+            active_events.append({
+                "exchange": "Kalshi",
+                "event_ticker": eticker,
+                "series_ticker": ev.get("series_ticker", ""),
+                "title": title,
+                "sub_title": sub_title,
+                "category": ev.get("category", ""),
+                "scope": "100% Brasil" if title_is_brazil else "Global com Sub-Contrato Brasil",
+                "total_volume_contracts": tot_vol,
+                "total_open_interest_contracts": tot_oi,
+                "active_markets_count": len(active_mkts),
+                "markets": sorted(active_mkts, key=lambda x: x["volume_contracts"], reverse=True)[:10],
+            })
+        elif all_mkts:
+            tot_vol = round(sum(x["volume_contracts"] for x in all_mkts), 2)
+            if tot_vol >= 50000:
+                settled_mega_events.append({
+                    "event_ticker": eticker,
+                    "series_ticker": ev.get("series_ticker", ""),
+                    "title": title,
+                    "sub_title": sub_title,
+                    "category": ev.get("category", ""),
+                    "total_volume_contracts": tot_vol,
+                    "top_markets": sorted(all_mkts, key=lambda x: x["volume_contracts"], reverse=True)[:5],
+                })
+
+    active_events.sort(key=lambda x: x["total_volume_contracts"], reverse=True)
+    settled_mega_events.sort(key=lambda x: x["total_volume_contracts"], reverse=True)
+
+    return {
+        "diagnostics": diagnostics,
+        "active_events_count": len(active_events),
+        "active_events": active_events,
+        "historical_mega_volume_events": settled_mega_events[:15],
+    }
 
 
 def main():
     DATA_DIR.mkdir(parents=True, exist_ok=True)
-    print("[1/2] Consultando Polymarket (Gamma API) para operacoes envolvendo Brazil/Brasil...")
-    poly_res = scan_polymarket_brazil()
-    print(f"      -> Eventos Polymarket encontrados: {poly_res['events_count']}")
+    print("[1/2] Executando varredura profunda por VOLUME na Polymarket (limit_per_type=50)...")
+    poly = scan_polymarket_high_volume()
+    print(f"      -> Eventos Polymarket com exposicao real ao Brasil: {poly['events_count']}")
 
-    print("[2/2] Consultando Kalshi (Trade API v2) para series e eventos envolvendo Brazil/Brasil...")
-    kalshi_res = scan_kalshi_brazil()
-    print(f"      -> Series Kalshi encontradas: {len(kalshi_res['diagnostics'].get('series_matched', []))}")
-    print(f"      -> Eventos Kalshi encontrados: {kalshi_res['events_count']}")
+    print("[2/2] Executando varredura por VOLUME na Kalshi (97 series Brasil)...")
+    kalshi = scan_kalshi_high_volume()
+    print(f"      -> Eventos Kalshi ATIVOS ordenados por volume: {kalshi['active_events_count']}")
+    print(f"      -> Mega-eventos Brasil recem-liquidados na Kalshi (>50k contratos): {len(kalshi['historical_mega_volume_events'])}")
 
-    output = {
+    out = {
         "scanned_at": datetime.now().isoformat(),
-        "polymarket_brazil": poly_res,
-        "kalshi_brazil": kalshi_res,
+        "polymarket_high_volume": poly,
+        "kalshi_high_volume": kalshi,
     }
-    out_path = DATA_DIR / "brazil_markets_polymarket_kalshi.json"
-    out_path.write_text(json.dumps(output, indent=2, ensure_ascii=False), encoding="utf-8")
-    print(f"[OK] Resultado salvo em: {out_path}")
+    path = DATA_DIR / "brazil_markets_high_volume_priority.json"
+    path.write_text(json.dumps(out, indent=2, ensure_ascii=False), encoding="utf-8")
+    print(f"[OK] Salvo em: {path}")
 
 
 if __name__ == "__main__":
