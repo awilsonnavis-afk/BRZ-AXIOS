@@ -1,0 +1,48 @@
+{
+  "gcp_target": {
+    "project_id": "brz-news-prod",
+    "project_number": "533645601719",
+    "region": "us-central1",
+    "existing_cloud_run_services": [
+      "sentinel-worker",
+      "brz-portal",
+      "brznews-portal",
+      "governance-dashboard"
+    ]
+  },
+  "nodes": [
+    "00_axio_intake",
+    "01_clara_data_ingestion",
+    "02_henrique_math_engine",
+    "03_lucas_parallel_sandboxes_01_to_04",
+    "04_tribunal_10_actuaries_and_judge",
+    "06_axio_sink_gcp_brz_news"
+  ],
+  "edges": [
+    {
+      "from": "00_axio_intake",
+      "to": "01_clara_data_ingestion",
+      "label": "Briefing & Config"
+    },
+    {
+      "from": "01_clara_data_ingestion",
+      "to": "02_henrique_math_engine",
+      "label": "Dados Reais nflverse + Kalshi"
+    },
+    {
+      "from": "02_henrique_math_engine",
+      "to": "03_lucas_parallel_sandboxes_01_to_04",
+      "label": "Equações QB_Elo + Pitágoras"
+    },
+    {
+      "from": "03_lucas_parallel_sandboxes_01_to_04",
+      "to": "04_tribunal_10_actuaries_and_judge",
+      "label": "60.000 Runs (4 Sandboxes)"
+    },
+    {
+      "from": "04_tribunal_10_actuaries_and_judge",
+      "to": "06_axio_sink_gcp_brz_news",
+      "label": "Sentença 9x1 KC (53.88%)"
+    }
+  ]
+}
