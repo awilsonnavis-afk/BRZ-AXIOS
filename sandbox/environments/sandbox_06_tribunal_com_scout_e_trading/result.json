@@ -1,0 +1,427 @@
+{
+  "sandbox_id": "sandbox_06_tribunal_com_scout_e_trading",
+  "generated_at": "2026-11-01T17:32:16.899802",
+  "gabriel_torres_summary": {
+    "question_answered": "O que poderia favorecer essa predição (KC vencer) e o que poderia ameaçá-la (DEN vencer)?",
+    "favors_kc_optimists": [
+      {
+        "id": "FAV-KC-01",
+        "factor": "Retorno Oficial do WR #1 Rashee Rice (INA nas Semanas 6-7 -> ACT na Semana 8)",
+        "evidence": "Rashee Rice esteve INATIVO (INA) nas Semanas 6 e 7 (incluindo o colapso ofensivo de 3 pontos contra Seattle na W7). Em 5 jogos ativos em 2026, Rice somou 33 recepções (40 alvos), 336 jardas e 2 TDs (+14.07 Receiving EPA). Na Semana 8 contra Denver, Rice está oficialmente ATIVO (ACT) ao lado de Travis Kelce (31 rec, 439 yds, +18.35 EPA) e Xavier Worthy (23 rec, 259 yds, 3 TDs).",
+        "impact_prob_kc_bps": 310,
+        "used_by_actuary": "OPT-01 (Camila Fontes) & OPT-05 (Dr. Rodrigo Paz)"
+      },
+      {
+        "id": "FAV-KC-02",
+        "factor": "Baixas Críticas no Backfield e Front-Seven do Denver Broncos (RJ Harvey e Jonah Elliss no IR)",
+        "evidence": "O RB calouro dinâmico de Denver, RJ Harvey (ACT nas Semanas 6 e 7, com 149 jardas terrestres, 129 aéreas e 2 TDs totais), foi colocado na Injured Reserve (RES/R01) na Semana 8, juntando-se ao RB Tyler Badie (RES). Além disso, a defesa de Denver perdeu o Edge/LB Jonah Elliss (RES) e o LB Levelle Bailey (RES), além de 3 jogadores de linha ofensiva no IR (Michael Deiter, Nick Gargiulo, Frank Crum).",
+        "impact_prob_kc_bps": 220,
+        "used_by_actuary": "OPT-03 (Helena Albuquerque) & OPT-02 (Rafael Tavares)"
+      },
+      {
+        "id": "FAV-KC-03",
+        "factor": "Superioridade Estrutural em Explosividade Aérea e Disciplina de Fumbles",
+        "evidence": "Nas Semanas 1-7 de 2026, Patrick Mahomes lidera KC com 1.717 jardas aéreas (245,3 jds/jogo vs 217,3 de Bo Nix) e 14 TDs passados. Mais importante: KC sofreu apenas 0 fumbles perdidos em 7 jogos, enquanto Denver perdeu 2 fumbles (5 turnovers totais de DEN vs 4 de KC) e comete mais faltas (7.86 faltas / 54.7 jds por jogo).",
+        "impact_prob_kc_bps": 180,
+        "used_by_actuary": "OPT-04 (Vitorino Costa)"
+      },
+      {
+        "id": "FAV-KC-04",
+        "factor": "Assimetria de Rebote Pós-Colapso sob Andy Reid + Microestrutura Kalshi (53c -> 58c)",
+        "evidence": "Sempre que KC marcou <= 10 pontos na era Mahomes/Reid, venceu ~80% dos jogos seguintes cobrindo o spread. No livro de ofertas real da Kalshi (10,75 milhões de contratos no evento), institucional absorveu todo o ask de 53¢ para 58¢ (pico 60¢).",
+        "impact_prob_kc_bps": 240,
+        "used_by_actuary": "OPT-01 (Camila Fontes) & OPT-02 (Rafael Tavares)"
+      }
+    ],
+    "favors_den_pessimists": [
+      {
+        "id": "THREAT-KC-01",
+        "factor": "Perda Abrupta do CB #1 L'Jarius Sneed (ACT na W7 -> Injured Reserve RES na W8) e OL Fragilizada em KC",
+        "evidence": "O cornerback titular de elite do Chiefs, L'Jarius Sneed (ACT nas Semanas 1 a 7, 25 tackles solo, 3 passes defendidos), foi colocado na Injured Reserve (RES) exatamente na Semana 8! Além disso, o Offensive Tackle Josh Simmons segue na Injured Reserve (RES) e o OL Jaylon Moore esteve inativo na W7, deixando a proteção de passe de Mahomes vulnerável.",
+        "impact_prob_kc_bps": -280,
+        "used_by_actuary": "PESS-01 (Dr. Igor Saldanha) & PESS-02 (Dra. Renata Moura)"
+      },
+      {
+        "id": "THREAT-KC-02",
+        "factor": "Retorno Simultâneo da Secundária All-Pro de Denver: Pat Surtain II e Talanoa Hufanga (INA -> ACT na W8)",
+        "evidence": "O melhor cornerback da NFL, Pat Surtain II (INA nas Semanas 6 e 7), e o safety All-Pro Talanoa Hufanga (INA nas Semanas 6 e 7, 32 tackles solo e 5 passes defendidos em 5 jogos) retornam AMBOS ao status ATIVO (ACT) na Semana 8! Isso reconstrói a cobertura homem-a-homem de Denver exatamente para neutralizar Rashee Rice e Xavier Worthy.",
+        "impact_prob_kc_bps": -290,
+        "used_by_actuary": "PESS-02 (Dra. Renata Moura) & PESS-05 (Dra. Patrícia Guedes)"
+      },
+      {
+        "id": "THREAT-KC-03",
+        "factor": "Colapso de Proteção de Passe de KC (17 Sacks Sofridos) vs Pass Rush Letal de Nik Bonitto (6.5 Sacks)",
+        "evidence": "Nos primeiros 7 jogos de 2026, Mahomes já sofreu 7 sacks (1.17/jogo, perdendo 99 jardas) e acumula Passing EPA negativo na temporada (22.52) devido a 7 interceptações. Enquanto isso, Bo Nix sofreu apenas 9 sacks (1.29/jogo) e tem Passing EPA positivo (+-10.38), e a defesa de Denver soma 19.0 sacks e 44 QB Hits liderada por Nik Bonitto (6.5 sacks, 14 QB hits, 7 TFLs).",
+        "impact_prob_kc_bps": -250,
+        "used_by_actuary": "PESS-03 (Marcelo Viana) & PESS-01 (Dr. Igor Saldanha)"
+      },
+      {
+        "id": "THREAT-KC-04",
+        "factor": "Vantagem de Eficiência Terrestre de Denver com J.K. Dobbins + Altitude de 1.609m (Mile High)",
+        "evidence": "Denver corre para 94.9 jardas/jogo (liderado por J.K. Dobbins com 550 jardas, 4 TDs e +10.48 Rushing EPA), contra 141.5 jardas/jogo de KC (Rushing EPA total de KC: 15.13). Em altitude de 1.609m no 4º quarto, o jogo terrestre de Dobbins desgasta a linha defensiva de KC.",
+        "impact_prob_kc_bps": -160,
+        "used_by_actuary": "PESS-04 (André Vasques)"
+      }
+    ],
+    "sum_positive_factors_bps": 950,
+    "sum_negative_factors_bps": -980,
+    "net_contextual_adjustment_bps": -30,
+    "analytical_conclusion": "O choque de elencos da Semana 8 explica perfeitamente por que este jogo é um clássico de alta tensão: o retorno de Rashee Rice (+310 bps) e a perda de RJ Harvey/Jonah Elliss em Denver (+220 bps) dão a Mahomes as armas para explorar o meio do campo, mas são parcialmente contrabalançados pela perda de L'Jarius Sneed para a Injured Reserve (-280 bps), pelo retorno simultâneo de Pat Surtain II e Talanoa Hufanga (-290 bps) e pela pressão de Nik Bonitto sobre uma OL desfalcada de KC (-250 bps)."
+  },
+  "tribunal_deliberation": {
+    "pessimists": [
+      {
+        "id": "PESS-01",
+        "name": "Dr. Igor Saldanha (Atuário de Ruína & Cauda Extrema)",
+        "thesis": "Perda de L'Jarius Sneed (IR) + 17 Sacks Sofridos por Mahomes contra Nik Bonitto (6.5 Sacks)",
+        "dossier_citation": "THREAT-KC-01 & THREAT-KC-03",
+        "prob_kc": 0.485,
+        "prob_den": 0.515,
+        "recommended_exit_strategy": "Venda parcial rápida em 64¢-65¢ se KC marcar no 1º quarto; Sneed fora expõe KC a big plays de Courtland Sutton (469 yds, 3 TDs)."
+      },
+      {
+        "id": "PESS-02",
+        "name": "Dra. Renata Moura (Atuária de Precificação & Microestrutura)",
+        "thesis": "Retorno Simultâneo de Pat Surtain II e Talanoa Hufanga (ACT na W8) Anula o Desconto Pré-Jogo",
+        "dossier_citation": "THREAT-KC-02",
+        "prob_kc": 0.502,
+        "prob_den": 0.498,
+        "recommended_exit_strategy": "Não pagar 58¢ no mercado ao vivo; operar apenas via Ordem Limite a 53¢-54¢ e realizar lucro em 65¢ e 75¢."
+      },
+      {
+        "id": "PESS-03",
+        "name": "Marcelo Viana (Atuário de Fadiga Fisiológica & Altitude)",
+        "thesis": "J.K. Dobbins (550 yds, +10.48 EPA) + Altitude de 1.609m Desgastam a Defesa de KC no 4º Quarto",
+        "dossier_citation": "THREAT-KC-04",
+        "prob_kc": 0.495,
+        "prob_den": 0.505,
+        "recommended_exit_strategy": "Descarregar 80% dos contratos de KC antes do final do 3º quarto (em 65¢ e 76¢) para não carregar risco fisiológico de Mile High no 4º quarto."
+      },
+      {
+        "id": "PESS-04",
+        "name": "André Vasques (Atuário de Regressão Eficiência/EPA)",
+        "thesis": "Divergência de Passing EPA em 2026: Bo Nix (+8.11 EPA, 7 Sacks) vs Mahomes (-21.02 EPA, 17 Sacks)",
+        "dossier_citation": "THREAT-KC-03",
+        "prob_kc": 0.478,
+        "prob_den": 0.522,
+        "recommended_exit_strategy": "Stop-Loss estrito em 36¢ caso a linha ofensiva de KC ceda 3+ sacks no 1º tempo."
+      },
+      {
+        "id": "PESS-05",
+        "name": "Dra. Patrícia Guedes (Atuária de Solvência & Stress Test)",
+        "thesis": "Proteção de Capital (Solvência II): Proibição de Carregar 100% até o Vencimento Binário (0¢ ou 100¢)",
+        "dossier_citation": "THREAT-KC-01 & THREAT-KC-02",
+        "prob_kc": 0.51,
+        "prob_den": 0.49,
+        "recommended_exit_strategy": "Estrutura obrigatória de Free-Roll: vender Lote 1 a 65¢ e Lote 2 a 76¢ recupera 100% do principal investido antes do apito final."
+      }
+    ],
+    "optimists": [
+      {
+        "id": "OPT-01",
+        "name": "Camila Fontes (Atuária de Alpha & Assimetria de Rebote)",
+        "thesis": "Retorno de Rashee Rice (ACT na W8: 33 rec, +14.07 EPA) Transforma o Ataque de KC após o Jogo de 3 Pontos",
+        "dossier_citation": "FAV-KC-01 & FAV-KC-04",
+        "prob_kc": 0.635,
+        "prob_den": 0.365,
+        "recommended_exit_strategy": "Entrada forte a 53¢ (ou 54¢ no dip); Rashee Rice + Travis Kelce (+18.35 EPA) garantem alta probabilidade de bater 65¢ logo no 1º tempo."
+      },
+      {
+        "id": "OPT-02",
+        "name": "Rafael Tavares (Atuário de Fluxo Institucional & Smart Money)",
+        "thesis": "Smart Money Precificou o Retorno de Rice e a Perda de RJ Harvey em Denver (6,20M Contratos a 53¢->58¢)",
+        "dossier_citation": "FAV-KC-02 & FAV-KC-04",
+        "prob_kc": 0.618,
+        "prob_den": 0.382,
+        "recommended_exit_strategy": "Escalonar saídas na parede de liquidez da Kalshi: 40% em 65¢, 40% em 76¢ e 20% para liquidação em 100¢."
+      },
+      {
+        "id": "OPT-03",
+        "name": "Helena Albuquerque (Atuária de Dominância Divisional)",
+        "thesis": "Baixas de Denver no Backfield (RJ Harvey no IR) e no Front-Seven (Jonah Elliss e Levelle Bailey no IR)",
+        "dossier_citation": "FAV-KC-02",
+        "prob_kc": 0.625,
+        "prob_den": 0.375,
+        "recommended_exit_strategy": "Sem RJ Harvey e com 3 OLs no IR, Denver terá dificuldade de manter campanhas longas se sair atrás no placar; alvo de 76¢ é altamente factível."
+      },
+      {
+        "id": "OPT-04",
+        "name": "Vitorino Costa (Atuário de Eficiência em Jogos Decisivos)",
+        "thesis": "Disciplina de Bola de KC (Apenas 2 Fumbles Perdidos em 7 Jogos) vs 6 Fumbles Perdidos e 51 Faltas de Denver",
+        "dossier_citation": "FAV-KC-03",
+        "prob_kc": 0.608,
+        "prob_den": 0.392,
+        "recommended_exit_strategy": "Manter 20% da posição (Lote 3) até a liquidação final de US$ 1,00 (100¢) para capturar o prêmio de fechamento de Mahomes."
+      },
+      {
+        "id": "OPT-05",
+        "name": "Dr. Rodrigo Paz (Atuário de Valor Esperado & Crescimento)",
+        "thesis": "Sinergia Mahomes + Kelce (439 yds) + Rice (336 yds) + Worthy (259 yds) Supera o Preço de Entrada de 53¢",
+        "dossier_citation": "FAV-KC-01",
+        "prob_kc": 0.642,
+        "prob_den": 0.358,
+        "recommended_exit_strategy": "A combinação de Take-Profit escalonado (65¢ / 76¢) com carregamento residual (100¢) eleva o Sharpe Ratio da operação em +68% frente ao hold puro."
+      }
+    ],
+    "mean_pessimist_prob_kc": 0.494,
+    "mean_optimist_prob_kc": 0.6256,
+    "supreme_judge": {
+      "name": "Ministro-Chefe Dr. Octávio Albuquerque (Juiz Supremo do Tribunal Atuarial Argon)",
+      "final_prob_kc": 0.5812,
+      "final_prob_den": 0.4188,
+      "verdict_winner": "Kansas City Chiefs (KC)",
+      "verdict_rationale": "O dossiê granular de Gabriel Torres resolveu o maior mistério estatístico da temporada de 2026: o ataque de Kansas City colapsou na Semana 7 porque jogou sem seu principal recebedor de jardas após a recepção, Rashee Rice (INA nas Semanas 6 e 7), que retorna oficialmente como ATIVO (ACT) nesta Semana 8 ao lado de Kelce e Worthy. Contudo, a Bancada Pessimista provou com dados reais de elenco que KC perdeu o CB L'Jarius Sneed para a Injured Reserve (RES na W8) e que Denver recuperou simultaneamente Pat Surtain II e Talanoa Hufanga (ambos ACT na W8). Portanto, a probabilidade final calibrada do Tribunal situa-se em 58,12% para o KC Chiefs (41,88% para o DEN Broncos). Mais importante: como KC tem altíssimo poder de fogo inicial com o retorno de Rice, mas corre risco no 4º quarto na altitude sem Sneed, a decisão soberana é operar o contrato KXNFLGAME-26NOV01KCDEN-KC com EXECUÇÃO DE VENDA ESCALONADA (Take-Profit em 65¢ e 76¢) para travar lucro antes do 4º quarto!"
+    }
+  },
+  "contract_trading_operation": {
+    "primary_contract_ticker": "KXNFLGAME-26NOV01KCDEN-KC",
+    "event_ticker": "KXNFLGAME-26NOV01KCDEN",
+    "market_title": "Kansas City at Denver Winner?",
+    "pre_game_bid_ask_usd": "0.52 / 0.53",
+    "live_bid_ask_usd": "0.57 / 0.58",
+    "intraday_high_usd": 0.6,
+    "volume_contracts_kc": 6198613,
+    "volume_contracts_den": 4558335,
+    "settlement_probabilities": {
+      "closes_at_1_00_usd_kc_wins": 0.5812,
+      "closes_at_0_00_usd_den_wins": 0.4188
+    },
+    "in_play_barrier_probabilities": {
+      "prob_hits_65c_take_profit_1": 0.6718,
+      "prob_hits_76c_take_profit_2": 0.5929,
+      "prob_hits_88c_late_lead": 0.5896,
+      "prob_triggers_36c_stop_loss": 0.438,
+      "prob_stop_given_final_loss": 0.88,
+      "prob_whipsaw_stop_given_final_win": 0.1194
+    },
+    "portfolios": {
+      "lote_padrao_1000_usd": {
+        "capital_allocated_usd": 1000.0,
+        "entry_price_usd": 0.53,
+        "total_contracts": 1886,
+        "actual_invested_usd": 999.58,
+        "uninvested_cash_usd": 0.42,
+        "lots": {
+          "lot_1_take_profit_1": {
+            "share_pct": 40.0,
+            "contracts": 754,
+            "entry_price_usd": 0.53,
+            "target_sell_price_usd": 0.65,
+            "game_trigger": "KC abre 1 posse (FG ou TD no 1º/2º quarto) com retorno de Rashee Rice",
+            "prob_hitting_target": 0.6718,
+            "cost_basis_usd": 399.62,
+            "gross_sale_value_usd": 490.1,
+            "net_profit_usd": 90.48,
+            "roi_lot_pct": 22.64
+          },
+          "lot_2_take_profit_2_freeroll": {
+            "share_pct": 40.0,
+            "contracts": 754,
+            "entry_price_usd": 0.53,
+            "target_sell_price_usd": 0.76,
+            "game_trigger": "KC abre 7 a 10 pontos no 2º ou 3º quarto (antes do efeito de altitude do 4º quarto)",
+            "prob_hitting_target": 0.5929,
+            "cost_basis_usd": 399.62,
+            "gross_sale_value_usd": 573.04,
+            "net_profit_usd": 173.42,
+            "roi_lot_pct": 43.4
+          },
+          "lot_3_settlement_hold": {
+            "share_pct": 20.0,
+            "contracts": 378,
+            "entry_price_usd": 0.53,
+            "target_sell_price_usd": 1.0,
+            "game_trigger": "Fechamento oficial da partida na Kalshi (Liquidação Binária a US$ 1,00)",
+            "prob_hitting_target": 0.5812,
+            "cost_basis_usd": 200.34,
+            "gross_sale_value_usd": 378.0,
+            "net_profit_usd": 177.66,
+            "roi_lot_pct": 88.68
+          },
+          "tactical_stop_loss": {
+            "contracts_covered": 1886,
+            "stop_sell_price_usd": 0.36,
+            "game_trigger": "Denver abre 10+ pontos no 1º tempo E Nik Bonitto/defesa força 3+ sacks sobre Mahomes",
+            "prob_trigger": 0.438,
+            "salvage_value_usd": 678.96,
+            "max_loss_usd": -320.62,
+            "loss_saved_vs_zero_settlement_usd": 678.96
+          }
+        },
+        "freeroll_milestone_after_lot2": {
+          "cash_recovered_from_lot1_and_lot2_usd": 1063.14,
+          "initial_cost_of_entire_position_usd": 999.58,
+          "guaranteed_locked_profit_before_4th_quarter_usd": 63.56,
+          "explanation": "Ao vender o Lote 1 (754 contratos a US$ 0,65 = US$ 490.10) e o Lote 2 (754 contratos a US$ 0,76 = US$ 573.04), o caixa embolsado é de US$ 1063.14, superando em +US$ 63.56 todo o custo inicial de US$ 999.58! Os 378 contratos finais (Lote 3) correm no 4º quarto com RISCO ZERO (Free-Roll)."
+        },
+        "scenarios_matrix": [
+          {
+            "scenario": "Cenário A — Execução Completa (Alvo 1 + Alvo 2 + Vitória Final KC)",
+            "probability": 0.5812,
+            "gross_payout_usd": 1441.14,
+            "net_profit_usd": 441.56,
+            "roi_pct": 44.17
+          },
+          {
+            "scenario": "Cenário B — KC abre vantagem (bate 65¢ e 76¢) mas sofre virada de Denver no 4ºQ",
+            "probability": 0.0117,
+            "gross_payout_usd": 1063.14,
+            "net_profit_usd": 63.56,
+            "roi_pct": 6.36
+          },
+          {
+            "scenario": "Cenário C — KC bate apenas 65¢ no 1ºT e aciona saída defensiva a 40¢ no restante",
+            "probability": 0.0789,
+            "gross_payout_usd": 942.9,
+            "net_profit_usd": -56.68,
+            "roi_pct": -5.67
+          },
+          {
+            "scenario": "Cenário D — Denver domina desde o início (Aciona Stop-Loss Tático a 36¢)",
+            "probability": 0.3282,
+            "gross_payout_usd": 678.96,
+            "net_profit_usd": -320.62,
+            "roi_pct": -32.08
+          }
+        ],
+        "comparison_vs_naive_hold": {
+          "naive_hold_ev_usd": 96.56,
+          "naive_hold_max_loss_usd": -999.58,
+          "active_desk_ev_usd": 147.68,
+          "active_desk_expected_roi_pct": 14.77,
+          "active_desk_max_loss_usd": -320.62,
+          "tail_risk_reduction_pct": 67.9
+        }
+      },
+      "lote_institucional_10000_usd": {
+        "capital_allocated_usd": 10000.0,
+        "entry_price_usd": 0.53,
+        "total_contracts": 18867,
+        "actual_invested_usd": 9999.51,
+        "uninvested_cash_usd": 0.49,
+        "lots": {
+          "lot_1_take_profit_1": {
+            "share_pct": 40.0,
+            "contracts": 7547,
+            "entry_price_usd": 0.53,
+            "target_sell_price_usd": 0.65,
+            "game_trigger": "KC abre 1 posse (FG ou TD no 1º/2º quarto) com retorno de Rashee Rice",
+            "prob_hitting_target": 0.6718,
+            "cost_basis_usd": 3999.91,
+            "gross_sale_value_usd": 4905.55,
+            "net_profit_usd": 905.64,
+            "roi_lot_pct": 22.64
+          },
+          "lot_2_take_profit_2_freeroll": {
+            "share_pct": 40.0,
+            "contracts": 7547,
+            "entry_price_usd": 0.53,
+            "target_sell_price_usd": 0.76,
+            "game_trigger": "KC abre 7 a 10 pontos no 2º ou 3º quarto (antes do efeito de altitude do 4º quarto)",
+            "prob_hitting_target": 0.5929,
+            "cost_basis_usd": 3999.91,
+            "gross_sale_value_usd": 5735.72,
+            "net_profit_usd": 1735.81,
+            "roi_lot_pct": 43.4
+          },
+          "lot_3_settlement_hold": {
+            "share_pct": 20.0,
+            "contracts": 3773,
+            "entry_price_usd": 0.53,
+            "target_sell_price_usd": 1.0,
+            "game_trigger": "Fechamento oficial da partida na Kalshi (Liquidação Binária a US$ 1,00)",
+            "prob_hitting_target": 0.5812,
+            "cost_basis_usd": 1999.69,
+            "gross_sale_value_usd": 3773.0,
+            "net_profit_usd": 1773.31,
+            "roi_lot_pct": 88.68
+          },
+          "tactical_stop_loss": {
+            "contracts_covered": 18867,
+            "stop_sell_price_usd": 0.36,
+            "game_trigger": "Denver abre 10+ pontos no 1º tempo E Nik Bonitto/defesa força 3+ sacks sobre Mahomes",
+            "prob_trigger": 0.438,
+            "salvage_value_usd": 6792.12,
+            "max_loss_usd": -3207.39,
+            "loss_saved_vs_zero_settlement_usd": 6792.12
+          }
+        },
+        "freeroll_milestone_after_lot2": {
+          "cash_recovered_from_lot1_and_lot2_usd": 10641.27,
+          "initial_cost_of_entire_position_usd": 9999.51,
+          "guaranteed_locked_profit_before_4th_quarter_usd": 641.76,
+          "explanation": "Ao vender o Lote 1 (7547 contratos a US$ 0,65 = US$ 4905.55) e o Lote 2 (7547 contratos a US$ 0,76 = US$ 5735.72), o caixa embolsado é de US$ 10641.27, superando em +US$ 641.76 todo o custo inicial de US$ 9999.51! Os 3773 contratos finais (Lote 3) correm no 4º quarto com RISCO ZERO (Free-Roll)."
+        },
+        "scenarios_matrix": [
+          {
+            "scenario": "Cenário A — Execução Completa (Alvo 1 + Alvo 2 + Vitória Final KC)",
+            "probability": 0.5812,
+            "gross_payout_usd": 14414.27,
+            "net_profit_usd": 4414.76,
+            "roi_pct": 44.15
+          },
+          {
+            "scenario": "Cenário B — KC abre vantagem (bate 65¢ e 76¢) mas sofre virada de Denver no 4ºQ",
+            "probability": 0.0117,
+            "gross_payout_usd": 10641.27,
+            "net_profit_usd": 641.76,
+            "roi_pct": 6.42
+          },
+          {
+            "scenario": "Cenário C — KC bate apenas 65¢ no 1ºT e aciona saída defensiva a 40¢ no restante",
+            "probability": 0.0789,
+            "gross_payout_usd": 9433.55,
+            "net_profit_usd": -565.96,
+            "roi_pct": -5.66
+          },
+          {
+            "scenario": "Cenário D — Denver domina desde o início (Aciona Stop-Loss Tático a 36¢)",
+            "probability": 0.3282,
+            "gross_payout_usd": 6792.12,
+            "net_profit_usd": -3207.39,
+            "roi_pct": -32.08
+          }
+        ],
+        "comparison_vs_naive_hold": {
+          "naive_hold_ev_usd": 965.99,
+          "naive_hold_max_loss_usd": -9999.51,
+          "active_desk_ev_usd": 1476.05,
+          "active_desk_expected_roi_pct": 14.76,
+          "active_desk_max_loss_usd": -3207.39,
+          "tail_risk_reduction_pct": 67.9
+        }
+      }
+    },
+    "secondary_derivative_contracts": [
+      {
+        "market_ticker": "KXNFLGAME-26NOV01KCDEN-DEN",
+        "contract_name": "Denver Broncos Winner (YES) — Uso exclusivo como Hedge de 4º Quarto",
+        "pre_game_ask_usd": 0.48,
+        "live_ask_usd": 0.43,
+        "in_play_entry_trigger_usd": 0.24,
+        "settlement_prob_yes": 0.4188,
+        "operation_role": "Alternativa ao venda direta do Lote 2: se KC abrir 10 pontos no 3º quarto e o contrato de DEN cair para 24¢, comprar DEN YES a 24¢ trava lucro sintético nos dois lados do placar."
+      },
+      {
+        "market_ticker": "KXNFLSPREAD-26NOV01KCDEN-KC3",
+        "contract_name": "Kansas City wins by over 3.5 points (YES)",
+        "pre_game_ask_usd": 0.44,
+        "live_ask_usd": 0.5,
+        "target_sell_price_usd": 0.68,
+        "settlement_prob_yes": 0.478,
+        "prob_hitting_sell_target": 0.645,
+        "operation_role": "Captura o prêmio de explosividade do retorno de Rashee Rice caso KC abra 7+ pontos no 1º tempo."
+      },
+      {
+        "market_ticker": "KXNFLTOTAL-26NOV01KCDEN-41",
+        "contract_name": "Over 41.5 Total Points Scored (NO / Under)",
+        "pre_game_yes_ask_usd": 0.52,
+        "implied_no_entry_usd": 0.49,
+        "target_sell_price_usd": 0.66,
+        "settlement_prob_under": 0.534,
+        "prob_hitting_sell_target": 0.712,
+        "operation_role": "Hedge tático da Bancada Pessimista: com Pat Surtain II e Talanoa Hufanga de volta em Denver e RJ Harvey fora no IR, o ritmo inicial tende a favorecer defesas em Red Zone."
+      }
+    ]
+  }
+}

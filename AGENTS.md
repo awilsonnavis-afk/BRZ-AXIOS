@@ -28,6 +28,8 @@ Cada agente vive em seu próprio diretório isolado dentro de `agents/`, contend
    - *Foco:* Estatística avançada, computação e Machine Learning, geração de dados sintéticos calibrados, simulações de Monte Carlo / Agent-Based Modeling e modelos preditivos/causais.
 5. **`agents/04_beatriz_alencar_atuaria/`** → **Beatriz Alencar - Atuária**
    - *Foco:* Cálculo e gestão de riscos financeiros, precificação, reservas, probabilidade de ruína, Value at Risk ($\text{VaR}$ / $\text{CVaR}$), tabelas de sobrevivência/churn e viabilidade em seguros, bancos, previdência e novos negócios.
+6. **`agents/05_gabriel_torres_investigador_fontes/`** → **Gabriel Torres - Investigador de Fontes & Inteligência de Contexto**
+   - *Foco:* Descoberta e extração de dados granulares do domínio (ex.: elencos, baixas médicas `IR`/`INA`, retornos de lesão, performance individual de jogadores, EPA/CPOE, microestrutura), respondendo *"O que poderia favorecer ou ameaçar essa predição?"* e gerando munição empírica para os especialistas e para o Tribunal Atuarial (5 Pessimistas vs. 5 Otimistas + Juiz Supremo).
 
 ---
 

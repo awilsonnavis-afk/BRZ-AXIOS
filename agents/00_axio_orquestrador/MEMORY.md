@@ -53,3 +53,17 @@
   3. `sandbox_03_curva_derivativos_kalshi`: `P(KC) = 56.55%` | `P(DEN) = 43.45%`
   4. `sandbox_04_stress_trincheiras_divisional`: `P(KC) = 51.46%` | `P(DEN) = 48.54%`
   5. `sandbox_05_tribunal_10_atuarios_juiz`: Bancada Pessimista (`50.90%`), Bancada Otimista (`56.30%`), Sentença Final do Juiz Supremo (**`53.88%` para Kansas City Chiefs**, placar **9 votos a 1** para vitória do KC no campo, com trava de exposição de `1.0%` até `53¢` no pré-jogo e bloqueio de nova entrada acima de `56¢–58¢` ao vivo).
+
+
+### [2026-11-01 17:32] — Criação do Agente Gabriel Torres (`05_gabriel_torres_investigador_fontes`) e Boleta Operacional de Contratos (`PROJ-005-SCOUT-TRADING-DESK`)
+- **Novo Agente:** **Gabriel Torres — Investigador de Fontes & Inteligência de Contexto** (`agents/05_gabriel_torres_investigador_fontes/`).
+- **Novas Bases Reais 2026 (`sandbox/data/`):** `weekly_rosters_2026.csv` (6,48 MB), `stats_player_week_2026.csv` (3,34 MB) e `stats_team_week_2026.csv` (88 KB).
+- **Evidências Decisivas Extraídas para o Debate Atuarial:**
+  - *A favor de KC (Otimistas):* Retorno oficial do WR #1 **Rashee Rice** (`INA` nas Semanas 6–7 $\rightarrow$ `ACT` na Semana 8; `33 rec, 336 yds, +14.07 EPA` em 5 jogos) ao lado de **Travis Kelce** (`+18.35 EPA`) e **Xavier Worthy**; baixas de Denver na *Injured Reserve* (`RES` na W8) incluindo o RB **RJ Harvey** (`149 yds corridas, 129 yds aéreas, 2 TDs`), o Edge/LB **Jonah Elliss** e 3 jogadores de linha ofensiva (`Deiter`, `Gargiulo`, `Crum`); disciplina de bola de KC (`2` fumbles perdidos vs `6` de Denver).
+  - *Ameaças a KC / A favor de DEN (Pessimistas):* Perda abrupta do CB titular **L'Jarius Sneed** (`ACT` na W7 $\rightarrow$ `RES` na W8) e do LT **Josh Simmons** (`RES`); retorno simultâneo da secundária All-Pro de Denver (**Pat Surtain II** e **Talanoa Hufanga**, ambos `INA` na W6–W7 $\rightarrow$ `ACT` na W8); vulnerabilidade de proteção de Mahomes (`17 sacks` sofridos vs `6.5 sacks` e `14 QB hits` de **Nik Bonitto**) e força terrestre de **J.K. Dobbins** (`550 yds, 4 TDs, +10.48 EPA`).
+- **Sentença Atualizada e Boleta de Contratos (`KXNFLGAME-26NOV01KCDEN-KC`):**
+  - Probabilidade de Fechamento Final (*Settlement* a `US$ 1,00`): **`58,12%` KC** vs **`41,88%` DEN**.
+  - Plano de Venda Antecipada Escalonada (Carteira `US$ 1.000,00` = `1.886 contratos` comprados a `53¢`):
+    - **Lote 1 (`40%` = `754 contratos`):** Venda Limite a **`65¢`** (`P_hit = 67,18%`) $\rightarrow$ Recebe **`US$ 490,10`** (`+US$ 90,48` / `+22,64%`).
+    - **Lote 2 (`40%` = `754 contratos`):** Venda Limite a **`76¢`** (`P_hit = 59,29%`) $\rightarrow$ Recebe **`US$ 573,04`** (`+US$ 173,42` / `+43,40%`), embolsando **`US$ 1.063,14`** antes do 4º quarto e travando **`+US$ 63,56` de lucro garantido (*Free-Roll*)** mesmo se Denver virar no final!
+    - **Lote 3 (`20%` = `378 contratos`):** Carregado até a liquidação final a **`100¢`** (`P_win = 58,12%`) $\rightarrow$ Recebe **`US$ 378,00`** (`+US$ 177,66` / `+88,68%`), totalizando **`US$ 1.441,14`** (`+US$ 441,56` de lucro líquido / `+44,17%` de ROI).

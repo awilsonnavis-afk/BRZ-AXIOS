@@ -64,3 +64,12 @@
   - [x] Execução isolada das 5 sandboxes (`60.000` simulações Monte Carlo em [multi_sandbox_tribunal_engine.py](file:///c:/NWX/nwx-Argon/core/multi_sandbox_tribunal_engine.py)).
   - [x] Validação em paralelo por 3 colegiados em Gemini Argon ([Pessimistas](conversation://47bd71f9-780d-48f8-9594-3a5d9f5cc752), [Otimistas](conversation://a40ea5a4-57fb-4275-8d2f-e0ceac03ce48) e [Juiz Supremo](conversation://2d10eb84-dc14-4eff-a87a-37605a3c86a3)).
   - [x] Dossiê final consolidado em [RELATORIO_MULTI_SANDBOX_E_TRIBUNAL_ATUARIAL.md](file:///c:/NWX/nwx-Argon/reports/RELATORIO_MULTI_SANDBOX_E_TRIBUNAL_ATUARIAL.md).
+
+---
+
+## 🕵️‍♂️ 6. Inteligência Granular de Jogadores (`05_gabriel_torres`) & Boleta Operacional de Contratos: `PROJ-005-SCOUT-TRADING-DESK` (2026-11-01)
+- **Objetivo:** Criar o agente **Gabriel Torres (`agents/05_gabriel_torres_investigador_fontes/`)** para extrair elencos, lesões (`ACT`/`INA`/`RES`) e performance individual (`weekly_rosters_2026.csv`, `stats_player_week_2026.csv`, `stats_team_week_2026.csv`), responder *"O que poderia favorecer ou ameaçar essa predição?"*, alimentar o debate entre os 5 Atuários Pessimistas e 5 Otimistas e gerar uma **Boleta Operacional de Contratos Kalshi** com valores, probabilidades de fechamento (`100¢` vs `0¢`) e vendas antecipadas escalonadas (`65¢`, `76¢`, Stop-Loss `36¢`).
+- **Status:**
+  - [x] Criação da pasta completa de `agents/05_gabriel_torres_investigador_fontes/` (`SOUL.md`, `AGENTS.md`, `PLANNING.md`, `MEMORY.md`, `TOOLS.md`).
+  - [x] Extração de `weekly_rosters_2026.csv` (6,48 MB), `stats_player_week_2026.csv` (3,34 MB) e `stats_team_week_2026.csv` (88 KB) em [gabriel_scout_and_trading_desk.py](file:///c:/NWX/nwx-Argon/core/gabriel_scout_and_trading_desk.py).
+  - [x] Dossiê de lesões/performance e Boleta Operacional salvos em [dossie_kc_den_jogadores_lesoes_performance.json](file:///c:/NWX/nwx-Argon/agents/05_gabriel_torres_investigador_fontes/outputs/dossie_kc_den_jogadores_lesoes_performance.json) e [RELATORIO_OPERACAO_CONTRATOS_E_INTELIGENCIA_JOGADORES.md](file:///c:/NWX/nwx-Argon/reports/RELATORIO_OPERACAO_CONTRATOS_E_INTELIGENCIA_JOGADORES.md).
