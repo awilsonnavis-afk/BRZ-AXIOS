@@ -67,3 +67,11 @@
     - **Lote 1 (`40%` = `754 contratos`):** Venda Limite a **`65¢`** (`P_hit = 67,18%`) $\rightarrow$ Recebe **`US$ 490,10`** (`+US$ 90,48` / `+22,64%`).
     - **Lote 2 (`40%` = `754 contratos`):** Venda Limite a **`76¢`** (`P_hit = 59,29%`) $\rightarrow$ Recebe **`US$ 573,04`** (`+US$ 173,42` / `+43,40%`), embolsando **`US$ 1.063,14`** antes do 4º quarto e travando **`+US$ 63,56` de lucro garantido (*Free-Roll*)** mesmo se Denver virar no final!
     - **Lote 3 (`20%` = `378 contratos`):** Carregado até a liquidação final a **`100¢`** (`P_win = 58,12%`) $\rightarrow$ Recebe **`US$ 378,00`** (`+US$ 177,66` / `+88,68%`), totalizando **`US$ 1.441,14`** (`+US$ 441,56` de lucro líquido / `+44,17%` de ROI).
+
+
+### [2026-11-01 17:48] — Validação de Busca e Operações Brasil na Polymarket e Kalshi (`PROJ-006-BRAZIL-POLYMARKET-KALSHI`)
+- **Arquitetura Validada:**
+  - **Polymarket Gamma API:** Combinação de `/public-search?q=Brazil|Brasil|Lula|Bolsonaro` + varredura paginada `/events?active=true&closed=false&limit=100&offset=N`. Retornou **30 eventos ativos**, sendo **14 eventos 100% Brasil** (Selic/Copom Novembro `$126k`, IPCA 2026 `$198,7k`, Alexandre de Moraes STF `$262,2k`, Palmeiras vs Vasco `$285,2k`, Trump & Flávio Bolsonaro `$90,6k`, Copa do Brasil 2026, Eleição Presidencial, Perdão Jair Bolsonaro, Goiás vs CRB).
+  - **Kalshi Trade API v2:** Varredura do catálogo `/series` (identificou **97 séries sobre o Brasil**) seguida de `/events?series_ticker=...&with_nested_markets=true` e `/events?status=open&with_nested_markets=true`. Retornou **201 eventos** e **20 eventos com contratos ativos agora** (`KXUSDBRLMAX-26DEC31` com `574.531` contratos, `KXBRAZILU-Q42026-5.8`, `KXBRAZILGDP-26DEC02`, `KXIBOV-26DEC31`, `KXCOPADOBRASIL-26`, `KXDEMORAESOUT-26SEP`, `KXTRUMPFLAVIOMEET-26DEC01`, `KXBOLSONAROPARDON-27`, `KXPBRA-27FEBPROD`, `KXNBBGAME-*`).
+- **Assimetria Cross-Exchange Detectada:** Violação de monotonicidade temporal entre Polymarket `#1267468` (*Trump encontra Flávio Bolsonaro até 31/Dez/2026*, `Ask = 18,0¢`) e Kalshi `KXTRUMPFLAVIOMEET-26DEC01-DEC01` (*encontro até 01/Dez/2026*, `Bid = 18,0¢ / Last = 22,0¢`).
+- **Relatório:** Salvo em `reports/RELATORIO_BRASIL_POLYMARKET_E_KALSHI.md`.

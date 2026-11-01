@@ -73,3 +73,12 @@
   - [x] Criação da pasta completa de `agents/05_gabriel_torres_investigador_fontes/` (`SOUL.md`, `AGENTS.md`, `PLANNING.md`, `MEMORY.md`, `TOOLS.md`).
   - [x] Extração de `weekly_rosters_2026.csv` (6,48 MB), `stats_player_week_2026.csv` (3,34 MB) e `stats_team_week_2026.csv` (88 KB) em [gabriel_scout_and_trading_desk.py](file:///c:/NWX/nwx-Argon/core/gabriel_scout_and_trading_desk.py).
   - [x] Dossiê de lesões/performance e Boleta Operacional salvos em [dossie_kc_den_jogadores_lesoes_performance.json](file:///c:/NWX/nwx-Argon/agents/05_gabriel_torres_investigador_fontes/outputs/dossie_kc_den_jogadores_lesoes_performance.json) e [RELATORIO_OPERACAO_CONTRATOS_E_INTELIGENCIA_JOGADORES.md](file:///c:/NWX/nwx-Argon/reports/RELATORIO_OPERACAO_CONTRATOS_E_INTELIGENCIA_JOGADORES.md).
+
+---
+
+## 🇧🇷 7. Validação de Busca e Operações Brasil (Polymarket + Kalshi): `PROJ-006-BRAZIL-POLYMARKET-KALSHI` (2026-11-01)
+- **Objetivo:** Validar a busca automatizada nas APIs oficiais da **Polymarket (`gamma-api.polymarket.com`)** e **Kalshi (`api.elections.kalshi.com/trade-api/v2`)** para todas as operações que envolvem o **Brasil**, parear contratos entre as duas bolsas e gerar o relatório com Boletas Operacionais.
+- **Status:**
+  - [x] Implementação do scanner multi-bolsa [brazil_markets_scanner.py](file:///c:/NWX/nwx-Argon/core/brazil_markets_scanner.py) (`30` eventos ativos na Polymarket, `97` séries e `201` eventos na Kalshi, sendo `20` com contratos ativos agora).
+  - [x] Implementação do motor de análise e arbitragem [brazil_polymarket_kalshi_engine.py](file:///c:/NWX/nwx-Argon/core/brazil_polymarket_kalshi_engine.py).
+  - [x] Geração do relatório completo com 4 Boletas Operacionais Brasil em [RELATORIO_BRASIL_POLYMARKET_E_KALSHI.md](file:///c:/NWX/nwx-Argon/reports/RELATORIO_BRASIL_POLYMARKET_E_KALSHI.md).
