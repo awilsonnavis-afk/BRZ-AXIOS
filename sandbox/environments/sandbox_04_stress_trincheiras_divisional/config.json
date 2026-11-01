@@ -1,0 +1,14 @@
+{
+  "sandbox_id": "sandbox_04_stress_trincheiras_divisional",
+  "scenario_title": "Cenário 4 — Regime de Guerra de Trincheiras Divisional (Baixo Total = 41.5 pts)",
+  "hypothesis": "Filtra os 259 jogos divisionais reais da NFL desde 2018 com linha de total <= 42.5 pontos. Nesses jogos, 50.19% terminam decididos por uma posse de bola (<= 7 pts) e o azarão cobre o spread em 54.05% das vezes, comprimindo as probabilidades reais em direção a 50/50.",
+  "seed": 40404,
+  "n_monte_carlo_runs": 15000,
+  "p_kc_mean": 0.514,
+  "p_kc_epistemic_sd": 0.035,
+  "exp_kc_pts": 20.6,
+  "exp_den_pts": 20.1,
+  "score_sd": 7.8,
+  "entry_ask_kc": 0.53,
+  "entry_ask_den": 0.48
+}

@@ -1,0 +1,72 @@
+{
+  "agent": "Clara Mendonça - Analista de Dados",
+  "data_quality_audit": {
+    "total_records_inspected": 1200,
+    "null_values_count": 0,
+    "duplicate_ids_count": 0,
+    "status": "APROVADO_HIGIENIZADO"
+  },
+  "descriptive_statistics": {
+    "price_brl": {
+      "mean": 317.801,
+      "std": 57.445,
+      "p10": 238.564,
+      "p25": 268.345,
+      "median_p50": 319.48,
+      "p75": 364.885,
+      "p90": 395.817
+    },
+    "cac_brl": {
+      "mean": 502.139,
+      "std": 106.984,
+      "p10": 363.688,
+      "p25": 430.725,
+      "median_p50": 503.155,
+      "p75": 575.303,
+      "p90": 636.724
+    },
+    "monthly_churn_rate": {
+      "mean": 0.041,
+      "std": 0.006,
+      "p10": 0.033,
+      "p25": 0.037,
+      "median_p50": 0.041,
+      "p75": 0.045,
+      "p90": 0.049
+    },
+    "cohort_ltv_brl": {
+      "mean": 6369.301,
+      "std": 851.902,
+      "p10": 5277.355,
+      "p25": 5773.472,
+      "median_p50": 6372.36,
+      "p75": 6928.9,
+      "p90": 7507.266
+    },
+    "ltv_cac_ratio": {
+      "mean": 13.247,
+      "std": 3.368,
+      "p10": 9.842,
+      "p25": 11.012,
+      "median_p50": 12.71,
+      "p75": 14.703,
+      "p90": 17.067
+    },
+    "net_cohort_value_brl": {
+      "mean": 197037.373,
+      "std": 112964.831,
+      "p10": 90699.853,
+      "p25": 119222.662,
+      "median_p50": 167818.76,
+      "p75": 241177.412,
+      "p90": 345682.043
+    }
+  },
+  "cohort_segmentation_insight": {
+    "high_onboarding_score_ltv_cac": 14.19,
+    "low_onboarding_score_ltv_cac": 12.54,
+    "high_onboarding_monthly_churn_pct": 3.88,
+    "low_onboarding_monthly_churn_pct": 4.27,
+    "strategic_finding": "Coortes com Onboarding Score >= 75 reduzem o churn mensal médio de 4.27% para 3.88% e elevam o LTV/CAC de 12.54x para 14.19x."
+  }
+}

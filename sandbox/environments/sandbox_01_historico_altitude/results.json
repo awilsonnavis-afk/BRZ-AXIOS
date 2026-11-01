@@ -1,0 +1,21 @@
+{
+  "sandbox_id": "sandbox_01_historico_altitude",
+  "scenario_title": "Cenário 1 — Regime Estrutural de Longo Prazo & Altitude de Mile High",
+  "hypothesis": "Prioriza o fator casa em Denver (altitude de 1.609m em Empower Field), a linha de fechamento das casas tradicionais (DEN -112 / spread 1.5 no nflverse) e a regressão à média após a derrota do KC para Seattle (20-3) na Semana 7.",
+  "n_monte_carlo_runs": 15000,
+  "seed": 10101,
+  "prob_kc_win_pct": 47.54,
+  "prob_den_win_pct": 52.46,
+  "epistemic_95ci_kc_pct": [
+    41.27,
+    53.81
+  ],
+  "one_score_game_prob_pct": 42.43,
+  "kc_win_by_8plus_prob_pct": 25.38,
+  "den_win_by_8plus_prob_pct": 32.19,
+  "entry_ask_kc_cents": 53.0,
+  "entry_ask_den_cents": 48.0,
+  "expected_roi_kc_contract_pct": -10.3,
+  "expected_roi_den_contract_pct": 9.29,
+  "recommended_winner": "Denver Broncos"
+}

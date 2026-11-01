@@ -1,0 +1,21 @@
+{
+  "sandbox_id": "sandbox_03_curva_derivativos_kalshi",
+  "scenario_title": "Cenário 3 — Regime de Microestrutura Kalshi (24 Spreads + 19 Totais + 10,75M Contratos)",
+  "hypothesis": "Extrai a distribuição implícita diretamente dos 45 mercados derivativos da Kalshi (Moneyline, 24 Strikes de Spread KXNFLSPREAD e 19 Strikes de Total KXNFLTOTAL). Incorpora a probabilidade de vitória por mais de 7.5 pontos (28c ao vivo / 24c pré-jogo para KC) e o fluxo institucional que levou KC de 53c para 57c.",
+  "n_monte_carlo_runs": 15000,
+  "seed": 30303,
+  "prob_kc_win_pct": 56.55,
+  "prob_den_win_pct": 43.45,
+  "epistemic_95ci_kc_pct": [
+    51.85,
+    61.25
+  ],
+  "one_score_game_prob_pct": 44.07,
+  "kc_win_by_8plus_prob_pct": 35.09,
+  "den_win_by_8plus_prob_pct": 20.84,
+  "entry_ask_kc_cents": 53.0,
+  "entry_ask_den_cents": 48.0,
+  "expected_roi_kc_contract_pct": 6.7,
+  "expected_roi_den_contract_pct": -9.48,
+  "recommended_winner": "Kansas City Chiefs"
+}

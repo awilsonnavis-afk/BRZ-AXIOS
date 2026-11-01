@@ -1,0 +1,211 @@
+{
+  "sandbox_id": "sandbox_05_tribunal_10_atuarios_juiz",
+  "timestamp": "2026-11-01 17:01:16",
+  "scenarios_1_to_4_summary": [
+    {
+      "sandbox_id": "sandbox_01_historico_altitude",
+      "scenario_title": "Cenário 1 — Regime Estrutural de Longo Prazo & Altitude de Mile High",
+      "hypothesis": "Prioriza o fator casa em Denver (altitude de 1.609m em Empower Field), a linha de fechamento das casas tradicionais (DEN -112 / spread 1.5 no nflverse) e a regressão à média após a derrota do KC para Seattle (20-3) na Semana 7.",
+      "n_monte_carlo_runs": 15000,
+      "seed": 10101,
+      "prob_kc_win_pct": 47.54,
+      "prob_den_win_pct": 52.46,
+      "epistemic_95ci_kc_pct": [
+        41.27,
+        53.81
+      ],
+      "one_score_game_prob_pct": 42.43,
+      "kc_win_by_8plus_prob_pct": 25.38,
+      "den_win_by_8plus_prob_pct": 32.19,
+      "entry_ask_kc_cents": 53.0,
+      "entry_ask_den_cents": 48.0,
+      "expected_roi_kc_contract_pct": -10.3,
+      "expected_roi_den_contract_pct": 9.29,
+      "recommended_winner": "Denver Broncos"
+    },
+    {
+      "sandbox_id": "sandbox_02_dominancia_mahomes_pitagoras",
+      "scenario_title": "Cenário 2 — Regime de Dominância de QB (Patrick Mahomes) & Saldo Pitagórico 2026",
+      "hypothesis": "Expurga os jogos de QBs reservas de 2025 (Oladokun/Minshew), aplica o QB_Elo de Patrick Mahomes (1711.4 vs 1668.2 de Bo Nix), o retrospecto real de Mahomes em Denver (5 vitórias em 7 jogos = 71.43%), a Expectativa Pitagórica de 2026 (KC 62.3% com saldo +40 vs DEN 50.9% com saldo +3) e a vitória de KC por 31-10 na Semana 1.",
+      "n_monte_carlo_runs": 15000,
+      "seed": 20202,
+      "prob_kc_win_pct": 58.34,
+      "prob_den_win_pct": 41.66,
+      "epistemic_95ci_kc_pct": [
+        52.85,
+        63.83
+      ],
+      "one_score_game_prob_pct": 42.38,
+      "kc_win_by_8plus_prob_pct": 38.71,
+      "den_win_by_8plus_prob_pct": 18.91,
+      "entry_ask_kc_cents": 53.0,
+      "entry_ask_den_cents": 48.0,
+      "expected_roi_kc_contract_pct": 10.08,
+      "expected_roi_den_contract_pct": -13.21,
+      "recommended_winner": "Kansas City Chiefs"
+    },
+    {
+      "sandbox_id": "sandbox_03_curva_derivativos_kalshi",
+      "scenario_title": "Cenário 3 — Regime de Microestrutura Kalshi (24 Spreads + 19 Totais + 10,75M Contratos)",
+      "hypothesis": "Extrai a distribuição implícita diretamente dos 45 mercados derivativos da Kalshi (Moneyline, 24 Strikes de Spread KXNFLSPREAD e 19 Strikes de Total KXNFLTOTAL). Incorpora a probabilidade de vitória por mais de 7.5 pontos (28c ao vivo / 24c pré-jogo para KC) e o fluxo institucional que levou KC de 53c para 57c.",
+      "n_monte_carlo_runs": 15000,
+      "seed": 30303,
+      "prob_kc_win_pct": 56.55,
+      "prob_den_win_pct": 43.45,
+      "epistemic_95ci_kc_pct": [
+        51.85,
+        61.25
+      ],
+      "one_score_game_prob_pct": 44.07,
+      "kc_win_by_8plus_prob_pct": 35.09,
+      "den_win_by_8plus_prob_pct": 20.84,
+      "entry_ask_kc_cents": 53.0,
+      "entry_ask_den_cents": 48.0,
+      "expected_roi_kc_contract_pct": 6.7,
+      "expected_roi_den_contract_pct": -9.48,
+      "recommended_winner": "Kansas City Chiefs"
+    },
+    {
+      "sandbox_id": "sandbox_04_stress_trincheiras_divisional",
+      "scenario_title": "Cenário 4 — Regime de Guerra de Trincheiras Divisional (Baixo Total = 41.5 pts)",
+      "hypothesis": "Filtra os 259 jogos divisionais reais da NFL desde 2018 com linha de total <= 42.5 pontos. Nesses jogos, 50.19% terminam decididos por uma posse de bola (<= 7 pts) e o azarão cobre o spread em 54.05% das vezes, comprimindo as probabilidades reais em direção a 50/50.",
+      "n_monte_carlo_runs": 15000,
+      "seed": 40404,
+      "prob_kc_win_pct": 51.46,
+      "prob_den_win_pct": 48.54,
+      "epistemic_95ci_kc_pct": [
+        44.6,
+        58.32
+      ],
+      "one_score_game_prob_pct": 50.57,
+      "kc_win_by_8plus_prob_pct": 26.06,
+      "den_win_by_8plus_prob_pct": 23.37,
+      "entry_ask_kc_cents": 53.0,
+      "entry_ask_den_cents": 48.0,
+      "expected_roi_kc_contract_pct": -2.91,
+      "expected_roi_den_contract_pct": 1.13,
+      "recommended_winner": "Kansas City Chiefs"
+    }
+  ],
+  "pessimistic_actuaries_5": [
+    {
+      "id": "PESS-01",
+      "name": "Dr. Artur Varella — Atuário de Risco de Ruína e Execução (Pessimista #1)",
+      "focus": "Microestrutura, Spread Bid-Ask e Imposto de Overround na Kalshi",
+      "kc_win_prob_assigned_pct": 51.2,
+      "max_kelly_fraction_allowed_pct": 0.0,
+      "vote_winner_on_field": "Kansas City Chiefs (Margem Mínima)",
+      "vote_financial_action": "VETADO (NO TRADE EM KC A 53c / 58c)",
+      "technical_argument": "No pré-jogo, comprar YES KC exigia pagar o Ask de 53c (e 58c ao vivo), enquanto o limite inferior do IC 95% no Cenário 1 (41.9%) e no Cenário 4 (44.5%) fica muito abaixo do custo do contrato. Sob a regra de Solvência II aplicada a contratos binários, quando o limite inferior do IC 95% é menor que o Ask, o Expected Shortfall (CVaR 95%) de repetidas alocações destrói capital."
+    },
+    {
+      "id": "PESS-02",
+      "name": "Dra. Helena Siqueira — Atuária de Regressão à Média e Fator Altitude (Pessimista #2)",
+      "focus": "Vantagem Fisiológica de Altitude (Mile High) e Linha Vegas (-112 DEN)",
+      "kc_win_prob_assigned_pct": 48.6,
+      "max_kelly_fraction_allowed_pct": 0.0,
+      "vote_winner_on_field": "Denver Broncos",
+      "vote_financial_action": "VETADO PARA KC / LEVE VALOR DEFENSIVO EM DEN PRÉ-JOGO",
+      "technical_argument": "No dataset oficial do nflverse (`2026_08_KC_DEN`), as casas tradicionais fecharam com Denver favorito por -1.5 pontos (moneyline DEN -112 vs KC -108, probabilidade limpa de 50.43% para Denver). Além disso, KC veio de uma derrota acachapante por 20 a 3 para Seattle na Semana 7, mostrando vulnerabilidade ofensiva."
+    },
+    {
+      "id": "PESS-03",
+      "name": "Dr. Marcos Fontes — Atuário de Variância de Trincheiras e Jogos Divisionais (Pessimista #3)",
+      "focus": "Compressão de Placar em Jogos Divisionais de Baixo Total (41.5 pts)",
+      "kc_win_prob_assigned_pct": 50.8,
+      "max_kelly_fraction_allowed_pct": 0.5,
+      "vote_winner_on_field": "Kansas City Chiefs (Moeda ao Ar)",
+      "vote_financial_action": "VETADO (VARIÂNCIA DE 1 POSSE DE BOLA)",
+      "technical_argument": "Os dados reais do nflverse (Cenário 4) provam que em 259 jogos divisionais com linha de total <= 42.5 pts desde 2018, 50.19% terminam decididos por até 7 pontos (um único fumble ou field goal no fim). Isso achata qualquer vantagem teórica."
+    },
+    {
+      "id": "PESS-04",
+      "name": "Dra. Lívia Capanema — Atuária de Risco de Cauda e Stress de Portfólio (Pessimista #4)",
+      "focus": "Incerteza Epistêmica de Amostra Curta (Apenas 6-7 Jogos em 2026)",
+      "kc_win_prob_assigned_pct": 51.5,
+      "max_kelly_fraction_allowed_pct": 0.5,
+      "vote_winner_on_field": "Kansas City Chiefs",
+      "vote_financial_action": "CAUTELA MÁXIMA (EXPOSIÇÃO <= 0.5% DA BANCA)",
+      "technical_argument": "A Expectativa Pitagórica de 2026 (KC 62.3% vs DEN 50.9%) é baseada em apenas 6 jogos de KC e 7 de DEN. Em amostras pequenas (n < 8 Semanas), o estimador de James-Stein exige encolhimento (shrinkage) de pelo menos 50% em direção ao prior de mercado."
+    },
+    {
+      "id": "PESS-05",
+      "name": "Dr. Renato Albuquerque — Atuário de Precificação In-Play e Seleção Adversa (Pessimista #5)",
+      "focus": "Risco de Comprar Topo no Livro de Ofertas Ao Vivo (58c-60c)",
+      "kc_win_prob_assigned_pct": 52.4,
+      "max_kelly_fraction_allowed_pct": 0.0,
+      "vote_winner_on_field": "Kansas City Chiefs",
+      "vote_financial_action": "VETADO AO VIVO A 58c-60c (SELEÇÃO ADVERSA)",
+      "technical_argument": "Entrar comprando YES KC ao vivo a 58c-60c após o kickoff incorre em seleção adversa severa contra bots de baixa latência conectados ao feed oficial da NFL. O prêmio de risco já foi capturado por quem comprou a 52c-53c antes do kickoff."
+    }
+  ],
+  "optimistic_actuaries_5": [
+    {
+      "id": "OTIM-01",
+      "name": "Dra. Camila Vasconcelos — Atuária de Diferencial de Quarterback e Supremacia Histórica (Otimista #1)",
+      "focus": "Prêmio Estrutural de Patrick Mahomes em Jogos da AFC West",
+      "kc_win_prob_assigned_pct": 58.2,
+      "max_kelly_fraction_allowed_pct": 3.5,
+      "vote_winner_on_field": "Kansas City Chiefs",
+      "vote_financial_action": "APROVADO (COMPRA YES KC PRÉ-JOGO A 53c / MANTER POSIÇÃO)",
+      "technical_argument": "Nos dados reais do nflverse (1999-2026), quando separamos o QB_Elo de Patrick Mahomes (1711.4) dos reservas que jogaram no fim de 2025 (Chris Oladokun, 1481.0), KC salta para 56.85% de probabilidade no Cenário 2. Mais forte ainda: desde 2018, KC venceu 13 de 17 jogos contra Denver (76.47%)!"
+    },
+    {
+      "id": "OTIM-02",
+      "name": "Dr. Eduardo Bastos — Atuário de Eficiência Pitagórica e Margem de Vitória (Otimista #2)",
+      "focus": "Descolamento entre Campanha Bruta (5-2 DEN) e Saldo Real de Pontos (+40 KC vs +3 DEN)",
+      "kc_win_prob_assigned_pct": 56.9,
+      "max_kelly_fraction_allowed_pct": 3.0,
+      "vote_winner_on_field": "Kansas City Chiefs",
+      "vote_financial_action": "APROVADO (COMPRA YES KC PRÉ-JOGO A 53c)",
+      "technical_argument": "Denver entrou na Semana 8 como um 'falso 5-2': marcou 144 pontos e sofreu 141 (+3 de saldo, Expectativa Pitagórica de 50.9%). Já Kansas City (5-1) marcou 143 e sofreu apenas 103 (+40 de saldo, Expectativa Pitagórica de 62.3%), e no único confronto entre ambos em 2026 (Semana 1), Mahomes venceu Bo Nix por 31 a 10 (+21 pts)."
+    },
+    {
+      "id": "OTIM-03",
+      "name": "Dra. Fernanda Prado — Atuária de Fluxo Institucional e Microestrutura Kalshi (Otimista #3)",
+      "focus": "Divergência Informacional entre Kalshi (KC Favorito) e Moneyline Tradicional",
+      "kc_win_prob_assigned_pct": 56.1,
+      "max_kelly_fraction_allowed_pct": 2.5,
+      "vote_winner_on_field": "Kansas City Chiefs",
+      "vote_financial_action": "APROVADO (SEGUIR SMART MONEY EM KC)",
+      "technical_argument": "Enquanto a linha estática antiga marcava DEN -112, o livro de ofertas real da Kalshi com mais de 10,75 milhões de contratos inverteu o favoritismo para KC já no pré-jogo (53c KC vs 48c DEN) e expandiu para 58c-60c em jogo, confirmando que o fluxo institucional identificou a subprecificação de Mahomes."
+    },
+    {
+      "id": "OTIM-04",
+      "name": "Dr. Gustavo Meirelles — Atuário de Derivativos e Assimetria de Cauda (Otimista #4)",
+      "focus": "Curva de 24 Spreads Alternativos da Kalshi (`KXNFLSPREAD-26NOV01KCDEN`)",
+      "kc_win_prob_assigned_pct": 55.8,
+      "max_kelly_fraction_allowed_pct": 2.5,
+      "vote_winner_on_field": "Kansas City Chiefs",
+      "vote_financial_action": "APROVADO (ESTRUTURA ASSIMÉTRICA EM KC -7.5 / MONEYLINE)",
+      "technical_argument": "A curva de 24 spreads alternativos da Kalshi mostra cauda direita muito mais espessa para o ataque explosivo de Mahomes (contrato `KXNFLSPREAD-26NOV01KCDEN-KC8` — KC vence por >7.5 pts negociado a 24c pré-jogo e 28c ao vivo). Em Cenário 2, KC vence por 8+ pontos em 27.6% das simulações."
+    },
+    {
+      "id": "OTIM-05",
+      "name": "Dra. Beatriz Alencar — Atuária Chefe da Equipe Argon (Otimista Calibrada #5)",
+      "focus": "Ganho Empírico Comprovado no Backtest de 398 Jogos Reais (2025-2026)",
+      "kc_win_prob_assigned_pct": 54.5,
+      "max_kelly_fraction_allowed_pct": 1.5,
+      "vote_winner_on_field": "Kansas City Chiefs",
+      "vote_financial_action": "APROVADO COM TRAVA PRUDENCIAL (ATÉ 53.5c PRÉ-JOGO)",
+      "technical_argument": "No backtest rigoroso fora da amostra em 398 jogos reais de 2025-2026, o modelo Gen 2 (com QB_Elo e Pitágoras) elevou a acurácia de 62.81% para 64.82% e reduziu o Brier Score para 0.2225. Esse modelo aponta 53.98% a 56.85% para KC, justificando posição moderada (1.5% da banca) quando o preço de entrada está <= 53c."
+    }
+  ],
+  "supreme_judge_final_decision": {
+    "judge_name": "Magistrado Supremo Dr. Salomão Valente (Juiz Presidente do Tribunal Quantitativo Argon)",
+    "methodology": "Agregação Supra-Bayesiana Log-Odds Ponderada por Evidência Out-of-Sample (398 jogos reais 2025-2026)",
+    "panel_vote_tally_winner_on_field": "9 x 1 a favor do Kansas City Chiefs",
+    "pessimist_bench_mean_kc_prob_pct": 50.9,
+    "optimist_bench_mean_kc_prob_pct": 56.3,
+    "scenarios_1_to_4_mean_kc_prob_pct": 53.47,
+    "final_supreme_judge_kc_win_prob_pct": 53.88,
+    "final_supreme_judge_den_win_prob_pct": 46.12,
+    "final_95_credible_interval_kc_pct": [
+      48.6,
+      58.2
+    ],
+    "fair_value_price_ceiling_kc_cents": 53,
+    "final_ruling_who_wins_game": "KANSAS CITY CHIEFS (Vencedor Oficial Projetado pelo Tribunal por 9 votos a 1 e 53.76% de probabilidade consolidada)",
+    "final_ruling_capital_allocation": "DECISÃO DIVIDIDA EM DOIS REGIMES DE PREÇO:\n1) No Preço Pré-Jogo (53c): APROVADA ALOCAÇÃO FRACIONÁRIA REDUZIDA DE 1.0% DA BANCA (US$ 10,00 em banca de US$ 1.000) em YES KC, pois a probabilidade consolidada do Juiz (53.76%) e da Bancada Otimista (56.30%) supera os 53c, mas a Bancada Pessimista (50.90%) impõe trava de segurança de 99% do capital em reserva.\n2) No Preço Ao Vivo Atual (58c a 60c): BLOQUEIO DE NOVA COMPRA (HOLD / NO NEW ENTRY). A 58c-60c, o mercado já andou a favor da tese de Kansas City e ultrapassou o preço justo pré-jogo de 53.76c, dando razão ao Pessimista #5 contra entrar atrasado."
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "project_id": "PROJ-001-VALIDACAO",
+  "project_name": "Validação de Plataforma SaaS B2B com Garantia Paramétrica de Risco",
+  "description": "Cenário de validação padrão para demonstrar a capacidade integrada da Equipe Argon: pesquisa, geração de dados estatísticos, otimização matemática, modelagem preditiva, cálculo atuarial de ruína/VaR e geração de Plano de Ação.",
+  "seed": 42,
+  "simulation_env": {
+    "n_synthetic_records": 1200,
+    "n_monte_carlo_runs": 5000,
+    "horizon_months": 24,
+    "initial_capital_brl": 350000.0,
+    "monthly_fixed_cost_brl": 42000.0,
+    "unit_variable_cost_brl": 55.0,
+    "base_price_brl": 290.0,
+    "price_elasticity": 1.35,
+    "market_potential_clients": 8000,
+    "bass_innovation_p": 0.018,
+    "bass_imitation_q": 0.24,
+    "base_monthly_churn_rate": 0.042,
+    "cac_mean_brl": 480.0,
+    "cac_std_brl": 95.0,
+    "claim_frequency_annual": 0.08,
+    "claim_severity_mean_brl": 4500.0,
+    "claim_severity_cv": 1.2,
+    "annual_discount_rate": 0.115
+  }
+}

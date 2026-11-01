@@ -1,0 +1,23 @@
+{
+  "agent": "Beatriz Alencar - Atuária",
+  "actuarial_solvency_metrics": {
+    "initial_capital_allocated_brl": 350000.0,
+    "ruin_probability_pct": 0.02,
+    "var_95_npv_loss_brl": -342003.97,
+    "var_99_npv_loss_brl": -277266.27,
+    "cvar_95_expected_shortfall_brl": -298397.68,
+    "cvar_99_expected_shortfall_brl": -229260.09,
+    "worst_1pct_cash_drawdown_brl": 262773.89,
+    "recommended_solvency_capital_99pct_brl": 350000.0,
+    "additional_contingency_reserve_needed_brl": 0.0
+  },
+  "biometric_survival_and_pricing": {
+    "calibrated_monthly_hazard_rate_qx": 0.0386,
+    "client_survival_12m_pct": 62.32,
+    "client_survival_24m_pct": 38.84,
+    "customer_life_expectancy_months": 25.88,
+    "pure_monthly_claim_cost_per_client_brl": 30.0,
+    "loaded_actuarial_risk_charge_per_client_brl": 39.0
+  },
+  "actuarial_verdict": "APROVADO — GRAU DE INVESTIMENTO ATUARIAL (Probabilidade de Ruína <= 1%)"
+}

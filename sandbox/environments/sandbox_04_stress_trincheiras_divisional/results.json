@@ -1,0 +1,21 @@
+{
+  "sandbox_id": "sandbox_04_stress_trincheiras_divisional",
+  "scenario_title": "Cenário 4 — Regime de Guerra de Trincheiras Divisional (Baixo Total = 41.5 pts)",
+  "hypothesis": "Filtra os 259 jogos divisionais reais da NFL desde 2018 com linha de total <= 42.5 pontos. Nesses jogos, 50.19% terminam decididos por uma posse de bola (<= 7 pts) e o azarão cobre o spread em 54.05% das vezes, comprimindo as probabilidades reais em direção a 50/50.",
+  "n_monte_carlo_runs": 15000,
+  "seed": 40404,
+  "prob_kc_win_pct": 51.46,
+  "prob_den_win_pct": 48.54,
+  "epistemic_95ci_kc_pct": [
+    44.6,
+    58.32
+  ],
+  "one_score_game_prob_pct": 50.57,
+  "kc_win_by_8plus_prob_pct": 26.06,
+  "den_win_by_8plus_prob_pct": 23.37,
+  "entry_ask_kc_cents": 53.0,
+  "entry_ask_den_cents": 48.0,
+  "expected_roi_kc_contract_pct": -2.91,
+  "expected_roi_den_contract_pct": 1.13,
+  "recommended_winner": "Kansas City Chiefs"
+}

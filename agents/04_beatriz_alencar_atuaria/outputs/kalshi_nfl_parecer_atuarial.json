@@ -1,0 +1,18 @@
+{
+  "agent": "Beatriz Alencar - Atuária",
+  "portfolio_risk_metrics": {
+    "bankroll_usd": 1000.0,
+    "active_value_positions": 7,
+    "total_capital_at_risk_usd": 342.53,
+    "capital_exposure_pct": 34.25,
+    "expected_portfolio_profit_usd": 60.6,
+    "median_portfolio_profit_usd": 70.93,
+    "p90_portfolio_profit_usd": 187.41,
+    "var_95_loss_usd": 129.5,
+    "var_99_loss_usd": 211.38,
+    "cvar_95_expected_shortfall_usd": 176.93,
+    "probability_of_profitable_slate_pct": 73.04,
+    "ruin_probability_pct": 0.0,
+    "unallocated_safety_reserve_usd": 657.47
+  }
+}

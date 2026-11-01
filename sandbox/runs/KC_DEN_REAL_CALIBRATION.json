@@ -1,0 +1,67 @@
+{
+  "out_of_sample_backtest_398_real_games_2025_2026": {
+    "Gen0_Baseline_Taxa_Mandante": {
+      "n_games": 398,
+      "accuracy_pct": 52.76,
+      "brier_score": 0.2498,
+      "log_loss": 0.6928
+    },
+    "Gen1_Elo_Simples_Sem_QB": {
+      "n_games": 398,
+      "accuracy_pct": 62.81,
+      "brier_score": 0.2255,
+      "log_loss": 0.6415
+    },
+    "Gen2_Fundamental_Afinado_QBElo_Pitagoras_H2H": {
+      "n_games": 398,
+      "accuracy_pct": 64.82,
+      "brier_score": 0.2225,
+      "log_loss": 0.6356
+    },
+    "Gen3_Argon_Ensemble_75Mkt_25Gen2": {
+      "n_games": 398,
+      "accuracy_pct": 65.33,
+      "brier_score": 0.2171,
+      "log_loss": 0.6223
+    },
+    "Benchmark_Mercado_Puro_Desvigado": {
+      "n_games": 398,
+      "accuracy_pct": 65.33,
+      "brier_score": 0.2168,
+      "log_loss": 0.6216
+    }
+  },
+  "why_gen1_failed_and_how_gen2_fixed_it": {
+    "root_cause_discovered": "Em 2025, KC terminou 6-11 porque perdeu 7 jogos por uma posse de bola e jogou as Semanas 16-18 com QBs reservas (Gardner Minshew e Chris Oladokun), incluindo derrota de 20-13 para Denver na Sem 17. O Elo Simples (Gen 1) puniu KC como se Patrick Mahomes tivesse perdido aqueles jogos, dando apenas 33.30% para KC.",
+    "gen2_correction": {
+      "Patrick_Mahomes_QB_Elo": 1711.4,
+      "Chris_Oladokun_QB_Elo": 1481.0,
+      "Bo_Nix_QB_Elo": 1668.2,
+      "KC_2026_Points_For_Against": "143 PF / 103 PA (Pythagorean: 62.3%)",
+      "DEN_2026_Points_For_Against": "144 PF / 141 PA (Pythagorean: 50.9%)",
+      "Week1_2026_Direct_Matchup": "KC 31 x 10 DEN (Mahomes venceu Bo Nix por +21 pontos)",
+      "Mahomes_Last8_Starts_Avg_Margin": 3.38,
+      "Bo_Nix_Last8_Starts_Avg_Margin": 0.75
+    }
+  },
+  "kc_vs_den_probabilities_evolution": {
+    "Gen1_Naive_Team_Elo_KC_pct": 33.3,
+    "Gen2_Refined_Fundamental_QBElo_Pyth_KC_pct": 53.98,
+    "Kalshi_PreGame_Mid_Price_KC_pct": 52.5,
+    "Gen3_Calibrated_Ensemble_KC_pct": 52.87,
+    "Gen3_Calibrated_Ensemble_DEN_pct": 47.13,
+    "Gen3_KC_95_Confidence_Interval_pct": [
+      49.89,
+      55.72
+    ],
+    "Kalshi_Live_InGame_Price_KC_pct": 60.0
+  },
+  "actuarial_trading_decision_beatriz": {
+    "pregame_kalshi_kc_ask_cents": 53,
+    "pregame_kalshi_den_ask_cents": 48,
+    "gen3_expected_edge_kc_vs_pregame_ask_pct": -0.13,
+    "gen3_lower_bound_95ci_edge_kc_pct": -3.11,
+    "verdict_winner_on_field": "Kansas City Chiefs (52.87% pré-jogo; confirmado pelo movimento ao vivo para 60c)",
+    "verdict_kalshi_contract": "NO TRADE / POSIÇÃO MÍNIMA: Embora KC seja o favorito legítimo para vencer (53.25% no Ensemble Gen 3 e 55.45% no Modelo Fundamental Gen 2 com QB-Elo), o contrato pré-jogo na Kalshi já pedia 53c no Ask (Edge líquido de apenas +0.25%, dentro da margem de incerteza de [49.8%, 56.6%]). Ao vivo a 60c, o mercado já precificou o favoritismo de Mahomes."
+  }
+}

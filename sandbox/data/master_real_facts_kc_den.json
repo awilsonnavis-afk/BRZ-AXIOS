@@ -1,0 +1,265 @@
+{
+  "total_completed_nfl_games": 7391,
+  "target_game_metadata": {
+    "game_id": "2026_08_KC_DEN",
+    "gameday": "2026-11-01",
+    "gametime_et": "16:25",
+    "stadium": "Empower Field at Mile High",
+    "home_coach": "Sean Payton",
+    "away_coach": "Andy Reid",
+    "home_qb": "Bo Nix",
+    "away_qb": "Patrick Mahomes",
+    "nflverse_spread_line": 1.5,
+    "nflverse_total_line": 41.5,
+    "nflverse_home_moneyline": -112,
+    "nflverse_away_moneyline": -108
+  },
+  "h2h_and_trench_real_stats": {
+    "kc_vs_den_games_since_2018": 17,
+    "kc_wins_vs_den_since_2018": 13,
+    "kc_win_rate_vs_den_since_2018_pct": 76.47,
+    "mahomes_starts_in_denver": 7,
+    "mahomes_wins_in_denver": 5,
+    "mahomes_win_rate_in_denver_pct": 71.43,
+    "low_total_divisional_games_sample": 259,
+    "one_score_finish_rate_pct": 50.19,
+    "underdog_cover_rate_pct": 54.05
+  },
+  "kalshi_expanded_markets": {
+    "moneyline_kc": {
+      "ticker": "KXNFLGAME-26NOV01KCDEN-KC",
+      "pregame_ask": 0.53,
+      "pregame_bid": 0.52,
+      "live_ask": 0.58,
+      "live_bid": 0.57,
+      "live_last": 0.58,
+      "volume_contracts": 6198613.94
+    },
+    "moneyline_den": {
+      "ticker": "KXNFLGAME-26NOV01KCDEN-DEN",
+      "pregame_ask": 0.48,
+      "pregame_bid": 0.47,
+      "live_ask": 0.43,
+      "live_bid": 0.42,
+      "live_last": 0.42,
+      "volume_contracts": 4558335.3
+    },
+    "n_spread_derivative_markets": 24,
+    "n_total_derivative_markets": 19,
+    "sample_spread_markets": [
+      {
+        "ticker": "KXNFLSPREAD-26NOV01KCDEN-KC17",
+        "title": "Kansas City wins by over 16.5 points?",
+        "last_price": 0.13,
+        "prev_price": 0.0,
+        "yes_bid": 0.11,
+        "yes_ask": 0.12,
+        "volume": 2264.74
+      },
+      {
+        "ticker": "KXNFLSPREAD-26NOV01KCDEN-KC15",
+        "title": "Kansas City wins by over 14.5 points?",
+        "last_price": 0.16,
+        "prev_price": 0.0,
+        "yes_bid": 0.13,
+        "yes_ask": 0.14,
+        "volume": 1491.93
+      },
+      {
+        "ticker": "KXNFLSPREAD-26NOV01KCDEN-KC14",
+        "title": "Kansas City wins by over 13.5 points?",
+        "last_price": 0.17,
+        "prev_price": 0.0,
+        "yes_bid": 0.16,
+        "yes_ask": 0.17,
+        "volume": 3531.01
+      },
+      {
+        "ticker": "KXNFLSPREAD-26NOV01KCDEN-KC11",
+        "title": "Kansas City wins by over 10.5 points?",
+        "last_price": 0.21,
+        "prev_price": 0.2,
+        "yes_bid": 0.2,
+        "yes_ask": 0.21,
+        "volume": 11585.07
+      },
+      {
+        "ticker": "KXNFLSPREAD-26NOV01KCDEN-KC10",
+        "title": "Kansas City wins by over 9.5 points?",
+        "last_price": 0.23,
+        "prev_price": 0.23,
+        "yes_bid": 0.23,
+        "yes_ask": 0.24,
+        "volume": 10606.5
+      },
+      {
+        "ticker": "KXNFLSPREAD-26NOV01KCDEN-KC8",
+        "title": "Kansas City wins by over 7.5 points?",
+        "last_price": 0.28,
+        "prev_price": 0.24,
+        "yes_bid": 0.28,
+        "yes_ask": 0.29,
+        "volume": 17603.28
+      },
+      {
+        "ticker": "KXNFLSPREAD-26NOV01KCDEN-KC7",
+        "title": "Kansas City wins by over 6.5 points?",
+        "last_price": 0.35,
+        "prev_price": 0.31,
+        "yes_bid": 0.34,
+        "yes_ask": 0.35,
+        "volume": 35690.0
+      },
+      {
+        "ticker": "KXNFLSPREAD-26NOV01KCDEN-KC6",
+        "title": "Kansas City wins by over 5.5 points?",
+        "last_price": 0.37,
+        "prev_price": 0.34,
+        "yes_bid": 0.36,
+        "yes_ask": 0.37,
+        "volume": 14942.44
+      }
+    ],
+    "sample_total_markets": [
+      {
+        "ticker": "KXNFLTOTAL-26NOV01KCDEN-21",
+        "title": "Full Game: over 20.5 points scored?",
+        "last_price": 0.99,
+        "prev_price": 0.96,
+        "yes_bid": 0.99,
+        "yes_ask": 1.0,
+        "volume": 4601.88
+      },
+      {
+        "ticker": "KXNFLTOTAL-26NOV01KCDEN-24",
+        "title": "Full Game: over 23.5 points scored?",
+        "last_price": 0.98,
+        "prev_price": 0.0,
+        "yes_bid": 0.97,
+        "yes_ask": 0.99,
+        "volume": 3923.09
+      },
+      {
+        "ticker": "KXNFLTOTAL-26NOV01KCDEN-27",
+        "title": "Full Game: over 26.5 points scored?",
+        "last_price": 0.96,
+        "prev_price": 0.0,
+        "yes_bid": 0.94,
+        "yes_ask": 0.98,
+        "volume": 872.85
+      },
+      {
+        "ticker": "KXNFLTOTAL-26NOV01KCDEN-30",
+        "title": "Full Game: over 29.5 points scored?",
+        "last_price": 0.92,
+        "prev_price": 0.83,
+        "yes_bid": 0.9,
+        "yes_ask": 0.93,
+        "volume": 2156.68
+      },
+      {
+        "ticker": "KXNFLTOTAL-26NOV01KCDEN-33",
+        "title": "Full Game: over 32.5 points scored?",
+        "last_price": 0.85,
+        "prev_price": 0.76,
+        "yes_bid": 0.85,
+        "yes_ask": 0.89,
+        "volume": 5618.73
+      },
+      {
+        "ticker": "KXNFLTOTAL-26NOV01KCDEN-36",
+        "title": "Full Game: over 35.5 points scored?",
+        "last_price": 0.78,
+        "prev_price": 0.68,
+        "yes_bid": 0.77,
+        "yes_ask": 0.8,
+        "volume": 3843.86
+      },
+      {
+        "ticker": "KXNFLTOTAL-26NOV01KCDEN-39",
+        "title": "Full Game: over 38.5 points scored?",
+        "last_price": 0.73,
+        "prev_price": 0.57,
+        "yes_bid": 0.66,
+        "yes_ask": 0.71,
+        "volume": 11823.98
+      },
+      {
+        "ticker": "KXNFLTOTAL-26NOV01KCDEN-40",
+        "title": "Full Game: over 39.5 points scored?",
+        "last_price": 0.66,
+        "prev_price": 0.54,
+        "yes_bid": 0.63,
+        "yes_ask": 0.66,
+        "volume": 23147.15
+      }
+    ]
+  },
+  "calibration_reference": {
+    "out_of_sample_backtest_398_real_games_2025_2026": {
+      "Gen0_Baseline_Taxa_Mandante": {
+        "n_games": 398,
+        "accuracy_pct": 52.76,
+        "brier_score": 0.2498,
+        "log_loss": 0.6928
+      },
+      "Gen1_Elo_Simples_Sem_QB": {
+        "n_games": 398,
+        "accuracy_pct": 62.81,
+        "brier_score": 0.2255,
+        "log_loss": 0.6415
+      },
+      "Gen2_Fundamental_Afinado_QBElo_Pitagoras_H2H": {
+        "n_games": 398,
+        "accuracy_pct": 64.82,
+        "brier_score": 0.2225,
+        "log_loss": 0.6356
+      },
+      "Gen3_Argon_Ensemble_75Mkt_25Gen2": {
+        "n_games": 398,
+        "accuracy_pct": 65.33,
+        "brier_score": 0.2171,
+        "log_loss": 0.6223
+      },
+      "Benchmark_Mercado_Puro_Desvigado": {
+        "n_games": 398,
+        "accuracy_pct": 65.33,
+        "brier_score": 0.2168,
+        "log_loss": 0.6216
+      }
+    },
+    "why_gen1_failed_and_how_gen2_fixed_it": {
+      "root_cause_discovered": "Em 2025, KC terminou 6-11 porque perdeu 7 jogos por uma posse de bola e jogou as Semanas 16-18 com QBs reservas (Gardner Minshew e Chris Oladokun), incluindo derrota de 20-13 para Denver na Sem 17. O Elo Simples (Gen 1) puniu KC como se Patrick Mahomes tivesse perdido aqueles jogos, dando apenas 33.30% para KC.",
+      "gen2_correction": {
+        "Patrick_Mahomes_QB_Elo": 1711.4,
+        "Chris_Oladokun_QB_Elo": 1481.0,
+        "Bo_Nix_QB_Elo": 1668.2,
+        "KC_2026_Points_For_Against": "143 PF / 103 PA (Pythagorean: 62.3%)",
+        "DEN_2026_Points_For_Against": "144 PF / 141 PA (Pythagorean: 50.9%)",
+        "Week1_2026_Direct_Matchup": "KC 31 x 10 DEN (Mahomes venceu Bo Nix por +21 pontos)",
+        "Mahomes_Last8_Starts_Avg_Margin": 3.38,
+        "Bo_Nix_Last8_Starts_Avg_Margin": 0.75
+      }
+    },
+    "kc_vs_den_probabilities_evolution": {
+      "Gen1_Naive_Team_Elo_KC_pct": 33.3,
+      "Gen2_Refined_Fundamental_QBElo_Pyth_KC_pct": 53.98,
+      "Kalshi_PreGame_Mid_Price_KC_pct": 52.5,
+      "Gen3_Calibrated_Ensemble_KC_pct": 52.87,
+      "Gen3_Calibrated_Ensemble_DEN_pct": 47.13,
+      "Gen3_KC_95_Confidence_Interval_pct": [
+        49.89,
+        55.72
+      ],
+      "Kalshi_Live_InGame_Price_KC_pct": 60.0
+    },
+    "actuarial_trading_decision_beatriz": {
+      "pregame_kalshi_kc_ask_cents": 53,
+      "pregame_kalshi_den_ask_cents": 48,
+      "gen3_expected_edge_kc_vs_pregame_ask_pct": -0.13,
+      "gen3_lower_bound_95ci_edge_kc_pct": -3.11,
+      "verdict_winner_on_field": "Kansas City Chiefs (52.87% pré-jogo; confirmado pelo movimento ao vivo para 60c)",
+      "verdict_kalshi_contract": "NO TRADE / POSIÇÃO MÍNIMA: Embora KC seja o favorito legítimo para vencer (53.25% no Ensemble Gen 3 e 55.45% no Modelo Fundamental Gen 2 com QB-Elo), o contrato pré-jogo na Kalshi já pedia 53c no Ask (Edge líquido de apenas +0.25%, dentro da margem de incerteza de [49.8%, 56.6%]). Ao vivo a 60c, o mercado já precificou o favoritismo de Mahomes."
+    }
+  }
+}

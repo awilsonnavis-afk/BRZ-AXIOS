@@ -1,0 +1,329 @@
+{
+  "metadata": {
+    "version": "1.0.0",
+    "created_by": "Axio - Orquestrador Programador Sênior",
+    "description": "Banco de dados curado de comunidades, fóruns, redes sociais, repositórios e canais do YouTube para pesquisa, benchmarking e atualização contínua da Equipe Argon.",
+    "last_updated": "2026-11-01"
+  },
+  "references": [
+    {
+      "id": "MAT-001",
+      "agent_owner": "Henrique Vasconcelos - Matemático",
+      "domain": "Matemática Avançada & Aplicada",
+      "type": "Fórum / Q&A Técnico",
+      "name": "MathOverflow",
+      "url": "https://mathoverflow.net",
+      "language": "EN",
+      "focus": "Pesquisa matemática de nível pós-graduação, teoremas avançados, otimização, sistemas dinâmicos e processos estocásticos.",
+      "use_case": "Consultar formulações rigorosas, contraexemplos teóricos e estado da arte em provas matemáticas."
+    },
+    {
+      "id": "MAT-002",
+      "agent_owner": "Henrique Vasconcelos - Matemático",
+      "domain": "Matemática Avançada & Aplicada",
+      "type": "Fórum / Q&A Técnico",
+      "name": "Mathematics Stack Exchange",
+      "url": "https://math.stackexchange.com",
+      "language": "EN",
+      "focus": "Resolução de problemas de álgebra linear, cálculo avançado, probabilidade, análise real/complexa e combinatória.",
+      "use_case": "Validação rápida de derivações analíticas, identidades algébricas e limites assintóticos."
+    },
+    {
+      "id": "MAT-003",
+      "agent_owner": "Henrique Vasconcelos - Matemático",
+      "domain": "Matemática Avançada & Aplicada",
+      "type": "Comunidade / Rede Social",
+      "name": "Reddit r/math & r/appliedmath",
+      "url": "https://www.reddit.com/r/math/",
+      "language": "EN",
+      "focus": "Discussões sobre modelagem matemática, otimização industrial, PDEs, teoria dos grafos e referências bibliográficas.",
+      "use_case": "Identificar abordagens práticas para problemas matemáticos abertos em projetos."
+    },
+    {
+      "id": "MAT-004",
+      "agent_owner": "Henrique Vasconcelos - Matemático",
+      "domain": "Matemática Avançada & Aplicada",
+      "type": "YouTube",
+      "name": "3Blue1Brown (Grant Sanderson)",
+      "url": "https://www.youtube.com/@3blue1brown",
+      "language": "EN",
+      "focus": "Intuição visual profunda sobre Álgebra Linear, Cálculo, Equações Diferenciais, Teoria da Informação e Redes Neurais.",
+      "use_case": "Traduzir conceitos matemáticos abstratos em explicações visuais intuitivas para relatórios."
+    },
+    {
+      "id": "MAT-005",
+      "agent_owner": "Henrique Vasconcelos - Matemático",
+      "domain": "Matemática Avançada & Aplicada",
+      "type": "YouTube",
+      "name": "Steve Brunton (Eigensteve - University of Washington)",
+      "url": "https://www.youtube.com/@Eigensteve",
+      "language": "EN",
+      "focus": "Matemática de engenharia, Sistemas Dinâmicos, Controle, SVD, Fourier, Koopman Theory e Ciência de Dados física.",
+      "use_case": "Modelagem de sistemas dinâmicos e simulações determinísticas/estocásticas em ambientes fechados."
+    },
+    {
+      "id": "MAT-006",
+      "agent_owner": "Henrique Vasconcelos - Matemático",
+      "domain": "Matemática Avançada & Aplicada",
+      "type": "YouTube / Instituição",
+      "name": "IMPA (Instituto de Matemática Pura e Aplicada) & SBMAC",
+      "url": "https://www.youtube.com/@impabr",
+      "language": "PT-BR",
+      "focus": "Cursos completos de pós-graduação em Otimização, Probabilidade, Economia Matemática, Dinâmica de Fluidos e Criptografia.",
+      "use_case": "Referência nacional de excelência em matemática pura e aplicada no Brasil."
+    },
+    {
+      "id": "MAT-007",
+      "agent_owner": "Henrique Vasconcelos - Matemático",
+      "domain": "Matemática Avançada & Aplicada",
+      "type": "Comunidade Científica",
+      "name": "SIAM (Society for Industrial and Applied Mathematics)",
+      "url": "https://www.siam.org",
+      "language": "EN",
+      "focus": "Matemática industrial, análise numérica, otimização operacional e computação científica.",
+      "use_case": "Benchmarking de algoritmos numéricos e modelagem matemática para indústria."
+    },
+    {
+      "id": "DA-001",
+      "agent_owner": "Clara Mendonça - Analista de Dados",
+      "domain": "Análise de Dados & Business Intelligence",
+      "type": "Comunidade / Slack / Newsletter",
+      "name": "Data Hackers Brasil",
+      "url": "https://www.datahackers.com.br",
+      "language": "PT-BR",
+      "focus": "Maior comunidade brasileira de dados, analytics engineering, BI, carreira e casos reais de mercado no Brasil.",
+      "use_case": "Termômetro de mercado nacional, boas práticas de BI e benchmarks de métricas de negócios."
+    },
+    {
+      "id": "DA-002",
+      "agent_owner": "Clara Mendonça - Analista de Dados",
+      "domain": "Análise de Dados & Business Intelligence",
+      "type": "Comunidade / Slack",
+      "name": "Locally Optimistic & dbt Community",
+      "url": "https://locallyoptimistic.com",
+      "language": "EN",
+      "focus": "Estratégia analítica, governança de dados, modelagem dimensional, KPIs executivos e transformação de dados.",
+      "use_case": "Estruturar métricas de produto (AARRR, LTV, CAC, Churn, Retention Cohorts) e pipelines analíticos."
+    },
+    {
+      "id": "DA-003",
+      "agent_owner": "Clara Mendonça - Analista de Dados",
+      "domain": "Análise de Dados & Business Intelligence",
+      "type": "Comunidade / Rede Social",
+      "name": "Data Visualization Society (Nightingale) & Reddit r/dataisbeautiful",
+      "url": "https://www.datavisualizationsociety.org",
+      "language": "EN",
+      "focus": "Design de informação, storytelling com dados, percepção visual e criação de relatórios de alto impacto.",
+      "use_case": "Garantir que gráficos e relatórios de pesquisa sejam claros, acionáveis e livres de distorções visuais."
+    },
+    {
+      "id": "DA-004",
+      "agent_owner": "Clara Mendonça - Analista de Dados",
+      "domain": "Análise de Dados & Business Intelligence",
+      "type": "YouTube",
+      "name": "Luke Barousse & Alex The Analyst",
+      "url": "https://www.youtube.com/@LukeBarousse",
+      "language": "EN",
+      "focus": "SQL avançado, Python para análise de dados, DuckDB/Polars, automação de relatórios e resolução de problemas de negócios.",
+      "use_case": "Padrões práticos de exploração de dados (EDA) rápida e estruturação de dashboards executivos."
+    },
+    {
+      "id": "DA-005",
+      "agent_owner": "Clara Mendonça - Analista de Dados",
+      "domain": "Análise de Dados & Business Intelligence",
+      "type": "YouTube",
+      "name": "Karine Lago & Hashtag Treinamentos",
+      "url": "https://www.youtube.com/@KarineLago",
+      "language": "PT-BR",
+      "focus": "Inteligência de negócios, modelagem de dados, indicadores corporativos e análise financeira/operacional.",
+      "use_case": "Tradução de regras de negócios brasileiras para modelos analíticos e indicadores estratégicos."
+    },
+    {
+      "id": "DS-001",
+      "agent_owner": "Lucas Bittencourt - Cientista de Dados",
+      "domain": "Ciência de Dados, Estatística & Machine Learning",
+      "type": "Fórum / Q&A Técnico",
+      "name": "Cross Validated (Stats Stack Exchange)",
+      "url": "https://stats.stackexchange.com",
+      "language": "EN",
+      "focus": "Inferência estatística, testes de hipóteses, modelagem bayesiana, séries temporais, inferência causal e ML.",
+      "use_case": "Validar premissas estatísticas de modelos preditivos, desenho de experimentos (A/B) e simulações."
+    },
+    {
+      "id": "DS-002",
+      "agent_owner": "Lucas Bittencourt - Cientista de Dados",
+      "domain": "Ciência de Dados, Estatística & Machine Learning",
+      "type": "Plataforma / Comunidade",
+      "name": "Kaggle & Hugging Face Hub",
+      "url": "https://www.kaggle.com",
+      "language": "EN",
+      "focus": "Datasets públicos, benchmarks de modelagem tabular/séries temporais, validação cruzada e feature engineering de ponta.",
+      "use_case": "Coleta de datasets de referência e validação de arquiteturas preditivas."
+    },
+    {
+      "id": "DS-003",
+      "agent_owner": "Lucas Bittencourt - Cientista de Dados",
+      "domain": "Ciência de Dados, Estatística & Machine Learning",
+      "type": "Comunidade / Slack",
+      "name": "DataTalks.Club",
+      "url": "https://datatalks.club",
+      "language": "EN",
+      "focus": "Ciência de dados prática, MLOps, engenharia de machine learning e avaliação rigorosa de modelos.",
+      "use_case": "Padrões de reprodutibilidade, empacotamento de simulações e monitoramento de drift."
+    },
+    {
+      "id": "DS-004",
+      "agent_owner": "Lucas Bittencourt - Cientista de Dados",
+      "domain": "Ciência de Dados, Estatística & Machine Learning",
+      "type": "YouTube",
+      "name": "StatQuest with Josh Starmer",
+      "url": "https://www.youtube.com/@statquest",
+      "language": "EN",
+      "focus": "Explicação passo a passo da matemática e estatística por trás de algoritmos de ML, GLM, PCA, Boosting e estatística.",
+      "use_case": "Fundamentação clara de algoritmos preditivos e interpretação de métricas estatísticas."
+    },
+    {
+      "id": "DS-005",
+      "agent_owner": "Lucas Bittencourt - Cientista de Dados",
+      "domain": "Ciência de Dados, Estatística & Machine Learning",
+      "type": "YouTube / Comunidade",
+      "name": "Teo Me Why (Téo Calvo) & Estatidados (Thiago Marques)",
+      "url": "https://www.youtube.com/@teomewhy",
+      "language": "PT-BR",
+      "focus": "Ciência de dados end-to-end em Python, estatística aplicada, inferência, projetos reais e engenharia de features.",
+      "use_case": "Referência em boas práticas de projetos de Data Science e Estatística Aplicada em português."
+    },
+    {
+      "id": "DS-006",
+      "agent_owner": "Lucas Bittencourt - Cientista de Dados",
+      "domain": "Ciência de Dados, Estatística & Machine Learning",
+      "type": "Rede Social / Subreddits",
+      "name": "Reddit r/MachineLearning, r/datascience & r/statistics",
+      "url": "https://www.reddit.com/r/statistics/",
+      "language": "EN",
+      "focus": "Discussão crítica de papers, geração de dados sintéticos, inferência causal (DoWhy/EconML) e modelagem probabilística (PyMC/Stan).",
+      "use_case": "Evitar armadilhas metodológicas (data leakage, p-hacking, overfitting) em pesquisas."
+    },
+    {
+      "id": "ACT-001",
+      "agent_owner": "Beatriz Alencar - Atuária",
+      "domain": "Ciências Atuariais, Risco Financeiro & Previdência",
+      "type": "Instituição / Repositório Técnico",
+      "name": "IBA (Instituto Brasileiro de Atuária) & SUSEP / PREVIC",
+      "url": "https://atuarios.org.br",
+      "language": "PT-BR",
+      "focus": "Normas técnicas atuariais brasileiras, tábuas biométricas (BR-EMS), solvência, provisões técnicas, seguros e previdência complementar.",
+      "use_case": "Conformidade técnica e parâmetros regulatórios para simulações de risco e seguros no Brasil."
+    },
+    {
+      "id": "ACT-002",
+      "agent_owner": "Beatriz Alencar - Atuária",
+      "domain": "Ciências Atuariais, Risco Financeiro & Previdência",
+      "type": "Instituição / Pesquisa Global",
+      "name": "SOA (Society of Actuaries) & CAS (Casualty Actuarial Society)",
+      "url": "https://www.soa.org",
+      "language": "EN",
+      "focus": "Pesquisa global em risco de vida, saúde, ramos elementares (P&C), precificação, resseguro, risco climático e modelagem preditiva atuarial.",
+      "use_case": "Modelos matemáticos de frequência-severidade, Chain-Ladder, Bornhuetter-Ferguson e Extreme Value Theory."
+    },
+    {
+      "id": "ACT-003",
+      "agent_owner": "Beatriz Alencar - Atuária",
+      "domain": "Ciências Atuariais, Risco Financeiro & Previdência",
+      "type": "Fórum / Comunidade",
+      "name": "Reddit r/actuary & Actuarial Outpost (GoActuary)",
+      "url": "https://community.goactuary.com",
+      "language": "EN",
+      "focus": "Discussões profundas de modelagem de reservas, precificação de produtos financeiros, GLM atuarial e gestão de capital econômico.",
+      "use_case": "Benchmarking de premissas atuariais, taxas de desconto, sinistralidade e aversão ao risco."
+    },
+    {
+      "id": "ACT-004",
+      "agent_owner": "Beatriz Alencar - Atuária",
+      "domain": "Ciências Atuariais, Risco Financeiro & Previdência",
+      "type": "Fórum Quantitativo",
+      "name": "Quantitative Finance Stack Exchange & Wilmott Forums",
+      "url": "https://quant.stackexchange.com",
+      "language": "EN",
+      "focus": "Precificação de derivativos, gestão de risco de crédito/mercado (VaR, Expected Shortfall), simulações estocásticas de taxas de juros (Vasicek, CIR).",
+      "use_case": "Avaliação de risco financeiro bancário, stress testing de portfólios e viabilidade sob cenários extremos."
+    },
+    {
+      "id": "ACT-005",
+      "agent_owner": "Beatriz Alencar - Atuária",
+      "domain": "Ciências Atuariais, Risco Financeiro & Previdência",
+      "type": "YouTube",
+      "name": "Finan.ce / Actuarial Education / Patrick Boyle & Plain Bagel",
+      "url": "https://www.youtube.com/@PBoyle",
+      "language": "EN",
+      "focus": "Gestão de risco quantitativo, história de falhas de modelos financeiros, matemática atuarial e análise de cauda longa.",
+      "use_case": "Análise crítica de risco sistêmico, cisnes negros e blindagem financeira de projetos."
+    },
+    {
+      "id": "ACT-006",
+      "agent_owner": "Beatriz Alencar - Atuária",
+      "domain": "Ciências Atuariais, Risco Financeiro & Previdência",
+      "type": "Comunidade Open Source",
+      "name": "Actuarial Open Source (chainladder-python, lifelines, CAS Datasets)",
+      "url": "https://chainladder-python.readthedocs.io",
+      "language": "EN",
+      "focus": "Pacotes computacionais abertos para triângulos de sinistros, análise de sobrevivência (Kaplan-Meier, Cox PH) e simulação estocástica de reservas.",
+      "use_case": "Ferramental direto para execução de cálculos atuariais em Python."
+    },
+    {
+      "id": "ORCH-001",
+      "agent_owner": "Axio - Orquestrador Programador Sênior",
+      "domain": "Arquitetura de Sistemas Multi-Agentes & Simulação Computacional",
+      "type": "Padrão Aberto / Comunidade",
+      "name": "AGENTS.md Open Standard & Model Context Protocol (MCP)",
+      "url": "https://modelcontextprotocol.io",
+      "language": "EN",
+      "focus": "Interoperabilidade entre modelos de IA, persistência de estado, handoff determinístico e execução segura de ferramentas.",
+      "use_case": "Garantir que qualquer modelo de IA consiga assumir o estado do projeto e continuar sem perda de contexto."
+    },
+    {
+      "id": "DA-006",
+      "agent_owner": "Clara Mendonça - Analista de Dados",
+      "domain": "Sports Analytics & NFL Official Data",
+      "type": "Repositório de Dados Reais",
+      "name": "nflverse / nfldata (GitHub Official)",
+      "url": "https://github.com/nflverse/nfldata",
+      "language": "EN",
+      "focus": "Base oficial histórica da NFL (1999-2026) com placares, QBs titulares, técnicos, árbitros, descanso, clima, spreads e moneylines.",
+      "use_case": "Fonte primária de 7.548 jogos reais sem dados sintéticos para calibração walk-forward."
+    },
+    {
+      "id": "DA-007",
+      "agent_owner": "Clara Mendonça - Analista de Dados",
+      "domain": "Prediction Markets & Orderbook API",
+      "type": "API Oficial de Mercado",
+      "name": "Kalshi Trade API v2 (KXNFLGAME / KXNFLSPREAD / KXNFLTOTAL)",
+      "url": "https://api.elections.kalshi.com/trade-api/v2",
+      "language": "EN",
+      "focus": "Livro de ofertas em tempo real, bid/ask, volume em contratos, curva completa de spreads alternativos (24 strikes) e totais de pontos (19 strikes).",
+      "use_case": "Extração da distribuição completa de probabilidade implícita no mercado e custos reais de transação."
+    },
+    {
+      "id": "DS-007",
+      "agent_owner": "Lucas Bittencourt - Cientista de Dados",
+      "domain": "Sports Analytics & EPA Modeling",
+      "type": "Plataforma / Comunidade",
+      "name": "RBSDM (Ben Baldwin) & nflfastR",
+      "url": "https://rbsdm.com/stats/stats/",
+      "language": "EN",
+      "focus": "Modelagem de Expected Points Added (EPA/play), Completion Percentage Over Expected (CPOE) e Win Probability na NFL.",
+      "use_case": "Calibração de eficiência por jogada e avaliação de Quarterbacks."
+    },
+    {
+      "id": "ACT-007",
+      "agent_owner": "Beatriz Alencar - Atuária",
+      "domain": "Risco em Mercados de Previsão & Critério de Kelly",
+      "type": "Literatura & Fórum Quant",
+      "name": "Ed Thorp & MacLean-Ziemba-Blazenko Fractional Kelly Framework",
+      "url": "https://quant.stackexchange.com",
+      "language": "EN",
+      "focus": "Dimensionamento ótimo sob incerteza de parâmetros, aversão à ruína e corte de cauda em contratos binários correlacionados.",
+      "use_case": "Base para o Tribunal Atuarial (5 Pessimistas vs 5 Otimistas + Juiz Supremo)."
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "sandbox_id": "sandbox_01_historico_altitude",
+  "scenario_title": "Cenário 1 — Regime Estrutural de Longo Prazo & Altitude de Mile High",
+  "hypothesis": "Prioriza o fator casa em Denver (altitude de 1.609m em Empower Field), a linha de fechamento das casas tradicionais (DEN -112 / spread 1.5 no nflverse) e a regressão à média após a derrota do KC para Seattle (20-3) na Semana 7.",
+  "seed": 10101,
+  "n_monte_carlo_runs": 15000,
+  "p_kc_mean": 0.482,
+  "p_kc_epistemic_sd": 0.032,
+  "exp_kc_pts": 20.1,
+  "exp_den_pts": 21.4,
+  "score_sd": 9.4,
+  "entry_ask_kc": 0.53,
+  "entry_ask_den": 0.48
+}

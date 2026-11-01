@@ -1,0 +1,35 @@
+{
+  "agent": "Lucas Bittencourt - Cientista de Dados",
+  "ml_validation_protocol": {
+    "strict_split_applied": "80% Treino (960 linhas) / 20% Teste (240 linhas) ANTES de padronização Z-Score",
+    "baseline_naive_rmse_brl": 122871.38,
+    "ridge_regression_train_rmse_brl": 65356.51,
+    "ridge_regression_test_rmse_brl": 76853.59,
+    "ridge_regression_test_mae_brl": 52855.5,
+    "test_r2_score": 0.6056,
+    "bootstrap_95ci_test_rmse": [
+      61763.81,
+      91780.13
+    ],
+    "standardized_feature_weights": {
+      "intercept": 194828.14,
+      "price_brl": -49889.18,
+      "marketing_spend_brl": 66408.76,
+      "seasonality_index": 16612.86,
+      "onboarding_score": 25853.13
+    }
+  },
+  "monte_carlo_closed_simulation": {
+    "n_trajectories": 5000,
+    "horizon_months": 24,
+    "calibrated_simulation_price_brl": 279.9,
+    "final_cash_p10_brl": 1246293.07,
+    "final_cash_median_p50_brl": 1392760.98,
+    "final_cash_mean_brl": 1390944.91,
+    "final_cash_p90_brl": 1536303.63,
+    "npv_median_p50_brl": 503769.65,
+    "npv_mean_brl": 502009.93,
+    "probability_positive_npv_pct": 100.0,
+    "median_operational_breakeven_month": 8
+  }
+}

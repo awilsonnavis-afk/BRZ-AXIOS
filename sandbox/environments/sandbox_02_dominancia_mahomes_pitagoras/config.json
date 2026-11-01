@@ -1,0 +1,14 @@
+{
+  "sandbox_id": "sandbox_02_dominancia_mahomes_pitagoras",
+  "scenario_title": "Cenário 2 — Regime de Dominância de QB (Patrick Mahomes) & Saldo Pitagórico 2026",
+  "hypothesis": "Expurga os jogos de QBs reservas de 2025 (Oladokun/Minshew), aplica o QB_Elo de Patrick Mahomes (1711.4 vs 1668.2 de Bo Nix), o retrospecto real de Mahomes em Denver (5 vitórias em 7 jogos = 71.43%), a Expectativa Pitagórica de 2026 (KC 62.3% com saldo +40 vs DEN 50.9% com saldo +3) e a vitória de KC por 31-10 na Semana 1.",
+  "seed": 20202,
+  "n_monte_carlo_runs": 15000,
+  "p_kc_mean": 0.568,
+  "p_kc_epistemic_sd": 0.028,
+  "exp_kc_pts": 23.4,
+  "exp_den_pts": 19.6,
+  "score_sd": 9.1,
+  "entry_ask_kc": 0.53,
+  "entry_ask_den": 0.48
+}

@@ -1,0 +1,14 @@
+{
+  "sandbox_id": "sandbox_03_curva_derivativos_kalshi",
+  "scenario_title": "Cenário 3 — Regime de Microestrutura Kalshi (24 Spreads + 19 Totais + 10,75M Contratos)",
+  "hypothesis": "Extrai a distribuição implícita diretamente dos 45 mercados derivativos da Kalshi (Moneyline, 24 Strikes de Spread KXNFLSPREAD e 19 Strikes de Total KXNFLTOTAL). Incorpora a probabilidade de vitória por mais de 7.5 pontos (28c ao vivo / 24c pré-jogo para KC) e o fluxo institucional que levou KC de 53c para 57c.",
+  "seed": 30303,
+  "n_monte_carlo_runs": 15000,
+  "p_kc_mean": 0.556,
+  "p_kc_epistemic_sd": 0.024,
+  "exp_kc_pts": 22.5,
+  "exp_den_pts": 19.8,
+  "score_sd": 8.9,
+  "entry_ask_kc": 0.53,
+  "entry_ask_den": 0.48
+}

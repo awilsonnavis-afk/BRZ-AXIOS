@@ -1,0 +1,56 @@
+{
+  "agent": "Henrique Vasconcelos - Matemático",
+  "optimal_price_brl": 269.81,
+  "base_price_brl": 290.0,
+  "base_unit_margin_brl": 235.0,
+  "optimal_expected_margin_index": 235.98,
+  "theoretical_gain_pct": 0.42,
+  "bass_peak_adoption_month": 40.16,
+  "bass_trajectory_sample": [
+    {
+      "month": 1,
+      "new_adopters_theoretical": 37.01,
+      "cumulative_adopters_theoretical": 37.01
+    },
+    {
+      "month": 2,
+      "new_adopters_theoretical": 39.1,
+      "cumulative_adopters_theoretical": 76.12
+    },
+    {
+      "month": 3,
+      "new_adopters_theoretical": 41.29,
+      "cumulative_adopters_theoretical": 117.41
+    },
+    {
+      "month": 4,
+      "new_adopters_theoretical": 43.57,
+      "cumulative_adopters_theoretical": 160.98
+    },
+    {
+      "month": 5,
+      "new_adopters_theoretical": 45.94,
+      "cumulative_adopters_theoretical": 206.92
+    },
+    {
+      "month": 6,
+      "new_adopters_theoretical": 48.41,
+      "cumulative_adopters_theoretical": 255.33
+    },
+    {
+      "month": 23,
+      "new_adopters_theoretical": 101.89,
+      "cumulative_adopters_theoretical": 1536.88
+    },
+    {
+      "month": 24,
+      "new_adopters_theoretical": 105.25,
+      "cumulative_adopters_theoretical": 1642.13
+    }
+  ],
+  "governing_equations": {
+    "demand_function": "D(P) = D_0 * exp(-epsilon * (P - P_0) / P_0)",
+    "first_order_optimality": "P* = c_v + (P_0 / epsilon)",
+    "bass_diffusion_ode": "dN(t)/dt = (p + q * N(t)/M) * (M - N(t))"
+  }
+}
