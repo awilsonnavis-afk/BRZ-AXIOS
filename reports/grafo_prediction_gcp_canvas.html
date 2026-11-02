@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BRZ.DESK (Diário) & BRZ.PREDICTION (Semanal AXIOS) + Social Editorial</title>
+  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+</head>
+<body class="bg-[var(--background)] text-[var(--foreground)] antialiased p-5 select-none">
+  <div class="max-w-[1460px] mx-auto space-y-5">
+
+    <!-- Top Navigation Bar: Switch between the 3 Views -->
+    <div class="bg-[var(--card)] border border-[var(--border)] rounded-2xl p-4 shadow-sm flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+      <div>
+        <div class="flex flex-wrap items-center gap-2">
+          <span class="px-2.5 py-0.5 rounded text-xs font-bold bg-emerald-500/15 text-emerald-500 border border-emerald-500/30">
+            FOCO 100% PREDICTION & MARKET (POLÍTICA FORA DO PRINCIPAL)
+          </span>
+          <span class="px-2.5 py-0.5 rounded text-xs font-semibold bg-sky-500/15 text-sky-500 border border-sky-500/30">
+            SOMENTE BRASIL COM VOLUME
+          </span>
+        </div>
+        <h1 class="text-lg font-bold mt-1.5">
+          Arquitetura Funcional & Visual — BRZ.DESK (Dia a Dia) · BRZ.PREDICTION (Semanal AXIOS) · Social Hooks & Carrosséis
+        </h1>
+      </div>
+
+      <div class="flex flex-wrap items-center gap-2">
+        <button onclick="switchMainTab('desk')" id="tab-btn-desk" class="px-4 py-2 rounded-xl text-xs font-bold bg-emerald-600 text-white shadow-sm cursor-pointer transition">
+          1. 📈 BRZ.DESK Prediction (Dia a Dia por Ativo)
+        </button>
+        <button onclick="switchMainTab('prediction')" id="tab-btn-prediction" class="px-4 py-2 rounded-xl text-xs font-bold bg-[var(--content)] text-[var(--foreground)] border border-[var(--border)] cursor-pointer transition">
+          2. 📊 BRZ.PREDICTION (Semanal AXIOS + Todos Predictions)
+        </button>
+        <button onclick="switchMainTab('social')" id="tab-btn-social" class="px-4 py-2 rounded-xl text-xs font-bold bg-[var(--content)] text-[var(--foreground)] border border-[var(--border)] cursor-pointer transition">
+          3. 📱 Editorial Social (Hook Longo + Carrossel Oportunidades)
+        </button>
+        <button onclick="switchMainTab('graph')" id="tab-btn-graph" class="px-4 py-2 rounded-xl text-xs font-bold bg-[var(--content)] text-[var(--foreground)] border border-[var(--border)] cursor-pointer transition">
+          4. 🏛️ Diagrama do Grafo GCP
+        </button>
+      </div>
+    </div>
+
+    <!-- ======================================================================================== -->
+    <!-- VIEW 1: BRZ.DESK PREDICTION (DIA A DIA — TUDO GIRA EM TORNO DA PREDIÇÃO ESCOLHIDA)       -->
+    <!-- ======================================================================================== -->
+    <div id="view-desk" class="space-y-4">
+      <!-- Asset / Prediction Selector Bar -->
+      <div class="bg-[var(--card)] border border-[var(--border)] rounded-2xl p-4 shadow-sm flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-emerald-500">
+            BRZ.DESK PREDICTION · VISÃO DIA A DIA (TERMINAL INTERATIVO)
+          </span>
+          <p class="text-xs text-[var(--muted-foreground)] mt-0.5">
+            Escolha a Predição abaixo: <strong>toda a página do Desk</strong> (Gráfico do Terminal, Kalshi + Polymarket, Análise Fundamentalista, Análise Gráfica, Notícias e Boleta) muda para o ativo escolhido.
+          </p>
+        </div>
+        <div class="flex flex-wrap gap-2">
+          <button onclick="selectWorkspace('usdbrl')" id="ws-btn-usdbrl" class="px-3.5 py-2 rounded-xl text-xs font-bold bg-emerald-600 text-white cursor-pointer transition">
+            💵 BRL x Dólar (USD/BRL) · $574.5K Vol
+          </button>
+          <button onclick="selectWorkspace('ipca')" id="ws-btn-ipca" class="px-3.5 py-2 rounded-xl text-xs font-bold bg-[var(--content)] text-[var(--foreground)] border border-[var(--border)] cursor-pointer transition">
+            📈 IPCA Inflação 2026 · $349.8K Vol
+          </button>
+          <button onclick="selectWorkspace('selic')" id="ws-btn-selic" class="px-3.5 py-2 rounded-xl text-xs font-bold bg-[var(--content)] text-[var(--foreground)] border border-[var(--border)] cursor-pointer transition">
+            🏦 Copom Taxa Selic · $126.1K Vol
+          </button>
+        </div>
+      </div>
+
+      <!-- Main Terminal Grid -->
+      <div class="grid grid-cols-1 xl:grid-cols-12 gap-4">
+        <!-- Left & Center (8 Cols): Terminal Chart + Kalshi/Polymarket Books + Fundamental & Technical -->
+        <div class="xl:col-span-8 space-y-4">
+
+          <!-- 1. TERMINAL CHART & KALSHI vs POLYMARKET PROBABILITY CURVE -->
+          <div class="bg-[var(--card)] border border-[var(--border)] rounded-2xl p-4 shadow-sm">
+            <div class="flex flex-wrap items-center justify-between gap-2 border-b border-[var(--border)] pb-3">
+              <div>
+                <div class="flex items-center gap-2">
+                  <span id="desk-symbol-badge" class="px-2 py-0.5 rounded text-xs font-mono font-bold bg-emerald-500/15 text-emerald-500">FX_IDC:USDBRL</span>
+                  <h2 id="desk-title" class="text-base font-bold">BRL x Dólar (USD/BRL) — Terminal & Curva Kalshi / Polymarket</h2>
+                </div>
+                <p id="desk-subtitle" class="text-xs text-[var(--muted-foreground)] mt-0.5">
+                  Spot PTAX: R$ 5,7640 (-0,42%) · Volume Brasil Kalshi: US$ 574.531,52 · Open Interest: 24.275 contratos
+                </p>
+              </div>
+              <div class="flex items-center gap-1.5 text-xs">
+                <span class="px-2 py-1 rounded bg-[var(--content)] font-mono">15m</span>
+                <span class="px-2 py-1 rounded bg-emerald-600 text-white font-mono font-bold">1H</span>
+                <span class="px-2 py-1 rounded bg-[var(--content)] font-mono">1D</span>
+                <span class="px-2 py-1 rounded bg-[var(--content)] font-mono">1W</span>
+              </div>
+            </div>
+
+            <!-- Dual Visual Chart (Spot Price + Implied Probability Band SVG) -->
+            <div class="mt-4 bg-[var(--content)]/60 border border-[var(--border)] rounded-xl p-4">
+              <div class="flex flex-wrap items-center justify-between text-xs mb-2">
+                <div class="flex items-center gap-4">
+                  <span class="flex items-center gap-1.5 font-semibold text-emerald-500">
+                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 inline-block"></span>
+                    <span id="chart-legend-1">Preço Spot / Referência (R$ 5,7640)</span>
+                  </span>
+                  <span class="flex items-center gap-1.5 font-semibold text-sky-500">
+                    <span class="w-2.5 h-2.5 rounded-full bg-sky-500 inline-block"></span>
+                    <span id="chart-legend-2">Prob. Kalshi &lt; R$ 6,50 (88,0% NO / 12,0¢ YES)</span>
+                  </span>
+                  <span class="flex items-center gap-1.5 font-semibold text-amber-500">
+                    <span class="w-2.5 h-2.5 rounded-full bg-amber-500 inline-block"></span>
+                    <span id="chart-legend-3">Banda Técnica Resistência (R$ 5,8650 – R$ 5,9200)</span>
+                  </span>
+                </div>
+                <span class="text-xs font-mono text-[var(--muted-foreground)]">Modelo Ornstein-Uhlenbeck (20.000 runs)</span>
+              </div>
+
+              <svg viewBox="0 0 800 210" class="w-full h-48 overflow-visible">
+                <!-- Grid lines -->
+                <line x1="40" y1="25" x2="770" y2="25" stroke="currentColor" stroke-opacity="0.12" stroke-dasharray="4 4" />
+                <line x1="40" y1="75" x2="770" y2="75" stroke="currentColor" stroke-opacity="0.12" stroke-dasharray="4 4" />
+                <line x1="40" y1="125" x2="770" y2="125" stroke="currentColor" stroke-opacity="0.12" stroke-dasharray="4 4" />
+                <line x1="40" y1="175" x2="770" y2="175" stroke="currentColor" stroke-opacity="0.12" stroke-dasharray="4 4" />
+
+                <!-- Resistance Zone Band -->
+                <rect x="40" y="32" width="730" height="26" fill="#f59e0b" fill-opacity="0.12" />
+                <text x="50" y="49" fill="#f59e0b" font-size="12" font-weight="bold" id="svg-band-label">
+                  ZONA DE EXAUSTÃO &amp; DEFESA DE SWAPS BCB (R$ 5,8650 – R$ 5,9200)
+                </text>
+
+                <!-- Spot / Primary Line (Emerald) -->
+                <polyline id="svg-line-spot" fill="none" stroke="#10b981" stroke-width="3.5"
+                  points="50,115 160,102 270,82 380,68 490,98 600,118 710,130 760,135" />
+
+                <!-- Kalshi / Polymarket Implied Probability Line (Sky Blue) -->
+                <polyline id="svg-line-prob" fill="none" stroke="#0ea5e9" stroke-width="3" stroke-dasharray="6 4"
+                  points="50,145 160,138 270,125 380,112 490,95 600,82 710,74 760,68" />
+
+                <!-- End Markers -->
+                <circle cx="760" cy="135" r="5" fill="#10b981" />
+                <circle cx="760" cy="68" r="5" fill="#0ea5e9" />
+                <text x="645" y="156" fill="#10b981" font-size="12" font-weight="bold" id="svg-spot-tag">Spot: R$ 5,7640</text>
+                <text x="630" y="60" fill="#0ea5e9" font-size="12" font-weight="bold" id="svg-prob-tag">Consenso Mercado: 88,0%</text>
+              </svg>
+            </div>
+          </div>
+
+          <!-- 2. O QUE ESTÁ SENDO COLOCADO NO KALSHI E NO POLYMARKET (ORDERBOOKS LADO A LADO) -->
+          <div class="bg-[var(--card)] border border-[var(--border)] rounded-2xl p-4 shadow-sm">
+            <div class="flex items-center justify-between border-b border-[var(--border)] pb-2.5">
+              <div>
+                <span class="text-xs font-bold uppercase tracking-wider text-sky-500">
+                  LIVROS DE OFERTAS AO VIVO · O QUE ESTÁ SENDO COLOCADO AGORA
+                </span>
+                <h3 class="text-sm font-bold mt-0.5">Posições Abertas, Strikes, Bid/Ask e Liquidez no Kalshi vs. Polymarket</h3>
+              </div>
+              <span id="desk-book-vol-badge" class="text-xs font-mono font-bold px-2.5 py-1 rounded bg-sky-500/15 text-sky-500">
+                Vol Combinado: US$ 899.301
+              </span>
+            </div>
+
+            <p id="desk-book-summary" class="text-xs text-[var(--muted-foreground)] mt-2.5 leading-relaxed">
+              Institucionais nos EUA usam a série KXUSDBRLMAX-26DEC31 da Kalshi (US$ 574.531 de volume) para vender prêmio de cauda acima de R$ 6,50 (comprando NO a 89¢), enquanto no Polymarket os livros de Selic (US$ 126.098) e IPCA (US$ 198.671) precificam manutenção do diferencial de juros que sustenta o Real.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mt-3" id="desk-books-grid">
+              <!-- Populated dynamically by JS -->
+            </div>
+          </div>
+
+          <!-- 3. ANÁLISE FUNDAMENTALISTA & ANÁLISE GRÁFICA COM DADOS -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <!-- Fundamental Analysis Card -->
+            <div class="bg-[var(--card)] border border-[var(--border)] rounded-2xl p-4 shadow-sm space-y-3">
+              <div class="flex items-center justify-between border-b border-[var(--border)] pb-2">
+                <span class="text-xs font-bold uppercase tracking-wider text-emerald-500">
+                  🏛️ Análise Fundamentalista com Dados
+                </span>
+                <span class="text-xs text-[var(--muted-foreground)]">Gabriel Torres (05) + Clara (02)</span>
+              </div>
+              <p id="desk-fund-summary" class="text-xs text-[var(--muted-foreground)] leading-relaxed"></p>
+              <div id="desk-fund-table" class="space-y-2 text-xs"></div>
+            </div>
+
+            <!-- Technical & Graphical Analysis Card -->
+            <div class="bg-[var(--card)] border border-[var(--border)] rounded-2xl p-4 shadow-sm space-y-3">
+              <div class="flex items-center justify-between border-b border-[var(--border)] pb-2">
+                <span class="text-xs font-bold uppercase tracking-wider text-amber-500">
+                  📐 Análise Gráfica &amp; Quantitativa
+                </span>
+                <span class="text-xs text-[var(--muted-foreground)]">Henrique (01) + Lucas (03)</span>
+              </div>
+              <p id="desk-tech-summary" class="text-xs text-[var(--muted-foreground)] leading-relaxed"></p>
+              <div id="desk-tech-table" class="space-y-2 text-xs"></div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right Column (4 Cols): Tribunal 5x5 + 3-Lot Boleta + Curated Market News -->
+        <div class="xl:col-span-4 space-y-4">
+
+          <!-- 4. TRIBUNAL ATUARIAL 5x5 + BOLETA EM 3 LOTES (FREE-ROLL) -->
+          <div class="bg-[var(--card)] border-2 border-emerald-500/60 rounded-2xl p-4 shadow-sm space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold uppercase tracking-wider text-emerald-500">
+                ⚖️ Tribunal 5x5 + Boleta 3 Lotes
+              </span>
+              <span id="desk-edge-badge" class="px-2 py-0.5 rounded text-xs font-bold bg-emerald-500/15 text-emerald-500">+350 bps Edge</span>
+            </div>
+
+            <div class="p-3 rounded-xl bg-[var(--content)] border border-[var(--border)]">
+              <div class="text-xs font-bold text-[var(--foreground)]" id="desk-rec-action">
+                BUY NO on USD/BRL &gt;= 6.50 (KXUSDBRLMAX-26DEC31-T6.4999)
+              </div>
+              <div class="grid grid-cols-3 gap-2 mt-2.5 text-center">
+                <div class="p-2 rounded-lg bg-rose-500/10 border border-rose-500/30">
+                  <div class="text-xs text-rose-500 font-semibold">5 Pessimistas</div>
+                  <div id="desk-pess-prob" class="text-sm font-bold mt-0.5">88,4%</div>
+                </div>
+                <div class="p-2 rounded-lg bg-emerald-500/10 border border-emerald-500/30">
+                  <div class="text-xs text-emerald-500 font-semibold">5 Otimistas</div>
+                  <div id="desk-opt-prob" class="text-sm font-bold mt-0.5">95,8%</div>
+                </div>
+                <div class="p-2 rounded-lg bg-sky-500/15 border border-sky-500/40">
+                  <div class="text-xs text-sky-500 font-bold">Juiz Supremo</div>
+                  <div id="desk-judge-prob" class="text-sm font-bold mt-0.5">92,5%</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 3-Lot Execution Sheet -->
+            <div class="space-y-2 text-xs" id="desk-boleta-lots"></div>
+          </div>
+
+          <!-- 5. NOTÍCIAS FILTRADAS DO ATIVO ESCOLHIDO (SEM POLÍTICA NO PRINCIPAL) -->
+          <div class="bg-[var(--card)] border border-[var(--border)] rounded-2xl p-4 shadow-sm space-y-3">
+            <div class="flex items-center justify-between border-b border-[var(--border)] pb-2">
+              <span class="text-xs font-bold uppercase tracking-wider text-sky-500">
+                📰 Notícias que Movem este Mercado
+              </span>
+              <span class="text-xs text-[var(--muted-foreground)]">Market &amp; Prediction First</span>
+            </div>
+            <div id="desk-news-list" class="space-y-2.5"></div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ======================================================================================== -->
+    <!-- VIEW 2: BRZ.PREDICTION (VISÃO SEMANAL + RELATÓRIO AXIOS PRINCIPAL VOLUME + RADAR)        -->
+    <!-- ======================================================================================== -->
+    <div id="view-prediction" class="hidden space-y-5">
+      <!-- AXIOS WEEKLY VOLUME LEADER REPORT HERO -->
+      <div class="bg-[var(--card)] border-2 border-sky-500/60 rounded-2xl p-5 shadow-sm space-y-4">
+        <div class="flex flex-wrap items-center justify-between gap-2 border-b border-[var(--border)] pb-3">
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="px-2.5 py-0.5 rounded text-xs font-bold bg-sky-500/15 text-sky-500">
+                RELATÓRIO SEMANAL AUTOMÁTICO · MOTOR AXIOS
+              </span>
+              <span class="px-2.5 py-0.5 rounded text-xs font-mono font-semibold bg-emerald-500/15 text-emerald-500">
+                LÍDER DE VOLUME DA SEMANA: US$ 574.531 (USD/BRL) + US$ 475.890 (IPCA/SELIC)
+              </span>
+            </div>
+            <h2 class="text-lg font-bold mt-2">
+              AXIOS Weekly Volume Leader Report: Por que US$ 1,05 Milhão em Mercados Preditivos do Brasil Está Ancorado no Dólar (USD/BRL), IPCA e Carry da Selic a 14,75%
+            </h2>
+          </div>
+          <div class="text-right text-xs text-[var(--muted-foreground)]">
+            <div>Orquestrador: <strong>Axio Vance (Argon)</strong></div>
+            <div>Atualizado a cada janela diária (09h, 11h, 17h, 19h ET)</div>
+          </div>
+        </div>
+
+        <p class="text-sm text-[var(--muted-foreground)] leading-relaxed">
+          O <strong>AXIOS</strong> varre continuamente a Polymarket e a Kalshi para identificar o contrato brasileiro de <strong>maior volume financeiro da semana</strong> e gerar este relatório executivo para os clientes. Nesta semana, o maior volume isolado está na série <code>KXUSDBRLMAX-26DEC31</code> da Kalshi (<strong>US$ 574.531,52</strong>), seguida pelo complexo de Inflação IPCA 2026 (<strong>US$ 349.792,08</strong>) e Decisão Selic do Copom (<strong>US$ 126.098,64</strong>).
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+          <div class="p-4 rounded-xl bg-[var(--content)] border border-[var(--border)] space-y-1.5">
+            <span class="font-bold text-emerald-500">1. Radiografia do Maior Volume (USD/BRL)</span>
+            <p class="text-[var(--muted-foreground)] leading-relaxed">
+              A série <code>KXUSDBRLMAX-26DEC31</code> soma US$ 574.531 em 5 barreiras: R$ 6,00 (22¢, US$ 173k vol), R$ 6,50 (12¢, US$ 127k vol, 8.425 OI), R$ 6,75 (10¢), R$ 7,00 (2¢) e R$ 7,25 (1¢). A absorção institucional em <strong>NO R$ 6,50 a 89¢</strong> mostra confiança no teto cambial.
+            </p>
+          </div>
+          <div class="p-4 rounded-xl bg-[var(--content)] border border-[var(--border)] space-y-1.5">
+            <span class="font-bold text-sky-500">2. Confluência Fundamentalista &amp; Gráfica</span>
+            <p class="text-[var(--muted-foreground)] leading-relaxed">
+              O Polymarket precifica 48,7% de chance de IPCA entre 5,00%–5,49% e 82,4% de manutenção da Selic em 14,75%. Esse diferencial de ~1.000 bps sobre o Fed gera fluxo vendedor de dólar sempre que o gráfico testa R$ 5,86–R$ 5,92.
+            </p>
+          </div>
+          <div class="p-4 rounded-xl bg-[var(--content)] border border-[var(--border)] space-y-1.5">
+            <span class="font-bold text-amber-500">3. Top 3 Oportunidades da Semana</span>
+            <ul class="text-[var(--muted-foreground)] space-y-1">
+              <li>• <strong>Kalshi USD/BRL &lt; 6,50:</strong> NO a 89¢ (Juiz: 92,5% · +350 bps).</li>
+              <li>• <strong>Poly IPCA 5,00%–5,49%:</strong> YES a 49¢ (Juiz: 56,2% · +720 bps).</li>
+              <li>• <strong>Poly Copom Hold Nov:</strong> YES a 82,4¢ vs 91% na B3 (+610 bps).</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- ALL QUALIFIED BRAZIL PREDICTIONS + MARKET NEWS -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+        <div class="lg:col-span-2 bg-[var(--card)] border border-[var(--border)] rounded-2xl p-4 shadow-sm space-y-3">
+          <div class="flex items-center justify-between border-b border-[var(--border)] pb-2.5">
+            <span class="text-xs font-bold uppercase tracking-wider text-emerald-500">
+              TODOS OS PREDICTIONS DO BRASIL COM VOLUME (23 CONTRATOS ≥ US$ 10.000 · US$ 2,64M)
+            </span>
+            <span class="text-xs text-[var(--muted-foreground)]">Clique para abrir no BRZ.DESK</span>
+          </div>
+          <div class="space-y-2.5 text-xs">
+            <div onclick="switchMainTab('desk'); selectWorkspace('usdbrl');" class="p-3 rounded-xl bg-[var(--content)] border border-[var(--border)] hover:border-emerald-500 cursor-pointer transition flex items-center justify-between">
+              <div>
+                <span class="font-bold text-emerald-500">#1 · Kalshi KXUSDBRLMAX-26DEC31</span>
+                <div class="font-semibold text-sm mt-0.5">How high will the US Dollar get against the Brazilian Real in 2026?</div>
+                <div class="text-[var(--muted-foreground)] mt-0.5">ADRs Expostos: EWZ, PBR, VALE, ITUB, NU · Strike 6,00 (22¢) | Strike 6,50 (12¢ Yes / 89¢ No)</div>
+              </div>
+              <div class="text-right shrink-0">
+                <div class="font-mono font-bold text-sm">US$ 574.531</div>
+                <div class="text-emerald-500 font-semibold">Abrir no Desk →</div>
+              </div>
+            </div>
+
+            <div onclick="switchMainTab('desk'); selectWorkspace('ipca');" class="p-3 rounded-xl bg-[var(--content)] border border-[var(--border)] hover:border-emerald-500 cursor-pointer transition flex items-center justify-between">
+              <div>
+                <span class="font-bold text-sky-500">#2 · Polymarket #181671 + Kalshi KXBRAZILINF</span>
+                <div class="font-semibold text-sm mt-0.5">Brazil Annual Inflation (IPCA) in 2026 — 5.00% to 5.49% Bracket</div>
+                <div class="text-[var(--muted-foreground)] mt-0.5">ADRs Expostos: ITUB, BBD, EWZ, NU · Mercado: 48,7¢ (0,6¢ spread) vs Argon: 56,2%</div>
+              </div>
+              <div class="text-right shrink-0">
+                <div class="font-mono font-bold text-sm">US$ 349.792</div>
+                <div class="text-emerald-500 font-semibold">Abrir no Desk →</div>
+              </div>
+            </div>
+
+            <div onclick="switchMainTab('desk'); selectWorkspace('selic');" class="p-3 rounded-xl bg-[var(--content)] border border-[var(--border)] hover:border-emerald-500 cursor-pointer transition flex items-center justify-between">
+              <div>
+                <span class="font-bold text-amber-500">#3 · Polymarket #798441</span>
+                <div class="font-semibold text-sm mt-0.5">Banco Central do Brasil (Copom) November Decision — No Change (14.75%)</div>
+                <div class="text-[var(--muted-foreground)] mt-0.5">ADRs Expostos: ITUB, BBD, NU, EWZ · Mercado: 82,4¢ vs Curva DI B3: 91,0%</div>
+              </div>
+              <div class="text-right shrink-0">
+                <div class="font-mono font-bold text-sm">US$ 126.098</div>
+                <div class="text-emerald-500 font-semibold">Abrir no Desk →</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-[var(--card)] border border-[var(--border)] rounded-2xl p-4 shadow-sm space-y-3">
+          <div class="border-b border-[var(--border)] pb-2.5">
+            <span class="text-xs font-bold uppercase tracking-wider text-sky-500">
+              NOTÍCIAS SEMANAIS DE MERCADO &amp; PREDICTION
+            </span>
+          </div>
+          <div class="space-y-2.5 text-xs">
+            <div class="p-3 rounded-xl bg-[var(--content)] border border-[var(--border)]">
+              <span class="text-emerald-500 font-bold">CURRENCIES · $574.5K VOL</span>
+              <p class="font-semibold mt-1">US prediction markets bet $574,500 on whether Brazil's currency crosses 6.00 per dollar — what it means for EWZ and US-listed ADRs</p>
+            </div>
+            <div class="p-3 rounded-xl bg-[var(--content)] border border-[var(--border)]">
+              <span class="text-sky-500 font-bold">MARKETS · $349.8K VOL</span>
+              <p class="font-semibold mt-1">With $349,800 in combined volume, Polymarket and Kalshi lock onto a 5.00%–5.49% Brazilian inflation range for 2026</p>
+            </div>
+            <div class="p-3 rounded-xl bg-[var(--content)] border border-[var(--border)]">
+              <span class="text-amber-500 font-bold">INVESTING · $126.1K VOL</span>
+              <p class="font-semibold mt-1">Offshore prediction markets price Copom rate hold at 82.4c while domestic B3 futures price 91% — inside the 860-bps rate gap</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ======================================================================================== -->
+    <!-- VIEW 3: EDITORIAL REDES SOCIAIS (HOOK LONGO + CARROSSEL CAÇADOR DE OPORTUNIDADES)        -->
+    <!-- ======================================================================================== -->
+    <div id="view-social" class="hidden space-y-4">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
+        <!-- Left 5 Cols: Expanded Hook Caption Preview -->
+        <div class="lg:col-span-5 bg-[var(--card)] border border-[var(--border)] rounded-2xl p-5 shadow-sm space-y-3">
+          <div class="flex items-center justify-between border-b border-[var(--border)] pb-2.5">
+            <span class="text-xs font-bold uppercase tracking-wider text-emerald-500">
+              NOVO PADRÃO DE HOOK PARA REDES SOCIAIS (45–65 PALAVRAS)
+            </span>
+            <span class="text-xs px-2 py-0.5 rounded bg-emerald-500/15 text-emerald-500 font-semibold">Mais Texto &amp; Tese</span>
+          </div>
+          <p class="text-xs text-[var(--muted-foreground)]">
+            Substitui o gancho curto de 1 linha por um <strong>Hook Analítico Denso</strong> logo na abertura da legenda e na capa, entregando o volume em jogo, a distorção entre mercados e os ativos impactados:
+          </p>
+          <div class="p-4 rounded-xl bg-[var(--content)] border border-[var(--border)] text-xs space-y-2.5 leading-relaxed">
+            <p class="font-semibold text-[var(--foreground)]">
+              "More than $574,500 is currently locked inside CFTC-regulated Kalshi contracts betting on how high the US dollar can climb against the Brazilian real by December — and the orderbook is flashing a major signal for anyone holding NYSE-listed Brazilian stocks (EWZ, PBR, VALE, ITUB, NU). While retail headlines focus on daily currency noise around R$ 5.76, institutional order flow is pricing an 88% probability that USD/BRL never touches R$ 6.50, backed by a 1,000-basis-point interest-rate advantage over the Federal Reserve."
+            </p>
+            <p class="text-[var(--muted-foreground)]">
+              When you buy a Brazilian ADR in your US brokerage account, you are taking two positions at once: the company's equity and the Brazilian real. Swipe through the 6 slides to see what Kalshi and Polymarket orderbooks are pricing right now, the fundamental and technical levels defending the real, and which news catalysts can move the spread this week.
+            </p>
+            <p class="text-emerald-500 font-semibold">
+              Explore the live USD/BRL terminal on BRZ.DESK &amp; the weekly AXIOS Volume Report on BRZ.PREDICTION (link in bio).
+            </p>
+          </div>
+        </div>
+
+        <!-- Right 7 Cols: Interactive 6-Slide Opportunity Carousel -->
+        <div class="lg:col-span-7 bg-[var(--card)] border border-[var(--border)] rounded-2xl p-5 shadow-sm space-y-4">
+          <div class="flex items-center justify-between border-b border-[var(--border)] pb-2.5">
+            <span class="text-xs font-bold uppercase tracking-wider text-sky-500">
+              CARROSSEL DE 6 SLIDES · CAÇADOR DE OPORTUNIDADES &amp; NOTÍCIAS DE MERCADO
+            </span>
+            <div class="flex items-center gap-1.5">
+              <button onclick="setSlide(0)" class="slide-btn px-2.5 py-1 rounded text-xs font-bold bg-emerald-600 text-white cursor-pointer">1</button>
+              <button onclick="setSlide(1)" class="slide-btn px-2.5 py-1 rounded text-xs font-bold bg-[var(--content)] cursor-pointer">2</button>
+              <button onclick="setSlide(2)" class="slide-btn px-2.5 py-1 rounded text-xs font-bold bg-[var(--content)] cursor-pointer">3</button>
+              <button onclick="setSlide(3)" class="slide-btn px-2.5 py-1 rounded text-xs font-bold bg-[var(--content)] cursor-pointer">4</button>
+              <button onclick="setSlide(4)" class="slide-btn px-2.5 py-1 rounded text-xs font-bold bg-[var(--content)] cursor-pointer">5</button>
+              <button onclick="setSlide(5)" class="slide-btn px-2.5 py-1 rounded text-xs font-bold bg-[var(--content)] cursor-pointer">6</button>
+            </div>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-[var(--content)] border-2 border-emerald-500/40 min-h-[260px] flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between">
+                <span id="car-kicker" class="text-xs font-bold uppercase tracking-wider text-emerald-500">
+                  SLIDE 1/6 · COVER — LONG-FORM OPPORTUNITY HOOK
+                </span>
+                <span class="text-xs font-mono text-[var(--muted-foreground)]">BRZ.NEWS · 1080x1350 (4:5)</span>
+              </div>
+              <h3 id="car-title" class="text-xl font-bold mt-3 leading-snug">
+                Why $574.5K in Kalshi Contracts Is Betting Against a Brazilian Currency Blowout
+              </h3>
+              <p id="car-body" class="text-sm text-[var(--muted-foreground)] mt-3 leading-relaxed">
+                Spot USD/BRL trades near R$ 5.76, but CFTC-regulated prediction markets price an 88% probability that the real stays below R$ 6.50 through year-end — here is how the 14.75% Selic rate protects dollar-denominated ADRs.
+              </p>
+            </div>
+            <div class="pt-4 border-t border-[var(--border)] flex items-center justify-between text-xs text-[var(--muted-foreground)]">
+              <span>Fonte: Kalshi KXUSDBRLMAX + Polymarket + BCB PTAX</span>
+              <span class="text-emerald-500 font-semibold">Arraste para ver o Orderbook e Catalisadores →</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ======================================================================================== -->
+    <!-- VIEW 4: DIAGRAMA DO GRAFO GCP (ATUALIZADO COM BRZ.DESK DIÁRIO E BRZ.PREDICTION SEMANAL)   -->
+    <!-- ======================================================================================== -->
+    <div id="view-graph" class="hidden space-y-4">
+      <div class="bg-[var(--card)] border border-[var(--border)] rounded-2xl p-5 shadow-sm space-y-4">
+        <h2 class="text-base font-bold text-emerald-500">
+          Fluxo Completo do Grafo no GCP (`brz-news-prod`): Separação Dia a Dia (`BRZ.DESK`) vs. Semanal (`BRZ.PREDICTION`)
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 text-xs">
+          <div class="p-4 rounded-xl bg-[var(--content)] border border-[var(--border)] space-y-1.5">
+            <span class="font-bold text-sky-500">1. Ingestão &amp; Hard Gate Brasil</span>
+            <p class="text-[var(--muted-foreground)]">
+              Coleta Polymarket Gamma + Kalshi v2 + BCB/SEC + TradingView. Descarta política pura da capa e filtra <strong>somente Brasil com volume</strong> (≥US$ 10k para Radar e ≥US$ 50k para Desk).
+            </p>
+          </div>
+          <div class="p-4 rounded-xl bg-[var(--content)] border border-[var(--border)] space-y-1.5">
+            <span class="font-bold text-emerald-500">2. Motor Diário → BRZ.DESK</span>
+            <p class="text-[var(--muted-foreground)]">
+              Para cada predição (ex.: <code>BRL x Dólar</code>, <code>IPCA</code>, <code>Selic</code>), consolida Gráfico Terminal, Books Kalshi+Polymarket, Análise Fundamentalista, Análise Gráfica, Notícias do Ativo e Boleta 3 Lotes em <code>desk_predictions/latest</code>.
+            </p>
+          </div>
+          <div class="p-4 rounded-xl bg-[var(--content)] border border-[var(--border)] space-y-1.5">
+            <span class="font-bold text-purple-500">3. Motor Semanal AXIOS → BRZ.PREDICTION</span>
+            <p class="text-[var(--muted-foreground)]">
+              O <strong>AXIOS</strong> elege o contrato de <strong>Maior Volume da Semana</strong> (US$ 574,5k em USD/BRL), gera o Relatório Semanal Completo para os clientes e atualiza o painel com todos os 23 predictions em <code>prediction_radar/latest</code>.
+            </p>
+          </div>
+          <div class="p-4 rounded-xl bg-[var(--content)] border border-[var(--border)] space-y-1.5">
+            <span class="font-bold text-amber-500">4. Social Media (Hook Longo + 6 Slides)</span>
+            <p class="text-[var(--muted-foreground)]">
+              Gera legendas com Hook Analítico Denso (45–65 palavras) e Carrosséis de 6 slides focados em achar oportunidades de mercado e monitorar notícias que movem preços.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    const WORKSPACES = {
+      usdbrl: {
+        symbol: "FX_IDC:USDBRL",
+        title: "BRL x Dólar (USD/BRL) — Terminal & Curva Kalshi / Polymarket",
+        subtitle: "Spot PTAX: R$ 5,7640 (-0,42%) · Volume Brasil Kalshi: US$ 574.531,52 · Open Interest: 24.275 contratos",
+        legend1: "Preço Spot USD/BRL (R$ 5,7640)",
+        legend2: "Prob. Kalshi < R$ 6,50 (88,0% NO / 12,0¢ YES)",
+        legend3: "Resistência Gráfica & Swaps BCB (R$ 5,8650 – R$ 5,9200)",
+        bandLabel: "ZONA DE EXAUSTÃO & DEFESA DE SWAPS BCB (R$ 5,8650 – R$ 5,9200)",
+        spotPoints: "50,115 160,102 270,82 380,68 490,98 600,118 710,130 760,135",
+        probPoints: "50,145 160,138 270,125 380,112 490,95 600,82 710,74 760,68",
+        spotTag: "Spot: R$ 5,7640",
+        probTag: "Kalshi NO >=6,50: 88,0%",
+        bookVol: "Vol Combinado: US$ 899.301",
+        bookSummary: "Institucionais nos EUA usam a série KXUSDBRLMAX-26DEC31 da Kalshi (US$ 574.531 de volume) para vender prêmio de cauda acima de R$ 6,50 (comprando NO a 89¢), enquanto no Polymarket os livros de Selic (US$ 126.098) e IPCA (US$ 198.671) precificam manutenção do diferencial de juros que sustenta o Real.",
+        books: [
+          { ex: "KALSHI · KXUSDBRLMAX-26DEC31-T6.4999", name: "USD/BRL toca R$ 6,50+ até Dez/2026 (Alvo Desk)", bidAsk: "YES: 11¢/12¢ · NO: 88¢/89¢", vol: "US$ 127.001 · OI: 8.425", sig: "Spread de 1¢ com forte absorção compradora em NO a 89¢" },
+          { ex: "KALSHI · KXUSDBRLMAX-26DEC31-T5.9999", name: "USD/BRL toca R$ 6,00+ até Dez/2026", bidAsk: "YES: 16¢/34¢ (Last 22¢)", vol: "US$ 173.222 · OI: 6.917", sig: "Defesa vendedora institucional na barreira de R$ 6,00" },
+          { ex: "POLYMARKET · #3347918 (Correlato Carry)", name: "Copom mantém Selic em 14,75% em Novembro", bidAsk: "YES: 81,9¢ / 82,4¢", vol: "US$ 126.098 · Liq: US$ 24,1k", sig: "82,4% de consenso em manutenção da Selic protege o Real" },
+          { ex: "POLYMARKET · #1243901 (Correlato IPCA)", name: "Inflação IPCA 2026 entre 5,00% e 5,49%", bidAsk: "YES: 48,4¢ / 49,0¢", vol: "US$ 198.671 · Liq: US$ 8,4k", sig: "IPCA acima do teto impede cortes prematuros de juros" }
+        ],
+        fundSummary: "O diferencial de juros reais (~9,5% ex-ante, Selic a 14,75% vs. Fed Funds a 4,50%–4,75%) gera um carry trade superior a 1.000 bps a favor do Real, apoiado por US$ 358,4B em reservas cambiais do BCB.",
+        fundRows: [
+          "• Taxa Selic Meta (BCB SGS 432): 14,75% a.a. (+1.000 bps vs Fed)",
+          "• Câmbio PTAX Fechamento (SGS 1): R$ 5,7640 (12,7% abaixo de R$ 6,50)",
+          "• Reservas Internacionais BCB: US$ 358,4 Bilhões (Swaps > US$ 100B)",
+          "• Balança Comercial 12M: Superávit de +US$ 76,2 Bilhões"
+        ],
+        techSummary: "No gráfico diário e 1H (FX_IDC:USDBRL), o par encontra exaustão compradora em R$ 5,8650–R$ 5,9200 (2 desvios-padrão de Ornstein-Uhlenbeck). Probabilidade de toque em R$ 6,50 nas 20.000 simulações é de apenas 7,5%.",
+        techRows: [
+          "• Suporte Técnico Primário: R$ 5,6800 / R$ 5,6200",
+          "• Resistência Gráfica Imediata: R$ 5,8650 / R$ 5,9200",
+          "• RSI (14 Períodos Diário): 46,8 (Perda de força compradora no USD)",
+          "• Volatilidade Realizada 30d vs Implícita: 14,2% vs 17,8% (Prêmio caro)"
+        ],
+        edge: "+350 bps Edge",
+        recAction: "BUY NO on USD/BRL >= 6.50 (Kalshi @ 89,0¢)",
+        pess: "88,4%",
+        opt: "95,8%",
+        judge: "92,5%",
+        lots: [
+          "• Lote 1 (40% = 44,94 shares): Venda Limit a 94,0¢ (P(touch) = 86%) -> +US$ 42,24",
+          "• Lote 2 (40% = 44,94 shares): Venda Limit a 97,0¢ (P(touch) = 74%) -> +US$ 43,59 (Trava Free-Roll)",
+          "• Lote 3 (20% = 22,48 shares): Hold até 100¢ -> Ciclo Total US$ 108,31 · Stop: 78,0¢"
+        ],
+        news: [
+          { tag: "HIGH IMPACT · USD/BRL & EWZ", time: "22m ago", title: "US prediction markets bet $574,500 on whether Brazil's currency crosses 6.00 per dollar — what it means for EWZ and US-listed ADRs" },
+          { tag: "BCB INTERVENTION · PTAX", time: "1h 15m ago", title: "Central Bank PTAX fixings and swap auctions cap USD/BRL volatility below 5.85 resistance zone" },
+          { tag: "CARRY TRADE · ADRs", time: "3h ago", title: "Why a 1,000-bps interest rate gap between Brazil and the Fed drives NYSE-listed Brazilian bank earnings (ITUB, NU)" }
+        ]
+      },
+      ipca: {
+        symbol: "AMEX:EWZ",
+        title: "IPCA Inflação 2026 (5,00%–5,49%) — Terminal & Curva Polymarket / Kalshi",
+        subtitle: "Mediana Focus: 5,18% a.a. · Volume Combinado: US$ 349.792,08 (Polymarket #181671 + Kalshi KXBRAZILINF)",
+        legend1: "Projeção Focus IPCA (5,18% a.a.)",
+        legend2: "Prob. Polymarket 5,00%–5,49% (48,7¢)",
+        legend3: "Teto da Meta Oficial CMN (4,50% a.a.)",
+        bandLabel: "FAIXA CENTRAL PRECIFICADA PELO MERCADO (5,00% A 5,49% IPCA ANUAL)",
+        spotPoints: "50,140 160,132 270,120 380,110 490,98 600,90 710,82 760,76",
+        probPoints: "50,150 160,140 270,128 380,115 490,102 600,92 710,80 760,72",
+        spotTag: "Focus: 5,18% a.a.",
+        probTag: "Polymarket YES: 48,7¢",
+        bookVol: "Vol Combinado: US$ 349.792",
+        bookSummary: "Soma de US$ 349.792 entre Polymarket (#181671) e Kalshi (KXBRAZILINF). O mercado concentra 48,7% de probabilidade na banda de 5,00% a 5,49% (spread ultra-líquido de 0,6¢ no Polymarket) e dá 95% de certeza na Kalshi de que o IPCA fechará acima de 4,00%.",
+        books: [
+          { ex: "POLYMARKET · #1243901 (Alvo Principal Desk)", name: "IPCA 2026 fecha entre 5,00% e 5,49%", bidAsk: "YES: 48,4¢ / 49,0¢ (Spread 0,6¢)", vol: "US$ 99.547 · Liq: US$ 8,4k", sig: "Melhor liquidez do livro e convergência exata com o Focus (5,18%)" },
+          { ex: "KALSHI · KXBRAZILINF-26DEC-4.00", name: "IPCA 2026 termina abaixo de 4,00%", bidAsk: "YES: 5,0¢/11,0¢ · NO: 89¢/95¢", vol: "US$ 151.121 · OI: 13.780", sig: "95% de consenso institucional comprando NO (IPCA >= 4,00%)" },
+          { ex: "POLYMARKET · #1243902", name: "IPCA 2026 fecha entre 5,50% e 5,99%", bidAsk: "YES: 32,1¢ / 34,4¢", vol: "US$ 36.796 · Liq: US$ 6,2k", sig: "Segundo bracket mais negociado como hedge de combustíveis/alimentos" },
+          { ex: "POLYMARKET · #1243900", name: "IPCA 2026 fecha entre 4,50% e 4,99%", bidAsk: "YES: 11,0¢ / 12,6¢", vol: "US$ 62.328 · Liq: US$ 5,1k", sig: "Perdendo probabilidade com inflação de serviços resiliente" }
+        ],
+        fundSummary: "A inflação de serviços mantém o IPCA acima do teto de 4,50%, mas a Selic em 14,75% trava a aceleração acima de 5,50%, ancorando o índice exatamente no bracket 5,00%–5,49% (+720 bps de edge).",
+        fundRows: [
+          "• Mediana Boletim Focus BCB: 5,18% a.a. (Centro do bracket 5,00%–5,49%)",
+          "• Teto da Meta Oficial CMN: 4,50% a.a. (98,1% de chance de estouro)",
+          "• Spread Cross-Exchange Poly vs Kalshi: 3,15% de divergência em >=4,00%",
+          "• Impacto Setorial: Favorece bancos (ITUB, BBD, NU) via correção monetária"
+        ],
+        techSummary: "A curva de probabilidade do bracket 5,00%–5,49% rompeu resistência em 45¢ com volume crescente e aponta para 62¢–74¢ conforme as próximas divulgações do IBGE reduzem a incerteza.",
+        techRows: [
+          "• Suporte no Orderbook Polymarket: 44,5¢ / 46,0¢",
+          "• Alvo Técnico Lote 1 (TP1): 62,0¢ (P(touch) = 68,0%)",
+          "• Alvo Técnico Lote 2 (Free-Roll): 74,0¢ (Recupera 111,7% do capital)",
+          "• Stop-Loss Tático de Invalidação: 37,0¢"
+        ],
+        edge: "+720 bps Edge",
+        recAction: "BUY YES on IPCA 5.00%–5.49% (Polymarket @ 49,0¢)",
+        pess: "49,5%",
+        opt: "61,8%",
+        judge: "56,2%",
+        lots: [
+          "• Lote 1 (40% = 81,63 shares): Venda Limit a 62,0¢ (P(touch) = 68%) -> +US$ 50,61",
+          "• Lote 2 (40% = 81,63 shares): Venda Limit a 74,0¢ (P(touch) = 51%) -> +US$ 60,41 (Soma US$ 111,02 = Free-Roll!)",
+          "• Lote 3 (20% = 40,82 shares): Hold em Free-Roll até 100¢ -> Ciclo Total US$ 151,84 (+51,8% ROI)"
+        ],
+        news: [
+          { tag: "INFLATION RADAR · IPCA", time: "38m ago", title: "With $349,800 on the line, Polymarket and Kalshi price Brazil's 2026 inflation between 5.00% and 5.49%" },
+          { tag: "BANK EARNINGS · ADRs", time: "2h 10m ago", title: "How sticky Brazilian inflation boosts net interest income for NYSE-listed Itaú (ITUB) and Bradesco (BBD)" }
+        ]
+      },
+      selic: {
+        symbol: "NYSE:ITUB",
+        title: "Copom Taxa Selic (Decisão Nov) — Terminal & Arbitragem Polymarket vs. B3",
+        subtitle: "Selic Atual: 14,75% a.a. · Volume Polymarket: US$ 126.098,64 · Liquidez no Book: US$ 24.117,97",
+        legend1: "Consenso Curva DI B3 (91,0% Hold)",
+        legend2: "Preço Polymarket YES Hold (82,4¢)",
+        legend3: "Gap de Arbitragem (860 bps)",
+        bandLabel: "GAP DE ARBITRAGEM DE 860 BPS ENTRE CURVA DI B3 (91%) E POLYMARKET (82,4¢)",
+        spotPoints: "50,60 160,55 270,52 380,48 490,45 600,42 710,40 760,38",
+        probPoints: "50,120 160,112 270,104 380,95 490,86 600,78 710,70 760,64",
+        spotTag: "Curva DI B3: 91,0%",
+        probTag: "Polymarket: 82,4¢",
+        bookVol: "Vol Mercado: US$ 126.098",
+        bookSummary: "No Polymarket (#798441), US$ 126.098 estão posicionados na decisão do Copom de novembro, com US$ 24.118 de liquidez direta no book. O contrato 'No change' negocia a 82,4¢ contra 91% implícito nos futuros de DI da B3.",
+        books: [
+          { ex: "POLYMARKET · #3347918 (Alvo Principal Desk)", name: "Copom: Sem Alteração na Selic em Novembro", bidAsk: "YES: 81,9¢ / 82,4¢ (Spread 0,5¢)", vol: "US$ 49.693 · Liq: US$ 14,2k", sig: "Desconto de 8,6 pontos percentuais frente aos futuros da B3" },
+          { ex: "POLYMARKET · #3347917", name: "Copom: Corte de 25 bps na Selic em Novembro", bidAsk: "YES: 17,6¢ / 18,4¢", vol: "US$ 29.972 · Liq: US$ 6,1k", sig: "Apostas residuais em corte prematuro perdem força" }
+        ],
+        fundSummary: "Com o IPCA projetado em 5,18% (acima do teto de 4,50%), o modelo de Taylor do BCB impede cortes de juros em novembro. A probabilidade real calibrada é de 88,5% de manutenção.",
+        fundRows: [
+          "• Probabilidade Implícita Futuros DI B3: 91,0% Manutenção",
+          "• Preço Atual Polymarket (#3347918): 82,4¢ Ask (+610 bps Edge)",
+          "• Liquidez Direta no Livro Polymarket: US$ 24.117,97 (Spread 0,5¢)",
+          "• ADRs Beneficiados por Juro Alto: ITUB, BBD, NU"
+        ],
+        techSummary: "Tendência firme de alta na probabilidade implícita (de 76¢ para 82,4¢ em 6 pregões), com suporte em 80¢ e alvo de convergência pré-reunião em 90¢–95¢.",
+        techRows: [
+          "• Suporte no Book: 80,0¢",
+          "• Alvo Lote 1 (TP1): 90,0¢ (P(touch) = 84,0%)",
+          "• Alvo Lote 2 (Trava Free-Roll): 95,0¢ (P(touch) = 76,0%)",
+          "• Stop-Loss Tático: 71,0¢"
+        ],
+        edge: "+610 bps Edge",
+        recAction: "BUY YES on Copom No Change (Polymarket @ 82,4¢)",
+        pess: "84,0%",
+        opt: "92,2%",
+        judge: "88,5%",
+        lots: [
+          "• Lote 1 (40% = 48,54 shares): Venda Limit a 90,0¢ (P(touch) = 84%) -> +US$ 43,69",
+          "• Lote 2 (40% = 48,54 shares): Venda Limit a 95,0¢ (P(touch) = 76%) -> +US$ 46,11 (Trava Free-Roll)",
+          "• Lote 3 (20% = 24,28 shares): Hold até comunicado Copom (100¢) -> Ciclo Total US$ 114,08 (+14,1% ROI)"
+        ],
+        news: [
+          { tag: "RATES ARBITRAGE · SELIC", time: "49m ago", title: "Polymarket prices 82.4% probability of a Central Bank rate hold in November — trailing B3 futures at 91%" }
+        ]
+      }
+    };
+
+    const SLIDES = [
+      {
+        kicker: "SLIDE 1/6 · COVER — LONG-FORM OPPORTUNITY HOOK",
+        title: "Why $574.5K in Kalshi Contracts Is Betting Against a Brazilian Currency Blowout",
+        body: "Spot USD/BRL trades near R$ 5.76, but CFTC-regulated prediction markets price an 88% probability that the real stays below R$ 6.50 through year-end — here is how the 14.75% Selic rate protects dollar-denominated ADRs."
+      },
+      {
+        kicker: "SLIDE 2/6 · WHAT KALSHI & POLYMARKET ARE PRICING NOW",
+        title: "Inside the $1.05M Macro Orderbook: 22c at R$ 6.00 vs. 12c at R$ 6.50",
+        body: "Kalshi's KXUSDBRLMAX series shows 6,917 open contracts at the R$ 6.00 barrier (22c Yes) and 8,425 open contracts at R$ 6.50 (12c Yes / 89c No Ask, 1c spread). Simultaneously, Polymarket traders price an 82.4% probability ($126.1K volume) that Brazil's central bank holds rates at 14.75%."
+      },
+      {
+        kicker: "SLIDE 3/6 · FUNDAMENTAL + TECHNICAL CONFLUENCE",
+        title: "1,000 bps of Carry Meets Hard Technical Resistance at R$ 5.86–5.92",
+        body: "Fundamentally, Brazil's $358B in FX reserves, $76B trade surplus and 14.75% Selic rate punish dollar shorts with ~1.18% monthly carry cost. Technically, USD/BRL faces heavy exporter selling at R$ 5.86–5.92, with 20,000 Argon Monte Carlo runs showing a 92.5% survival rate below R$ 6.50."
+      },
+      {
+        kicker: "SLIDE 4/6 · NEWS CATALYSTS THAT MOVE THE MARKET",
+        title: "3 Catalysts That Will Move USD/BRL and Prediction Odds Next",
+        body: "1. Central Bank PTAX daily fixings and swap rollover auctions whenever spot approaches R$ 5.85. 2. IBGE's upcoming IPCA-15 inflation reading (testing the 5.00%–5.49% Polymarket bracket). 3. The November Copom statement and US 10-Year Treasury yield swings."
+      },
+      {
+        kicker: "SLIDE 5/6 · BROKERAGE IMPACT & ASYMMETRY",
+        title: "How FX Stability Unlocks Dollar Yield in EWZ, ITUB, PBR, VALE & NU",
+        body: "When currency tail risk is capped below R$ 6.00–6.50, US investors in Itaú (ITUB), Bradesco (BBD) and Petrobras (PBR) capture double-digit local earnings and dividends without suffering FX erosion on NYSE conversion."
+      },
+      {
+        kicker: "SLIDE 6/6 · ACTIONABLE TRACKING & PLATFORM CTA",
+        title: "Track Every Tick on BRZ.DESK & Read the Weekly AXIOS Volume Report",
+        body: "Select 'BRL x Dólar' on BRZ.DESK to view the live TradingView chart alongside Kalshi & Polymarket orderbooks, or open BRZ.PREDICTION for this week's full volume report. Link in bio."
+      }
+    ];
+
+    function switchMainTab(tab) {
+      ["desk", "prediction", "social", "graph"].forEach((t) => {
+        document.getElementById(`view-${t}`).classList.toggle("hidden", t !== tab);
+        const btn = document.getElementById(`tab-btn-${t}`);
+        if (t === tab) {
+          btn.className = "px-4 py-2 rounded-xl text-xs font-bold bg-emerald-600 text-white shadow-sm cursor-pointer transition";
+        } else {
+          btn.className = "px-4 py-2 rounded-xl text-xs font-bold bg-[var(--content)] text-[var(--foreground)] border border-[var(--border)] cursor-pointer transition";
+        }
+      });
+    }
+
+    function selectWorkspace(key) {
+      const w = WORKSPACES[key];
+      if (!w) return;
+
+      ["usdbrl", "ipca", "selic"].forEach((k) => {
+        const b = document.getElementById(`ws-btn-${k}`);
+        if (k === key) {
+          b.className = "px-3.5 py-2 rounded-xl text-xs font-bold bg-emerald-600 text-white cursor-pointer transition";
+        } else {
+          b.className = "px-3.5 py-2 rounded-xl text-xs font-bold bg-[var(--content)] text-[var(--foreground)] border border-[var(--border)] cursor-pointer transition";
+        }
+      });
+
+      document.getElementById("desk-symbol-badge").textContent = w.symbol;
+      document.getElementById("desk-title").textContent = w.title;
+      document.getElementById("desk-subtitle").textContent = w.subtitle;
+      document.getElementById("chart-legend-1").textContent = w.legend1;
+      document.getElementById("chart-legend-2").textContent = w.legend2;
+      document.getElementById("chart-legend-3").textContent = w.legend3;
+      document.getElementById("svg-band-label").textContent = w.bandLabel;
+      document.getElementById("svg-line-spot").setAttribute("points", w.spotPoints);
+      document.getElementById("svg-line-prob").setAttribute("points", w.probPoints);
+      document.getElementById("svg-spot-tag").textContent = w.spotTag;
+      document.getElementById("svg-prob-tag").textContent = w.probTag;
+
+      document.getElementById("desk-book-vol-badge").textContent = w.bookVol;
+      document.getElementById("desk-book-summary").textContent = w.bookSummary;
+      document.getElementById("desk-books-grid").innerHTML = w.books.map((b) => `
+        <div class="p-3 rounded-xl bg-[var(--content)] border border-[var(--border)] space-y-1">
+          <div class="flex items-center justify-between text-xs">
+            <span class="font-bold text-sky-500">${b.ex}</span>
+            <span class="font-mono font-semibold text-emerald-500">${b.bidAsk}</span>
+          </div>
+          <div class="text-xs font-bold text-[var(--foreground)]">${b.name}</div>
+          <div class="text-xs text-[var(--muted-foreground)]">${b.vol} · ${b.sig}</div>
+        </div>
+      `).join("");
+
+      document.getElementById("desk-fund-summary").textContent = w.fundSummary;
+      document.getElementById("desk-fund-table").innerHTML = w.fundRows.map((r) => `
+        <div class="p-2 rounded-lg bg-[var(--content)] border border-[var(--border)]">${r}</div>
+      `).join("");
+
+      document.getElementById("desk-tech-summary").textContent = w.techSummary;
+      document.getElementById("desk-tech-table").innerHTML = w.techRows.map((r) => `
+        <div class="p-2 rounded-lg bg-[var(--content)] border border-[var(--border)]">${r}</div>
+      `).join("");
+
+      document.getElementById("desk-edge-badge").textContent = w.edge;
+      document.getElementById("desk-rec-action").textContent = w.recAction;
+      document.getElementById("desk-pess-prob").textContent = w.pess;
+      document.getElementById("desk-opt-prob").textContent = w.opt;
+      document.getElementById("desk-judge-prob").textContent = w.judge;
+      document.getElementById("desk-boleta-lots").innerHTML = w.lots.map((l) => `
+        <div class="p-2.5 rounded-xl bg-[var(--content)] border border-[var(--border)] font-medium">${l}</div>
+      `).join("");
+
+      document.getElementById("desk-news-list").innerHTML = w.news.map((n) => `
+        <div class="p-3 rounded-xl bg-[var(--content)] border border-[var(--border)] space-y-1">
+          <div class="flex items-center justify-between text-xs">
+            <span class="font-bold text-emerald-500">${n.tag}</span>
+            <span class="text-[var(--muted-foreground)]">${n.time}</span>
+          </div>
+          <p class="text-xs font-semibold leading-snug">${n.title}</p>
+        </div>
+      `).join("");
+    }
+
+    function setSlide(idx) {
+      const s = SLIDES[idx];
+      document.getElementById("car-kicker").textContent = s.kicker;
+      document.getElementById("car-title").textContent = s.title;
+      document.getElementById("car-body").textContent = s.body;
+      document.querySelectorAll(".slide-btn").forEach((b, i) => {
+        b.className = i === idx
+          ? "slide-btn px-2.5 py-1 rounded text-xs font-bold bg-emerald-600 text-white cursor-pointer"
+          : "slide-btn px-2.5 py-1 rounded text-xs font-bold bg-[var(--content)] cursor-pointer";
+      });
+    }
+
+    // Initialize default workspace
+    selectWorkspace("usdbrl");
+  </script>
+</body>
+</html>

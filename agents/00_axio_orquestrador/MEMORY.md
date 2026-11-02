@@ -93,3 +93,16 @@
     3. **Contrato Firestore `desk_predictions/latest` para a página `BRZ.DESK Prediction`** (`sandbox/runs/brz_news_daily_integration/firestore_brz_desk_prediction_pro.json`), contendo Orderbook ao vivo, Inteligência de Fontes Abertas (`Gabriel Torres`), Tribunal Atuarial `5x5 + Juiz Supremo`, Boleta Tática em 3 Lotes (*Free-Roll*) e o Track Record Auditado ao vivo (`KC vs DEN`).
 - **Relatório Arquitetural Completo:** `reports/ARQUITETURA_INTEGRACAO_BRZ_NEWS_HUNTER_E_PREDICTION_DESK.md`.
 
+
+### [2026-11-01 21:40] — Arquitetura v3.0 (`BRZ.DESK` Diário por Ativo + `BRZ.PREDICTION` Relatório Semanal `AXIOS` + Redes Sociais Market-First + Post-Mortem `KXNFLGAME` + Canvas GCP)
+- **Post-Mortem Auditado na API Oficial Kalshi (`KXNFLGAME-26NOV01KCDEN`):**
+  - Jogo liquidado (`finalized`) com **`US$ 50.200.530` de volume**. O Denver Broncos virou no 4º quarto (`DEN Result = YES / 100¢`, `KC Result = NO / 0¢`).
+  - Graças à saída tática em 3 Lotes (*Free-Roll*) da Equipe Argon no Q3 (venda de `104 shares` a `77¢` gerando **`US$ 77.29` em caixa** sobre `US$ 70.00` investidos), o usuário travou **`+US$ 7.29` (`+10.41%` de ROI líquido)** em dinheiro real antes da virada de Denver — provando matematicamente o valor da blindagem atuarial contra o risco de cauda do 4º quarto (`reports/RELATORIO_TESTE_AO_VIVO_KALSHI_KXNFLGAME.md`).
+- **Evolução v3.0 do Grafo no BRZ News (`core/brz_news_daily_prediction_graph.py`):**
+  - **Filtro Estrito `100% BRASIL + ALTO VOLUME`:** Somente mercados do Brasil com `>= US$ 10.000` na perna Brasil entram no Radar (`23 contratos`, `US$ 2.64M` volume) e `>= US$ 50.000` no `BRZ.DESK`.
+  - **`BRZ.DESK Prediction` (Visão Diária / Terminal por Ativo):** Workspaces dinâmicos (`WS-01-USDBRL-DOLAR`, `WS-02-IPCA-INFLACAO-2026`, `WS-03-COPOM-SELIC-NOV`) com Gráfico de Terminal (`TradingView` + probabilidade implícita), Orderbooks Kalshi e Polymarket lado a lado, Análise Fundamentalista, Análise Técnica/Gráfica, Notícias do Ativo, Tribunal `5x5 + Juiz` e Boleta *Free-Roll*.
+  - **`BRZ.PREDICTION` (Visão Semanal + Radar Completo):** O motor **`AXIOS`** seleciona automaticamente o contrato de maior volume da semana (`#1 USD/BRL Máximo 2026 — US$ 574.5K`) e mantém atualizado o **Relatório Semanal AXIOS de Inteligência de Volume** (3 capítulos executivos), acompanhado de todos os 23 contratos Brasil e das notícias que movem o mercado.
+  - **Editorial & Redes Sociais (`Prediction & Market` First):** Retirada de `Politics` das janelas principais (`focus.py`) e criação de Carrosséis de 6 slides focados em **encontrar oportunidades de mercado** com **Hooks analíticos densos (45–65 palavras)**.
+  - **Canvas Interativo GCP + UI:** Salvo em `reports/grafo_prediction_gcp_canvas.html`.
+
+
