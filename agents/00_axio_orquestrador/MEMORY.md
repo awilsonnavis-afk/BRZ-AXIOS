@@ -117,4 +117,30 @@
   5. Injeção da chave `error_mitigation_and_recovery_exits` em todos os workspaces de `firestore_brz_desk_prediction_pro.json` e relatório salvo em `reports/AUDITORIA_ERROS_E_MATRIZ_MITIGACAO_SAIDAS_V4.md`.
 
 
+### [2026-11-01 22:41] — Teste do Grafo v4.0 no Mercado de Opções do Dólar Canadense (`USD/CAD`, `FXC`, `6C` & `Bank of Canada`) (`PROJ-009-CAD-OPTIONS-V4`)
+- **Dados Reais Coletados (`core/scan_cad_options_live.py` e `core/scan_cad_deep.py`):**
+  - `USD/CAD Spot = 1.3986` (`Range 3M: 1.3733–1.4299`), `CAD/USD = 0.7150`, ETF `FXC = US$ 69.93`, Petróleo `WTI = US$ 101.00`, `US 10Y = 4.929%` vs. `BoC Overnight = 2.50%` (`Carry = +242.9 bps` a favor do USD).
+  - Varredura de `121` séries e `269` eventos na Kalshi + `8` eventos ativos na Polymarket.
+- **3 Operações Estruturadas pelo Motor v4.0 (`core/cad_options_quant_engine.py`):**
+  1. **Arbitragem Cross-Exchange + Opção Binária de Juros (`CAD-OP-01-BOC-DEC-HIKE25-ARB`):** Compra `YES BoC +25 bps em Dezembro` na Polymarket (`#991303`) a **`37.0¢` (`Ask`)**, enquanto na Kalshi o mesmo evento tem **`Bid` de `38.0¢` (`KXCBDECISIONCANADA-26DEC-H25`) e `39.0¢` (`KXCANOREOY-26DEC31-E2.75`)** — entrando já abaixo do preço de recompra da outra bolsa, com Lotes de *Free-Roll* (`44.0¢` / `51.1¢`) e Matriz de Mitigação de Erro (`38.5¢` / `41.4¢` / `37.5¢`).
+  2. **Opções Tradicionais Listadas (`CAD-OP-02-FXC-PUT-SPREAD-DEC`):** Precificação via **Garman-Kohlhagen (1983)** (`T = 47 DTE`, `18/Dez/2026`). Em vez de comprar opção a seco (exposta a Theta `-$0.58/dia` e Vega crush), estrutura um **Bear Put Spread em `FXC $70.00 / $68.50`** por débito líquido de **`US$ 0.44` (`US$ 44.26/contrato`)** para payoff máximo de **`US$ 1.50` (`ROI +238.9%`)**, breakeven em `FXC $69.56` (`USD/CAD = 1.4060`) e saída de mitigação por *Roll/Butterfly* no strike `$69.25` + Stop Temporal a `21 DTE`.
+  3. **Filtro Anti-Erro em Opção de Barreira One-Touch (`CAD-OP-03-POLY-USDCAD-145-TOUCH`):** Barreira contínua de Reiner-Rubinstein + 25.000 simulações com Ponte Browniana para `USD/CAD tocar 1.45 em 2026` (`Polymarket #200525`). Bloqueia compra a mercado no `Ask` de `38.0¢` (quando o `Last` foi `24.0¢` e a probabilidade sem choque tarifário é `29.4%`) e posiciona `Limit Bid` passivo em `26.0¢–28.0¢`.
+- **Relatório:** Salvo em `reports/RELATORIO_OPCOES_DOLAR_CANADENSE_V4.md`.
+
+
+### [2026-11-01 23:02] — Grafo Estatístico Unificado `NWX-Argon v5.0`: Fluxo Institucional de Opções ("Whale Radar") + Técnica + Fundamentalista (`FMP`/`BRAPI`) + Notícias — Conta TradeStation (`*8131`) (`PROJ-010-NWX-ARGON-WHALE-OPTIONS`)
+- **Foco 100% Estatístico (`NWX-Argon`):** Desconectado de mercados de apostas (Kalshi/Polymarket) e focado integralmente em previsões estatísticas multi-fatoriais no mercado de opções e ações.
+- **Fontes de Opções Indexadas no Banco (`database/references.db` — `36` referências):** `OPT-001` (`ICE Data Services / OPRA Consolidated Feed`), `OPT-002` (`CBOE LiveVol & DataShop`), `OPT-003` (`Unusual Whales & FlowAlgo`), `OPT-004` (`SpotGamma, MenthorQ & SqueezeMetrics GEX`), `OPT-005` (`ORATS & MarketChameleon`), `OPT-006` (`Polygon.io Options, ThetaData & TradeStation WebAPI v3` integrados ao `FMP` e `BRAPI` no GCP da `NWX Invest`) e `OPT-007` (`B3 Posições em Aberto de Opções + OpLab + BRAPI`).
+- **Auditoria da Conta Real na TradeStation (`Entity *8131` & `*0XLD49`):**
+  - `Account Value = US$ 3,828.67` | `Buying Power = US$ 10,028.68` | `Cash Available = US$ 2,507.17` | `Open P/L = -$187.50` (`US$ 1,321.50` retidos).
+  - Simulação de 25.000 trajetórias em 24 ciclos mostra que o varejo comum sem filtro institucional e sem saída de mitigação tem `76.52%` de probabilidade de ruína, enquanto o **Protocolo NWX-Argon v5.0 (Whale Flow + Ghetto Spread Anti-PDT + Matriz v4.0 de Saídas de Mitigação)** reduz a ruína para **`0.00%`** e eleva a probabilidade de ultrapassar `US$ 10.000` para **`97.32%` (com `$2,507` de caixa)** ou **`99.18%` (com os `$3,828` liberados)**.
+- **Sinais Unificados Gerados (`core/nwx_argon_unified_options_intelligence.py`):**
+  - `#1 SOFI (Score 90.5)`: Caso #1 Roaring Kitty (`16.8% Short Interest` + 4 trimestres de lucro GAAP + `UOA = 5.20x OI` + `IV 59.95% < RV 63.78%` com opções baratas e 3 notícias catalisadoras ao vivo).
+  - `#2 NVDA (Score 87.9)`: Caso #2 & #4 (`RSI 30.97` sobrevendido na Banda Inferior de Bollinger `$202.34` + `94.2% Rev Growth` + `UOA = 3.45x OI` pré-balanço).
+  - `#3 PLTR (Score 86.8)`, `#4 MARA (Score 86.2 - 26.4% Short Interest)`, `#5 SPY (Score 85.8 - VIX 19.42)` e `#6 EWZ (Score 85.1 - Ponte BRAPI Brasil + WTI US$ 101)`.
+- **Relatório Completo:** `reports/RELATORIO_NWX_ARGON_OPCOES_WHALE_FLOW_E_CONTA_TRADESTATION.md`.
+
+
+
+
 

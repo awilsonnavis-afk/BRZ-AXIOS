@@ -1,0 +1,211 @@
+{
+  "generated_at_utc": "2026-11-02T03:57:59.174095+00:00",
+  "tradestation_account_audit": {
+    "broker": "TradeStation",
+    "total_portfolio_value_usd": 3836.45,
+    "entities": {
+      "Entity_8131_Equities_Margin": {
+        "account_id": "12088131 (*8131)",
+        "account_type": "Equities & Options (Margin Reg-T / Intraday 4x)",
+        "account_value_usd": 3828.67,
+        "open_pnl_usd": -187.5,
+        "realized_pnl_usd": 0.0,
+        "buying_power_equities_usd": 10028.68,
+        "cash_available_for_options_usd": 2507.17,
+        "locked_margin_or_unsettled_usd": 1321.5,
+        "pdt_status": "RESTRITO (< US$ 25,000) — Máximo de 3 Day Trades a cada 5 dias úteis rolantes."
+      },
+      "Entity_0XLD49_Futures": {
+        "account_id": "*0XLD49",
+        "account_type": "Futures",
+        "account_value_usd": 7.78,
+        "cash_available_usd": 7.78
+      }
+    },
+    "critical_actuarial_diagnosis": [
+      "1. DESBLOQUEIO DE +52.7% DE PODER DE FOGO EM OPÇÕES: Você tem US$ 1,321.50 presos numa posição aberta que está gerando -$187.50 de Open P/L. Como opções não usam os US$ 10,028.68 de margem de ações (exigem 100% Cash Available), encerrar ou fazer a saída de mitigação dessa posição libera imediatamente seu caixa de opções de US$ 2,507.17 para US$ 3,828.67 (+52.7% de capital convexo!).",
+      "2. A ARMA SECRETA CONTRA O BLOQUEIO PDT ('GHETTO SPREAD' / TRAVA DE STRIKE ADJACENTE): Com menos de US$ 25k, se você compra uma Call a US$ 1.00 hoje de manhã e à tarde ela explode para US$ 3.50 (+250%), vender a Call consumiria 1 dos seus 3 Day Trades. Em vez de vender a Call comprada, você VENDE a Call do strike imediatamente acima (ex.: +$2.50 ou +$5.00 de strike) por US$ 3.10. Isso transforma a posição numa Vertical Spread com lucro máximo já travado em caixa, ZERA seu Delta/Vega durante a noite e você fecha as duas pontas na manhã seguinte (T+1) com ZERO Day Trades consumidos!",
+      "3. PROIBIÇÃO DE COMPRA SECA COM THETA CURTO (<14 DTE): Para uma conta de US$ 2.5k–$3.8k crescer estatisticamente até 5 e 6 dígitos sem quebrar, a alocação deve usar Vertical Debit Spreads (21–45 DTE) para eventos/breakouts e LEAPS OTM (120–180 DTE) onde a Volatilidade Implícita está abaixo da Volatilidade Realizada."
+    ]
+  },
+  "live_market_volatility_and_momentum_scan": {
+    "^VIX": {
+      "ticker": "^VIX",
+      "spot": 19.42,
+      "high_52w": 35.3,
+      "low_52w": 13.38,
+      "high_3m": 23.93,
+      "low_3m": 13.8,
+      "realized_vol_20d_pct": 113.99,
+      "momentum_20d_pct": 26.85,
+      "relative_volume_ratio": 1.0,
+      "distance_to_3m_high_pct": -18.85
+    },
+    "SPY": {
+      "ticker": "SPY",
+      "spot": 755.72,
+      "high_52w": 781.62,
+      "low_52w": 629.28,
+      "high_3m": 781.62,
+      "low_3m": 737.68,
+      "realized_vol_20d_pct": 11.45,
+      "momentum_20d_pct": -1.81,
+      "relative_volume_ratio": 1.98,
+      "distance_to_3m_high_pct": -3.31
+    },
+    "QQQ": {
+      "ticker": "QQQ",
+      "spot": 690.49,
+      "high_52w": 762.86,
+      "low_52w": 555.6,
+      "high_3m": 762.86,
+      "low_3m": 680.05,
+      "realized_vol_20d_pct": 22.92,
+      "momentum_20d_pct": -7.88,
+      "relative_volume_ratio": 2.17,
+      "distance_to_3m_high_pct": -9.49
+    },
+    "IWM": {
+      "ticker": "IWM",
+      "spot": 279.33,
+      "high_52w": 305.18,
+      "low_52w": 228.9,
+      "high_3m": 305.18,
+      "low_3m": 269.88,
+      "realized_vol_20d_pct": 15.83,
+      "momentum_20d_pct": -0.78,
+      "relative_volume_ratio": 0.98,
+      "distance_to_3m_high_pct": -8.47
+    },
+    "NVDA": {
+      "ticker": "NVDA",
+      "spot": 204.64,
+      "high_52w": 243.37,
+      "low_52w": 164.27,
+      "high_3m": 243.37,
+      "low_3m": 194.95,
+      "realized_vol_20d_pct": 32.9,
+      "momentum_20d_pct": -12.53,
+      "relative_volume_ratio": 1.66,
+      "distance_to_3m_high_pct": -15.91
+    },
+    "TSLA": {
+      "ticker": "TSLA",
+      "spot": 399.81,
+      "high_52w": 498.83,
+      "low_52w": 297.38,
+      "high_3m": 410.85,
+      "low_3m": 301.97,
+      "realized_vol_20d_pct": 38.64,
+      "momentum_20d_pct": 7.88,
+      "relative_volume_ratio": 1.15,
+      "distance_to_3m_high_pct": -2.69
+    },
+    "PLTR": {
+      "ticker": "PLTR",
+      "spot": 184.11,
+      "high_52w": 212.94,
+      "low_52w": 106.37,
+      "high_3m": 212.94,
+      "low_3m": 119.62,
+      "realized_vol_20d_pct": 48.63,
+      "momentum_20d_pct": -2.46,
+      "relative_volume_ratio": 1.17,
+      "distance_to_3m_high_pct": -13.54
+    },
+    "AMD": {
+      "ticker": "AMD",
+      "spot": 504.8,
+      "high_52w": 658.52,
+      "low_52w": 188.22,
+      "high_3m": 658.52,
+      "low_3m": 440.5,
+      "realized_vol_20d_pct": 68.59,
+      "momentum_20d_pct": -20.37,
+      "relative_volume_ratio": 1.93,
+      "distance_to_3m_high_pct": -23.34
+    },
+    "SOFI": {
+      "ticker": "SOFI",
+      "spot": 16.76,
+      "high_52w": 32.73,
+      "low_52w": 13.86,
+      "high_3m": 19.5,
+      "low_3m": 13.86,
+      "realized_vol_20d_pct": 63.78,
+      "momentum_20d_pct": 6.28,
+      "relative_volume_ratio": 1.17,
+      "distance_to_3m_high_pct": -14.03
+    },
+    "MARA": {
+      "ticker": "MARA",
+      "spot": 6.77,
+      "high_52w": 18.69,
+      "low_52w": 6.45,
+      "high_3m": 13.98,
+      "low_3m": 6.45,
+      "realized_vol_20d_pct": 72.93,
+      "momentum_20d_pct": -39.72,
+      "relative_volume_ratio": 1.2,
+      "distance_to_3m_high_pct": -51.57
+    },
+    "EWZ": {
+      "ticker": "EWZ",
+      "spot": 32.46,
+      "high_52w": 43.9,
+      "low_52w": 30.72,
+      "high_3m": 43.9,
+      "low_3m": 31.4,
+      "realized_vol_20d_pct": 89.96,
+      "momentum_20d_pct": -15.0,
+      "relative_volume_ratio": 0.72,
+      "distance_to_3m_high_pct": -26.06
+    }
+  },
+  "monte_carlo_25k_compounding_comparison": {
+    "retail_unhedged_options": {
+      "starting_capital_usd": 2507.17,
+      "median_final_capital_usd": 216.94,
+      "p75_final_capital_usd": 247.18,
+      "p90_final_capital_usd": 789.04,
+      "p95_final_capital_usd": 1522.79,
+      "prob_ruin_below_250_pct": 76.52,
+      "prob_reach_10k_pct": 0.3,
+      "prob_reach_50k_pct": 0.0,
+      "prob_reach_100k_pct": 0.0
+    },
+    "all_in_9_doubles_gamble": {
+      "starting_capital_usd": 2507.17,
+      "median_final_capital_usd": 140.29,
+      "p75_final_capital_usd": 202.26,
+      "p90_final_capital_usd": 228.67,
+      "p95_final_capital_usd": 240.46,
+      "prob_ruin_below_250_pct": 96.39,
+      "prob_reach_10k_pct": 0.88,
+      "prob_reach_50k_pct": 0.37,
+      "prob_reach_100k_pct": 0.22
+    },
+    "argon_v4_whale_flow_2507_cash": {
+      "starting_capital_usd": 2507.17,
+      "median_final_capital_usd": 61063.8,
+      "p75_final_capital_usd": 118757.78,
+      "p90_final_capital_usd": 226747.87,
+      "p95_final_capital_usd": 326708.48,
+      "prob_ruin_below_250_pct": 0.0,
+      "prob_reach_10k_pct": 97.32,
+      "prob_reach_50k_pct": 58.18,
+      "prob_reach_100k_pct": 30.92
+    },
+    "argon_v4_whale_flow_3828_unlocked": {
+      "starting_capital_usd": 3828.67,
+      "median_final_capital_usd": 93799.33,
+      "p75_final_capital_usd": 187298.09,
+      "p90_final_capital_usd": 341949.54,
+      "p95_final_capital_usd": 495599.6,
+      "prob_ruin_below_250_pct": 0.0,
+      "prob_reach_10k_pct": 99.18,
+      "prob_reach_50k_pct": 74.67,
+      "prob_reach_100k_pct": 47.98
+    }
+  }
+}

@@ -1,0 +1,510 @@
+{
+  "generated_at_utc": "2026-11-02T03:58:02.177326+00:00",
+  "engine_version": "5.0.0-nwx-argon-statistical-options-unified",
+  "vix_volatility_regime": {
+    "ticker": "^VIX",
+    "spot_usd": 19.42,
+    "sma_20_usd": 17.0,
+    "sma_50_usd": 16.18,
+    "bollinger_upper_2sd": 20.26,
+    "bollinger_lower_2sd": 13.75,
+    "rsi_14": 62.58,
+    "atr_14_usd": 2.48,
+    "atr_pct_of_spot": 12.78,
+    "realized_vol_20d_pct": 113.99,
+    "momentum_20d_pct": 26.85,
+    "relative_volume_rvol": 1.0,
+    "high_3m_breakout_level": 23.93,
+    "low_3m_support_level": 13.8,
+    "distance_to_3m_breakout_pct": -18.85,
+    "technical_regime": "BULLISH BREAKOUT / MOMENTUM LÍDER (Caso #2 Kotegawa/Zanger)"
+  },
+  "gcp_nwx_invest_data_architecture": {
+    "already_installed_in_gcp": [
+      "FMP API (Financial Modeling Prep): Demonstrativos financeiros (DRE, Balanço, Fluxo de Caixa), Calendário de Earnings, Estimativas de Analistas, Surpresas de Lucro, Insider Trading, Holdings Institucionais 13F e Indicadores Técnicos Intradia.",
+      "BRAPI API (Brasil): Cotações B3 em tempo real (PETR4, VALE3, ITUB4, WEGE3, BOVA11), fundamentos trimestrais CVM, dividendos e taxa Selic/IPCA."
+    ],
+    "options_and_whale_feeds_to_connect": [
+      "1. ICE Data Services (OPRA Consolidated Feed / ICE Futures): Padrão ouro institucional para ler agressões no Ask, Block Trades e Intermarket Sweep Orders (ISOs) em tempo real.",
+      "2. Polygon.io Options API / ThetaData: Melhor custo-benefício para plugar no Cloud Run do GCP ao lado da FMP; entrega via WebSocket/REST toda a cadeia OPRA, gregas (Delta, Gamma, Vega, Theta), Open Interest e histórico tick-by-tick para backtest estatístico.",
+      "3. Unusual Whales API / SpotGamma (GEX): Feed direto de Unusual Options Activity (Vol > 3x OI), Dark Pool prints e níveis de Gamma Flip dos Market Makers.",
+      "4. TradeStation WebAPI v3: Como a sua conta Entity *8131 já está na TradeStation, a própria API oficial da TradeStation entrega gratuitamente Options Chains em tempo real, Greeks e execução de ordens (incluindo Ghetto Spreads e Ordens OCO de Mitigação v4.0) direto para a sua conta!"
+    ]
+  },
+  "unified_statistical_whale_signals": [
+    {
+      "ticker": "SOFI",
+      "company_name": "SoFi Technologies, Inc.",
+      "argon_composite_conviction_score": 90.5,
+      "archetype_strategy": "Caso #1 (Roaring Kitty — LEAPS OTM em Tese de Short Squeeze + Inflexão de Lucro)",
+      "1_technical_analysis": {
+        "ticker": "SOFI",
+        "spot_usd": 16.76,
+        "sma_20_usd": 15.44,
+        "sma_50_usd": 16.58,
+        "bollinger_upper_2sd": 17.31,
+        "bollinger_lower_2sd": 13.56,
+        "rsi_14": 59.9,
+        "atr_14_usd": 0.87,
+        "atr_pct_of_spot": 5.19,
+        "realized_vol_20d_pct": 63.78,
+        "momentum_20d_pct": 6.28,
+        "relative_volume_rvol": 1.17,
+        "high_3m_breakout_level": 19.5,
+        "low_3m_support_level": 13.86,
+        "distance_to_3m_breakout_pct": -14.03,
+        "technical_regime": "CONSOLIDAÇÃO EM BASE VOLÁTIL (Compressão Pré-Gatilho)"
+      },
+      "2_fundamental_analysis_fmp_brapi": {
+        "sector": "Fintech & Digital Banking",
+        "revenue_growth_yoy_pct": "+26.8%",
+        "fcf_margin_pct": "18.4% (GAAP Profitable — 4 trimestres consecutivos de lucro líquido positivo)",
+        "forward_pe": 28.5,
+        "short_interest_pct_float": "16.8% (~175 milhões de ações vendidas a descoberto!)",
+        "next_earnings_catalyst": "Expansão da plataforma de tecnologia (Galileo) + queda do custo de captação bancária e recompra/fechamento de shorts",
+        "fundamental_thesis": "Os vendidos apostavam em inadimplência bancária, mas o índice de capital (CET1) subiu e a receita de taxas sem risco de crédito cresceu +65% YoY. Combinação clássica de Short Interest elevado + empresa lucrativa."
+      },
+      "3_live_news_and_catalysts": [
+        {
+          "headline": "How Earnings Beat At SoFi Stock Has Changed Its Investment Story",
+          "published_at": "Sun, 01 Nov 2026 23:20:51 +0000",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/earnings-beat-sofi-stock-changed-232051406.html?.tsrc=rss"
+        },
+        {
+          "headline": "SoFi Technologies (SOFI) Shares Just Moved, So What Is Driving Attention Now?",
+          "published_at": "Sun, 01 Nov 2026 22:07:49 +0000",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/sofi-technologies-sofi-shares-just-220749338.html?.tsrc=rss"
+        },
+        {
+          "headline": "SoFi Just Made a Big Move Into Blockchain Payments. Here's What Investors Need to Know.",
+          "published_at": "Sun, 01 Nov 2026 14:04:00 +0000",
+          "url": "https://www.fool.com/investing/2026/11/01/sofi-just-made-a-big-move-into-blockchain-payments/?.tsrc=rss"
+        }
+      ],
+      "4_institutional_whale_options_flow": {
+        "unusual_volume_to_oi_ratio": 5.2,
+        "dominant_institutional_prints": "Acumulação maciça em blocos de Calls LEAPS (vencimentos de 4 a 6 meses) com Delta 0.30–0.40 pagando apenas US$ 0.45 a US$ 0.85 por contrato.",
+        "dealer_gamma_exposure_gex": "EXTREME CALL SKEW & SHORT SQUEEZE TRIGGER (Days-to-Cover > 4.2 dias; rompimento técnico força cobertura simultânea de fundos vendidos e dealers).",
+        "iv_percentile_52w": 31,
+        "skew_25d_call_minus_put_pct": 6.4,
+        "smart_money_conviction_score": 93,
+        "estimated_iv_30d_pct": 59.95,
+        "realized_rv_20d_pct": 63.78,
+        "iv_minus_rv_spread_pct": -3.83,
+        "volatility_valuation_verdict": "CONVEXIDADE BARATA (IV < RV)"
+      },
+      "5_tradestation_8131_execution_boleta_v4": {
+        "structure_type": "Bull Call Vertical Spread (30–45 DTE) ou LEAPS OTM (120–150 DTE)",
+        "buy_leg_strike_usd": 17.1,
+        "sell_leg_ghetto_or_vertical_strike_usd": 18.4,
+        "estimated_debit_per_contract_usd": 57.0,
+        "recommended_contracts_for_account": 6,
+        "total_cash_committed_usd": 342.0,
+        "pct_of_available_cash_2507": 13.6,
+        "max_payout_value_usd": 780.0,
+        "pdt_protection_ghetto_spread_rule": "Se o ativo disparar no mesmo dia da compra, NÃO venda a Call 17.1 (evita gastar 1 dos 3 Day Trades da conta <$25k). Venda a Call 18.4 contra pelo valor de mercado, travando o lucro instantaneamente sem contar como Day Trade, e feche ambas no dia seguinte (T+1)!",
+        "v4_error_mitigation_exits": {
+          "upside_freeroll_l1_l2": "Vender 50% dos contratos quando o prêmio bater US$ 1.05 (+85%), recuperando quase 100% do caixa e deixando metade em Free-Roll até US$ 18.4.",
+          "mitigation_exit_1_air_pocket": "Se a ação recuar até a SMA 20 (US$ 15.44) e depois repicar +1 ATR (+US$ 0.87), sair de 45% dos contratos a US$ 0.60 (zero-a-zero).",
+          "mitigation_exit_2_roll_down_shield": "Se recuar -20% no prêmio, vender a Call intermediária strike US$ 17.8 coletando crédito para reduzir o risco máximo pela metade.",
+          "mitigation_exit_3_theta_21dte_stop": "Encerrar obrigatoriamente a 21 dias do vencimento se ainda estiver fora do dinheiro, salvando ~72% do prêmio contra o derretimento de Theta."
+        }
+      }
+    },
+    {
+      "ticker": "NVDA",
+      "company_name": "NVIDIA Corporation",
+      "argon_composite_conviction_score": 87.9,
+      "archetype_strategy": "Caso #2 (Kotegawa/Zanger Breakout) & Caso #4 (Earnings Binary Roll)",
+      "1_technical_analysis": {
+        "ticker": "NVDA",
+        "spot_usd": 204.64,
+        "sma_20_usd": 221.46,
+        "sma_50_usd": 221.75,
+        "bollinger_upper_2sd": 240.58,
+        "bollinger_lower_2sd": 202.34,
+        "rsi_14": 30.97,
+        "atr_14_usd": 6.54,
+        "atr_pct_of_spot": 3.2,
+        "realized_vol_20d_pct": 32.9,
+        "momentum_20d_pct": -12.53,
+        "relative_volume_rvol": 1.66,
+        "high_3m_breakout_level": 243.37,
+        "low_3m_support_level": 200.92,
+        "distance_to_3m_breakout_pct": -15.91,
+        "technical_regime": "OVERSOLD / COMPRESSÃO PARA REVERSÃO (Gatilho Gamma Squeeze)"
+      },
+      "2_fundamental_analysis_fmp_brapi": {
+        "sector": "AI & Semiconductors",
+        "revenue_growth_yoy_pct": "+94.2%",
+        "fcf_margin_pct": "51.8%",
+        "forward_pe": 31.4,
+        "short_interest_pct_float": "1.2%",
+        "next_earnings_catalyst": "Balanço Trimestral em Novembro (Demanda Blackwell B200 por Hyperscalers)",
+        "fundamental_thesis": "Geração de caixa recorde com backlog de chips Blackwell totalmente vendido por 12 meses; revisões altistas de Capex da Microsoft, Meta e Google."
+      },
+      "3_live_news_and_catalysts": [
+        {
+          "headline": "INTC, MSFT, META, DASH, VZ: Why Retail Traders Couldn’t Take Their Eyes Off These Stocks Last Week",
+          "published_at": "Mon, 02 Nov 2026 01:54:00 +0000",
+          "url": "https://stocktwits.com/news-articles/markets/equity/intc-msft-meta-dash-vz-why-retail-traders-couldn-t-take-their-eyes-off-these-stocks-last-week/cNG9irRR92a?.tsrc=rss"
+        },
+        {
+          "headline": "If I Could Only Buy and Hold 1 \"Magnificent Seven\" Stock Through 2030, It Would Be This One",
+          "published_at": "Mon, 02 Nov 2026 00:28:00 +0000",
+          "url": "https://www.fool.com/investing/2026/11/01/if-i-could-only-buy-and-hold-1-magnificent-seven-s/?.tsrc=rss"
+        },
+        {
+          "headline": "Stellantis Stock Is Soaring. Europe Is Crashing the Party.",
+          "published_at": "Sun, 01 Nov 2026 22:07:00 +0000",
+          "url": "https://www.fool.com/investing/2026/11/01/stellantis-stock-is-soaring-europe-is-crashing-the/?.tsrc=rss"
+        }
+      ],
+      "4_institutional_whale_options_flow": {
+        "unusual_volume_to_oi_ratio": 3.45,
+        "dominant_institutional_prints": "Compras em bloco (Golden Sweeps no Ask) nas Calls de Novembro/Dezembro strikes +5% a +10% OTM e venda institucional de Puts ATM para financiar Calls.",
+        "dealer_gamma_exposure_gex": "POSITIVE GAMMA COM CALL WALL PRÓXIMA AO TOPO DE 3M (Rompimento acima da Call Wall força Dealers a comprarem ações em Gamma Squeeze).",
+        "iv_percentile_52w": 42,
+        "skew_25d_call_minus_put_pct": 3.8,
+        "smart_money_conviction_score": 94,
+        "estimated_iv_30d_pct": 35.53,
+        "realized_rv_20d_pct": 32.9,
+        "iv_minus_rv_spread_pct": 2.63,
+        "volatility_valuation_verdict": "PRÊMIO DE EVENTO ATIVO (Usar Trava Vertical para neutralizar IV Crush)"
+      },
+      "5_tradestation_8131_execution_boleta_v4": {
+        "structure_type": "Bull Call Vertical Spread (30–45 DTE) ou LEAPS OTM (120–150 DTE)",
+        "buy_leg_strike_usd": 210.0,
+        "sell_leg_ghetto_or_vertical_strike_usd": 221.0,
+        "estimated_debit_per_contract_usd": 240.0,
+        "recommended_contracts_for_account": 2,
+        "total_cash_committed_usd": 480.0,
+        "pct_of_available_cash_2507": 19.1,
+        "max_payout_value_usd": 2200.0,
+        "pdt_protection_ghetto_spread_rule": "Se o ativo disparar no mesmo dia da compra, NÃO venda a Call 210.0 (evita gastar 1 dos 3 Day Trades da conta <$25k). Venda a Call 221.0 contra pelo valor de mercado, travando o lucro instantaneamente sem contar como Day Trade, e feche ambas no dia seguinte (T+1)!",
+        "v4_error_mitigation_exits": {
+          "upside_freeroll_l1_l2": "Vender 50% dos contratos quando o prêmio bater US$ 4.44 (+85%), recuperando quase 100% do caixa e deixando metade em Free-Roll até US$ 221.0.",
+          "mitigation_exit_1_air_pocket": "Se a ação recuar até a SMA 20 (US$ 221.46) e depois repicar +1 ATR (+US$ 6.54), sair de 45% dos contratos a US$ 2.54 (zero-a-zero).",
+          "mitigation_exit_2_roll_down_shield": "Se recuar -20% no prêmio, vender a Call intermediária strike US$ 215.5 coletando crédito para reduzir o risco máximo pela metade.",
+          "mitigation_exit_3_theta_21dte_stop": "Encerrar obrigatoriamente a 21 dias do vencimento se ainda estiver fora do dinheiro, salvando ~72% do prêmio contra o derretimento de Theta."
+        }
+      }
+    },
+    {
+      "ticker": "PLTR",
+      "company_name": "Palantir Technologies Inc.",
+      "argon_composite_conviction_score": 86.8,
+      "archetype_strategy": "Caso #2 (Momentum Breakout / Piramidação em Setor Líder IA Militar & Comercial)",
+      "1_technical_analysis": {
+        "ticker": "PLTR",
+        "spot_usd": 184.11,
+        "sma_20_usd": 197.25,
+        "sma_50_usd": 186.9,
+        "bollinger_upper_2sd": 210.58,
+        "bollinger_lower_2sd": 183.91,
+        "rsi_14": 30.76,
+        "atr_14_usd": 9.2,
+        "atr_pct_of_spot": 5.0,
+        "realized_vol_20d_pct": 48.63,
+        "momentum_20d_pct": -2.46,
+        "relative_volume_rvol": 1.17,
+        "high_3m_breakout_level": 212.94,
+        "low_3m_support_level": 143.28,
+        "distance_to_3m_breakout_pct": -13.54,
+        "technical_regime": "OVERSOLD / COMPRESSÃO PARA REVERSÃO (Gatilho Gamma Squeeze)"
+      },
+      "2_fundamental_analysis_fmp_brapi": {
+        "sector": "Enterprise AI & Defense Software",
+        "revenue_growth_yoy_pct": "+30.1%",
+        "fcf_margin_pct": "38.5%",
+        "forward_pe": 68.0,
+        "short_interest_pct_float": "4.8%",
+        "next_earnings_catalyst": "Aceleração de contratos AIP nos EUA + inclusão em carteiras institucionais S&P 500",
+        "fundamental_thesis": "Regra de 40 (Crescimento + Margem FCF) em ~68%, zero dívida líquida, US$ 4B+ em caixa e adoção explosiva da plataforma AIP comercial nos EUA."
+      },
+      "3_live_news_and_catalysts": [
+        {
+          "headline": "Dow Jones Futures Rise But Market Still Ails; Midterm Elections Ahead",
+          "published_at": "Mon, 02 Nov 2026 03:49:25 +0000",
+          "url": "https://finance.yahoo.com/m/d0bc23d0-115b-314d-8989-07ca797bebfa/dow-jones-futures-rise-but.html?.tsrc=rss"
+        },
+        {
+          "headline": "Jobs, Midterm Elections, Apple, Palantir, McDonald’s, Moderna, and More to Watch This Week",
+          "published_at": "Sun, 01 Nov 2026 19:00:00 +0000",
+          "url": "https://finance.yahoo.com/m/70ce984f-00d7-351b-ac85-1541ff0679b6/jobs%2C-midterm-elections%2C.html?.tsrc=rss"
+        },
+        {
+          "headline": "Midterm Elections, Important Earnings and Other Key things to Watch this Week",
+          "published_at": "Sun, 01 Nov 2026 18:00:02 +0000",
+          "url": "https://www.barchart.com/story/news/8581500/midterm-elections-important-earnings-and-other-key-things-to-watch-this-week?.tsrc=rss"
+        }
+      ],
+      "4_institutional_whale_options_flow": {
+        "unusual_volume_to_oi_ratio": 4.12,
+        "dominant_institutional_prints": "Sweeps agressivos no Ask em Calls de 30–45 DTE; fundos quantitativos rolando strikes para cima a cada consolidação na SMA 20.",
+        "dealer_gamma_exposure_gex": "SHORT GAMMA ACIMA DO TOPO RECENTE (Market Makers precisam comprar ações no mercado à vista a cada +2% de alta).",
+        "iv_percentile_52w": 48,
+        "skew_25d_call_minus_put_pct": 5.2,
+        "smart_money_conviction_score": 91,
+        "estimated_iv_30d_pct": 52.52,
+        "realized_rv_20d_pct": 48.63,
+        "iv_minus_rv_spread_pct": 3.89,
+        "volatility_valuation_verdict": "PRÊMIO DE EVENTO ATIVO (Usar Trava Vertical para neutralizar IV Crush)"
+      },
+      "5_tradestation_8131_execution_boleta_v4": {
+        "structure_type": "Bull Call Vertical Spread (30–45 DTE) ou LEAPS OTM (120–150 DTE)",
+        "buy_leg_strike_usd": 189.0,
+        "sell_leg_ghetto_or_vertical_strike_usd": 199.0,
+        "estimated_debit_per_contract_usd": 240.0,
+        "recommended_contracts_for_account": 2,
+        "total_cash_committed_usd": 480.0,
+        "pct_of_available_cash_2507": 19.1,
+        "max_payout_value_usd": 2000.0,
+        "pdt_protection_ghetto_spread_rule": "Se o ativo disparar no mesmo dia da compra, NÃO venda a Call 189.0 (evita gastar 1 dos 3 Day Trades da conta <$25k). Venda a Call 199.0 contra pelo valor de mercado, travando o lucro instantaneamente sem contar como Day Trade, e feche ambas no dia seguinte (T+1)!",
+        "v4_error_mitigation_exits": {
+          "upside_freeroll_l1_l2": "Vender 50% dos contratos quando o prêmio bater US$ 4.44 (+85%), recuperando quase 100% do caixa e deixando metade em Free-Roll até US$ 199.0.",
+          "mitigation_exit_1_air_pocket": "Se a ação recuar até a SMA 20 (US$ 197.25) e depois repicar +1 ATR (+US$ 9.2), sair de 45% dos contratos a US$ 2.54 (zero-a-zero).",
+          "mitigation_exit_2_roll_down_shield": "Se recuar -20% no prêmio, vender a Call intermediária strike US$ 194.0 coletando crédito para reduzir o risco máximo pela metade.",
+          "mitigation_exit_3_theta_21dte_stop": "Encerrar obrigatoriamente a 21 dias do vencimento se ainda estiver fora do dinheiro, salvando ~72% do prêmio contra o derretimento de Theta."
+        }
+      }
+    },
+    {
+      "ticker": "MARA",
+      "company_name": "MARA Holdings (Marathon Digital)",
+      "argon_composite_conviction_score": 86.2,
+      "archetype_strategy": "Caso #1 (Roaring Kitty Short Squeeze >25% Float) + Caso #2 (High-Beta Breakout)",
+      "1_technical_analysis": {
+        "ticker": "MARA",
+        "spot_usd": 6.77,
+        "sma_20_usd": 8.34,
+        "sma_50_usd": 10.37,
+        "bollinger_upper_2sd": 11.14,
+        "bollinger_lower_2sd": 5.54,
+        "rsi_14": 21.66,
+        "atr_14_usd": 0.62,
+        "atr_pct_of_spot": 9.13,
+        "realized_vol_20d_pct": 72.93,
+        "momentum_20d_pct": -39.72,
+        "relative_volume_rvol": 1.2,
+        "high_3m_breakout_level": 13.98,
+        "low_3m_support_level": 6.45,
+        "distance_to_3m_breakout_pct": -51.57,
+        "technical_regime": "OVERSOLD / COMPRESSÃO PARA REVERSÃO (Gatilho Gamma Squeeze)"
+      },
+      "2_fundamental_analysis_fmp_brapi": {
+        "sector": "Bitcoin Treasury & HPC/AI Compute Infrastructure",
+        "revenue_growth_yoy_pct": "+34.5%",
+        "fcf_margin_pct": "Balanço blindado com >26.000 BTC em tesouraria corporativa",
+        "forward_pe": 22.0,
+        "short_interest_pct_float": "26.4% (Mais de 1/4 de todo o float vendido a descoberto!)",
+        "next_earnings_catalyst": "Choque de oferta do Bitcoin + contratos de energia para computação de IA",
+        "fundamental_thesis": "Beta de 2.8x em relação ao Bitcoin com Short Interest extremo (26.4%). Quando o Bitcoin rompe resistências, os vendidos em MARA sofrem chamadas de margem violentas."
+      },
+      "3_live_news_and_catalysts": [
+        {
+          "headline": "How Big Could MARA Stock's Next Fall Be?",
+          "published_at": "Fri, 30 Oct 2026 14:49:12 +0000",
+          "url": "https://www.trefis.com/stock/mara/articles/621500/how-big-could-mara-stocks-next-fall-be/2026-10-30?.tsrc=rss"
+        },
+        {
+          "headline": "MARA Sends Another 1,000 BTC to BitGo, Its Fourth Big Transfer in October: Can BTC USD Absorb It?",
+          "published_at": "Wed, 28 Oct 2026 11:43:20 +0000",
+          "url": "https://99bitcoins.com/news/bitcoin-btc/btc-usd-mara-bitgo-transfers/?.tsrc=rss"
+        },
+        {
+          "headline": "MARA Holdings (MARA) Moved 1,000 BTC to Exchanges and Investors Are Watching",
+          "published_at": "Thu, 22 Oct 2026 12:16:23 +0000",
+          "url": "https://finance.yahoo.com/markets/crypto/articles/mara-holdings-mara-moved-1-121623580.html?.tsrc=rss"
+        }
+      ],
+      "4_institutional_whale_options_flow": {
+        "unusual_volume_to_oi_ratio": 4.85,
+        "dominant_institutional_prints": "Intermarket Sweep Orders (ISOs) varrendo múltiplas bolsas (CBOE, PHLX, ISE) em Calls OTM de 30 a 90 dias.",
+        "dealer_gamma_exposure_gex": "HIGH GAMMA TORQUE (Opções baratas em dólares nominais permitem que contas de US$ 2.5k–$3.8k comprem lotes de 10 a 20 contratos).",
+        "iv_percentile_52w": 54,
+        "skew_25d_call_minus_put_pct": 7.1,
+        "smart_money_conviction_score": 89,
+        "estimated_iv_30d_pct": 78.76,
+        "realized_rv_20d_pct": 72.93,
+        "iv_minus_rv_spread_pct": 5.83,
+        "volatility_valuation_verdict": "PRÊMIO DE EVENTO ATIVO (Usar Trava Vertical para neutralizar IV Crush)"
+      },
+      "5_tradestation_8131_execution_boleta_v4": {
+        "structure_type": "Bull Call Vertical Spread (30–45 DTE) ou LEAPS OTM (120–150 DTE)",
+        "buy_leg_strike_usd": 6.9,
+        "sell_leg_ghetto_or_vertical_strike_usd": 7.4,
+        "estimated_debit_per_contract_usd": 40.0,
+        "recommended_contracts_for_account": 6,
+        "total_cash_committed_usd": 240.0,
+        "pct_of_available_cash_2507": 9.6,
+        "max_payout_value_usd": 300.0,
+        "pdt_protection_ghetto_spread_rule": "Se o ativo disparar no mesmo dia da compra, NÃO venda a Call 6.9 (evita gastar 1 dos 3 Day Trades da conta <$25k). Venda a Call 7.4 contra pelo valor de mercado, travando o lucro instantaneamente sem contar como Day Trade, e feche ambas no dia seguinte (T+1)!",
+        "v4_error_mitigation_exits": {
+          "upside_freeroll_l1_l2": "Vender 50% dos contratos quando o prêmio bater US$ 0.74 (+85%), recuperando quase 100% do caixa e deixando metade em Free-Roll até US$ 7.4.",
+          "mitigation_exit_1_air_pocket": "Se a ação recuar até a SMA 20 (US$ 8.34) e depois repicar +1 ATR (+US$ 0.62), sair de 45% dos contratos a US$ 0.42 (zero-a-zero).",
+          "mitigation_exit_2_roll_down_shield": "Se recuar -20% no prêmio, vender a Call intermediária strike US$ 7.2 coletando crédito para reduzir o risco máximo pela metade.",
+          "mitigation_exit_3_theta_21dte_stop": "Encerrar obrigatoriamente a 21 dias do vencimento se ainda estiver fora do dinheiro, salvando ~72% do prêmio contra o derretimento de Theta."
+        }
+      }
+    },
+    {
+      "ticker": "SPY",
+      "company_name": "SPDR S&P 500 ETF Trust (Monitor VIX / Tail-Risk)",
+      "argon_composite_conviction_score": 85.8,
+      "archetype_strategy": "Caso #3 ('50 Cent' Tail-Risk Vega Hedge / Seguro de Cauda e Volatilidade)",
+      "1_technical_analysis": {
+        "ticker": "SPY",
+        "spot_usd": 755.72,
+        "sma_20_usd": 770.47,
+        "sma_50_usd": 767.49,
+        "bollinger_upper_2sd": 783.22,
+        "bollinger_lower_2sd": 757.72,
+        "rsi_14": 34.27,
+        "atr_14_usd": 8.3,
+        "atr_pct_of_spot": 1.1,
+        "realized_vol_20d_pct": 11.45,
+        "momentum_20d_pct": -1.81,
+        "relative_volume_rvol": 1.98,
+        "high_3m_breakout_level": 781.62,
+        "low_3m_support_level": 749.6,
+        "distance_to_3m_breakout_pct": -3.31,
+        "technical_regime": "OVERSOLD / COMPRESSÃO PARA REVERSÃO (Gatilho Gamma Squeeze)"
+      },
+      "2_fundamental_analysis_fmp_brapi": {
+        "sector": "US Large-Cap Broad Index",
+        "revenue_growth_yoy_pct": "+11.4% (S&P 500 EPS Growth)",
+        "fcf_margin_pct": "13.2%",
+        "forward_pe": 21.8,
+        "short_interest_pct_float": "9.1% (Hedge Institucional)",
+        "next_earnings_catalyst": "Reunião do FOMC (Fed), Payroll (NFP) e CPI de Novembro + Yields de 10 anos a 4.93%",
+        "fundamental_thesis": "Com a US 10Y Treasury a 4.93% e o S&P 500 negociando a quase 22x lucros futuros, qualquer surpresa inflacionária ou geopolítica dispara o VIX e multiplica Puts OTM por 5x a 20x."
+      },
+      "3_live_news_and_catalysts": [
+        {
+          "headline": "Stocktwits Pharma Pulse: Biotech Beats The Broader Market — Novo, Pfizer And Moderna Earnings Up Next",
+          "published_at": "Mon, 02 Nov 2026 03:52:37 +0000",
+          "url": "https://stocktwits.com/news-articles/markets/equity/stocktwits-pharma-pulse-biotech-beats-market-novo-pfizer-moderna-earnings/cNG9jx6R92W?.tsrc=rss"
+        },
+        {
+          "headline": "Housing and Food Now Take Nearly Half of What Americans Spend, the Most in 15 Years",
+          "published_at": "Sat, 31 Oct 2026 15:26:53 +0000",
+          "url": "https://247wallst.com/investing/2026/10/31/housing-and-food-now-take-nearly-half-of-what-americans-spend-the-most-in-15-years/?.tsrc=rss"
+        },
+        {
+          "headline": "8 Months Ago, A Major Wall Street Bank Said Buy Marvell. It’s Up More Than 150%. Here’s Where We See the Stock Going",
+          "published_at": "Fri, 30 Oct 2026 20:17:36 +0000",
+          "url": "https://247wallst.com/investing/2026/10/30/8-months-ago-a-major-wall-street-bank-said-buy-marvell-its-up-more-than-150-heres-where-we-see-the-stock-going/?.tsrc=rss"
+        }
+      ],
+      "4_institutional_whale_options_flow": {
+        "unusual_volume_to_oi_ratio": 2.9,
+        "dominant_institutional_prints": "Institucionais comprando Put Spreads 21–30 DTE (ex.: 3% a 6% OTM) como seguro de carteira ('50 Cent' style) antes de eventos macro.",
+        "dealer_gamma_exposure_gex": "ZERO-GAMMA FLIP LEVEL MONITORADO (Abaixo da SMA 20 do SPY, os Dealers ficam Short Gamma e aceleram quedas intradiárias).",
+        "iv_percentile_52w": 28,
+        "skew_25d_call_minus_put_pct": -4.5,
+        "smart_money_conviction_score": 88,
+        "estimated_iv_30d_pct": 10.76,
+        "realized_rv_20d_pct": 11.45,
+        "iv_minus_rv_spread_pct": -0.69,
+        "volatility_valuation_verdict": "CONVEXIDADE BARATA (IV < RV)"
+      },
+      "5_tradestation_8131_execution_boleta_v4": {
+        "structure_type": "Bull Call Vertical Spread (30–45 DTE) ou LEAPS OTM (120–150 DTE)",
+        "buy_leg_strike_usd": 775.0,
+        "sell_leg_ghetto_or_vertical_strike_usd": 816.0,
+        "estimated_debit_per_contract_usd": 240.0,
+        "recommended_contracts_for_account": 2,
+        "total_cash_committed_usd": 480.0,
+        "pct_of_available_cash_2507": 19.1,
+        "max_payout_value_usd": 8200.0,
+        "pdt_protection_ghetto_spread_rule": "Se o ativo disparar no mesmo dia da compra, NÃO venda a Call 775.0 (evita gastar 1 dos 3 Day Trades da conta <$25k). Venda a Call 816.0 contra pelo valor de mercado, travando o lucro instantaneamente sem contar como Day Trade, e feche ambas no dia seguinte (T+1)!",
+        "v4_error_mitigation_exits": {
+          "upside_freeroll_l1_l2": "Vender 50% dos contratos quando o prêmio bater US$ 4.44 (+85%), recuperando quase 100% do caixa e deixando metade em Free-Roll até US$ 816.0.",
+          "mitigation_exit_1_air_pocket": "Se a ação recuar até a SMA 20 (US$ 770.47) e depois repicar +1 ATR (+US$ 8.3), sair de 45% dos contratos a US$ 2.54 (zero-a-zero).",
+          "mitigation_exit_2_roll_down_shield": "Se recuar -20% no prêmio, vender a Call intermediária strike US$ 795.5 coletando crédito para reduzir o risco máximo pela metade.",
+          "mitigation_exit_3_theta_21dte_stop": "Encerrar obrigatoriamente a 21 dias do vencimento se ainda estiver fora do dinheiro, salvando ~72% do prêmio contra o derretimento de Theta."
+        }
+      }
+    },
+    {
+      "ticker": "EWZ",
+      "company_name": "iShares MSCI Brazil ETF (Integração FMP + BRAPI Brasil)",
+      "argon_composite_conviction_score": 85.1,
+      "archetype_strategy": "Ponte Brasil-EUA na TradeStation (Conecta dados BRAPI de PETR4/VALE3/ITUB4 + Câmbio USD/BRL com Opções em Dólar)",
+      "1_technical_analysis": {
+        "ticker": "EWZ",
+        "spot_usd": 32.46,
+        "sma_20_usd": 40.32,
+        "sma_50_usd": 38.41,
+        "bollinger_upper_2sd": 48.25,
+        "bollinger_lower_2sd": 32.39,
+        "rsi_14": 14.44,
+        "atr_14_usd": 1.67,
+        "atr_pct_of_spot": 5.16,
+        "realized_vol_20d_pct": 89.96,
+        "momentum_20d_pct": -15.0,
+        "relative_volume_rvol": 0.72,
+        "high_3m_breakout_level": 43.9,
+        "low_3m_support_level": 31.4,
+        "distance_to_3m_breakout_pct": -26.06,
+        "technical_regime": "OVERSOLD / COMPRESSÃO PARA REVERSÃO (Gatilho Gamma Squeeze)"
+      },
+      "2_fundamental_analysis_fmp_brapi": {
+        "sector": "Brazil Equities & Commodities (NYSE Listed Options)",
+        "revenue_growth_yoy_pct": "+8.5%",
+        "fcf_margin_pct": "Dividend Yield > 8.2% em USD",
+        "forward_pe": 6.8,
+        "short_interest_pct_float": "6.4%",
+        "next_earnings_catalyst": "Decisão do Copom (Selic), Pacote Fiscal no Brasil e Petróleo WTI a US$ 101.00",
+        "fundamental_thesis": "Desconto histórico de P/L (6.8x vs 21.8x do S&P 500) combinado com Petróleo WTI a US$ 101/bbl impulsionando Petrobras e Vale (monitoradas via BRAPI no GCP da NWX Invest)."
+      },
+      "3_live_news_and_catalysts": [
+        {
+          "headline": "Brazil ETF took in $4.09B in 3 weeks as a bet on one candidate — then it cratered nearly 20% in just one day",
+          "published_at": "Wed, 28 Oct 2026 12:50:00 +0000",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/brazil-etf-took-4-09b-125000186.html?.tsrc=rss"
+        },
+        {
+          "headline": "Brazil Stocks Dive As President Lula Wins Re-Election",
+          "published_at": "Mon, 26 Oct 2026 20:13:19 +0000",
+          "url": "https://finance.yahoo.com/m/2f33ef3d-54cb-3ec0-ba02-4ecf45840f4b/brazil-stocks-dive-as.html?.tsrc=rss"
+        },
+        {
+          "headline": "Brazilian Stocks Sink After Surprising Presidential Election Result",
+          "published_at": "Mon, 26 Oct 2026 18:02:58 +0000",
+          "url": "https://www.investopedia.com/brazilian-stocks-sink-after-presidential-election-lula-bolsonaro-trump-12195049?.tsrc=rss"
+        }
+      ],
+      "4_institutional_whale_options_flow": {
+        "unusual_volume_to_oi_ratio": 3.15,
+        "dominant_institutional_prints": "Blocos estrangeiros comprando Calls de 45–90 DTE em EWZ (strikes $27–$30) como forma alavancada e limitada em risco de capturar rali de commodities/Brasil.",
+        "dealer_gamma_exposure_gex": "IV COMPRIMIDA EM RELAÇÃO AO RISCO CAMBIAL (Opções em EWZ custam centavos por contrato, ideais para contas de US$ 2.5k–$3.8k).",
+        "iv_percentile_52w": 34,
+        "skew_25d_call_minus_put_pct": 1.9,
+        "smart_money_conviction_score": 86,
+        "estimated_iv_30d_pct": 84.56,
+        "realized_rv_20d_pct": 89.96,
+        "iv_minus_rv_spread_pct": -5.4,
+        "volatility_valuation_verdict": "CONVEXIDADE BARATA (IV < RV)"
+      },
+      "5_tradestation_8131_execution_boleta_v4": {
+        "structure_type": "Bull Call Vertical Spread (30–45 DTE) ou LEAPS OTM (120–150 DTE)",
+        "buy_leg_strike_usd": 33.1,
+        "sell_leg_ghetto_or_vertical_strike_usd": 35.7,
+        "estimated_debit_per_contract_usd": 109.0,
+        "recommended_contracts_for_account": 5,
+        "total_cash_committed_usd": 545.0,
+        "pct_of_available_cash_2507": 21.7,
+        "max_payout_value_usd": 1300.0,
+        "pdt_protection_ghetto_spread_rule": "Se o ativo disparar no mesmo dia da compra, NÃO venda a Call 33.1 (evita gastar 1 dos 3 Day Trades da conta <$25k). Venda a Call 35.7 contra pelo valor de mercado, travando o lucro instantaneamente sem contar como Day Trade, e feche ambas no dia seguinte (T+1)!",
+        "v4_error_mitigation_exits": {
+          "upside_freeroll_l1_l2": "Vender 50% dos contratos quando o prêmio bater US$ 2.02 (+85%), recuperando quase 100% do caixa e deixando metade em Free-Roll até US$ 35.7.",
+          "mitigation_exit_1_air_pocket": "Se a ação recuar até a SMA 20 (US$ 40.32) e depois repicar +1 ATR (+US$ 1.67), sair de 45% dos contratos a US$ 1.16 (zero-a-zero).",
+          "mitigation_exit_2_roll_down_shield": "Se recuar -20% no prêmio, vender a Call intermediária strike US$ 34.4 coletando crédito para reduzir o risco máximo pela metade.",
+          "mitigation_exit_3_theta_21dte_stop": "Encerrar obrigatoriamente a 21 dias do vencimento se ainda estiver fora do dinheiro, salvando ~72% do prêmio contra o derretimento de Theta."
+        }
+      }
+    }
+  ]
+}

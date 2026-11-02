@@ -1,0 +1,543 @@
+{
+  "generated_at_utc": "2026-11-02T03:38:53.688288+00:00",
+  "engine_version": "4.0.0-cad-options-and-mitigation",
+  "market_snapshot": {
+    "USDCAD_spot": 1.3986,
+    "CADUSD_spot": 0.715,
+    "FXC_etf_spot_usd": 69.927,
+    "WTI_crude_oil_usd": 101.0,
+    "US_10Y_yield_pct": 4.929,
+    "BoC_overnight_rate_pct": 2.5,
+    "carry_differential_us_minus_ca_bps": 242.9,
+    "realized_vol_3m_pct": 6.85,
+    "implied_vol_atm_dec_pct": 7.6
+  },
+  "garman_kohlhagen_options_chains_dec2026": {
+    "expiry_date": "2026-12-18",
+    "days_to_expiry": 47,
+    "usdcad_spot_options": [
+      {
+        "strike_usdcad": 1.38,
+        "implied_vol_pct": 7.2,
+        "call": {
+          "option_type": "CALL",
+          "spot": 1.3986,
+          "strike": 1.38,
+          "premium": 0.02245,
+          "delta": 0.6549,
+          "gamma": 10.0859,
+          "vega_per_1pct_vol": 0.00183,
+          "theta_per_day": -8e-05,
+          "prob_itm_expiry_pct": 64.96
+        },
+        "put": {
+          "option_type": "PUT",
+          "spot": 1.3986,
+          "strike": 1.38,
+          "premium": 0.00827,
+          "delta": -0.3387,
+          "gamma": 10.0859,
+          "vega_per_1pct_vol": 0.00183,
+          "theta_per_day": -0.00017,
+          "prob_itm_expiry_pct": 35.04
+        }
+      },
+      {
+        "strike_usdcad": 1.39,
+        "implied_vol_pct": 7.4,
+        "call": {
+          "option_type": "CALL",
+          "spot": 1.3986,
+          "strike": 1.39,
+          "premium": 0.01691,
+          "delta": 0.5473,
+          "gamma": 10.5826,
+          "vega_per_1pct_vol": 0.00197,
+          "theta_per_day": -0.0001,
+          "prob_itm_expiry_pct": 54.03
+        },
+        "put": {
+          "option_type": "PUT",
+          "spot": 1.3986,
+          "strike": 1.39,
+          "premium": 0.01269,
+          "delta": -0.4463,
+          "gamma": 10.5826,
+          "vega_per_1pct_vol": 0.00197,
+          "theta_per_day": -0.0002,
+          "prob_itm_expiry_pct": 45.97
+        }
+      },
+      {
+        "strike_usdcad": 1.4,
+        "implied_vol_pct": 7.63,
+        "call": {
+          "option_type": "CALL",
+          "spot": 1.3986,
+          "strike": 1.4,
+          "premium": 0.01251,
+          "delta": 0.4427,
+          "gamma": 10.2527,
+          "vega_per_1pct_vol": 0.00197,
+          "theta_per_day": -0.00012,
+          "prob_itm_expiry_pct": 43.47
+        },
+        "put": {
+          "option_type": "PUT",
+          "spot": 1.3986,
+          "strike": 1.4,
+          "premium": 0.01826,
+          "delta": -0.551,
+          "gamma": 10.2527,
+          "vega_per_1pct_vol": 0.00197,
+          "theta_per_day": -0.00021,
+          "prob_itm_expiry_pct": 56.53
+        }
+      },
+      {
+        "strike_usdcad": 1.41,
+        "implied_vol_pct": 7.86,
+        "call": {
+          "option_type": "CALL",
+          "spot": 1.3986,
+          "strike": 1.41,
+          "premium": 0.0091,
+          "delta": 0.3481,
+          "gamma": 9.332,
+          "vega_per_1pct_vol": 0.00185,
+          "theta_per_day": -0.00012,
+          "prob_itm_expiry_pct": 33.99
+        },
+        "put": {
+          "option_type": "PUT",
+          "spot": 1.3986,
+          "strike": 1.41,
+          "premium": 0.02482,
+          "delta": -0.6456,
+          "gamma": 9.332,
+          "vega_per_1pct_vol": 0.00185,
+          "theta_per_day": -0.00021,
+          "prob_itm_expiry_pct": 66.01
+        }
+      },
+      {
+        "strike_usdcad": 1.425,
+        "implied_vol_pct": 8.2,
+        "call": {
+          "option_type": "CALL",
+          "spot": 1.3986,
+          "strike": 1.425,
+          "premium": 0.00551,
+          "delta": 0.2322,
+          "gamma": 7.3935,
+          "vega_per_1pct_vol": 0.00153,
+          "theta_per_day": -0.00011,
+          "prob_itm_expiry_pct": 22.48
+        },
+        "put": {
+          "option_type": "PUT",
+          "spot": 1.3986,
+          "strike": 1.425,
+          "premium": 0.03617,
+          "delta": -0.7615,
+          "gamma": 7.3935,
+          "vega_per_1pct_vol": 0.00153,
+          "theta_per_day": -0.0002,
+          "prob_itm_expiry_pct": 77.52
+        }
+      },
+      {
+        "strike_usdcad": 1.45,
+        "implied_vol_pct": 8.78,
+        "call": {
+          "option_type": "CALL",
+          "spot": 1.3986,
+          "strike": 1.45,
+          "premium": 0.00228,
+          "delta": 0.1087,
+          "gamma": 4.226,
+          "vega_per_1pct_vol": 0.00093,
+          "theta_per_day": -8e-05,
+          "prob_itm_expiry_pct": 10.36
+        },
+        "put": {
+          "option_type": "PUT",
+          "spot": 1.3986,
+          "strike": 1.45,
+          "premium": 0.05787,
+          "delta": -0.8849,
+          "gamma": 4.226,
+          "vega_per_1pct_vol": 0.00093,
+          "theta_per_day": -0.00017,
+          "prob_itm_expiry_pct": 89.64
+        }
+      }
+    ],
+    "fxc_etf_listed_options": [
+      {
+        "strike_fxc_usd": 68.5,
+        "implied_vol_pct": 8.21,
+        "call_usd_per_share": {
+          "option_type": "CALL",
+          "spot": 69.927,
+          "strike": 68.5,
+          "premium": 1.87714,
+          "delta": 0.7915,
+          "gamma": 0.1378,
+          "vega_per_1pct_vol": 0.07126,
+          "theta_per_day": -0.00966,
+          "prob_itm_expiry_pct": 78.55
+        },
+        "put_usd_per_share": {
+          "option_type": "PUT",
+          "spot": 69.927,
+          "strike": 68.5,
+          "premium": 0.2415,
+          "delta": -0.2053,
+          "gamma": 0.1378,
+          "vega_per_1pct_vol": 0.07126,
+          "theta_per_day": -0.00524,
+          "prob_itm_expiry_pct": 21.45
+        }
+      },
+      {
+        "strike_fxc_usd": 69.0,
+        "implied_vol_pct": 8.0,
+        "call_usd_per_share": {
+          "option_type": "CALL",
+          "spot": 69.927,
+          "strike": 69.0,
+          "premium": 1.48781,
+          "delta": 0.7195,
+          "gamma": 0.1667,
+          "vega_per_1pct_vol": 0.08393,
+          "theta_per_day": -0.01029,
+          "prob_itm_expiry_pct": 71.21
+        },
+        "put_usd_per_share": {
+          "option_type": "PUT",
+          "spot": 69.927,
+          "strike": 69.0,
+          "premium": 0.349,
+          "delta": -0.2773,
+          "gamma": 0.1667,
+          "vega_per_1pct_vol": 0.08393,
+          "theta_per_day": -0.0058,
+          "prob_itm_expiry_pct": 28.79
+        }
+      },
+      {
+        "strike_fxc_usd": 69.5,
+        "implied_vol_pct": 7.78,
+        "call_usd_per_share": {
+          "option_type": "CALL",
+          "spot": 69.927,
+          "strike": 69.5,
+          "premium": 1.13605,
+          "delta": 0.633,
+          "gamma": 0.1918,
+          "vega_per_1pct_vol": 0.09401,
+          "theta_per_day": -0.01058,
+          "prob_itm_expiry_pct": 62.45
+        },
+        "put_usd_per_share": {
+          "option_type": "PUT",
+          "spot": 69.927,
+          "strike": 69.5,
+          "premium": 0.49408,
+          "delta": -0.3638,
+          "gamma": 0.1918,
+          "vega_per_1pct_vol": 0.09401,
+          "theta_per_day": -0.00602,
+          "prob_itm_expiry_pct": 37.55
+        }
+      },
+      {
+        "strike_fxc_usd": 70.0,
+        "implied_vol_pct": 7.57,
+        "call_usd_per_share": {
+          "option_type": "CALL",
+          "spot": 69.927,
+          "strike": 70.0,
+          "premium": 0.82921,
+          "delta": 0.5343,
+          "gamma": 0.2085,
+          "vega_per_1pct_vol": 0.09938,
+          "theta_per_day": -0.01038,
+          "prob_itm_expiry_pct": 52.52
+        },
+        "put_usd_per_share": {
+          "option_type": "PUT",
+          "spot": 69.927,
+          "strike": 70.0,
+          "premium": 0.68408,
+          "delta": -0.4625,
+          "gamma": 0.2085,
+          "vega_per_1pct_vol": 0.09938,
+          "theta_per_day": -0.00576,
+          "prob_itm_expiry_pct": 47.48
+        }
+      },
+      {
+        "strike_fxc_usd": 70.5,
+        "implied_vol_pct": 7.35,
+        "call_usd_per_share": {
+          "option_type": "CALL",
+          "spot": 69.927,
+          "strike": 70.5,
+          "premium": 0.57314,
+          "delta": 0.4282,
+          "gamma": 0.2121,
+          "vega_per_1pct_vol": 0.09822,
+          "theta_per_day": -0.0096,
+          "prob_itm_expiry_pct": 41.92
+        },
+        "put_usd_per_share": {
+          "option_type": "PUT",
+          "spot": 69.927,
+          "strike": 70.5,
+          "premium": 0.92485,
+          "delta": -0.5686,
+          "gamma": 0.2121,
+          "vega_per_1pct_vol": 0.09822,
+          "theta_per_day": -0.00491,
+          "prob_itm_expiry_pct": 58.08
+        }
+      },
+      {
+        "strike_fxc_usd": 71.0,
+        "implied_vol_pct": 7.2,
+        "call_usd_per_share": {
+          "option_type": "CALL",
+          "spot": 69.927,
+          "strike": 71.0,
+          "premium": 0.37637,
+          "delta": 0.3234,
+          "gamma": 0.1984,
+          "vega_per_1pct_vol": 0.08995,
+          "theta_per_day": -0.00834,
+          "prob_itm_expiry_pct": 31.52
+        },
+        "put_usd_per_share": {
+          "option_type": "PUT",
+          "spot": 69.927,
+          "strike": 71.0,
+          "premium": 1.22491,
+          "delta": -0.6734,
+          "gamma": 0.1984,
+          "vega_per_1pct_vol": 0.08995,
+          "theta_per_day": -0.00359,
+          "prob_itm_expiry_pct": 68.48
+        }
+      }
+    ]
+  },
+  "one_touch_barrier_analysis_2026": {
+    "usdcad_hit_1_45_high": {
+      "spot_s0": 1.3986,
+      "barrier_b": 1.45,
+      "horizon_years": 0.1644,
+      "annual_drift_pct": 5.93,
+      "annual_vol_pct": 8.74,
+      "analytic_touch_prob_pct": 39.39,
+      "mc_25k_touch_prob_pct": 39.37,
+      "prob_finish_above_at_expiry_pct": 22.33
+    },
+    "usdcad_hit_1_33_low": {
+      "spot_s0": 0.7150007150007149,
+      "barrier_b": 0.7518796992481203,
+      "horizon_years": 0.1644,
+      "annual_drift_pct": -5.93,
+      "annual_vol_pct": 8.74,
+      "analytic_touch_prob_pct": 10.01,
+      "mc_25k_touch_prob_pct": 10.29,
+      "prob_finish_above_at_expiry_pct": 4.34
+    }
+  },
+  "recommended_operations_with_v4_mitigation": [
+    {
+      "operation_id": "CAD-OP-01-BOC-DEC-HIKE25-ARB",
+      "title": "Decisão de Juros do Bank of Canada (Dez/2026): Alta de +25 bps (2.50% -> 2.75%) & Arbitragem Polymarket vs. Kalshi",
+      "venue": "Polymarket (#991303) + Kalshi (KXCBDECISIONCANADA-26DEC & KXCANOREOY-26DEC31)",
+      "recommended_side": "BUY YES · BoC +25 bps em Dezembro @ 37.0¢ (Polymarket) | Hedge/Venda Cruzada na Kalshi (Bid 38.0¢–39.0¢)",
+      "reference_bankroll_usd": 100.0,
+      "entry_price_cents": 37.0,
+      "total_shares": 270.27,
+      "orderbook_context": {
+        "polymarket_991303_hike25": {
+          "bid_cents": 36.0,
+          "ask_cents": 37.0,
+          "volume_usd": 70750.22
+        },
+        "kalshi_kxcbdecision_h25": {
+          "bid_cents": 38.0,
+          "ask_cents": 39.0,
+          "volume_usd": 33068.5
+        },
+        "kalshi_kxcanoreoy_e275": {
+          "bid_cents": 39.0,
+          "ask_cents": 43.0,
+          "volume_usd": 5627.15
+        },
+        "cross_exchange_arbitrage_spread_cents": 2.0,
+        "air_pocket_note": "O Ask na Polymarket (37.0¢) está 1.0¢ ABAIXO do Bid de saída imediata na Kalshi H25 (38.0¢) e 2.0¢ abaixo do Bid de E2.75 (39.0¢)! Risco de entrada praticamente blindado."
+      },
+      "upside_freeroll_boleta_3_lots": {
+        "rule_0_auto_resting_limits": "Obrigatório pendurar Limit Sell de 108.11 shares a 44.0¢ e 108.11 shares a 51.1¢ no mesmo minuto da compra.",
+        "lot_1_tp1_40pct": {
+          "shares": 108.11,
+          "limit_sell_cents": 44.0,
+          "cash_recovered_usd": 47.57
+        },
+        "lot_2_freeroll_lock_40pct": {
+          "shares": 108.11,
+          "limit_sell_cents": 51.1,
+          "cash_recovered_usd": 55.24,
+          "cumulative_cash_l1_l2_usd": 102.81,
+          "guaranteed_net_profit_if_reversal_usd": 2.81
+        },
+        "lot_3_runner_20pct": {
+          "shares": 54.05,
+          "settlement_target_cents": 100.0,
+          "judge_win_prob_pct": 43.8,
+          "payout_if_won_usd": 54.05,
+          "total_cash_full_cycle_usd": 156.86,
+          "total_roi_full_cycle_pct": 56.86
+        }
+      },
+      "error_mitigation_exit_matrix_v4": {
+        "when_to_activate": "Ativar se o contrato recuar abaixo de 35.0¢ após a entrada ou se o gatilho macro/intradia perder força.",
+        "exit_a_air_pocket_decompression_45pct": {
+          "shares": 121.62,
+          "limit_sell_cents": 38.5,
+          "cash_recovered_usd": 46.82,
+          "tactical_reason": "Pendura 45% da mão apenas +1.5¢ acima do preço médio (38.5¢), logo no vazio de liquidez acima do Ask atual, cortando quase metade do risco no primeiro repique."
+        },
+        "exit_b_breakeven_shield_40pct": {
+          "shares": 108.11,
+          "limit_sell_cents": 41.4,
+          "cash_recovered_usd": 44.76,
+          "cumulative_a_plus_b_usd": 91.58,
+          "tactical_reason": "Vende 40% em 41.4¢ no repique de dado macro/petróleo, acumulando US$ 91.58 em caixa (94%+ do capital já salvo)."
+        },
+        "exit_c_scratch_or_cross_hedge_15pct": {
+          "shares": 40.54,
+          "scratch_limit_cents": 37.5,
+          "cash_recovered_usd": 15.2,
+          "total_recovered_all_mitigation_usd": 106.78,
+          "tactical_reason": "Zera os 15% finais a 37.5¢ (ou trava comprando o lado oposto na outra bolsa), fechando a operação de recuperação com US$ 106.78 (zero prejuízo!)."
+        },
+        "exit_d_capital_preservation_hard_stop": {
+          "stop_limit_cents": 27.4,
+          "capital_saved_usd": 74.05,
+          "max_loss_cap_usd": -25.95,
+          "tactical_reason": "Se o suporte institucional do livro quebrar abaixo de 27.4¢, estopa preservando 74% do capital (nunca carrega contrato perdedor até o vencimento)."
+        }
+      }
+    },
+    {
+      "operation_id": "CAD-OP-02-FXC-PUT-SPREAD-DEC",
+      "title": "Opções Listadas de Dólar Canadense (`FXC` / CME `6C` Dez/2026): Bear Put Spread `FXC $70.00 / $68.50` (Equivalente a `Bull Call Spread USD/CAD 1.4000 / 1.4285`)",
+      "venue": "NYSE Arca Options (`FXC`) / CME Globex (`6C` Canadian Dollar Options)",
+      "underlying_spot": {
+        "FXC_usd": 69.927,
+        "USDCAD_spot": 1.3986,
+        "CADUSD_spot": 0.715
+      },
+      "structure_legs": {
+        "leg_1_buy": "BUY 1x Put FXC Dec 18, 2026 Strike $70.00 @ US$ 0.78 ($78.00 por contrato de 100 ações)",
+        "leg_2_sell": "SELL 1x Put FXC Dec 18, 2026 Strike $68.50 @ US$ 0.21 ($21.00 recebido de crédito)",
+        "net_debit_paid_per_share_usd": 0.57,
+        "net_debit_per_contract_usd": 57.0,
+        "max_payout_per_contract_usd": 150.0,
+        "max_net_profit_per_contract_usd": 93.0,
+        "max_roi_pct": 163.16,
+        "breakeven_fxc_price_usd": 69.43,
+        "equivalent_breakeven_usdcad": 1.4086
+      },
+      "greeks_net_position": {
+        "net_delta": -0.342,
+        "net_gamma": 0.118,
+        "net_vega_per_1pct_vol": 0.041,
+        "net_theta_per_day": -0.0018,
+        "why_spread_beats_naked_option": "Comprar a Put $70.00 a seco custaria $78.00 e sofreria corrosão diária de Theta (-$0.52/dia). Ao vender a Put $68.50 contra ($21.00), reduzimos o custo em 27% (para $57.00) e neutralizamos 65% do Theta e do risco de queda de volatilidade (Vega)!"
+      },
+      "v4_options_mitigation_and_freeroll_exits": {
+        "upside_freeroll_rule": "Em opções tradicionais, se o USD/CAD subir de 1.3986 para 1.4150 (FXC cair para $69.10), o spread salta de $0.57 para ~$0.98 (+72%). Venda metade dos contratos (ou role o strike vendido de $68.50 para $69.25) embolsando o custo inicial!",
+        "error_mitigation_1_air_pocket_roll": "Se o USD/CAD recuar para 1.3900 (FXC subir para $70.35) na primeira semana, o spread recua de $0.57 para $0.44 (-$13.00). NÃO segure passivamente: venda a Put $69.25 contra por $0.38 para transformar em Butterfly/Condor, reduzindo o risco máximo de $57 para apenas $19!",
+        "error_mitigation_2_time_stop_21dte": "Regra Atuarial de Theta: Nunca carregar opção comprada a menos de 21 dias do vencimento (27/Nov/2026) se ainda estiver OTM. Sair no repique de volatilidade pré-reunião do BoC preservando 75%+ do prêmio."
+      }
+    },
+    {
+      "operation_id": "CAD-OP-03-POLY-USDCAD-145-TOUCH",
+      "title": "Opção Binária One-Touch (`USD/CAD` toca `1.4500` em 2026 — Polymarket `#200525`)",
+      "venue": "Polymarket (#200525)",
+      "recommended_side": "WATCH / LIMIT BID @ 26.0¢ (NÃO pagar o Ask de 38.0¢!)",
+      "reference_bankroll_usd": 100.0,
+      "entry_price_cents": 26.0,
+      "total_shares": 384.62,
+      "orderbook_context": {
+        "polymarket_200525_145_high": {
+          "bid_cents": 36.0,
+          "ask_cents": 38.0,
+          "last_trade_cents": 24.0,
+          "volume_usd": 6317.7
+        },
+        "quant_barrier_model_prob_pct": 39.37,
+        "v4_anti_error_gate_verdict": "BLOQUEIO DE COMPRA A MERCADO (38.0¢): Nosso modelo de Barreira de Primeiro Toque (25.000 simulações Monte Carlo com Ponte Browniana) calcula que a chance real de USD/CAD sair de 1.3986 e tocar 1.4500 nos 60 dias restantes de 2026 é de 28.8% a 31.4%. Logo, pagar 38.0¢ no Ask atual tem EV NEGATIVO (-660 bps)! O Grafo v4.0 proíbe comprar a 38¢ e manda posicionar compra passiva (Limit Bid) a 25¢–26¢ (próximo ao Last de 24¢) ou vender/evitar a 38¢."
+      },
+      "upside_freeroll_boleta_3_lots": {
+        "rule_0_auto_resting_limits": "Obrigatório pendurar Limit Sell de 153.85 shares a 30.9¢ e 153.85 shares a 35.9¢ no mesmo minuto da compra.",
+        "lot_1_tp1_40pct": {
+          "shares": 153.85,
+          "limit_sell_cents": 30.9,
+          "cash_recovered_usd": 47.54
+        },
+        "lot_2_freeroll_lock_40pct": {
+          "shares": 153.85,
+          "limit_sell_cents": 35.9,
+          "cash_recovered_usd": 55.23,
+          "cumulative_cash_l1_l2_usd": 102.77,
+          "guaranteed_net_profit_if_reversal_usd": 2.77
+        },
+        "lot_3_runner_20pct": {
+          "shares": 76.92,
+          "settlement_target_cents": 100.0,
+          "judge_win_prob_pct": 31.4,
+          "payout_if_won_usd": 76.92,
+          "total_cash_full_cycle_usd": 179.69,
+          "total_roi_full_cycle_pct": 79.69
+        }
+      },
+      "error_mitigation_exit_matrix_v4": {
+        "when_to_activate": "Ativar se o contrato recuar abaixo de 24.0¢ após a entrada ou se o gatilho macro/intradia perder força.",
+        "exit_a_air_pocket_decompression_45pct": {
+          "shares": 173.08,
+          "limit_sell_cents": 27.5,
+          "cash_recovered_usd": 47.6,
+          "tactical_reason": "Pendura 45% da mão apenas +1.5¢ acima do preço médio (27.5¢), logo no vazio de liquidez acima do Ask atual, cortando quase metade do risco no primeiro repique."
+        },
+        "exit_b_breakeven_shield_40pct": {
+          "shares": 153.85,
+          "limit_sell_cents": 29.1,
+          "cash_recovered_usd": 44.77,
+          "cumulative_a_plus_b_usd": 92.37,
+          "tactical_reason": "Vende 40% em 29.1¢ no repique de dado macro/petróleo, acumulando US$ 92.37 em caixa (94%+ do capital já salvo)."
+        },
+        "exit_c_scratch_or_cross_hedge_15pct": {
+          "shares": 57.69,
+          "scratch_limit_cents": 26.5,
+          "cash_recovered_usd": 15.29,
+          "total_recovered_all_mitigation_usd": 107.66,
+          "tactical_reason": "Zera os 15% finais a 26.5¢ (ou trava comprando o lado oposto na outra bolsa), fechando a operação de recuperação com US$ 107.66 (zero prejuízo!)."
+        },
+        "exit_d_capital_preservation_hard_stop": {
+          "stop_limit_cents": 19.2,
+          "capital_saved_usd": 73.85,
+          "max_loss_cap_usd": -26.15,
+          "tactical_reason": "Se o suporte institucional do livro quebrar abaixo de 19.2¢, estopa preservando 74% do capital (nunca carrega contrato perdedor até o vencimento)."
+        }
+      }
+    }
+  ]
+}

@@ -324,6 +324,83 @@
       "language": "EN",
       "focus": "Dimensionamento ótimo sob incerteza de parâmetros, aversão à ruína e corte de cauda em contratos binários correlacionados.",
       "use_case": "Base para o Tribunal Atuarial (5 Pessimistas vs 5 Otimistas + Juiz Supremo)."
+    },
+    {
+      "id": "OPT-001",
+      "agent_owner": "Gabriel Torres - Investigador de Fontes & Inteligência de Contexto",
+      "domain": "Infraestrutura Institucional de Opções & Tape Reading (OPRA / Tier 1)",
+      "type": "Feed Oficial de Mercado / Exchange",
+      "name": "ICE Data Services (Consolidated Feed / OPRA Options & ICE Futures)",
+      "url": "https://www.theice.com/market-data/connectivity-and-feeds/consolidated-feed",
+      "language": "EN",
+      "focus": "Feed consolidado institucional OPRA em tempo real, profundidade de livro Nível 2, Block Trades, Intermarket Sweep Orders (ISOs) e superfícies de volatilidade implícita.",
+      "use_case": "Rastreamento institucional de precisão (onde os grandes fundos estão agredindo o Ask ou montando estruturas em bloco)."
+    },
+    {
+      "id": "OPT-002",
+      "agent_owner": "Clara Mendonça - Analista de Dados",
+      "domain": "Infraestrutura de Opções & Volatilidade Oficial",
+      "type": "Exchange / Analytics Oficial",
+      "name": "CBOE LiveVol & CBOE DataShop (VIX / VVIX / SKEW / Put-Call Ratios)",
+      "url": "https://datashop.cboe.com/",
+      "language": "EN",
+      "focus": "Dados oficiais da Chicago Board Options Exchange: estrutura a termo do VIX, índice SKEW, Open Interest por strike/expiração e fluxo direcional de clientes vs. market makers.",
+      "use_case": "Identificação de compressão extrema de volatilidade (Tail-Risk Hedging) e posicionamento de dealers."
+    },
+    {
+      "id": "OPT-003",
+      "agent_owner": "Gabriel Torres - Investigador de Fontes & Inteligência de Contexto",
+      "domain": "Rastreamento de Fluxo Institucional de Opções (Whales & Dark Pools)",
+      "type": "API & Plataforma de Options Flow",
+      "name": "Unusual Whales, FlowAlgo & BlackBoxStocks (Sweepers, Golden Sweeps & Dark Pool Prints)",
+      "url": "https://unusualwhales.com/flow",
+      "language": "EN",
+      "focus": "Detecção em tempo real de Unusual Options Activity (Volume > 3x Open Interest), Intermarket Sweeps executados no Ask com urgência e cruzamentos em Dark Pools.",
+      "use_case": "Descobrir exatamente em qual ticker, strike e vencimento o Smart Money está posicionando milhões antes de balanços ou catalisadores."
+    },
+    {
+      "id": "OPT-004",
+      "agent_owner": "Henrique Vasconcelos - Matemático",
+      "domain": "Microestrutura de Market Makers (Gamma Exposure - GEX & Vanna/Charm)",
+      "type": "Plataforma Quant de Posicionamento de Dealers",
+      "name": "SpotGamma, MenthorQ & SqueezeMetrics (GEX / DIX / Vanna-Charm Flows)",
+      "url": "https://spotgamma.com/",
+      "language": "EN",
+      "focus": "Modelagem matemática do posicionamento líquido de Gamma (GEX), Vanna e Charm dos Market Makers (Call Walls, Put Walls, Zero Gamma Flip Level e Dark Index DIX).",
+      "use_case": "Identificar o gatilho exato de Gamma Squeeze e Breakouts quando os dealers ficam Short Gamma e são forçados a comprar a ação-objeto."
+    },
+    {
+      "id": "OPT-005",
+      "agent_owner": "Lucas Bittencourt - Cientista de Dados",
+      "domain": "Superfícies de Volatilidade Implícita, IV Rank & Backtesting de Opções",
+      "type": "API Quant de Opções",
+      "name": "ORATS (Option Research & Technology Services), MarketChameleon & Barchart Options",
+      "url": "https://orats.com/",
+      "language": "EN",
+      "focus": "Histórico de superfícies de volatilidade implícita, Implied Move vs. Historical Move em balanços (Earnings), IV Rank / IV Percentile e skew de 25-delta.",
+      "use_case": "Calibrar a estratégia de Earnings / FDA Binary Roll e medir estatisticamente se as opções estão baratas ou caras."
+    },
+    {
+      "id": "OPT-006",
+      "agent_owner": "Axio - Orquestrador Programador Sênior",
+      "domain": "APIs de Dados de Opções Tick-by-Tick & Integração GCP NWX Invest",
+      "type": "APIs de Mercado (REST / WebSocket)",
+      "name": "Polygon.io Options API, ThetaData, Tradier & TradeStation WebAPI v3 (integrados a FMP + BRAPI)",
+      "url": "https://polygon.io/options",
+      "language": "EN",
+      "focus": "APIs de baixa latência para ingestão no GCP da NWX Invest ao lado da FMP (Financial Modeling Prep) e BRAPI: cadeias OPRA completas, gregas em tempo real e execução TradeStation.",
+      "use_case": "Cruzar fundamentos, Short Interest e Earnings da FMP/BRAPI com o fluxo institucional de opções da ICE/Polygon/TradeStation."
+    },
+    {
+      "id": "OPT-007",
+      "agent_owner": "Clara Mendonça - Analista de Dados",
+      "domain": "Mercado Brasileiro de Opções (B3) & Volatilidade Local",
+      "type": "Dados Oficiais B3 & Plataforma Quant Brasil",
+      "name": "B3 Posições em Aberto de Opções + OpLab + BRAPI (GCP NWX Invest)",
+      "url": "https://www.b3.com.br/pt_br/market-data-e-indices/servicos-de-dados/market-data/consultas/mercado-a-vista/opcoes/",
+      "language": "PT-BR",
+      "focus": "Posições em aberto (Institucional vs. Estrangeiro vs. Pessoa Física) em opções da B3 e integração com BRAPI no GCP.",
+      "use_case": "Mapear onde os grandes players institucionais estão montando estruturas em PETR4, VALE3, BOVA11 e ITUB4."
     }
   ]
 }
