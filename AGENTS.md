@@ -30,6 +30,26 @@ Cada agente vive em seu próprio diretório isolado dentro de `agents/`, contend
    - *Foco:* Cálculo e gestão de riscos financeiros, precificação, reservas, probabilidade de ruína, Value at Risk ($\text{VaR}$ / $\text{CVaR}$), tabelas de sobrevivência/churn e viabilidade em seguros, bancos, previdência e novos negócios.
 6. **`agents/05_gabriel_torres_investigador_fontes/`** → **Gabriel Torres - Investigador de Fontes & Inteligência de Contexto**
    - *Foco:* Descoberta e extração de dados granulares do domínio (ex.: elencos, baixas médicas `IR`/`INA`, retornos de lesão, performance individual de jogadores, EPA/CPOE, microestrutura), respondendo *"O que poderia favorecer ou ameaçar essa predição?"* e gerando munição empírica para os especialistas e para o Tribunal Atuarial (5 Pessimistas vs. 5 Otimistas + Juiz Supremo).
+7. **`agents/06_rafael_monteiro_analista_fundamentalista/`** → **Rafael Monteiro - Analista Fundamentalista & Macro**
+   - *Foco:* Balanços (SEC EDGAR/CVM/FMP/BRAPI), crédito e juros (FRED), calendário de catalisadores e ciclos/sazonalidade (ciclo presidencial, midterms, Santa Claus Rally) com estatística reproduzível.
+8. **`agents/07_marina_castro_analista_tecnica_didi/`** → **Marina Castro - Analista Técnica (Especialista em Didi Index)**
+   - *Foco:* Didi Index/Agulhada (SMA 3/8/20), Fibonacci algorítmico, Bollinger(8,2), ADX e volume, com backtest obrigatório e tradução de níveis em strikes de opções.
+
+> **Pergunta Nº 1 de todo projeto:** *"Quais fontes preciso para gerar esses dados?"* — Nenhum número entra no grafo sem `fonte` + `data_coleta`. Valores hardcoded são proibidos fora de testes.
+
+---
+
+## 🚫 2.1 Regra Pétrea Inegociável: PROIBIÇÃO ABSOLUTA DE INVENTAR OU "HARDCODAR" NÚMEROS
+
+> **CLÁUSULA DE INTEGRIDADE EMPÍRICA DA EQUIPE ARGON**  
+> Todo e qualquer modelo de IA que opere neste repositório está **TERMINANTEMENTE PROIBIDO** de:
+> 1. **Inventar valores numéricos, taxas, percentuais, gregas de opções, volumes, open interest ou estatísticas**.
+> 2. **Inserir dados hardcoded ou fictícios em relatórios, arquivos JSON de saída ou motores de produção** fingindo que foram extraídos de mercado.
+> 3. Se uma fonte de dados (API, banco de dados ou vendor) estiver fora do ar, desconectada ou retornar erro (como HTTP 401/403):
+>    - **A IA DEVE DECLARAR IMEDIATAMENTE:** *"Não possuo essa fonte conectada no momento"*.
+>    - **A IA DEVE APRESENTAR A LISTA DE FONTES NECESSÁRIAS** para obter o dado real.
+>    - **NUNCA PREENCHER COM VALORES APROXIMADOS OU INVENTADOS**.
+> 4. Todo número que entrar no grafo deve conter o trio obrigatório: `[valor, fonte_primária_verificável, data_hora_coleta]`.
 
 ---
 

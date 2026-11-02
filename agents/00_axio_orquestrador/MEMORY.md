@@ -144,3 +144,9 @@
 
 
 
+
+## 2026-11-02
+- Equipe ampliada: 06 Rafael Monteiro (Fundamentalista/Macro) e 07 Marina Castro (Técnica/Didi Index).
+- Auditoria: UOA/skew/IV/whale prints e fundamentos do motor unificado de opções estavam HARDCODED; relatórios SOFI não devem ser usados para operar.
+- Estudo real de sazonalidade x ciclo eleitoral (^GSPC 1950-2026) em core/seasonality_election_cycle_study.py. Mapa de fontes em reports/MAPA_FONTES_DADOS_ARGON.md.
+

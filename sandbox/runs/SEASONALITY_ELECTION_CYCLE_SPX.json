@@ -1,0 +1,394 @@
+{
+  "generated_at_utc": "2026-11-02T13:58:37.505845+00:00",
+  "fonte": "Yahoo Finance ^GSPC diário (sem dividendos), 1950–hoje",
+  "ultimo_pregao": "2026-10-30",
+  "ultimo_close": 7580.07,
+  "ano_corrente_ciclo": "Ano 2 (MIDTERM)",
+  "santa_claus_rally": {
+    "Ano 1 (pós-eleição)": {
+      "n": 19,
+      "media_pct": 1.53,
+      "mediana_pct": 1.11,
+      "pct_positivo": 78.9,
+      "pior_pct": -1.85,
+      "melhor_pct": 6.69
+    },
+    "Ano 2 (MIDTERM)": {
+      "n": 19,
+      "media_pct": 1.39,
+      "mediana_pct": 1.29,
+      "pct_positivo": 84.2,
+      "pior_pct": -2.97,
+      "melhor_pct": 7.2
+    },
+    "Ano 3 (pré-eleitoral)": {
+      "n": 19,
+      "media_pct": 0.82,
+      "mediana_pct": 1.57,
+      "pct_positivo": 68.4,
+      "pior_pct": -4.04,
+      "melhor_pct": 5.68
+    },
+    "Ano 4 (eleição presidencial)": {
+      "n": 19,
+      "media_pct": 1.25,
+      "mediana_pct": 0.92,
+      "pct_positivo": 73.7,
+      "pior_pct": -1.82,
+      "melhor_pct": 7.45
+    },
+    "TODOS": {
+      "n": 76,
+      "media_pct": 1.25,
+      "mediana_pct": 1.21,
+      "pct_positivo": 76.3,
+      "pior_pct": -4.04,
+      "melhor_pct": 7.45
+    }
+  },
+  "novembro": {
+    "Ano 1 (pós-eleição)": {
+      "n": 19,
+      "media_pct": 1.59,
+      "mediana_pct": 2.7,
+      "pct_positivo": 73.7,
+      "pior_pct": -11.39,
+      "melhor_pct": 7.52
+    },
+    "Ano 2 (MIDTERM)": {
+      "n": 19,
+      "media_pct": 2.75,
+      "mediana_pct": 2.24,
+      "pct_positivo": 78.9,
+      "pior_pct": -5.32,
+      "melhor_pct": 10.16
+    },
+    "Ano 3 (pré-eleitoral)": {
+      "n": 19,
+      "media_pct": 0.93,
+      "mediana_pct": 0.75,
+      "pct_positivo": 63.2,
+      "pior_pct": -8.53,
+      "melhor_pct": 8.92
+    },
+    "Ano 4 (eleição presidencial)": {
+      "n": 19,
+      "media_pct": 2.18,
+      "mediana_pct": 3.42,
+      "pct_positivo": 63.2,
+      "pior_pct": -8.01,
+      "melhor_pct": 10.75
+    },
+    "TODOS": {
+      "n": 76,
+      "media_pct": 1.86,
+      "mediana_pct": 2.03,
+      "pct_positivo": 69.7,
+      "pior_pct": -11.39,
+      "melhor_pct": 10.75
+    }
+  },
+  "dezembro": {
+    "Ano 1 (pós-eleição)": {
+      "n": 19,
+      "media_pct": 0.72,
+      "mediana_pct": 0.9,
+      "pct_positivo": 73.7,
+      "pior_pct": -4.15,
+      "melhor_pct": 4.51
+    },
+    "Ano 2 (MIDTERM)": {
+      "n": 19,
+      "media_pct": 0.82,
+      "mediana_pct": 1.35,
+      "pct_positivo": 63.2,
+      "pior_pct": -9.18,
+      "melhor_pct": 6.53
+    },
+    "Ano 3 (pré-eleitoral)": {
+      "n": 19,
+      "media_pct": 2.97,
+      "mediana_pct": 2.63,
+      "pct_positivo": 73.7,
+      "pior_pct": -1.75,
+      "melhor_pct": 11.16
+    },
+    "Ano 4 (eleição presidencial)": {
+      "n": 19,
+      "media_pct": 1.14,
+      "mediana_pct": 1.18,
+      "pct_positivo": 78.9,
+      "pior_pct": -4.16,
+      "melhor_pct": 5.25
+    },
+    "TODOS": {
+      "n": 76,
+      "media_pct": 1.41,
+      "mediana_pct": 1.41,
+      "pct_positivo": 72.4,
+      "pior_pct": -9.18,
+      "melhor_pct": 11.16
+    }
+  },
+  "nov_dez": {
+    "Ano 1 (pós-eleição)": {
+      "n": 19,
+      "media_pct": 2.32,
+      "mediana_pct": 3.42,
+      "pct_positivo": 78.9,
+      "pior_pct": -9.92,
+      "melhor_pct": 11.31
+    },
+    "Ano 2 (MIDTERM)": {
+      "n": 19,
+      "media_pct": 3.61,
+      "mediana_pct": 3.18,
+      "pct_positivo": 68.4,
+      "pior_pct": -7.56,
+      "melhor_pct": 13.57
+    },
+    "Ano 3 (pré-eleitoral)": {
+      "n": 19,
+      "media_pct": 3.89,
+      "mediana_pct": 4.12,
+      "pct_positivo": 84.2,
+      "pior_pct": -5.23,
+      "melhor_pct": 13.74
+    },
+    "Ano 4 (eleição presidencial)": {
+      "n": 19,
+      "media_pct": 3.32,
+      "mediana_pct": 4.07,
+      "pct_positivo": 78.9,
+      "pior_pct": -7.63,
+      "melhor_pct": 14.87
+    },
+    "TODOS": {
+      "n": 76,
+      "media_pct": 3.28,
+      "mediana_pct": 3.55,
+      "pct_positivo": 77.6,
+      "pior_pct": -9.92,
+      "melhor_pct": 14.87
+    }
+  },
+  "q4_set_a_dez": {
+    "Ano 1 (pós-eleição)": {
+      "n": 19,
+      "media_pct": 3.74,
+      "mediana_pct": 2.75,
+      "pct_positivo": 78.9,
+      "pior_pct": -10.03,
+      "melhor_pct": 16.04
+    },
+    "Ano 2 (MIDTERM)": {
+      "n": 19,
+      "media_pct": 6.63,
+      "mediana_pct": 7.9,
+      "pct_positivo": 84.2,
+      "pior_pct": -13.97,
+      "melhor_pct": 20.87
+    },
+    "Ano 3 (pré-eleitoral)": {
+      "n": 19,
+      "media_pct": 3.94,
+      "mediana_pct": 5.29,
+      "pct_positivo": 73.7,
+      "pior_pct": -23.23,
+      "melhor_pct": 14.54
+    },
+    "Ano 4 (eleição presidencial)": {
+      "n": 19,
+      "media_pct": 2.51,
+      "mediana_pct": 2.91,
+      "pct_positivo": 84.2,
+      "pior_pct": -22.56,
+      "melhor_pct": 11.69
+    },
+    "TODOS": {
+      "n": 76,
+      "media_pct": 4.2,
+      "mediana_pct": 5.17,
+      "pct_positivo": 80.3,
+      "pior_pct": -23.23,
+      "melhor_pct": 20.87
+    }
+  },
+  "midterm_years_detail": [
+    {
+      "ano": 1950,
+      "ciclo": 2,
+      "nov_pct": -0.1,
+      "dez_pct": 4.72,
+      "nov_dez_pct": 4.61,
+      "q4_pct": 5.04,
+      "santa_rally_pct": 3.55
+    },
+    {
+      "ano": 1954,
+      "ciclo": 2,
+      "nov_pct": 8.08,
+      "dez_pct": 5.08,
+      "nov_dez_pct": 13.57,
+      "q4_pct": 11.36,
+      "santa_rally_pct": 2.97
+    },
+    {
+      "ano": 1958,
+      "ciclo": 2,
+      "nov_pct": 2.24,
+      "dez_pct": 5.2,
+      "nov_dez_pct": 7.56,
+      "q4_pct": 10.29,
+      "santa_rally_pct": 3.63
+    },
+    {
+      "ano": 1962,
+      "ciclo": 2,
+      "nov_pct": 10.16,
+      "dez_pct": 1.35,
+      "nov_dez_pct": 11.64,
+      "q4_pct": 12.14,
+      "santa_rally_pct": 1.72
+    },
+    {
+      "ano": 1966,
+      "ciclo": 2,
+      "nov_pct": 0.31,
+      "dez_pct": -0.15,
+      "nov_dez_pct": 0.16,
+      "q4_pct": 4.92,
+      "santa_rally_pct": -1.4
+    },
+    {
+      "ano": 1970,
+      "ciclo": 2,
+      "nov_pct": 4.74,
+      "dez_pct": 5.68,
+      "nov_dez_pct": 10.69,
+      "q4_pct": 9.31,
+      "santa_rally_pct": 1.89
+    },
+    {
+      "ano": 1974,
+      "ciclo": 2,
+      "nov_pct": -5.32,
+      "dez_pct": -2.02,
+      "nov_dez_pct": -7.23,
+      "q4_pct": 7.9,
+      "santa_rally_pct": 7.2
+    },
+    {
+      "ano": 1978,
+      "ciclo": 2,
+      "nov_pct": 1.66,
+      "dez_pct": 1.49,
+      "nov_dez_pct": 3.18,
+      "q4_pct": -6.27,
+      "santa_rally_pct": 3.26
+    },
+    {
+      "ano": 1982,
+      "ciclo": 2,
+      "nov_pct": 3.6,
+      "dez_pct": 1.52,
+      "nov_dez_pct": 5.17,
+      "q4_pct": 16.79,
+      "santa_rally_pct": 1.17
+    },
+    {
+      "ano": 1986,
+      "ciclo": 2,
+      "nov_pct": 2.15,
+      "dez_pct": -2.83,
+      "nov_dez_pct": -0.74,
+      "q4_pct": 4.69,
+      "santa_rally_pct": 2.37
+    },
+    {
+      "ano": 1990,
+      "ciclo": 2,
+      "nov_pct": 5.99,
+      "dez_pct": 2.48,
+      "nov_dez_pct": 8.63,
+      "q4_pct": 7.9,
+      "santa_rally_pct": -2.97
+    },
+    {
+      "ano": 1994,
+      "ciclo": 2,
+      "nov_pct": -3.95,
+      "dez_pct": 1.23,
+      "nov_dez_pct": -2.77,
+      "q4_pct": -0.74,
+      "santa_rally_pct": 0.22
+    },
+    {
+      "ano": 1998,
+      "ciclo": 2,
+      "nov_pct": 5.91,
+      "dez_pct": 5.64,
+      "nov_dez_pct": 11.88,
+      "q4_pct": 20.87,
+      "santa_rally_pct": 1.32
+    },
+    {
+      "ano": 2002,
+      "ciclo": 2,
+      "nov_pct": 5.71,
+      "dez_pct": -6.03,
+      "nov_dez_pct": -0.67,
+      "q4_pct": 7.92,
+      "santa_rally_pct": 1.25
+    },
+    {
+      "ano": 2006,
+      "ciclo": 2,
+      "nov_pct": 1.65,
+      "dez_pct": 1.26,
+      "nov_dez_pct": 2.93,
+      "q4_pct": 6.17,
+      "santa_rally_pct": 0.0
+    },
+    {
+      "ano": 2010,
+      "ciclo": 2,
+      "nov_pct": -0.23,
+      "dez_pct": 6.53,
+      "nov_dez_pct": 6.29,
+      "q4_pct": 10.2,
+      "santa_rally_pct": 1.07
+    },
+    {
+      "ano": 2014,
+      "ciclo": 2,
+      "nov_pct": 2.45,
+      "dez_pct": -0.42,
+      "nov_dez_pct": 2.02,
+      "q4_pct": 4.39,
+      "santa_rally_pct": -2.96
+    },
+    {
+      "ano": 2018,
+      "ciclo": 2,
+      "nov_pct": 1.79,
+      "dez_pct": -9.18,
+      "nov_dez_pct": -7.56,
+      "q4_pct": -13.97,
+      "santa_rally_pct": 1.29
+    },
+    {
+      "ano": 2022,
+      "ciclo": 2,
+      "nov_pct": 5.38,
+      "dez_pct": -5.9,
+      "nov_dez_pct": -0.84,
+      "q4_pct": 7.08,
+      "santa_rally_pct": 0.8
+    },
+    {
+      "ano": 2026,
+      "ciclo": 2
+    }
+  ]
+}

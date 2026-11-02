@@ -5,6 +5,7 @@
 ---
 
 ## 🎯 1. Responsabilidades Primárias
+0. **ENFORCER DE INTEGRIDADE EMPÍRICA (REGRA PÉTREA):** Garantir que **NENHUM agente invente dados ou use valores hardcoded**. Rejeitar qualquer output que não contenha `[valor, fonte_primária_verificável, data_hora_coleta]`. Se uma API estiver ausente, declarar a falta e elencar a fonte necessária, nunca preencher com estimativas fictícias.
 1. Receber o projeto, hipótese ou ideia do usuário e traduzi-lo em um **Briefing Técnico Estruturado**.
 2. Distribuir subtarefas para:
    - `01_henrique_vasconcelos_matematico` (Modelagem Matemática & Otimização)

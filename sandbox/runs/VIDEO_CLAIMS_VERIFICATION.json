@@ -1,0 +1,379 @@
+{
+ "generated_at_utc": "2026-11-02T14:05:39.718773+00:00",
+ "fonte": "Yahoo Finance chart API (^GSPC preço, sem dividendos)",
+ "ultimo_pregao": "2026-10-30",
+ "ano_calendario_por_ciclo": {
+  "ano_1": {
+   "n": 19,
+   "media": 8.35,
+   "mediana": 9.06,
+   "pct_pos": 63.2,
+   "pior": -17.37,
+   "melhor": 31.01
+  },
+  "ano_2": {
+   "n": 18,
+   "media": 3.68,
+   "mediana": 0.58,
+   "pct_pos": 55.6,
+   "pior": -29.72,
+   "melhor": 45.02
+  },
+  "ano_3": {
+   "n": 19,
+   "media": 17.18,
+   "mediana": 18.89,
+   "pct_pos": 89.5,
+   "pior": -0.73,
+   "melhor": 34.11
+  },
+  "ano_4": {
+   "n": 19,
+   "media": 8.11,
+   "mediana": 11.78,
+   "pct_pos": 84.2,
+   "pior": -38.49,
+   "melhor": 25.77
+  }
+ },
+ "mensal": {
+  "10": {
+   "midterm": {
+    "n": 19,
+    "media": 3.0,
+    "mediana": 2.54,
+    "pct_pos": 73.7,
+    "pior": -9.16,
+    "melhor": 16.3
+   },
+   "outros": {
+    "n": 57,
+    "media": 0.2,
+    "mediana": 0.72,
+    "pct_pos": 54.4,
+    "pior": -21.76,
+    "melhor": 10.77
+   }
+  },
+  "11": {
+   "midterm": {
+    "n": 19,
+    "media": 2.75,
+    "mediana": 2.24,
+    "pct_pos": 78.9,
+    "pior": -5.32,
+    "melhor": 10.16
+   },
+   "outros": {
+    "n": 57,
+    "media": 1.57,
+    "mediana": 1.74,
+    "pct_pos": 66.7,
+    "pior": -11.39,
+    "melhor": 10.75
+   }
+  },
+  "12": {
+   "midterm": {
+    "n": 19,
+    "media": 0.82,
+    "mediana": 1.35,
+    "pct_pos": 63.2,
+    "pior": -9.18,
+    "melhor": 6.53
+   },
+   "outros": {
+    "n": 57,
+    "media": 1.61,
+    "mediana": 1.47,
+    "pct_pos": 75.4,
+    "pior": -4.16,
+    "melhor": 11.16
+   }
+  }
+ },
+ "outubro_2026_pct": -0.93,
+ "nov_dez_midterm": {
+  "n": 19,
+  "media": 3.61,
+  "mediana": 3.18,
+  "pct_pos": 68.4,
+  "pior": -7.56,
+  "melhor": 13.57
+ },
+ "forward_12m_midterm": {
+  "fim_set": {
+   "n": 19,
+   "media": 20.48,
+   "mediana": 22.16,
+   "pct_pos": 89.5,
+   "pior": -2.65,
+   "melhor": 39.13
+  },
+  "fim_out": {
+   "n": 19,
+   "media": 16.61,
+   "mediana": 16.33,
+   "pct_pos": 100.0,
+   "pior": 4.26,
+   "melhor": 33.65
+  },
+  "dia_eleicao": {
+   "n": 19,
+   "media": 14.96,
+   "mediana": 14.49,
+   "pct_pos": 100.0,
+   "pior": 1.12,
+   "melhor": 33.29
+  },
+  "minimo_set_out": {
+   "n": 19,
+   "media": 26.81,
+   "mediana": 28.77,
+   "pct_pos": 100.0,
+   "pior": 8.66,
+   "melhor": 44.37
+  }
+ },
+ "forward_12m_detalhe": [
+  {
+   "ano": 1950,
+   "fim_set": 20.67,
+   "fim_out": 17.46,
+   "dia_eleicao": 14.88,
+   "minimo_set_out": 26.59
+  },
+  {
+   "ano": 1954,
+   "fim_set": 35.16,
+   "fim_out": 33.65,
+   "dia_eleicao": 33.29,
+   "minimo_set_out": 44.37
+  },
+  {
+   "ano": 1958,
+   "fim_set": 13.62,
+   "fim_out": 11.84,
+   "dia_eleicao": 10.17,
+   "minimo_set_out": 20.28
+  },
+  {
+   "ano": 1962,
+   "fim_set": 27.42,
+   "fim_out": 30.94,
+   "dia_eleicao": 24.44,
+   "minimo_set_out": 36.47
+  },
+  {
+   "ano": 1966,
+   "fim_set": 25.81,
+   "fim_out": 16.33,
+   "dia_eleicao": 12.55,
+   "minimo_set_out": 33.21
+  },
+  {
+   "ano": 1970,
+   "fim_set": 16.65,
+   "fim_out": 11.47,
+   "dia_eleicao": 12.69,
+   "minimo_set_out": 22.38
+  },
+  {
+   "ano": 1974,
+   "fim_set": 32.0,
+   "fim_out": 20.49,
+   "dia_eleicao": 18.69,
+   "minimo_set_out": 38.01
+  },
+  {
+   "ano": 1978,
+   "fim_set": 5.87,
+   "fim_out": 9.31,
+   "dia_eleicao": 6.41,
+   "minimo_set_out": 9.31
+  },
+  {
+   "ano": 1982,
+   "fim_set": 37.91,
+   "fim_out": 22.31,
+   "dia_eleicao": 19.89,
+   "minimo_set_out": 38.88
+  },
+  {
+   "ano": 1986,
+   "fim_set": 39.13,
+   "fim_out": 4.82,
+   "dia_eleicao": 1.12,
+   "minimo_set_out": 39.92
+  },
+  {
+   "ano": 1990,
+   "fim_set": 26.73,
+   "fim_out": 29.1,
+   "dia_eleicao": 25.14,
+   "minimo_set_out": 29.1
+  },
+  {
+   "ano": 1994,
+   "fim_set": 25.72,
+   "fim_out": 23.11,
+   "dia_eleicao": 27.07,
+   "minimo_set_out": 28.77
+  },
+  {
+   "ano": 1998,
+   "fim_set": 26.13,
+   "fim_out": 23.25,
+   "dia_eleicao": 21.97,
+   "minimo_set_out": 39.25
+  },
+  {
+   "ano": 2002,
+   "fim_set": 22.16,
+   "fim_out": 18.62,
+   "dia_eleicao": 14.9,
+   "minimo_set_out": 33.73
+  },
+  {
+   "ano": 2006,
+   "fim_set": 15.81,
+   "fim_out": 12.44,
+   "dia_eleicao": 6.71,
+   "minimo_set_out": 12.33
+  },
+  {
+   "ano": 2010,
+   "fim_set": -0.86,
+   "fim_out": 5.92,
+   "dia_eleicao": 3.71,
+   "minimo_set_out": 11.49
+  },
+  {
+   "ano": 2014,
+   "fim_set": -2.65,
+   "fim_out": 4.26,
+   "dia_eleicao": 4.48,
+   "minimo_set_out": 8.66
+  },
+  {
+   "ano": 2018,
+   "fim_set": 2.15,
+   "fim_out": 12.02,
+   "dia_eleicao": 11.66,
+   "minimo_set_out": 14.98
+  },
+  {
+   "ano": 2022,
+   "fim_set": 19.6,
+   "fim_out": 8.31,
+   "dia_eleicao": 14.49,
+   "minimo_set_out": 21.6
+  }
+ ],
+ "mercado_sexta_30out2026": {
+  "^GSPC": {
+   "data": "2026-10-30",
+   "close": 7580.07,
+   "var_dia_pct": -1.82,
+   "minimo_do_ano": 6343.72,
+   "data_minimo_ano": "2026-03-30",
+   "dist_max_desde_set25_pct": -3.05
+  },
+  "^IXIC": {
+   "data": "2026-10-30",
+   "close": 25437.0,
+   "var_dia_pct": -2.86,
+   "minimo_do_ano": 20794.64,
+   "data_minimo_ano": "2026-03-30",
+   "dist_max_desde_set25_pct": -7.84
+  },
+  "^RUT": {
+   "data": "2026-10-30",
+   "close": 2811.84,
+   "var_dia_pct": -1.66,
+   "minimo_do_ano": 2414.01,
+   "data_minimo_ano": "2026-03-30",
+   "dist_max_desde_set25_pct": -8.36
+  },
+  "RSP": {
+   "data": "2026-10-30",
+   "close": 218.31,
+   "var_dia_pct": -0.79,
+   "minimo_do_ano": 188.07,
+   "data_minimo_ano": "2026-03-30",
+   "dist_max_desde_set25_pct": -2.0
+  },
+  "XLK": {
+   "data": "2026-10-30",
+   "close": 179.51,
+   "var_dia_pct": -4.89,
+   "minimo_do_ano": 127.5,
+   "data_minimo_ano": "2026-03-30",
+   "dist_max_desde_set25_pct": -11.13
+  },
+  "GC=F": {
+   "data": "2026-11-02",
+   "close": 3950.7,
+   "var_dia_pct": 1.33,
+   "minimo_do_ano": 3898.9,
+   "data_minimo_ano": "2026-10-30",
+   "dist_max_desde_set25_pct": -25.72
+  },
+  "SI=F": {
+   "data": "2026-11-02",
+   "close": 50.81,
+   "var_dia_pct": 3.48,
+   "minimo_do_ano": 49.1,
+   "data_minimo_ano": "2026-10-30",
+   "dist_max_desde_set25_pct": -55.85
+  },
+  "HG=F": {
+   "data": "2026-11-02",
+   "close": 6.52,
+   "var_dia_pct": 0.94,
+   "minimo_do_ano": 5.34,
+   "data_minimo_ano": "2026-03-20",
+   "dist_max_desde_set25_pct": -4.17
+  },
+  "BZ=F": {
+   "data": "2026-11-02",
+   "close": 106.6,
+   "var_dia_pct": -9.38,
+   "minimo_do_ano": 59.96,
+   "data_minimo_ano": "2026-01-07",
+   "dist_max_desde_set25_pct": -9.93
+  },
+  "CL=F": {
+   "data": "2026-11-02",
+   "close": 97.7,
+   "var_dia_pct": -6.17,
+   "minimo_do_ano": 55.99,
+   "data_minimo_ano": "2026-01-07",
+   "dist_max_desde_set25_pct": -13.5
+  },
+  "^TNX": {
+   "data": "2026-11-02",
+   "close": 4.9,
+   "var_dia_pct": -0.51,
+   "minimo_do_ano": 3.96,
+   "data_minimo_ano": "2026-02-27",
+   "dist_max_desde_set25_pct": -7.66
+  },
+  "^TYX": {
+   "data": "2026-11-02",
+   "close": 5.27,
+   "var_dia_pct": -0.72,
+   "minimo_do_ano": 4.63,
+   "data_minimo_ano": "2026-02-27",
+   "dist_max_desde_set25_pct": -6.95
+  },
+  "DX-Y.NYB": {
+   "data": "2026-11-02",
+   "close": 101.61,
+   "var_dia_pct": -0.26,
+   "minimo_do_ano": 96.22,
+   "data_minimo_ano": "2026-01-27",
+   "dist_max_desde_set25_pct": -0.94
+  }
+ }
+}
