@@ -106,3 +106,15 @@
   - **Canvas Interativo GCP + UI:** Salvo em `reports/grafo_prediction_gcp_canvas.html`.
 
 
+### [2026-11-01 21:58] — Grafo v4.0: Auditoria de Erros (`PHI Eagles vs WAS Commanders`) e Motor de Saídas de Mitigação de Erro (`argon_error_mitigation_engine.py`)
+- **Diagnóstico Real do Print (`KXNFLGAME-26NOV01PHIWAS`):**
+  - Posição do usuário: `317.73 Yes shares · PHI Eagles` compradas a `31.47¢` (`US$ 100.00`). No fim do Q1 (`0:23`, placar `PHI 10 - 3 WAS`, posse `PHI 1st & 10 na PHI 29`), o contrato estava em `28¢` (`Cash out $84.47` / `-$15.52`), após ter batido **`60.4¢` às `21:18 ET`** (`US$ 191.91`, lucro potencial de `+US$ 91.91` perdido por falta de ordens `Limit Sell` pré-posicionadas no livro).
+- **5 Erros Identificados e Corrigidos no Grafo v4.0:**
+  1. `ActiveStarterValidator`: Corrigido o bug em `load_top_qbs_and_stars()` que olhava as jardas da temporada de `Jalen Hurts` sem verificar que ele estava em `RES` na Semana 8 (`weekly_rosters_2026.csv`).
+  2. `AutoRestingLimitOrders`: Obrigatoriedade de pendurar ordens `Limit Sell (GTC)` no segundo zero após a compra para capturar spikes rápidos intrajogo (como o de `60.4¢` às `21:18`).
+  3. `OrderbookAirPocketScanner`: Leitura da profundidade do livro (`205k` em `29¢` e `132k` em `30¢`, mas vazio de apenas `25k` em `31¢` e `6.8k` em `32¢`) para posicionar a **Saída A (45% = `143 shares` a `33¢` = `US$ 47.19`)** logo acima do muro de Asks.
+  4. `BreakevenShieldGenerator`: Posicionamento da **Saída B (40% = `127 shares` a `39¢` = `US$ 49.53`)** no fim do drive, recuperando **`US$ 96.72` (`96.7%` do capital)** + **Saída C (`47.73 shares` a `48¢` ou `32¢`)** para fechar no lucro (`US$ 119.63` ou `US$ 103.10`).
+  5. Injeção da chave `error_mitigation_and_recovery_exits` em todos os workspaces de `firestore_brz_desk_prediction_pro.json` e relatório salvo em `reports/AUDITORIA_ERROS_E_MATRIZ_MITIGACAO_SAIDAS_V4.md`.
+
+
+

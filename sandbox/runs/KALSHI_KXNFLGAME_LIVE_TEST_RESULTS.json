@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-11-02T01:46:11.371892+00:00",
+  "generated_at_utc": "2026-11-02T02:57:11.362002+00:00",
   "source_url": "https://kalshi.com/markets/kxnflgame/jogo-da-nfl?utm_source=kalshiweb_eventpage",
   "post_mortem_kcden": {
     "event_ticker": "KXNFLGAME-26NOV01KCDEN",
@@ -122,7 +122,9 @@
           "pass_epa": -9.69,
           "rush_yds": 107.0,
           "rush_tds": 1,
-          "name": "Jalen Hurts"
+          "name": "Jalen Hurts",
+          "starter_status_alert": "ALERTA CRÍTICO: Jalen Hurts está em RES/INA! QB Ativo em campo: Backup QB (Tanner McKee / Joe Milton III) (Modo Scalp/Mitigação Curta Obrigatório)",
+          "qb1_inactive_flag": true
         },
         "home_qb": {
           "games": 4,
@@ -132,7 +134,9 @@
           "pass_epa": 4.31,
           "rush_yds": 213.0,
           "rush_tds": 2,
-          "name": "Jayden Daniels"
+          "name": "Jayden Daniels",
+          "starter_status_alert": "Jayden Daniels ATIVO (ACT)",
+          "qb1_inactive_flag": false
         },
         "away_roster": {
           "latest_roster_week": 8,
@@ -308,12 +312,12 @@
         "recommended_side": "YES · Washington (WAS)",
         "market_entry_ask_cents": 60.0,
         "market_bid_ask_spread_cents": 1.0,
-        "monte_carlo_20k_structural_prob_pct": 70.56,
-        "pessimist_bench_5_prob_pct": 59.6,
-        "optimist_bench_5_prob_pct": 72.6,
-        "supreme_judge_calibrated_prob_pct": 66.8,
-        "net_edge_bps": 680,
-        "judge_ruling_summary": "Entrada tática em YES Washington (KXNFLGAME-26NOV01PHIWAS-WAS) a 60.0¢. Bancada Pessimista estima 59.6%, Bancada Otimista estima 72.6%, Veredito Final do Juiz: 66.8% (+680 bps). Executar obrigatoriamente a trava de Free-Roll nos Lotes 1 e 2 durante picos intrajogo."
+        "monte_carlo_20k_structural_prob_pct": 70.53,
+        "pessimist_bench_5_prob_pct": 59.5,
+        "optimist_bench_5_prob_pct": 72.5,
+        "supreme_judge_calibrated_prob_pct": 66.7,
+        "net_edge_bps": 670,
+        "judge_ruling_summary": "Entrada tática em YES Washington (KXNFLGAME-26NOV01PHIWAS-WAS) a 60.0¢. Bancada Pessimista estima 59.5%, Bancada Otimista estima 72.5%, Veredito Final do Juiz: 66.7% (+670 bps). Executar obrigatoriamente a trava de Free-Roll nos Lotes 1 e 2 durante picos intrajogo."
       },
       "boleta_100_usd": {
         "reference_bankroll_usd": 100.0,
@@ -323,14 +327,14 @@
         "lot_1_tp1_40pct": {
           "shares": 66.67,
           "target_sell_cents": 72.0,
-          "touch_probability_pct": 63.6,
+          "touch_probability_pct": 63.3,
           "cash_recovered_usd": 48.0,
           "capital_recovered_pct": 48.0
         },
         "lot_2_freeroll_40pct": {
           "shares": 66.67,
           "target_sell_cents": 82.8,
-          "touch_probability_pct": 41.4,
+          "touch_probability_pct": 41.3,
           "cash_recovered_usd": 55.2,
           "cumulative_cash_l1_l2_usd": 103.2,
           "principal_coverage_pct": 103.2,
@@ -339,12 +343,32 @@
         "lot_3_runner_20pct": {
           "shares": 33.33,
           "target_settlement_cents": 100.0,
-          "settlement_win_prob_pct": 66.8,
+          "settlement_win_prob_pct": 66.7,
           "payout_if_settled_100c_usd": 33.33,
           "total_cash_if_full_cycle_usd": 136.53,
           "total_roi_if_full_cycle_pct": 36.53
         },
-        "tactical_stop_loss_cents": 43.2
+        "tactical_stop_loss_cents": 43.2,
+        "error_mitigation_and_drawdown_exits_v4": {
+          "rule_0_resting_orders": "Obrigatório pendurar ordens Limit Sell (GTC) no segundo zero após a compra para capturar spikes rápidos intrajogo (como o spike de 60.4¢ às 21:18 em PHI vs WAS).",
+          "exit_1_air_pocket_decompression_45pct": {
+            "shares": 75.0,
+            "limit_sell_cents": 63.0,
+            "cash_recovered_usd": 47.25,
+            "action": "Se entrar em drawdown temporário, pendurar 45% das shares a 63.0¢ (logo acima do muro do Orderbook) para descomprimir quase metade do risco no 1º First Down."
+          },
+          "exit_2_breakeven_shield_40pct": {
+            "shares": 66.67,
+            "limit_sell_cents": 70.8,
+            "cash_recovered_usd": 47.2,
+            "action": "Pendurar 40% das shares a 70.8¢ no repique de Field Goal/RedZone, recuperando ~95% a 100% do capital investido e eliminando o erro de entrada."
+          },
+          "exit_3_structural_stop_72pct_saved": {
+            "stop_cents": 43.2,
+            "capital_saved_usd": 72.0,
+            "action": "Se o suporte institucional do livro quebrar abaixo de 43.2¢ com perda de posse/placar, estopar salvando US$ 72.00."
+          }
+        }
       },
       "boleta_1000_usd": {
         "reference_bankroll_usd": 1000.0,
@@ -354,14 +378,14 @@
         "lot_1_tp1_40pct": {
           "shares": 666.67,
           "target_sell_cents": 72.0,
-          "touch_probability_pct": 63.6,
+          "touch_probability_pct": 63.3,
           "cash_recovered_usd": 480.0,
           "capital_recovered_pct": 48.0
         },
         "lot_2_freeroll_40pct": {
           "shares": 666.67,
           "target_sell_cents": 82.8,
-          "touch_probability_pct": 41.4,
+          "touch_probability_pct": 41.3,
           "cash_recovered_usd": 552.0,
           "cumulative_cash_l1_l2_usd": 1032.0,
           "principal_coverage_pct": 103.2,
@@ -370,12 +394,32 @@
         "lot_3_runner_20pct": {
           "shares": 333.33,
           "target_settlement_cents": 100.0,
-          "settlement_win_prob_pct": 66.8,
+          "settlement_win_prob_pct": 66.7,
           "payout_if_settled_100c_usd": 333.33,
           "total_cash_if_full_cycle_usd": 1365.33,
           "total_roi_if_full_cycle_pct": 36.53
         },
-        "tactical_stop_loss_cents": 43.2
+        "tactical_stop_loss_cents": 43.2,
+        "error_mitigation_and_drawdown_exits_v4": {
+          "rule_0_resting_orders": "Obrigatório pendurar ordens Limit Sell (GTC) no segundo zero após a compra para capturar spikes rápidos intrajogo (como o spike de 60.4¢ às 21:18 em PHI vs WAS).",
+          "exit_1_air_pocket_decompression_45pct": {
+            "shares": 750.0,
+            "limit_sell_cents": 63.0,
+            "cash_recovered_usd": 472.5,
+            "action": "Se entrar em drawdown temporário, pendurar 45% das shares a 63.0¢ (logo acima do muro do Orderbook) para descomprimir quase metade do risco no 1º First Down."
+          },
+          "exit_2_breakeven_shield_40pct": {
+            "shares": 666.67,
+            "limit_sell_cents": 70.8,
+            "cash_recovered_usd": 472.0,
+            "action": "Pendurar 40% das shares a 70.8¢ no repique de Field Goal/RedZone, recuperando ~95% a 100% do capital investido e eliminando o erro de entrada."
+          },
+          "exit_3_structural_stop_72pct_saved": {
+            "stop_cents": 43.2,
+            "capital_saved_usd": 720.0,
+            "action": "Se o suporte institucional do livro quebrar abaixo de 43.2¢ com perda de posse/placar, estopar salvando US$ 720.00."
+          }
+        }
       }
     },
     {
@@ -455,7 +499,9 @@
           "pass_epa": 41.71,
           "rush_yds": 128.0,
           "rush_tds": 2,
-          "name": "Caleb Williams"
+          "name": "Caleb Williams",
+          "starter_status_alert": "Caleb Williams ATIVO (ACT)",
+          "qb1_inactive_flag": false
         },
         "home_qb": {
           "games": 6,
@@ -465,7 +511,9 @@
           "pass_epa": -9.8,
           "rush_yds": 52.0,
           "rush_tds": 0,
-          "name": "Sam Darnold"
+          "name": "Sam Darnold",
+          "starter_status_alert": "Sam Darnold ATIVO (ACT)",
+          "qb1_inactive_flag": false
         },
         "away_roster": {
           "latest_roster_week": 8,
@@ -641,7 +689,7 @@
         "recommended_side": "YES · Chicago (CHI)",
         "market_entry_ask_cents": 39.0,
         "market_bid_ask_spread_cents": 1.0,
-        "monte_carlo_20k_structural_prob_pct": 51.79,
+        "monte_carlo_20k_structural_prob_pct": 51.88,
         "pessimist_bench_5_prob_pct": 39.6,
         "optimist_bench_5_prob_pct": 52.6,
         "supreme_judge_calibrated_prob_pct": 46.8,
@@ -677,7 +725,27 @@
           "total_cash_if_full_cycle_usd": 158.57,
           "total_roi_if_full_cycle_pct": 58.57
         },
-        "tactical_stop_loss_cents": 26.5
+        "tactical_stop_loss_cents": 26.5,
+        "error_mitigation_and_drawdown_exits_v4": {
+          "rule_0_resting_orders": "Obrigatório pendurar ordens Limit Sell (GTC) no segundo zero após a compra para capturar spikes rápidos intrajogo (como o spike de 60.4¢ às 21:18 em PHI vs WAS).",
+          "exit_1_air_pocket_decompression_45pct": {
+            "shares": 115.38,
+            "limit_sell_cents": 41.0,
+            "cash_recovered_usd": 47.31,
+            "action": "Se entrar em drawdown temporário, pendurar 45% das shares a 41.0¢ (logo acima do muro do Orderbook) para descomprimir quase metade do risco no 1º First Down."
+          },
+          "exit_2_breakeven_shield_40pct": {
+            "shares": 102.56,
+            "limit_sell_cents": 46.0,
+            "cash_recovered_usd": 47.18,
+            "action": "Pendurar 40% das shares a 46.0¢ no repique de Field Goal/RedZone, recuperando ~95% a 100% do capital investido e eliminando o erro de entrada."
+          },
+          "exit_3_structural_stop_72pct_saved": {
+            "stop_cents": 26.5,
+            "capital_saved_usd": 67.95,
+            "action": "Se o suporte institucional do livro quebrar abaixo de 26.5¢ com perda de posse/placar, estopar salvando US$ 67.95."
+          }
+        }
       },
       "boleta_1000_usd": {
         "reference_bankroll_usd": 1000.0,
@@ -708,7 +776,27 @@
           "total_cash_if_full_cycle_usd": 1585.64,
           "total_roi_if_full_cycle_pct": 58.56
         },
-        "tactical_stop_loss_cents": 26.5
+        "tactical_stop_loss_cents": 26.5,
+        "error_mitigation_and_drawdown_exits_v4": {
+          "rule_0_resting_orders": "Obrigatório pendurar ordens Limit Sell (GTC) no segundo zero após a compra para capturar spikes rápidos intrajogo (como o spike de 60.4¢ às 21:18 em PHI vs WAS).",
+          "exit_1_air_pocket_decompression_45pct": {
+            "shares": 1153.85,
+            "limit_sell_cents": 41.0,
+            "cash_recovered_usd": 473.08,
+            "action": "Se entrar em drawdown temporário, pendurar 45% das shares a 41.0¢ (logo acima do muro do Orderbook) para descomprimir quase metade do risco no 1º First Down."
+          },
+          "exit_2_breakeven_shield_40pct": {
+            "shares": 1025.64,
+            "limit_sell_cents": 46.0,
+            "cash_recovered_usd": 471.79,
+            "action": "Pendurar 40% das shares a 46.0¢ no repique de Field Goal/RedZone, recuperando ~95% a 100% do capital investido e eliminando o erro de entrada."
+          },
+          "exit_3_structural_stop_72pct_saved": {
+            "stop_cents": 26.5,
+            "capital_saved_usd": 679.49,
+            "action": "Se o suporte institucional do livro quebrar abaixo de 26.5¢ com perda de posse/placar, estopar salvando US$ 679.49."
+          }
+        }
       }
     },
     {
@@ -788,7 +876,9 @@
           "pass_epa": 53.31,
           "rush_yds": 70.0,
           "rush_tds": 0,
-          "name": "Trevor Lawrence"
+          "name": "Trevor Lawrence",
+          "starter_status_alert": "Trevor Lawrence ATIVO (ACT)",
+          "qb1_inactive_flag": false
         },
         "home_qb": {
           "games": 4,
@@ -798,7 +888,9 @@
           "pass_epa": 37.34,
           "rush_yds": 144.0,
           "rush_tds": 1,
-          "name": "Lamar Jackson"
+          "name": "Lamar Jackson",
+          "starter_status_alert": "Lamar Jackson ATIVO (ACT)",
+          "qb1_inactive_flag": false
         },
         "away_roster": {
           "latest_roster_week": 8,
@@ -979,12 +1071,12 @@
         "recommended_side": "YES · Baltimore (BAL)",
         "market_entry_ask_cents": 23.0,
         "market_bid_ask_spread_cents": 1.0,
-        "monte_carlo_20k_structural_prob_pct": 48.16,
-        "pessimist_bench_5_prob_pct": 29.1,
-        "optimist_bench_5_prob_pct": 42.1,
-        "supreme_judge_calibrated_prob_pct": 36.2,
-        "net_edge_bps": 1320,
-        "judge_ruling_summary": "Entrada tática em YES Baltimore (KXNFLGAME-26NOV05JACBAL-BAL) a 23.0¢. Bancada Pessimista estima 29.1%, Bancada Otimista estima 42.1%, Veredito Final do Juiz: 36.2% (+1320 bps). Executar obrigatoriamente a trava de Free-Roll nos Lotes 1 e 2 durante picos intrajogo."
+        "monte_carlo_20k_structural_prob_pct": 48.88,
+        "pessimist_bench_5_prob_pct": 29.3,
+        "optimist_bench_5_prob_pct": 42.3,
+        "supreme_judge_calibrated_prob_pct": 36.5,
+        "net_edge_bps": 1350,
+        "judge_ruling_summary": "Entrada tática em YES Baltimore (KXNFLGAME-26NOV05JACBAL-BAL) a 23.0¢. Bancada Pessimista estima 29.3%, Bancada Otimista estima 42.3%, Veredito Final do Juiz: 36.5% (+1350 bps). Executar obrigatoriamente a trava de Free-Roll nos Lotes 1 e 2 durante picos intrajogo."
       },
       "boleta_100_usd": {
         "reference_bankroll_usd": 100.0,
@@ -994,14 +1086,14 @@
         "lot_1_tp1_40pct": {
           "shares": 173.91,
           "target_sell_cents": 28.5,
-          "touch_probability_pct": 93.4,
+          "touch_probability_pct": 94.0,
           "cash_recovered_usd": 49.56,
           "capital_recovered_pct": 49.6
         },
         "lot_2_freeroll_40pct": {
           "shares": 173.91,
           "target_sell_cents": 33.1,
-          "touch_probability_pct": 82.0,
+          "touch_probability_pct": 82.6,
           "cash_recovered_usd": 57.56,
           "cumulative_cash_l1_l2_usd": 107.12,
           "principal_coverage_pct": 107.1,
@@ -1010,12 +1102,32 @@
         "lot_3_runner_20pct": {
           "shares": 86.96,
           "target_settlement_cents": 100.0,
-          "settlement_win_prob_pct": 36.2,
+          "settlement_win_prob_pct": 36.5,
           "payout_if_settled_100c_usd": 86.96,
           "total_cash_if_full_cycle_usd": 194.08,
           "total_roi_if_full_cycle_pct": 94.08
         },
-        "tactical_stop_loss_cents": 15.6
+        "tactical_stop_loss_cents": 15.6,
+        "error_mitigation_and_drawdown_exits_v4": {
+          "rule_0_resting_orders": "Obrigatório pendurar ordens Limit Sell (GTC) no segundo zero após a compra para capturar spikes rápidos intrajogo (como o spike de 60.4¢ às 21:18 em PHI vs WAS).",
+          "exit_1_air_pocket_decompression_45pct": {
+            "shares": 195.65,
+            "limit_sell_cents": 24.2,
+            "cash_recovered_usd": 47.35,
+            "action": "Se entrar em drawdown temporário, pendurar 45% das shares a 24.2¢ (logo acima do muro do Orderbook) para descomprimir quase metade do risco no 1º First Down."
+          },
+          "exit_2_breakeven_shield_40pct": {
+            "shares": 173.91,
+            "limit_sell_cents": 27.1,
+            "cash_recovered_usd": 47.13,
+            "action": "Pendurar 40% das shares a 27.1¢ no repique de Field Goal/RedZone, recuperando ~95% a 100% do capital investido e eliminando o erro de entrada."
+          },
+          "exit_3_structural_stop_72pct_saved": {
+            "stop_cents": 15.6,
+            "capital_saved_usd": 67.83,
+            "action": "Se o suporte institucional do livro quebrar abaixo de 15.6¢ com perda de posse/placar, estopar salvando US$ 67.83."
+          }
+        }
       },
       "boleta_1000_usd": {
         "reference_bankroll_usd": 1000.0,
@@ -1025,14 +1137,14 @@
         "lot_1_tp1_40pct": {
           "shares": 1739.13,
           "target_sell_cents": 28.5,
-          "touch_probability_pct": 93.4,
+          "touch_probability_pct": 94.0,
           "cash_recovered_usd": 495.65,
           "capital_recovered_pct": 49.6
         },
         "lot_2_freeroll_40pct": {
           "shares": 1739.13,
           "target_sell_cents": 33.1,
-          "touch_probability_pct": 82.0,
+          "touch_probability_pct": 82.6,
           "cash_recovered_usd": 575.65,
           "cumulative_cash_l1_l2_usd": 1071.3,
           "principal_coverage_pct": 107.1,
@@ -1041,12 +1153,32 @@
         "lot_3_runner_20pct": {
           "shares": 869.57,
           "target_settlement_cents": 100.0,
-          "settlement_win_prob_pct": 36.2,
+          "settlement_win_prob_pct": 36.5,
           "payout_if_settled_100c_usd": 869.57,
           "total_cash_if_full_cycle_usd": 1940.87,
           "total_roi_if_full_cycle_pct": 94.09
         },
-        "tactical_stop_loss_cents": 15.6
+        "tactical_stop_loss_cents": 15.6,
+        "error_mitigation_and_drawdown_exits_v4": {
+          "rule_0_resting_orders": "Obrigatório pendurar ordens Limit Sell (GTC) no segundo zero após a compra para capturar spikes rápidos intrajogo (como o spike de 60.4¢ às 21:18 em PHI vs WAS).",
+          "exit_1_air_pocket_decompression_45pct": {
+            "shares": 1956.52,
+            "limit_sell_cents": 24.2,
+            "cash_recovered_usd": 473.48,
+            "action": "Se entrar em drawdown temporário, pendurar 45% das shares a 24.2¢ (logo acima do muro do Orderbook) para descomprimir quase metade do risco no 1º First Down."
+          },
+          "exit_2_breakeven_shield_40pct": {
+            "shares": 1739.13,
+            "limit_sell_cents": 27.1,
+            "cash_recovered_usd": 471.3,
+            "action": "Pendurar 40% das shares a 27.1¢ no repique de Field Goal/RedZone, recuperando ~95% a 100% do capital investido e eliminando o erro de entrada."
+          },
+          "exit_3_structural_stop_72pct_saved": {
+            "stop_cents": 15.6,
+            "capital_saved_usd": 678.26,
+            "action": "Se o suporte institucional do livro quebrar abaixo de 15.6¢ com perda de posse/placar, estopar salvando US$ 678.26."
+          }
+        }
       }
     },
     {
@@ -1126,7 +1258,9 @@
           "pass_epa": 38.48,
           "rush_yds": 4.0,
           "rush_tds": 0,
-          "name": "Kirk Cousins"
+          "name": "Kirk Cousins",
+          "starter_status_alert": "Kirk Cousins ATIVO (ACT)",
+          "qb1_inactive_flag": false
         },
         "home_qb": {
           "games": 7,
@@ -1136,7 +1270,9 @@
           "pass_epa": 63.23,
           "rush_yds": 161.0,
           "rush_tds": 1,
-          "name": "Brock Purdy"
+          "name": "Brock Purdy",
+          "starter_status_alert": "Brock Purdy ATIVO (ACT)",
+          "qb1_inactive_flag": false
         },
         "away_roster": {
           "latest_roster_week": 8,
@@ -1312,12 +1448,12 @@
         "recommended_side": "YES · Las Vegas (LV)",
         "market_entry_ask_cents": 21.0,
         "market_bid_ask_spread_cents": 1.0,
-        "monte_carlo_20k_structural_prob_pct": 41.74,
-        "pessimist_bench_5_prob_pct": 25.1,
-        "optimist_bench_5_prob_pct": 38.1,
+        "monte_carlo_20k_structural_prob_pct": 41.41,
+        "pessimist_bench_5_prob_pct": 25.0,
+        "optimist_bench_5_prob_pct": 38.0,
         "supreme_judge_calibrated_prob_pct": 32.2,
         "net_edge_bps": 1120,
-        "judge_ruling_summary": "Entrada tática em YES Las Vegas (KXNFLGAME-26NOV08LVSF-LV) a 21.0¢. Bancada Pessimista estima 25.1%, Bancada Otimista estima 38.1%, Veredito Final do Juiz: 32.2% (+1120 bps). Executar obrigatoriamente a trava de Free-Roll nos Lotes 1 e 2 durante picos intrajogo."
+        "judge_ruling_summary": "Entrada tática em YES Las Vegas (KXNFLGAME-26NOV08LVSF-LV) a 21.0¢. Bancada Pessimista estima 25.0%, Bancada Otimista estima 38.0%, Veredito Final do Juiz: 32.2% (+1120 bps). Executar obrigatoriamente a trava de Free-Roll nos Lotes 1 e 2 durante picos intrajogo."
       },
       "boleta_100_usd": {
         "reference_bankroll_usd": 100.0,
@@ -1348,7 +1484,27 @@
           "total_cash_if_full_cycle_usd": 202.27,
           "total_roi_if_full_cycle_pct": 102.27
         },
-        "tactical_stop_loss_cents": 14.3
+        "tactical_stop_loss_cents": 14.3,
+        "error_mitigation_and_drawdown_exits_v4": {
+          "rule_0_resting_orders": "Obrigatório pendurar ordens Limit Sell (GTC) no segundo zero após a compra para capturar spikes rápidos intrajogo (como o spike de 60.4¢ às 21:18 em PHI vs WAS).",
+          "exit_1_air_pocket_decompression_45pct": {
+            "shares": 214.29,
+            "limit_sell_cents": 22.1,
+            "cash_recovered_usd": 47.36,
+            "action": "Se entrar em drawdown temporário, pendurar 45% das shares a 22.1¢ (logo acima do muro do Orderbook) para descomprimir quase metade do risco no 1º First Down."
+          },
+          "exit_2_breakeven_shield_40pct": {
+            "shares": 190.48,
+            "limit_sell_cents": 24.8,
+            "cash_recovered_usd": 47.24,
+            "action": "Pendurar 40% das shares a 24.8¢ no repique de Field Goal/RedZone, recuperando ~95% a 100% do capital investido e eliminando o erro de entrada."
+          },
+          "exit_3_structural_stop_72pct_saved": {
+            "stop_cents": 14.3,
+            "capital_saved_usd": 68.1,
+            "action": "Se o suporte institucional do livro quebrar abaixo de 14.3¢ com perda de posse/placar, estopar salvando US$ 68.10."
+          }
+        }
       },
       "boleta_1000_usd": {
         "reference_bankroll_usd": 1000.0,
@@ -1379,7 +1535,27 @@
           "total_cash_if_full_cycle_usd": 2022.86,
           "total_roi_if_full_cycle_pct": 102.29
         },
-        "tactical_stop_loss_cents": 14.3
+        "tactical_stop_loss_cents": 14.3,
+        "error_mitigation_and_drawdown_exits_v4": {
+          "rule_0_resting_orders": "Obrigatório pendurar ordens Limit Sell (GTC) no segundo zero após a compra para capturar spikes rápidos intrajogo (como o spike de 60.4¢ às 21:18 em PHI vs WAS).",
+          "exit_1_air_pocket_decompression_45pct": {
+            "shares": 2142.86,
+            "limit_sell_cents": 22.1,
+            "cash_recovered_usd": 473.57,
+            "action": "Se entrar em drawdown temporário, pendurar 45% das shares a 22.1¢ (logo acima do muro do Orderbook) para descomprimir quase metade do risco no 1º First Down."
+          },
+          "exit_2_breakeven_shield_40pct": {
+            "shares": 1904.76,
+            "limit_sell_cents": 24.8,
+            "cash_recovered_usd": 472.38,
+            "action": "Pendurar 40% das shares a 24.8¢ no repique de Field Goal/RedZone, recuperando ~95% a 100% do capital investido e eliminando o erro de entrada."
+          },
+          "exit_3_structural_stop_72pct_saved": {
+            "stop_cents": 14.3,
+            "capital_saved_usd": 680.95,
+            "action": "Se o suporte institucional do livro quebrar abaixo de 14.3¢ com perda de posse/placar, estopar salvando US$ 680.95."
+          }
+        }
       }
     },
     {
@@ -1459,7 +1635,9 @@
           "pass_epa": -20.17,
           "rush_yds": 50.0,
           "rush_tds": 1,
-          "name": "Jameis Winston"
+          "name": "Jameis Winston",
+          "starter_status_alert": "Jameis Winston ATIVO (ACT)",
+          "qb1_inactive_flag": false
         },
         "home_qb": {
           "games": 5,
@@ -1469,7 +1647,9 @@
           "pass_epa": -9.69,
           "rush_yds": 107.0,
           "rush_tds": 1,
-          "name": "Jalen Hurts"
+          "name": "Jalen Hurts",
+          "starter_status_alert": "ALERTA CRÍTICO: Jalen Hurts está em RES/INA! QB Ativo em campo: Backup QB (Tanner McKee / Joe Milton III) (Modo Scalp/Mitigação Curta Obrigatório)",
+          "qb1_inactive_flag": true
         },
         "away_roster": {
           "latest_roster_week": 7,
@@ -1650,12 +1830,12 @@
         "recommended_side": "YES · Philadelphia (PHI)",
         "market_entry_ask_cents": 45.0,
         "market_bid_ask_spread_cents": 2.0,
-        "monte_carlo_20k_structural_prob_pct": 60.7,
-        "pessimist_bench_5_prob_pct": 46.9,
-        "optimist_bench_5_prob_pct": 59.9,
+        "monte_carlo_20k_structural_prob_pct": 60.48,
+        "pessimist_bench_5_prob_pct": 46.8,
+        "optimist_bench_5_prob_pct": 59.8,
         "supreme_judge_calibrated_prob_pct": 54.0,
         "net_edge_bps": 900,
-        "judge_ruling_summary": "Entrada tática em YES Philadelphia (KXNFLGAME-26NOV08NYGPHI-PHI) a 45.0¢. Bancada Pessimista estima 46.9%, Bancada Otimista estima 59.9%, Veredito Final do Juiz: 54.0% (+900 bps). Executar obrigatoriamente a trava de Free-Roll nos Lotes 1 e 2 durante picos intrajogo."
+        "judge_ruling_summary": "Entrada tática em YES Philadelphia (KXNFLGAME-26NOV08NYGPHI-PHI) a 45.0¢. Bancada Pessimista estima 46.8%, Bancada Otimista estima 59.8%, Veredito Final do Juiz: 54.0% (+900 bps). Executar obrigatoriamente a trava de Free-Roll nos Lotes 1 e 2 durante picos intrajogo."
       },
       "boleta_100_usd": {
         "reference_bankroll_usd": 100.0,
@@ -1686,7 +1866,27 @@
           "total_cash_if_full_cycle_usd": 151.64,
           "total_roi_if_full_cycle_pct": 51.64
         },
-        "tactical_stop_loss_cents": 30.6
+        "tactical_stop_loss_cents": 30.6,
+        "error_mitigation_and_drawdown_exits_v4": {
+          "rule_0_resting_orders": "Obrigatório pendurar ordens Limit Sell (GTC) no segundo zero após a compra para capturar spikes rápidos intrajogo (como o spike de 60.4¢ às 21:18 em PHI vs WAS).",
+          "exit_1_air_pocket_decompression_45pct": {
+            "shares": 100.0,
+            "limit_sell_cents": 47.2,
+            "cash_recovered_usd": 47.2,
+            "action": "Se entrar em drawdown temporário, pendurar 45% das shares a 47.2¢ (logo acima do muro do Orderbook) para descomprimir quase metade do risco no 1º First Down."
+          },
+          "exit_2_breakeven_shield_40pct": {
+            "shares": 88.89,
+            "limit_sell_cents": 53.1,
+            "cash_recovered_usd": 47.2,
+            "action": "Pendurar 40% das shares a 53.1¢ no repique de Field Goal/RedZone, recuperando ~95% a 100% do capital investido e eliminando o erro de entrada."
+          },
+          "exit_3_structural_stop_72pct_saved": {
+            "stop_cents": 30.6,
+            "capital_saved_usd": 68.0,
+            "action": "Se o suporte institucional do livro quebrar abaixo de 30.6¢ com perda de posse/placar, estopar salvando US$ 68.00."
+          }
+        }
       },
       "boleta_1000_usd": {
         "reference_bankroll_usd": 1000.0,
@@ -1717,7 +1917,27 @@
           "total_cash_if_full_cycle_usd": 1516.44,
           "total_roi_if_full_cycle_pct": 51.64
         },
-        "tactical_stop_loss_cents": 30.6
+        "tactical_stop_loss_cents": 30.6,
+        "error_mitigation_and_drawdown_exits_v4": {
+          "rule_0_resting_orders": "Obrigatório pendurar ordens Limit Sell (GTC) no segundo zero após a compra para capturar spikes rápidos intrajogo (como o spike de 60.4¢ às 21:18 em PHI vs WAS).",
+          "exit_1_air_pocket_decompression_45pct": {
+            "shares": 1000.0,
+            "limit_sell_cents": 47.2,
+            "cash_recovered_usd": 472.0,
+            "action": "Se entrar em drawdown temporário, pendurar 45% das shares a 47.2¢ (logo acima do muro do Orderbook) para descomprimir quase metade do risco no 1º First Down."
+          },
+          "exit_2_breakeven_shield_40pct": {
+            "shares": 888.89,
+            "limit_sell_cents": 53.1,
+            "cash_recovered_usd": 472.0,
+            "action": "Pendurar 40% das shares a 53.1¢ no repique de Field Goal/RedZone, recuperando ~95% a 100% do capital investido e eliminando o erro de entrada."
+          },
+          "exit_3_structural_stop_72pct_saved": {
+            "stop_cents": 30.6,
+            "capital_saved_usd": 680.0,
+            "action": "Se o suporte institucional do livro quebrar abaixo de 30.6¢ com perda de posse/placar, estopar salvando US$ 680.00."
+          }
+        }
       }
     }
   ]

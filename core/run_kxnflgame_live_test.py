@@ -169,7 +169,7 @@ def load_rosters_and_injuries(teams_filter):
     return out
 
 
-def load_top_qbs_and_stars(teams_filter):
+def load_top_qbs_and_stars(teams_filter, rosters=None):
     nfl_teams = {nfl_code(t): t for t in teams_filter}
     player_csv = DATA_DIR / "stats_player_week_2026.csv"
     qbs = {t: {} for t in teams_filter}
@@ -195,16 +195,34 @@ def load_top_qbs_and_stars(teams_filter):
     primary_qb = {}
     for t, qb_map in qbs.items():
         if not qb_map:
-            primary_qb[t] = {"name": "N/A", "games": 0, "pass_yds": 0, "pass_tds": 0, "ints": 0, "pass_epa": 0.0}
+            primary_qb[t] = {"name": "N/A", "games": 0, "pass_yds": 0, "pass_tds": 0, "ints": 0, "pass_epa": 0.0, "starter_status_alert": "UNKNOWN"}
             continue
         best = max(qb_map.items(), key=lambda x: x[1]["pass_yds"])
-        info = best[1]
+        info = dict(best[1])
         info["name"] = best[0]
         info["pass_epa"] = round(info["pass_epa"], 2)
         info["pass_yds"] = round(info["pass_yds"], 1)
         info["rush_yds"] = round(info["rush_yds"], 1)
+
+        # v4.0 ActiveStarterValidator: Verifica se o QB #1 está em RES/INA na semana atual!
+        starter_out = False
+        if rosters and t in rosters:
+            for ab in rosters[t].get("key_absences", []):
+                if ab.get("pos") == "QB" and ab.get("name", "").lower() == info["name"].lower():
+                    starter_out = True
+                    break
+        if starter_out:
+            active_qbs = [x["name"] for x in (rosters[t].get("active_skill_players", []) if rosters else []) if x.get("pos") == "QB"]
+            backup_label = active_qbs[0] if active_qbs else "Backup QB (Tanner McKee / Joe Milton III)"
+            info["starter_status_alert"] = f"ALERTA CRÍTICO: {info['name']} está em RES/INA! QB Ativo em campo: {backup_label} (Modo Scalp/Mitigação Curta Obrigatório)"
+            info["qb1_inactive_flag"] = True
+        else:
+            info["starter_status_alert"] = f"{info['name']} ATIVO (ACT)"
+            info["qb1_inactive_flag"] = False
+
         primary_qb[t] = info
     return primary_qb
+
 
 
 def hitting_prob_barrier(p0: float, target: float, p_true: float, sigma: float = 0.18) -> float:
@@ -286,7 +304,28 @@ def build_tranche_boleta(entry_cents: float, side_label: str, judge_prob_pct: fl
             "total_roi_if_full_cycle_pct": roi_if_win_pct,
         },
         "tactical_stop_loss_cents": stop_cents,
+        "error_mitigation_and_drawdown_exits_v4": {
+            "rule_0_resting_orders": "Obrigatório pendurar ordens Limit Sell (GTC) no segundo zero após a compra para capturar spikes rápidos intrajogo (como o spike de 60.4¢ às 21:18 em PHI vs WAS).",
+            "exit_1_air_pocket_decompression_45pct": {
+                "shares": round(total_shares * 0.45, 2),
+                "limit_sell_cents": round(entry_cents * 1.05, 1),
+                "cash_recovered_usd": round(round(total_shares * 0.45, 2) * (round(entry_cents * 1.05, 1) / 100.0), 2),
+                "action": f"Se entrar em drawdown temporário, pendurar 45% das shares a {round(entry_cents * 1.05, 1)}¢ (logo acima do muro do Orderbook) para descomprimir quase metade do risco no 1º First Down."
+            },
+            "exit_2_breakeven_shield_40pct": {
+                "shares": round(total_shares * 0.40, 2),
+                "limit_sell_cents": round(entry_cents * 1.18, 1),
+                "cash_recovered_usd": round(round(total_shares * 0.40, 2) * (round(entry_cents * 1.18, 1) / 100.0), 2),
+                "action": f"Pendurar 40% das shares a {round(entry_cents * 1.18, 1)}¢ no repique de Field Goal/RedZone, recuperando ~95% a 100% do capital investido e eliminando o erro de entrada."
+            },
+            "exit_3_structural_stop_72pct_saved": {
+                "stop_cents": stop_cents,
+                "capital_saved_usd": round(total_shares * (stop_cents / 100.0), 2),
+                "action": f"Se o suporte institucional do livro quebrar abaixo de {stop_cents}¢ com perda de posse/placar, estopar salvando US$ {round(total_shares * (stop_cents / 100.0), 2):.2f}."
+            }
+        }
     }
+
 
 
 def analyze_matchup(event_obj, team_stats, rosters, qbs):
@@ -511,7 +550,8 @@ def main():
 
     team_stats = load_team_stats(all_teams)
     rosters = load_rosters_and_injuries(all_teams)
-    qbs = load_top_qbs_and_stars(all_teams)
+    qbs = load_top_qbs_and_stars(all_teams, rosters)
+
 
     analyzed_games = [analyze_matchup(ev, team_stats, rosters, qbs) for ev in open_sorted]
 

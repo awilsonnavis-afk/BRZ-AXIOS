@@ -1,5 +1,5 @@
 {
-  "schema_version": 3,
+  "schema_version": "3.1.0-desk-daily-asset-workspaces-with-error-mitigation",
   "collection": "desk_predictions",
   "document_id": "latest",
   "cadence_mode": "DAILY_TERMINAL_DESK",
@@ -763,5 +763,100 @@
     "content_sha256": "db38835b5166d95364a688b2fab642e33dd0a27e1393e3284ec02493e9b77d21",
     "reviewed_at": "2026-11-02T02:28:00.138722+00:00",
     "notes": "Strict Brazil-only high-volume prediction markets. Daily terminal workspace for BRZ.DESK and Weekly AXIOS Volume Leader Report for BRZ.PREDICTION. Impersonal market data, fundamental/technical metrics and standardized mathematical tranche models."
+  },
+  "phi_was_live_mitigation_case_study": {
+    "position_audit_from_screenshot": {
+      "event_ticker": "KXNFLGAME-26NOV01PHIWAS",
+      "contract_held": "YES · PHI Eagles (KXNFLGAME-26NOV01PHIWAS-PHI)",
+      "shares_held": 317.73,
+      "avg_entry_price_cents": 31.47,
+      "total_invested_usd": 100.0,
+      "game_clock_state": "Q1 0:23 | PHI 10 - 3 WAS | Possession: PHI 1st & 10 at PHI 29",
+      "current_bid_cents": 28.0,
+      "current_ask_cents": 29.0,
+      "current_cashout_usd": 84.47,
+      "unrealized_pnl_usd": -15.52,
+      "intraday_missed_spike": {
+        "timestamp": "21:18 ET",
+        "peak_price_cents": 60.4,
+        "peak_position_value_usd": 191.91,
+        "missed_profit_usd": 91.91,
+        "root_cause": "Ausência de ordens Limit Sell (GTC) pré-posicionadas no livro no instante da abertura da posição."
+      },
+      "orderbook_microstructure_insight": {
+        "bid_support_28c_contracts": 123427.67,
+        "ask_wall_29c_contracts": 205278.54,
+        "ask_wall_30c_contracts": 132870.94,
+        "thin_air_31c_contracts": 25187.02,
+        "thin_air_32c_contracts": 6868.6,
+        "tactical_reading": "Existe um suporte forte de 123.4k contratos em 28¢ e parede em 29¢-30¢, mas um VAZIO DE LIQUIDEZ em 31¢ (25k) e 32¢ (6.8k). Assim que o ataque do PHI (que está com a bola na linha de 29) conseguir 1 ou 2 first downs, o preço rompe 30¢ e salta rápido para 33¢-39¢."
+      }
+    },
+    "immediate_action_protocol": {
+      "rule_0_do_not_panic_sell_at_28c": "NÃO venda 100% a mercado a 28¢ (-US$ 15.52) enquanto o Philadelphia está vencendo por 10-3 e tem a posse da bola (1st & 10 na linha de 29). Use o drive atual do PHI e o vazio do livro acima de 30¢ para sair no zero-a-zero ou com lucro.",
+      "tranche_a_decompression_45pct": {
+        "action": "Pendurar AGORA Ordem Limit Sell de 143.00 shares a 33¢",
+        "shares": 143.0,
+        "limit_price_cents": 33.0,
+        "cash_generated_usd": 47.19,
+        "why": "Aproveita o vazio do Orderbook em 31¢-32¢ (apenas 32k contratos somados) no primeiro avanço do drive do PHI. Já realiza lucro sobre o preço médio de 31.47¢ e reduz sua exposição em 45%."
+      },
+      "tranche_b_breakeven_shield_40pct": {
+        "action": "Pendurar AGORA Ordem Limit Sell de 127.00 shares a 39¢",
+        "shares": 127.0,
+        "limit_price_cents": 39.0,
+        "cash_generated_usd": 49.53,
+        "cumulative_cash_a_plus_b_usd": 96.72,
+        "why": "Se o drive do PHI terminar em Field Goal (13-3) ou entrar na RedZone, o contrato volta à faixa de 38¢-41¢. Somando Trincheira A ($47.19) + Trincheira B ($49.53), você recupera US$ 96.72 (96.7% de todo o seu dinheiro) e elimina o erro da operação!"
+      },
+      "tranche_c_upside_or_scratch_15pct": {
+        "action": "Pendurar Ordem Limit Sell das 47.73 shares finais a 48¢ (ou vender a 32¢ se o drive travar)",
+        "shares": 47.73,
+        "limit_price_cents": 48.0,
+        "cash_generated_if_48c_usd": 22.91,
+        "total_cash_if_all_hit_usd": 119.63,
+        "total_cash_if_scratch_at_32c_usd": 103.1,
+        "why": "Se sair Touchdown do PHI (17-3), bate 48¢ e você fecha a operação com US$ 119.63 (+US$ 19.63 de lucro). Se o drive travar após bater 33¢, venda o restante a 32¢ e feche com US$ 103.10 (+US$ 3.10, zerando 100% do prejuízo!)."
+      },
+      "emergency_structural_stop_loss": {
+        "trigger_condition": "Se o drive do PHI sofrer Turnover (INT/Fumble) ou Punt E Washington marcar Touchdown empatando em 10-10 (rompendo o piso de 123k contratos em 28¢)",
+        "stop_limit_cents": 22.0,
+        "capital_preserved_usd": 69.9,
+        "max_loss_cap_usd": -30.1,
+        "why": "Como o PHI está sem seu QB titular (Jalen Hurts em RES na Semana 8), se o time perder a vantagem no placar (10-10 ou virada de WAS), o contrato derreterá rápido para <12¢. O Stop em 22¢ salva US$ 69.90 do seu capital."
+      }
+    },
+    "five_errors_we_made_and_graph_v4_fixes": [
+      {
+        "error_id": "ERR-01",
+        "error_title": "O Modelo olhou EPA da temporada sem filtrar que Jalen Hurts estava em `RES` na Semana 8",
+        "what_happened": "Em `run_kxnflgame_live_test.py`, a função `load_top_qbs_and_stars()` selecionou Jalen Hurts pelo volume acumulado da temporada, embora `weekly_rosters_2026.csv` listasse `Jalen Hurts (QB-RES)` e `Tanner McKee / Joe Milton III (QB-ACT)`. Além disso, na nossa primeira tabela demonstrativa (`RELATORIO_KALSHI_NFL_26NOV01.md`) usamos dados estimados e dissemos `NO TRADE`, e depois no scan ao vivo recomendamos `WAS a 60¢` quando o jogo já estava em andamento.",
+        "graph_v4_fix": "Novo nó `ActiveStarterValidator`: Cruza `weekly_rosters_2026.csv` (`status == ACT`) com os stats antes de calcular a probabilidade. Se o QB1 está fora (`RES`/`INA`), ativa o modo de **Saída Curta (Scalp de Drive)** porque o mercado vende qualquer avanço do azarão."
+      },
+      {
+        "error_id": "ERR-02",
+        "error_title": "Entrar em jogo AO VIVO sem plantar ordens `Limit Sell` automáticas no segundo zero (Perda do Spike de 60.4¢ às 21:18)",
+        "what_happened": "O gráfico do print prova que às 21:18 ET o contrato `Yes · PHI Eagles` bateu `60.4¢` (o que transformava seus US$ 100 em US$ 191.91, lucro de +US$ 91.91!). Sem ordens Limit Sell penduradas de antemão no livro, o pico durou poucos minutos e voltou para `28¢`.",
+        "graph_v4_fix": "Novo nó `AutoRestingLimitOrders`: O Grafo não gera mais apenas alvos teóricos; ele gera ordens `RESTING LIMIT SELL` obrigatórias em 3 níveis curtos (`+6%`, `+22%`, `+45%`) que devem ser colocadas no livro no exato segundo após a compra."
+      },
+      {
+        "error_id": "ERR-03",
+        "error_title": "Alvos de Lote 1 e Lote 2 longos demais para posição contra o Favorito (Underdog / Contra-Fluxo)",
+        "what_happened": "Quando operamos um time que o mercado enxerga como azarão estrutural (PHI sem QB1 contra WAS em casa), o mercado não sustenta altas longas: mesmo abrindo `10-3` no 1º quarto, o contrato cai para `28¢` porque os algoritmos institucionais vendem PHI a cada 3rd down.",
+        "graph_v4_fix": "Novo nó `UnderdogDecayAdjuster`: Quando a posição tem preço `< 40¢` ou joga sem QB1, o Grafo encurta o Lote 1 de `+24%` para **`+5% a +10%` (Saída de Descompressão)** e o Lote 2 para **`+20% a +24%` (Trava de Breakeven)**, garantindo que você saia no primeiro first down ou field goal."
+      },
+      {
+        "error_id": "ERR-04",
+        "error_title": "Ausência de uma Árvore de Saída de Mitigação quando a posição entra no negativo (`Drawdown Recovery Mode`)",
+        "what_happened": "O Grafo v3.0 só tinha plano para quando o preço subia direto da entrada (`31.47¢ -> 39¢ -> 45¢`) ou batia no Stop-Loss lá embaixo (`21¢`). Ele deixava o operador no escuro na zona cinzenta (`28¢`, `-11%` de drawdown com o time vencendo `10-3` em campo).",
+        "graph_v4_fix": "Novo nó `DrawdownMitigationTree`: Toda operação no `BRZ.DESK` e no motor Kalshi agora inclui a **Matriz de Mitigação de Erro em 4 Estados**: (1) *Descompressão no Vazio do Livro (`+1.5¢` acima do PM)*, (2) *Saída de Empate Tático (`Scratch Exit`)*, (3) *Hedge Sintético no Lado Oposto (`Buy YES Oponente em suporte`)*, e (4) *Stop de Preservação de 70% do Caixa*."
+      },
+      {
+        "error_id": "ERR-05",
+        "error_title": "Não ler os 'Vazios de Liquidez' (Air Pockets) do Orderbook para posicionar as saídas",
+        "what_happened": "Olhando o Orderbook no print: há `205k` contratos no `29¢` e `132k` no `30¢`, mas apenas `25k` no `31¢` e `6.8k` no `32¢`. Sem ler a profundidade do livro, o operador ou vende mal no `28¢` ou coloca alvo longe demais no `50¢`.",
+        "graph_v4_fix": "Novo nó `OrderbookAirPocketScanner`: Identifica onde termina o muro de Asks (`30¢`) e posiciona a saída de mitigação logo na zona de ar rarefeito (`32¢–33¢`), onde qualquer ordem agressora de mercado limpa os níveis e executa nossa saída no lucro."
+      }
+    ]
   }
 }
