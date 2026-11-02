@@ -82,3 +82,19 @@
   - [x] Implementação do scanner multi-bolsa [brazil_markets_scanner.py](file:///c:/NWX/nwx-Argon/core/brazil_markets_scanner.py) (`30` eventos ativos na Polymarket, `97` séries e `201` eventos na Kalshi, sendo `20` com contratos ativos agora).
   - [x] Implementação do motor de análise e arbitragem [brazil_polymarket_kalshi_engine.py](file:///c:/NWX/nwx-Argon/core/brazil_polymarket_kalshi_engine.py).
   - [x] Geração do relatório completo com 4 Boletas Operacionais Brasil em [RELATORIO_BRASIL_POLYMARKET_E_KALSHI.md](file:///c:/NWX/nwx-Argon/reports/RELATORIO_BRASIL_POLYMARKET_E_KALSHI.md).
+  - [x] Priorização Editorial por Volume (`60` operações, `US$ 2.68M+` em volume) em [brazil_editorial_prioritizer.py](file:///c:/NWX/nwx-Argon/core/brazil_editorial_prioritizer.py) e [PAUTA_EDITORIAL_E_RANKING_VOLUME_BRASIL.md](file:///c:/NWX/nwx-Argon/reports/PAUTA_EDITORIAL_E_RANKING_VOLUME_BRASIL.md).
+  - [x] Auditoria da Operação Real ao Vivo na Kalshi (`KC Chiefs vs DEN Broncos`, `130.23 shares` a `53.75¢`, venda de `104 shares` a `77¢` no Q3 recuperando `US$ 77.29` em caixa e mantendo `26.23 shares` em *Free-Roll*) em [AVALIACAO_HALFTIME_KC_17_13_DEN_E_POSICAO_REAL.md](file:///c:/NWX/nwx-Argon/reports/AVALIACAO_HALFTIME_KC_17_13_DEN_E_POSICAO_REAL.md).
+
+---
+
+## 🏛️ 8. Integração Diária do Grafo Argon no BRZ News (`Hunter Vance`, `BRZ.PREDICTION` e `BRZ.DESK Prediction`): `PROJ-008-BRZ-NEWS-DAILY-PREDICTION-GRAPH` (2026-11-01)
+- **Objetivo:** Analisar os repositórios do Lucas (`lucascs1/brz-news-backend` e `lucascs1/brz-news-frontend`), mapear o funcionamento do `Hunter Vance v2` (`src/agents/hunter_vance/hunter_v2.py` e `config/hunter_sources.json`), e implementar o grafo diário que alimenta as pautas editoriais, a página pública/assinante **`BRZ.PREDICTION`** e a mesa institucional **`BRZ.DESK Prediction`**.
+- **Status:**
+  - [x] Análise completa do `hunter_v2.py`, `capital_signals.py`, `importance.py`, `focus.py` (4 janelas `09h`, `11h`, `17h`, `19h ET`), `LANES.yml` e `DATA_CONTRACT.md` no backend, além de `TradingDesk.tsx`, `OrderTicket.tsx` e `prediction-markets.ts` no frontend.
+  - [x] Implementação do motor de integração diária [brz_news_daily_prediction_graph.py](file:///c:/NWX/nwx-Argon/core/brz_news_daily_prediction_graph.py).
+  - [x] Geração dos contratos JSON prontos para o Firestore (`brz-news-prod`):
+    - [hunter_prediction_pautas.json](file:///c:/NWX/nwx-Argon/sandbox/runs/brz_news_daily_integration/hunter_prediction_pautas.json) (3 pautas completas com `capital_signal` 6 campos e `headline_boost_safe`).
+    - [firestore_brz_prediction_public.json](file:///c:/NWX/nwx-Argon/sandbox/runs/brz_news_daily_integration/firestore_brz_prediction_public.json) (`prediction_radar/latest` com 15 mercados Tier 1/2 e arbitragem Polymarket vs Kalshi para a página `BRZ.PREDICTION`).
+    - [firestore_brz_desk_prediction_pro.json](file:///c:/NWX/nwx-Argon/sandbox/runs/brz_news_daily_integration/firestore_brz_desk_prediction_pro.json) (`desk_predictions/latest` com Orderbook, Inteligência Gabriel Torres, Tribunal 5x5 + Juiz e Boleta em 3 Lotes para a página `BRZ.DESK Prediction`).
+  - [x] Especificação arquitetural e plano de PRs por Lane documentados em [ARQUITETURA_INTEGRACAO_BRZ_NEWS_HUNTER_E_PREDICTION_DESK.md](file:///c:/NWX/nwx-Argon/reports/ARQUITETURA_INTEGRACAO_BRZ_NEWS_HUNTER_E_PREDICTION_DESK.md).
+

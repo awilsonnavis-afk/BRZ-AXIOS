@@ -75,3 +75,21 @@
   - **Kalshi Trade API v2:** Varredura do catálogo `/series` (identificou **97 séries sobre o Brasil**) seguida de `/events?series_ticker=...&with_nested_markets=true` e `/events?status=open&with_nested_markets=true`. Retornou **201 eventos** e **20 eventos com contratos ativos agora** (`KXUSDBRLMAX-26DEC31` com `574.531` contratos, `KXBRAZILU-Q42026-5.8`, `KXBRAZILGDP-26DEC02`, `KXIBOV-26DEC31`, `KXCOPADOBRASIL-26`, `KXDEMORAESOUT-26SEP`, `KXTRUMPFLAVIOMEET-26DEC01`, `KXBOLSONAROPARDON-27`, `KXPBRA-27FEBPROD`, `KXNBBGAME-*`).
 - **Assimetria Cross-Exchange Detectada:** Violação de monotonicidade temporal entre Polymarket `#1267468` (*Trump encontra Flávio Bolsonaro até 31/Dez/2026*, `Ask = 18,0¢`) e Kalshi `KXTRUMPFLAVIOMEET-26DEC01-DEC01` (*encontro até 01/Dez/2026*, `Bid = 18,0¢ / Last = 22,0¢`).
 - **Relatório:** Salvo em `reports/RELATORIO_BRASIL_POLYMARKET_E_KALSHI.md`.
+
+
+### [2026-11-01 18:45] — Validação Real com Dinheiro na Kalshi (`KC Chiefs vs DEN Broncos` — *Free-Roll* Executado) e Upload GitHub (`awilsonnavis-afk/nwx-Argon`)
+- **Execução Real pelo Usuário:** Entrada em `130.23 Yes shares` do KC Chiefs a `53.75¢` (`US$ 70.00` investidos). No Q3 (`2:58`, `KC 17-13 DEN`), o contrato bateu **`78¢ (Sell 77¢)`** (superando o alvo do Lote 1 de `65¢` e do Lote 2 de `76¢`). O usuário vendeu `104.00 shares` (`80%` da posição), colocando **`US$ 77.29` em caixa** (recuperando 100% dos `US$ 70.00` investidos + `US$ 7.29` de lucro líquido travado) e deixando exatamente **`26.23 Yes shares` (`20%`)** em *Free-Roll* 100% sem risco (`ROI +$30.52 / +43.6%`).
+- **Repositório GitHub Criado e Sincronizado:** `https://github.com/awilsonnavis-afk/nwx-Argon`.
+
+
+### [2026-11-01 20:30] — Arquitetura e Motor de Integração Diária do Grafo Argon no BRZ News (`Hunter Vance`, `BRZ.PREDICTION` e `BRZ.DESK Prediction`)
+- **Análise dos Repositórios do Lucas (`lucascs1/brz-news-backend` e `lucascs1/brz-news-frontend`):**
+  - Mapeado o funcionamento do `Hunter Vance v2` (`src/agents/hunter_vance/hunter_v2.py`), os gatilhos primários (`src/agents/data_engineering/capital_signals.py`), o placar de importância (`src/agents/editor/importance.py`), as 4 janelas diárias do Cloud Scheduler (`09h calendar`, `11h open`, `17h close`, `19h wrap` ET em `src/agents/shared/focus.py`), o gate jurídico da Victoria Rossi (`src/agents/albert_ryan/analysis_desk.py`) e a governança `1 PR = 1 Lane` (`LANES.yml`).
+  - Mapeado o frontend Next.js 15 (`src/app/pro/trade/TradingDesk.tsx`, `OrderTicket.tsx`, `src/lib/prediction-markets.ts` e `src/app/pro/publish/PredictionMarkets.tsx`).
+- **Implementação (`core/brz_news_daily_prediction_graph.py`):**
+  - Gera diariamente nas 4 janelas:
+    1. **Pautas de Mercados Preditivos para o `Hunter Vance`** (`sandbox/runs/brz_news_daily_integration/hunter_prediction_pautas.json`) com `capital_signal` completo de 6 campos, URL primária oficial e `headline_boost_safe` sem termos eleitorais para Meta Ads.
+    2. **Contrato Firestore `prediction_radar/latest` para a página `BRZ.PREDICTION`** (`sandbox/runs/brz_news_daily_integration/firestore_brz_prediction_public.json`), cobrindo 60 mercados (`US$ 2.68M` volume), Top 15 por Score Editorial e Arbitragem Polymarket vs. Kalshi.
+    3. **Contrato Firestore `desk_predictions/latest` para a página `BRZ.DESK Prediction`** (`sandbox/runs/brz_news_daily_integration/firestore_brz_desk_prediction_pro.json`), contendo Orderbook ao vivo, Inteligência de Fontes Abertas (`Gabriel Torres`), Tribunal Atuarial `5x5 + Juiz Supremo`, Boleta Tática em 3 Lotes (*Free-Roll*) e o Track Record Auditado ao vivo (`KC vs DEN`).
+- **Relatório Arquitetural Completo:** `reports/ARQUITETURA_INTEGRACAO_BRZ_NEWS_HUNTER_E_PREDICTION_DESK.md`.
+

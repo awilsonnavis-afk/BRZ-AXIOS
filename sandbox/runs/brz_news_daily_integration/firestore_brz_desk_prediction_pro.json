@@ -1,0 +1,128 @@
+{
+  "schema_version": 1,
+  "collection": "desk_predictions",
+  "document_id": "latest",
+  "updated_at": "2026-11-02T01:29:41.279911+00:00",
+  "engine_version": "Argon-v2.6-Vertex-ADK",
+  "active_desk_operations": [
+    {
+      "operation_id": "OP-BRZ-COPOM-NOV26",
+      "exchange": "Polymarket / Kalshi",
+      "ticker": "KXBRSELIC-26NOV / poly-brazil-rate-nov",
+      "title": "Copom Selic Cut (-50 bps) & EWZ Volatility Desk Setup",
+      "category": "Macro & Rates",
+      "status": "ACTIVE_SETUP",
+      "orderbook": {
+        "entry_yes_cents": 58.0,
+        "yes_bid_cents": 57.0,
+        "yes_ask_cents": 58.0,
+        "no_bid_cents": 42.0,
+        "no_ask_cents": 43.0,
+        "spread_cents": 1.0,
+        "liquidity_usd": 142800.0
+      },
+      "probabilities": {
+        "market_implied_prob": 0.58,
+        "pessimists_mean_prob": 0.512,
+        "optimists_mean_prob": 0.684,
+        "judge_calibrated_prob": 0.638,
+        "edge_bps": 580,
+        "cvar_95_ruin_prob": 0.041
+      },
+      "gabriel_torres_intel": {
+        "favorable_drivers": [
+          "BCB SGS 432: Real interest rate gap above 9.5% gives Copom room to accelerate easing without losing carry appeal.",
+          "Hunter Vance Feed (Valor / InfoMoney): Focus survey shows stable 2027 inflation expectations for 3 consecutive weeks.",
+          "DI1F27 & EWZ options skew shows institutional put-selling ahead of Wednesday's decision."
+        ],
+        "threat_drivers": [
+          "BCB SGS 1 (PTAX): Intraday USD/BRL volatility above 1.2 sigma could force Copom into a conservative 25 bps move.",
+          "US Treasury 10Y yield resilience limits emerging-market central bank dovishness."
+        ]
+      },
+      "tribunal_5x5_verdict": {
+        "pessimists_summary": "5 Actuarial Pessimists warn that fiscal noise and PTAX volatility cap the probability of a full 50 bps cut at 51.2%, penalizing tail risk via CVaR_95.",
+        "optimists_summary": "5 Actuarial Optimists demonstrate that real ex-ante rates are overly restrictive and sovereign curve pricing supports a 68.4% probability of -50 bps.",
+        "supreme_judge_decision": "APPROVED WITH TRANCHE EXECUTION (p* = 63.8%, Edge = +5.80%). Execute 3-lot barrier strategy to lock Free-Roll before official announcement."
+      },
+      "tranche_execution_sheet": {
+        "reference_capital_usd": 1000.0,
+        "entry_price_cents": 58.0,
+        "total_contracts": 1724.14,
+        "tranches": [
+          {
+            "tranche": "Lot 1 — Early Take-Profit (40%)",
+            "allocation_pct": 40.0,
+            "contracts": 689.66,
+            "target_price_cents": 68.0,
+            "prob_touch_before_settlement": 0.784,
+            "gross_proceeds_usd": 468.97,
+            "net_profit_usd": 68.97,
+            "purpose": "Reduce principal at risk on pre-Copom curve compression."
+          },
+          {
+            "tranche": "Lot 2 — Principal Free-Roll Lock (40%)",
+            "allocation_pct": 40.0,
+            "contracts": 689.66,
+            "target_price_cents": 78.0,
+            "prob_touch_before_settlement": 0.642,
+            "gross_proceeds_usd": 537.93,
+            "net_profit_usd": 137.93,
+            "purpose": "Lot 1 + Lot 2 recover $1,006.90 (>100% of $1,000 initial capital). Remaining 20% becomes 100% risk-free."
+          },
+          {
+            "tranche": "Lot 3 — Asymmetric Settlement Hold (20%)",
+            "allocation_pct": 20.0,
+            "contracts": 344.83,
+            "target_price_cents": 100.0,
+            "prob_touch_before_settlement": 0.638,
+            "gross_proceeds_usd": 344.83,
+            "net_profit_usd": 144.83,
+            "purpose": "Hold to official BCB Copom settlement with zero principal at risk."
+          }
+        ],
+        "stop_loss_cents": 44.0,
+        "expected_value_roi_pct": 24.8
+      }
+    },
+    {
+      "operation_id": "OP-KALSHI-KCDEN-26NOV01",
+      "exchange": "Kalshi (Live Audited Track Record)",
+      "ticker": "KXNFLGAME-26NOV01KCDEN-KC",
+      "title": "KC Chiefs vs DEN Broncos — Live Audited Free-Roll Execution",
+      "category": "Sports & Event Derivatives (Verified Live Case)",
+      "status": "FREE_ROLL_LOCKED_LIVE",
+      "orderbook": {
+        "entry_yes_cents": 53.75,
+        "yes_bid_cents": 77.0,
+        "yes_ask_cents": 78.0,
+        "spread_cents": 1.0,
+        "liquidity_usd": 36839786.0
+      },
+      "probabilities": {
+        "market_implied_prob_at_entry": 0.53,
+        "pessimists_mean_prob": 0.528,
+        "optimists_mean_prob": 0.715,
+        "judge_calibrated_prob": 0.6435,
+        "live_peak_prob_q3": 0.78
+      },
+      "live_execution_audit": {
+        "initial_position_shares": 130.23,
+        "entry_avg_cents": 53.75,
+        "capital_invested_usd": 70.0,
+        "tranche_1_and_2_sold_shares": 104.0,
+        "cash_recovered_usd": 77.29,
+        "locked_net_profit_before_settlement_usd": 7.29,
+        "free_roll_remaining_shares": 26.23,
+        "free_roll_mark_to_market_usd": 19.86,
+        "total_live_roi_usd": 30.52,
+        "total_live_roi_pct": 43.6
+      }
+    }
+  ],
+  "compliance_envelope": {
+    "reviewed_by": "Victoria Rossi (Camada 6) & Donald Ross (Camada 2)",
+    "within_publisher_exclusion": true,
+    "disclaimer": "General quantitative scenario modeling and contract orderbook analytics distributed identically to all eligible BRZ.DESK subscribers. Not personalized investment or trading advice. Probability barrier simulations are mathematical outputs of the Argon Engine."
+  }
+}
