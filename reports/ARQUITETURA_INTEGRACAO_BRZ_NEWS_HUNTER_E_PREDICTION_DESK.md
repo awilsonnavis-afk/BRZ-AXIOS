@@ -42,10 +42,10 @@ flowchart TD
         J19["19:00 ET (wrap)"]
     end
 
-    subgraph C1["🔍 CAMADA 1: Ingestão + Grafo Argon Prediction"]
-        SCAN["1. Argon Market Scanner\n(Clara Mendonça + Gabriel Torres)\nPolymarket Gamma API + Kalshi v2 API\n60 Mercados Brasil + Top Global"]
-        RANK["2. Priorizador Editorial por Volume\nScore = 55% Vol + 20% Liq + 15% Urg + 10% Asym\nSepara Tier 1 (Headline) e Tier 2 (Setorial)"]
-        SCOUT["3. Gabriel Torres Context Scout\nCruza Top Contratos com hunter_sources.json,\nBCB SGS (432/1), SEC EDGAR 6-K, CFTC COT, Lesões/Elencos"]
+    subgraph C1["🔍 CAMADA 1: Ingestão + Grafo Argon Prediction (HARD GATE: SOMENTE BRASIL COM VOLUME)"]
+        SCAN["1. Argon Market Scanner\n(Clara Mendonça + Gabriel Torres)\nPolymarket Gamma API + Kalshi v2 API\nFiltra SOMENTE Mercados Brasil Ativos"]
+        GATE["2. Hard Gate de Escopo & Volume\nRadar BRZ.PREDICTION: Vol Brasil >= US$ 10.000 (23 contratos)\nMesa BRZ.DESK: Vol Brasil >= US$ 50.000 (11 contratos)\nDescarta mercados sem liquidez ou fora do Brasil"]
+        SCOUT["3. Gabriel Torres Context Scout\nCruza Top Contratos Brasil com hunter_sources.json,\nBCB SGS (432/1), SEC EDGAR 6-K, CFTC COT, Focus"]
         HUNTER["4. Hunter Vance v2 (hunter_v2.py)\nRecebe pautas de capital_signals + prediction_signals\nValida URL Primária + Gera headline_boost_safe"]
     end
 
@@ -74,13 +74,13 @@ flowchart TD
     end
 
     SCHED --> SCAN
-    SCAN --> RANK
-    RANK --> SCOUT
+    SCAN --> GATE
+    GATE --> SCOUT
     SCOUT --> HUNTER
     SCOUT --> QUANT
     HUNTER --> JOURN --> DONALD --> PUB --> FS_ART
     QUANT --> TRIB --> DESK_GEN --> VICTORIA
-    RANK --> FS_PRED
+    GATE --> FS_PRED
     VICTORIA --> FS_DESK
     FS_ART --> PAGE_PRED
     FS_ART --> PAGE_DESK
@@ -94,45 +94,53 @@ flowchart TD
 
 Em vez de o Hunter olhar apenas RSS passivos, o **Grafo Argon** atua como um **gerador de gatilhos quantitativos de pauta** (exatamente ao lado de [capital_signals.py](file:///C:/NWX/brz-backend-publish-20261016/src/agents/data_engineering/capital_signals.py) na linha 724 do [hunter_v2.py](file:///C:/NWX/brz-backend-publish-20261016/src/agents/hunter_vance/hunter_v2.py)):
 
-1. **Passo 1 — Detecção de Volume e Anomalia (`08:45 ET`, `10:45 ET`, `16:45 ET`, `18:45 ET`):**
-   - O scanner da **Clara Mendonça + Gabriel Torres** varre os 60 contratos brasileiros no Polymarket e as 97 séries no Kalshi.
-   - Calcula o **Score Editorial BRZ News** e detecta:
+1. **Passo 1 — Hard Gate de Escopo (`SOMENTE BRASIL`) e Filtro de Volume (`08:45 ET`, `10:45 ET`, `16:45 ET`, `18:45 ET`):**
+   - O scanner da **Clara Mendonça + Gabriel Torres** varre Polymarket e Kalshi buscando **exclusivamente contratos sobre o Brasil** (`scope_policy = "STRICT_BRAZIL_HIGH_VOLUME_ONLY"`). Qualquer contrato não-Brasil ou sem liquidez na perna brasileira é bloqueado na porta de entrada.
+   - Aplica dois pisos obrigatórios de volume na perna Brasil (`brazil_volume_usd`):
+     - **Piso Radar & Hunter Vance (`BRZ.PREDICTION`):** $\text{Volume Brasil} \ge \text{US\$ } 10.000$ (**23 contratos** qualificados hoje, somando **$\text{US\$ } 2,64\text{M}$**; 5 contratos ilíquidos/encerrados descartados).
+     - **Piso Mesa de Operações (`BRZ.DESK Prediction`):** $\text{Volume Brasil} \ge \text{US\$ } 50.000$ (**11 contratos** de alta liquidez qualificados para gerar Boletas Táticas em 3 Lotes).
+   - Calcula o **Score Editorial BRZ News** (`55% Volume + 20% Liquidez + 15% Urgência + 10% Assimetria`) e detecta:
      - **Choque de Probabilidade ($\Delta p \ge 5\%$ em 24h)**
      - **Spread de Arbitragem Cross-Exchange ($\text{Polymarket} - \text{Kalshi} \ge 2.5\%$)**
-     - **Concentração de Volume Tier 1 ($\text{Volume} > \text{US\$ } 50\text{k}$)**
+     - **Concentração de Volume Tier 1 ($\text{Volume Brasil} \ge \text{US\$ } 50\text{k}$)**
 2. **Passo 2 — Empacotamento no Contrato do `Hunter Vance` (`prediction_signals.py`):**
-   - Cada anomalia vira uma pauta estruturada com:
+   - Cada anomalia em contrato brasileiro com volume vira uma pauta estruturada com:
      - `capital_signal` completo com os **6 campos exigidos** pelo [hunter_v2.py](file:///C:/NWX/brz-backend-publish-20261016/src/agents/hunter_vance/hunter_v2.py#L579-L588) e URL primária verificada (`bcb.gov.br`, `sec.gov`, `cftc.gov`, `ishares.com`), garantindo **+15 pontos** no placar [importance.py](file:///C:/NWX/brz-backend-publish-20261016/src/agents/editor/importance.py#L159).
      - `assets`: sempre encabeçados pelo ticker americano negociável na corretora do leitor (`EWZ`, `PBR`, `VALE`, `ITUB`, `BBD`, `NU`, `MELI`, `ERJ`).
      - `headline_boost_safe`: manchete limpa de termos eleitorais (`_TERMOS_ELEITORAIS`), pronta para impulsionamento pago na Meta Ads.
 3. **Passo 3 — Investigação de Contexto pelo `Gabriel Torres` para o Tribunal 5x5:**
-   - Para cada contrato que entra na **Mesa de Operações (`BRZ.DESK Prediction`)**, o agente **Gabriel Torres (`05`)** extrai os dois vetores empíricos obrigatórios:
-     - **`favorable_drivers` (*"O que favorece essa predição hoje?"*):** Dados primários do BCB (`SGS 432` Selic, `SGS 1` PTAX), SEC EDGAR `6-K`, boletins meteorológicos `SOY_REGIONS` / CFTC COT, ou relatórios oficiais de lesões/elencos (`weekly_rosters_2026.csv`, `EPA/CPOE` no caso de esportes/eventos).
-     - **`threat_drivers` (*"O que ameaça ou pode invalidar essa predição?"*):** Volatilidade cambial acima de $2\sigma$, risco de ruína no orderbook, baixas médicas (`IR`/`INA`) ou decisões judiciais/fiscais.
+   - Para cada contrato brasileiro com volume $\ge \text{US\$ } 50\text{k}$ que entra na **Mesa de Operações (`BRZ.DESK Prediction`)**, o agente **Gabriel Torres (`05`)** extrai os dois vetores empíricos obrigatórios:
+     - **`favorable_drivers` (*"O que favorece essa predição hoje?"*):** Dados primários do BCB (`SGS 432` Selic, `SGS 1` PTAX, Boletim Focus), SEC EDGAR `6-K` (`PBR`, `VALE`, `ITUB`, `NU`), boletins meteorológicos `SOY_REGIONS` / CFTC COT e fluxo cambial estrangeiro na B3.
+     - **`threat_drivers` (*"O que ameaça ou pode invalidar essa predição?"*):** Volatilidade cambial acima de $2\sigma$, choque de petróleo Brent/repasses da Petrobras, risco fiscal ou alargamento de *spread* no livro de ofertas.
 
 ---
 
 ## 4. Especificação das Duas Páginas e Seus Contratos de Dados (Firestore $\leftrightarrow$ Next.js)
 
-### 4.1. Página 1: `BRZ.PREDICTION` (Público / Topo e Meio de Funil)
-- **Objetivo do Produto:** Ser o ** Termômetro Global de Probabilidades sobre o Brasil** em inglês para o investidor americano. Substitui a leitura estática de 1 único mercado em [PredictionMarkets.tsx](file:///C:/NWX/brznews-daily-news-20261016/src/app/pro/publish/PredictionMarkets.tsx) por um **Radar Completo de 60 Mercados** ranqueados por volume (`US$ 2.68M+`).
+### 4.1. Página 1: `BRZ.PREDICTION` (Público / Topo e Meio de Funil — Somente Brasil $\ge \text{US\$ } 10\text{k}$)
+- **Objetivo do Produto:** Ser o **Termômetro Global de Probabilidades sobre o Brasil** em inglês para o investidor americano. Substitui a leitura estática de 1 único mercado em [PredictionMarkets.tsx](file:///C:/NWX/brznews-daily-news-20261016/src/app/pro/publish/PredictionMarkets.tsx) por um **Radar Filtrado dos 23 Contratos Brasileiros de Maior Volume** (`>= US$ 10k` na perna Brasil, totalizando `US$ 2.64M+`).
 - **Rota no Frontend (`lucascs1/brz-news-frontend`):**
   - Rota dedicada `/prediction` (ou `/pro/publish#predictions` expandida) + item na barra de produtos (`BRZ.PREDICTION`).
   - **Lane no Frontend ([LANES.yml](file:///C:/NWX/brznews-daily-news-20261016/LANES.yml)):** `portal` (ou `pro-terminal`).
 - **Fonte de Dados no Firestore:** Documento **`prediction_radar/latest`** (gerado por [core/brz_news_daily_prediction_graph.py](file:///c:/NWX/nwx-Argon/core/brz_news_daily_prediction_graph.py) e salvo em [firestore_brz_prediction_public.json](file:///c:/NWX/nwx-Argon/sandbox/runs/brz_news_daily_integration/firestore_brz_prediction_public.json)).
 - **Seções Visuais da Página `BRZ.PREDICTION`:**
-  1. **KPIs Globais no Topo:** Volume Total Rastreado (`US$ 2,683,421`), Contratos Ativos (`60`), Volume Polymarket (`US$ 2.08M`) vs. Kalshi (`US$ 595K`).
-  2. **Radar de Arbitragem Cross-Exchange (`Polymarket vs. Kalshi`):** Compara lado a lado quanto o mesmo evento (ex.: *Presidência 2026* ou *Corte da Selic no Copom*) está custando no mercado cripto global vs. mercado regulado pela CFTC nos EUA, mostrando o *spread* em pontos percentuais e quais ADRs (`EWZ`, `PBR`, `ITUB`, `NU`) são impactados.
-  3. **Grid Tier 1 & Tier 2 (Ordenado por Volume):** Cards com barra dupla (`Probabilidade Implícita do Mercado` vs. `Probabilidade Calibrada Argon`), `Yes Bid / Ask`, `Volume 24h`, tags dos ativos americanos expostos (`EWZ`, `PBR`, `VALE`) e link direto para a matéria editorial escrita pelos jornalistas do BRZ News.
+  1. **KPIs Globais no Topo:** Volume Brasil Qualificado (`US$ 2,644,987`), Contratos Brasil Ativos com Volume $\ge \text{US\$ } 10\text{k}$ (`23`), Contratos Elegíveis ao Desk $\ge \text{US\$ } 50\text{k}$ (`11`).
+  2. **Radar de Arbitragem Cross-Exchange (`Polymarket vs. Kalshi — Somente Brasil`):** Compara lado a lado quanto o mesmo evento brasileiro (*IPCA 2026*, *Encontro Trump-Bolsonaro*, *Eleição Presidencial 2026*) está custando no Polymarket vs. Kalshi (regulado pela CFTC nos EUA), mostrando o *spread* em centavos e quais ADRs (`EWZ`, `PBR`, `ITUB`, `NU`) são impactados.
+  3. **Grid Tier 1 ($\ge \text{US\$ } 50\text{k}$) & Tier 2 ($\text{US\$ } 10\text{k–50k}$):** Cards com barra dupla (`Probabilidade Implícita do Mercado` vs. `Probabilidade Calibrada Argon`), `Yes Bid / Ask`, `Volume Brasil USD`, tags dos ativos americanos expostos (`EWZ`, `PBR`, `VALE`) e link direto para a matéria editorial escrita pelos jornalistas do BRZ News.
 
 ---
 
-### 4.2. Página 2: `BRZ.DESK Prediction` (Terminal Institucional / Assinante PRO)
-- **Objetivo do Produto:** Entregar ao assinante do **BRZ.PRO / BRZ.DESK** a mesa quantitativa completa de contratos preditivos e eventos — com **Inteligência de Fontes (Gabriel Torres)**, **Tribunal Atuarial 5x5 + Juiz Supremo** e a **Boleta Tática de Execução em 3 Lotes (*Free-Roll Engine*)** validada com dinheiro real.
+### 4.2. Página 2: `BRZ.DESK Prediction` (Terminal Institucional / Assinante PRO — Somente Brasil $\ge \text{US\$ } 50\text{k}$)
+- **Objetivo do Produto:** Entregar ao assinante do **BRZ.PRO / BRZ.DESK** a mesa quantitativa exclusiva de **contratos preditivos sobre o Brasil com alta liquidez ($\ge \text{US\$ } 50.000$)** — equipada com **Inteligência de Fontes (Gabriel Torres)**, **Tribunal Atuarial 5x5 + Juiz Supremo** e a **Boleta Tática de Execução em 3 Lotes (*Free-Roll Engine*)**.
 - **Rota no Frontend (`lucascs1/brz-news-frontend`):**
   - Nova aba **`Prediction Desk`** dentro de [TradingDesk.tsx](file:///C:/NWX/brznews-daily-news-20261016/src/app/pro/trade/TradingDesk.tsx) (`/pro/trade`) e rota dedicada `/pro/prediction-desk` no menu lateral ([docs/PRO_ESTRUTURA.md](file:///C:/NWX/brz-backend-publish-20261016/docs/PRO_ESTRUTURA.md)).
   - **Lane no Frontend ([LANES.yml](file:///C:/NWX/brznews-daily-news-20261016/LANES.yml)):** `pro-terminal`.
 - **Fonte de Dados no Firestore:** Documento **`desk_predictions/latest`** (gerado por [core/brz_news_daily_prediction_graph.py](file:///c:/NWX/nwx-Argon/core/brz_news_daily_prediction_graph.py) e salvo em [firestore_brz_desk_prediction_pro.json](file:///c:/NWX/nwx-Argon/sandbox/runs/brz_news_daily_integration/firestore_brz_desk_prediction_pro.json)).
+- **As 4 Operações Brasileiras de Maior Volume Geradas Hoje no `desk_predictions/latest`:**
+  1. **`OP-BRZ-01-KALSHI-USDBRL-650` (`US$ 574.531` Vol | Kalshi `KXUSDBRLMAX-26DEC31-T6.4999`):** *USD/BRL Stays Below R\$ 6.50 Through Dec 31, 2026* (`NO` sobre rompimento de R\$ 6,50 a `89,0¢`, veredito do Juiz `92,5%`, `+350 bps` de edge; protege carteira de `EWZ`, `ITUB`, `NU`).
+  2. **`OP-BRZ-02-POLY-IPCA-500-549` (`US$ 349.792` Vol | Polymarket `#181671` + Kalshi `KXBRAZILINF`):** *Brazil 2026 Annual IPCA Inflation Lands in 5.00%–5.49% Bracket* (`YES` a `48,7¢` com spread de apenas `0,6¢`, veredito do Juiz `56,2%`, `+750 bps` de edge; Lote 1 a `62¢`, Lote 2 *Free-Roll* a `74¢`).
+  3. **`OP-BRZ-03-POLY-COPOM-NOV26` (`US$ 126.098` Vol | Polymarket `#798441`):** *Banco Central do Brasil (Copom) Holds Selic Rate Unchanged in November* (`YES` a `82,4¢`, liquidez no book de `US$ 24.118`, veredito do Juiz `88,5%`, `+610 bps` de edge).
+  4. **`OP-BRZ-04-ARB-TRUMP-FLAVIO-2026` (`US$ 90.578` Vol | Arbitragem Polymarket `#1267468` vs. Kalshi `KXTRUMPFLAVIOMEET`):** *Cross-Exchange Temporal Arbitrage* — compra de janela anual no Polymarket (`18,0¢` Ask até 31/dez, com `US$ 48.217` de liquidez) contra janela curta de 1º/dez no Kalshi (`22,0¢`), veredito do Juiz `27,5%` (`+950 bps` de edge; Lote 1 a `26¢`, Lote 2 *Free-Roll* a `33¢`).
 - **Módulos da Página `BRZ.DESK Prediction`:**
   1. **Painel de Microestrutura & Orderbook (`Bid / Ask / Spread / Liquidez`):**
      - Exibe o preço de entrada (`Entry Yes ¢`), `Best Bid`, `Best Ask`, `Spread` em centavos e liquidez disponível no livro de ofertas.

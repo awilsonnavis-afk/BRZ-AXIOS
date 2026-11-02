@@ -2,32 +2,32 @@
   {
     "category": "Currencies",
     "angle": "analysis",
-    "headline_hint": "Prediction markets price a 92.5% chance of a Brazil rate cut on Wednesday — here is what happens to the 10-point carry gap over the Fed",
-    "headline_boost_safe": "Prediction markets price a 92.5% chance of a Brazil rate cut on Wednesday — here is what happens to the 10-point carry gap over the Fed",
-    "why_it_matters": "A 25 bps or 50 bps trim by Brazil's central bank narrows the yield gap over US Treasuries and reprices every dollar-denominated Brazil ETF (EWZ) and ADR (ITUB, BBD, NU).",
+    "headline_hint": "US prediction markets bet $574,500 on whether Brazil's currency crosses 6.00 per dollar — what it means for EWZ and US-listed ADRs",
+    "headline_boost_safe": "US prediction markets bet $574,500 on whether Brazil's currency crosses 6.00 per dollar — what it means for EWZ and US-listed ADRs",
+    "why_it_matters": "Every dollar held in NYSE-listed Petrobras (PBR), Vale (VALE), Itaú (ITUB), Nu (NU) or the iShares Brazil ETF (EWZ) absorbs USD/BRL exchange-rate swings one-for-one before local share prices even move.",
     "market_link": "EWZ",
     "capital_signal": {
-      "instrument_us": "EWZ (iShares MSCI Brazil ETF, NYSE Arca) & ITUB / NU",
-      "mechanism": "Prediction contracts price 92.5% probability of a Selic cut on Nov 4, shifting the real-dollar rate differential against the Fed funds target",
-      "number": "92.5% implied cut probability ($142.8K volume on Polymarket)",
-      "comparator_us": "Fed funds upper target 4.25% vs Brazil Selic 14.75% (10.50 p.p. gap)",
-      "source_primary_url": "https://www.bcb.gov.br/controleinflacao/historicotaxasjuros",
+      "instrument_us": "EWZ (iShares MSCI Brazil ETF, NYSE Arca) & PBR / VALE / ITUB / NU",
+      "mechanism": "Kalshi's CFTC-regulated USD/BRL maximum-rate contract (KXUSDBRLMAX-26DEC31) prices a 22% implied probability of the real weakening past 6.00 per dollar and a 12% tail risk of 6.50+",
+      "number": "$574,531 in verified Brazil contract volume (22c Yes on USD/BRL >= 6.00)",
+      "comparator_us": "BCB PTAX spot reference vs US Dollar Index (DXY) 252-day volatility",
+      "source_primary_url": "https://www.bcb.gov.br/estabilidadefinanceira/fechamentodolar",
       "as_of": "2026-11-02"
     },
     "key_facts": [
-      "Polymarket 'Brazil Central Bank Rate Decision - November 2026' trades at 92.5c for a cut (50 bps at 58.0c, 25 bps at 34.5c).",
-      "Brazil's Selic rate stands at 14.75% (BCB SGS 432) against the US Federal Reserve upper target, creating a double-digit carry buffer.",
-      "Gabriel Torres context scan: Focus Bulletin inflation expectations and recent fiscal headlines keep the 25 bps vs 50 bps split active."
+      "Kalshi series KXUSDBRLMAX-26DEC31 has traded $574,531.52 across 5 active USD/BRL strike barriers (6.00, 6.50, 6.75, 7.00, 7.25).",
+      "The 6.00 BRL/USD barrier trades at 22c last price (16c Bid / 34c Ask) with 6,917 open-interest contracts, while the 6.50 barrier trades at 12c ($127,001 volume).",
+      "Gabriel Torres context scan: BCB SGS 1 PTAX daily fixings and swap interventions remain the primary barrier defense mechanism."
     ],
     "assets": [
       "EWZ",
+      "PBR",
+      "VALE",
       "ITUB",
-      "BBD",
-      "NU",
-      "PBR"
+      "NU"
     ],
     "sources": [
-      "https://www.bcb.gov.br/controleinflacao/historicotaxasjuros",
+      "https://www.bcb.gov.br/estabilidadefinanceira/fechamentodolar",
       "https://www.infomoney.com.br/mercados/cambio/feed/"
     ],
     "needs_investigation": false,
@@ -35,88 +35,92 @@
     "image_signal": "tema",
     "impulsionavel": true,
     "ponte": true,
-    "origem": "argon_prediction_signal",
+    "origem": "argon_brazil_prediction_signal",
     "franquia": "brazil_in_numbers",
-    "discovered_at": "2026-11-02T01:29:41.279911+00:00",
+    "brazil_volume_usd": 574531.52,
+    "discovered_at": "2026-11-02T01:37:00.412160+00:00",
     "assigned_to": "Currencies"
   },
   {
     "category": "Markets",
+    "angle": "explainer",
+    "headline_hint": "With $475,800 on the line, prediction markets price Brazil's 2026 inflation above 5% and an 82% chance the central bank holds rates at 14.75%",
+    "headline_boost_safe": "With $475,800 on the line, prediction markets price Brazil's 2026 inflation above 5% and an 82% chance the central bank holds rates at 14.75%",
+    "why_it_matters": "Sticky inflation between 5.00% and 5.49% (priced at 48.7% on Polymarket) keeps Brazil's Selic rate anchored more than 10 percentage points above the Federal Reserve, rewarding dollar carry in Brazilian banks (ITUB, BBD) while pressuring local growth.",
+    "market_link": "ITUB",
+    "capital_signal": {
+      "instrument_us": "ITUB (Itaú Unibanco ADR, NYSE), BBD (Bradesco ADR) & EWZ",
+      "mechanism": "Polymarket and Kalshi inflation contracts ($349.8K combined volume) price an 81.9% combined probability that Brazil's 2026 IPCA finishes between 5.00% and 5.99%, driving an 82.4% probability of a Selic hold in November ($126.1K volume)",
+      "number": "48.7% implied probability for IPCA 5.00%-5.49% ($198.7K Poly + $151.1K Kalshi) & 82.4% Selic hold",
+      "comparator_us": "US CPI target (2.0%) and Fed funds upper target vs Brazil Selic (BCB SGS 432)",
+      "source_primary_url": "https://www.bcb.gov.br/controleinflacao/historicotaxasjuros",
+      "as_of": "2026-11-02"
+    },
+    "key_facts": [
+      "Polymarket 'Brazil Annual Inflation 2026' ($198,671 volume) prices the 5.00%-5.49% bracket at 48.7c and the 5.50%-5.99% bracket at 33.25c.",
+      "Kalshi 'KXBRAZILINF-26DEC-4.00' ($151,121 volume) prices only a 5.0c probability that Brazil's inflation drops below 4.00% by December 2026.",
+      "Polymarket 'Bank of Brazil decision in November' ($126,098 volume) prices 'No Change' at 82.4c vs '25 bps decrease' at 18.0c."
+    ],
+    "assets": [
+      "ITUB",
+      "BBD",
+      "NU",
+      "EWZ",
+      "PBR"
+    ],
+    "sources": [
+      "https://www.bcb.gov.br/controleinflacao/historicotaxasjuros",
+      "https://braziljournal.com/feed/"
+    ],
+    "needs_investigation": false,
+    "priority": "hero",
+    "image_signal": "tema",
+    "impulsionavel": true,
+    "ponte": true,
+    "origem": "argon_brazil_prediction_signal",
+    "franquia": "you_already_own",
+    "brazil_volume_usd": 475890.72,
+    "discovered_at": "2026-11-02T01:37:00.412160+00:00",
+    "assigned_to": "Markets"
+  },
+  {
+    "category": "Politics",
     "angle": "investigation",
-    "headline_hint": "Why offshore and US-regulated prediction markets disagree by up to 8 points on Brazil's 2027 fiscal and policy trajectory",
-    "headline_boost_safe": "Why offshore and US-regulated prediction markets disagree by up to 8 points on Brazil's 2027 fiscal and policy trajectory",
-    "why_it_matters": "Global retail and institutional desks trading Brazil through NYSE-listed PBR, VALE and EWZ use prediction contracts to hedge macro regime shifts before equity markets open.",
+    "headline_hint": "How $535,000 in prediction contracts price Brazil's Supreme Court stability and US-Brazil diplomatic channels",
+    "headline_boost_safe": "How $535,000 in prediction contracts price Brazil's Supreme Court stability and US-Brazil diplomatic channels",
+    "why_it_matters": "Foreign institutional investors holding NYSE-listed Brazilian state enterprises (PBR) and fintechs (NU) monitor Supreme Court (STF) institutional stability and US-Brazil bilateral relations as primary country-risk drivers.",
     "market_link": "PBR",
     "capital_signal": {
       "instrument_us": "PBR (Petrobras ADR, NYSE) & EWZ (iShares MSCI Brazil ETF)",
-      "mechanism": "Cross-exchange spread between Polymarket ($2.08M volume) and CFTC-regulated Kalshi ($595K volume) reveals differing liquidity premia on Brazilian fiscal and governance outcomes",
-      "number": "$2.68M combined contract volume across 60 active Brazil markets",
-      "comparator_us": "EWZ 30-day implied volatility vs S&P 500 (SPY) VIX baseline",
+      "mechanism": "Prediction contracts with $365.8K volume price a 93.8% probability of institutional continuity on Brazil's Supreme Court (STF) through 2026, while cross-exchange arbitrage appears in US-Brazil diplomatic meeting contracts ($169.9K volume)",
+      "number": "93.85% implied STF continuity ($262.2K + $103.6K volume) & 4.5c cross-exchange spread on US-Brazil meetings",
+      "comparator_us": "Brazil 5Y CDS sovereign risk spread vs US Treasury 5Y benchmark",
       "source_primary_url": "https://www.sec.gov/edgar/searchedgar/companysearch",
       "as_of": "2026-11-02"
     },
     "key_facts": [
-      "Argon Scanner tracked $2,683,421 in active volume across 60 Brazil-linked contracts on Polymarket ($2.08M) and Kalshi ($595K).",
-      "Orderbook spread between global crypto liquidity (Polymarket) and US regulated accounts (Kalshi) creates measurable implied-probability gaps.",
-      "State-controlled NYSE-listed companies (Petrobras PBR) carry the highest beta to governance and fiscal-rule contract repricing."
+      "Polymarket #257477 ($262,231 volume) prices 'No' on Alexandre de Moraes leaving the STF at 93.85c, and #147961 ($103,606 volume) prices 'No' on any STF impeachment before 2027 at 96.2c.",
+      "Cross-exchange arbitrage detected by Argon: Polymarket #1267468 ($90,578 volume, $33,972 24h volume) prices a Trump-Flávio Bolsonaro meeting in 2026 at 17.5c (18c Ask), while Kalshi KXTRUMPFLAVIOMEET-26DEC01 trades at 22.0c last (18c Bid)."
     ],
     "assets": [
       "PBR",
       "EWZ",
       "VALE",
-      "ITUB"
+      "NU"
     ],
     "sources": [
       "https://www.sec.gov/edgar/searchedgar/companysearch",
-      "https://braziljournal.com/feed/"
+      "https://agenciabrasil.ebc.com.br/en/rss/politica/feed.xml"
     ],
     "needs_investigation": false,
     "priority": "normal",
     "image_signal": "pessoa_empresa",
     "impulsionavel": true,
     "ponte": true,
-    "origem": "argon_prediction_signal",
+    "origem": "argon_brazil_prediction_signal",
     "franquia": "you_already_own",
-    "discovered_at": "2026-11-02T01:29:41.279911+00:00",
-    "assigned_to": "Markets"
-  },
-  {
-    "category": "Tech",
-    "angle": "explainer",
-    "headline_hint": "Prediction desks track Brazil's Supreme Court digital-platform rulings — and how they touch US tech and fintech holdings",
-    "headline_boost_safe": "Prediction desks track Brazil's Supreme Court digital-platform rulings — and how they touch US tech and fintech holdings",
-    "why_it_matters": "Court mandates on digital platforms, data localization and payment rails directly affect Nasdaq-listed fintechs operating in Brazil (NU, MELI, STNE, PAGS).",
-    "market_link": "NU",
-    "capital_signal": {
-      "instrument_us": "NU (Nu Holdings, NYSE) & MELI (MercadoLibre, Nasdaq)",
-      "mechanism": "Kalshi regulatory contracts (KXBRSTF / KXELON) price judicial enforcement risks on digital and satellite operators in Brazil's 210-million-person market",
-      "number": "97 mapped Kalshi Brazil series including digital and judicial triggers",
-      "comparator_us": "US financial-technology regulatory baseline (CFPB / FCC)",
-      "source_primary_url": "https://www.bcb.gov.br/estabilidadefinanceira/pix",
-      "as_of": "2026-11-02"
-    },
-    "key_facts": [
-      "Kalshi maintains dedicated Brazil judicial and platform-regulation contract series (KXBRSTF, KXELONBRAZIL).",
-      "Brazil's instant-payment ecosystem (Pix, regulated by BCB) processes billions of transactions for NYSE-listed Nu Holdings (NU) and Nasdaq-listed MercadoLibre (MELI)."
-    ],
-    "assets": [
-      "NU",
-      "MELI",
-      "STNE",
-      "PAGS"
-    ],
-    "sources": [
-      "https://www.bcb.gov.br/estabilidadefinanceira/pix",
-      "https://neofeed.com.br/feed/"
-    ],
-    "needs_investigation": false,
-    "priority": "normal",
-    "image_signal": "pessoa_empresa",
-    "impulsionavel": true,
-    "ponte": true,
-    "origem": "argon_prediction_signal",
-    "franquia": "one_company",
-    "discovered_at": "2026-11-02T01:29:41.279911+00:00",
-    "assigned_to": "Tech"
+    "brazil_volume_usd": 535717.54,
+    "discovered_at": "2026-11-02T01:37:00.412160+00:00",
+    "assigned_to": "Politics"
   }
 ]

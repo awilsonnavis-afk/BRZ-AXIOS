@@ -1,128 +1,338 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "collection": "desk_predictions",
   "document_id": "latest",
-  "updated_at": "2026-11-02T01:29:41.279911+00:00",
-  "engine_version": "Argon-v2.6-Vertex-ADK",
+  "scope_policy": "STRICT_BRAZIL_HIGH_VOLUME_ONLY",
+  "min_desk_volume_filter_usd": 50000.0,
+  "updated_at": "2026-11-02T01:37:00.413159+00:00",
+  "engine_version": "Argon-v2.6-Brazil-Desk",
   "active_desk_operations": [
     {
-      "operation_id": "OP-BRZ-COPOM-NOV26",
-      "exchange": "Polymarket / Kalshi",
-      "ticker": "KXBRSELIC-26NOV / poly-brazil-rate-nov",
-      "title": "Copom Selic Cut (-50 bps) & EWZ Volatility Desk Setup",
-      "category": "Macro & Rates",
-      "status": "ACTIVE_SETUP",
+      "operation_id": "OP-BRZ-01-KALSHI-USDBRL-650",
+      "exchange": "Kalshi",
+      "ticker": "KXUSDBRLMAX-26DEC31-T6.4999 (Side: NO / Ceiling Defense)",
+      "title": "USD/BRL Exchange Rate Stays Below R$ 6.50 Through Dec 31, 2026",
+      "category": "Brazil FX & Monetary Carry",
+      "brazil_volume_usd": 574531.52,
+      "contract_specific_volume_usd": 127001.95,
+      "status": "ACTIVE_HIGH_LIQUIDITY",
       "orderbook": {
-        "entry_yes_cents": 58.0,
-        "yes_bid_cents": 57.0,
-        "yes_ask_cents": 58.0,
-        "no_bid_cents": 42.0,
-        "no_ask_cents": 43.0,
-        "spread_cents": 1.0,
-        "liquidity_usd": 142800.0
+        "target_side": "NO (USD/BRL does NOT touch 6.50 in 2026)",
+        "entry_price_cents": 89.0,
+        "bid_cents": 89.0,
+        "ask_cents": 96.0,
+        "yes_last_cents": 12.0,
+        "spread_cents": 7.0,
+        "open_interest_usd": 24275.78
       },
       "probabilities": {
-        "market_implied_prob": 0.58,
-        "pessimists_mean_prob": 0.512,
-        "optimists_mean_prob": 0.684,
-        "judge_calibrated_prob": 0.638,
-        "edge_bps": 580,
-        "cvar_95_ruin_prob": 0.041
+        "market_implied_prob": 0.88,
+        "pessimists_mean_prob": 0.845,
+        "optimists_mean_prob": 0.942,
+        "judge_calibrated_prob": 0.916,
+        "edge_bps": 260,
+        "cvar_95_ruin_prob": 0.021
       },
       "gabriel_torres_intel": {
         "favorable_drivers": [
-          "BCB SGS 432: Real interest rate gap above 9.5% gives Copom room to accelerate easing without losing carry appeal.",
-          "Hunter Vance Feed (Valor / InfoMoney): Focus survey shows stable 2027 inflation expectations for 3 consecutive weeks.",
-          "DI1F27 & EWZ options skew shows institutional put-selling ahead of Wednesday's decision."
+          "BCB SGS 432 & SGS 1: Selic at 14.75% vs Fed 4.25% creates a 10.50 p.p. carry cushion that penalizes speculative USD/BRL shorts.",
+          "Less than 60 calendar days remain until Dec 31, 2026 expiration; time decay (theta) accelerates daily in favor of the 'NO < 6.50' barrier.",
+          "BCB reserves (~$355B) and currency swap auctions historically cap 2-sigma intraday spikes."
         ],
         "threat_drivers": [
-          "BCB SGS 1 (PTAX): Intraday USD/BRL volatility above 1.2 sigma could force Copom into a conservative 25 bps move.",
-          "US Treasury 10Y yield resilience limits emerging-market central bank dovishness."
+          "Year-end corporate dividend remittances and fiscal budget headlines in Brasília can trigger temporary PTAX spikes.",
+          "Orderbook spread on Kalshi requires passive limit orders at 88c-89c rather than market orders at 96c."
         ]
       },
       "tribunal_5x5_verdict": {
-        "pessimists_summary": "5 Actuarial Pessimists warn that fiscal noise and PTAX volatility cap the probability of a full 50 bps cut at 51.2%, penalizing tail risk via CVaR_95.",
-        "optimists_summary": "5 Actuarial Optimists demonstrate that real ex-ante rates are overly restrictive and sovereign curve pricing supports a 68.4% probability of -50 bps.",
-        "supreme_judge_decision": "APPROVED WITH TRANCHE EXECUTION (p* = 63.8%, Edge = +5.80%). Execute 3-lot barrier strategy to lock Free-Roll before official announcement."
+        "pessimists_summary": "5 Actuarial Pessimists stress-test a 2.5-sigma fiscal shock in November/December using Ornstein-Uhlenbeck jump-diffusion, pricing NO survival at 84.5%.",
+        "optimists_summary": "5 Actuarial Optimists model the 60-day remaining window with BCB swap intervention and 10.5% carry, pricing NO survival at 94.2%.",
+        "supreme_judge_decision": "APPROVED VIA PASSIVE LIMIT ORDER AT 88c-89c (p* = 91.6%, Edge = +2.60%). High Sharpe carry-decay setup."
       },
       "tranche_execution_sheet": {
         "reference_capital_usd": 1000.0,
-        "entry_price_cents": 58.0,
-        "total_contracts": 1724.14,
+        "entry_price_cents": 89.0,
+        "total_contracts": 1123.6,
         "tranches": [
           {
-            "tranche": "Lot 1 — Early Take-Profit (40%)",
+            "tranche": "Lot 1 — Theta Compression Exit (40%)",
             "allocation_pct": 40.0,
-            "contracts": 689.66,
-            "target_price_cents": 68.0,
-            "prob_touch_before_settlement": 0.784,
-            "gross_proceeds_usd": 468.97,
-            "net_profit_usd": 68.97,
-            "purpose": "Reduce principal at risk on pre-Copom curve compression."
+            "contracts": 449.44,
+            "target_price_cents": 94.0,
+            "prob_touch_before_settlement": 0.945,
+            "gross_proceeds_usd": 422.47,
+            "net_profit_usd": 22.47,
+            "purpose": "Capture 30-day time-decay compression by late November."
+          },
+          {
+            "tranche": "Lot 2 — Pre-Christmas Liquidity Lock (40%)",
+            "allocation_pct": 40.0,
+            "contracts": 449.44,
+            "target_price_cents": 97.0,
+            "prob_touch_before_settlement": 0.928,
+            "gross_proceeds_usd": 435.96,
+            "net_profit_usd": 35.96,
+            "purpose": "Lock $858.43 in cash before low-liquidity holiday week."
+          },
+          {
+            "tranche": "Lot 3 — Dec 31 Settlement Hold (20%)",
+            "allocation_pct": 20.0,
+            "contracts": 224.72,
+            "target_price_cents": 100.0,
+            "prob_touch_before_settlement": 0.916,
+            "gross_proceeds_usd": 224.72,
+            "net_profit_usd": 24.72,
+            "purpose": "Hold to official Dec 31, 2026 PTAX settlement."
+          }
+        ],
+        "stop_loss_cents": 76.0,
+        "expected_value_roi_pct": 8.31
+      }
+    },
+    {
+      "operation_id": "OP-BRZ-02-POLY-IPCA-500-549",
+      "exchange": "Polymarket",
+      "ticker": "POLY-1243901 (Brazil Annual Inflation 2026: 5.00% to 5.49% — YES)",
+      "title": "Brazil 2026 Annual IPCA Inflation Lands in the 5.00%–5.49% Bracket",
+      "category": "Brazil Macro & Inflation",
+      "brazil_volume_usd": 349792.08,
+      "contract_specific_volume_usd": 34576.19,
+      "status": "ACTIVE_TIGHT_SPREAD",
+      "orderbook": {
+        "target_side": "YES (2026 IPCA between 5.00% and 5.49%)",
+        "entry_price_cents": 48.7,
+        "bid_cents": 48.4,
+        "ask_cents": 49.0,
+        "spread_cents": 0.6,
+        "liquidity_usd": 15132.26
+      },
+      "probabilities": {
+        "market_implied_prob": 0.487,
+        "pessimists_mean_prob": 0.465,
+        "optimists_mean_prob": 0.612,
+        "judge_calibrated_prob": 0.564,
+        "edge_bps": 770,
+        "cvar_95_ruin_prob": 0.048
+      },
+      "gabriel_torres_intel": {
+        "favorable_drivers": [
+          "10 of 12 monthly IPCA prints for 2026 are already known or tracked by IBGE/Focus; remaining 2 months have narrow variance.",
+          "Tight 0.6c Bid-Ask spread (48.4c / 49.0c) on Polymarket allows institutional entry and 3-lot scaling with near-zero slippage.",
+          "Cross-market confirmation: Kalshi KXBRAZILINF-26DEC-4.00 ($151.1K vol) prices 95% probability of inflation above 4.00%."
+        ],
+        "threat_drivers": [
+          "Rainfall/drought shocks in soy/food regions or year-end fuel/electricity tariff adjustments could push December IPCA above 5.50% (currently priced at 33.25c)."
+        ]
+      },
+      "tribunal_5x5_verdict": {
+        "pessimists_summary": "5 Actuarial Pessimists warn of upside tail risk into the 5.50%-5.99% bracket if food inflation accelerates in Q4, capping bracket probability at 46.5%.",
+        "optimists_summary": "5 Actuarial Optimists show that restrictive 14.75% Selic policy anchors Q4 monthly IPCA prints inside the 5.00%-5.49% corridor with 61.2% probability.",
+        "supreme_judge_decision": "APPROVED FOR 3-LOT BARRIER FREE-ROLL (p* = 56.4%, Edge = +7.70% over 48.7c market price)."
+      },
+      "tranche_execution_sheet": {
+        "reference_capital_usd": 1000.0,
+        "entry_price_cents": 48.7,
+        "total_contracts": 2053.39,
+        "tranches": [
+          {
+            "tranche": "Lot 1 — November IPCA Print Take-Profit (40%)",
+            "allocation_pct": 40.0,
+            "contracts": 821.36,
+            "target_price_cents": 62.0,
+            "prob_touch_before_settlement": 0.712,
+            "gross_proceeds_usd": 509.24,
+            "net_profit_usd": 109.24,
+            "purpose": "Capture repricing immediately after IBGE November IPCA release."
           },
           {
             "tranche": "Lot 2 — Principal Free-Roll Lock (40%)",
             "allocation_pct": 40.0,
-            "contracts": 689.66,
-            "target_price_cents": 78.0,
-            "prob_touch_before_settlement": 0.642,
-            "gross_proceeds_usd": 537.93,
-            "net_profit_usd": 137.93,
-            "purpose": "Lot 1 + Lot 2 recover $1,006.90 (>100% of $1,000 initial capital). Remaining 20% becomes 100% risk-free."
+            "contracts": 821.36,
+            "target_price_cents": 74.0,
+            "prob_touch_before_settlement": 0.618,
+            "gross_proceeds_usd": 607.8,
+            "net_profit_usd": 207.8,
+            "purpose": "Lot 1 + Lot 2 recover $1,117.04 (100% of $1,000 initial capital + $117.04 locked profit). Remaining 20% runs as a 100% risk-free Free-Roll!"
           },
           {
-            "tranche": "Lot 3 — Asymmetric Settlement Hold (20%)",
+            "tranche": "Lot 3 — Official IBGE Settlement Hold (20%)",
             "allocation_pct": 20.0,
-            "contracts": 344.83,
+            "contracts": 410.68,
             "target_price_cents": 100.0,
-            "prob_touch_before_settlement": 0.638,
-            "gross_proceeds_usd": 344.83,
-            "net_profit_usd": 144.83,
-            "purpose": "Hold to official BCB Copom settlement with zero principal at risk."
+            "prob_touch_before_settlement": 0.564,
+            "gross_proceeds_usd": 410.68,
+            "net_profit_usd": 210.68,
+            "purpose": "Hold risk-free to official IBGE full-year 2026 IPCA publication."
           }
         ],
-        "stop_loss_cents": 44.0,
-        "expected_value_roi_pct": 24.8
+        "stop_loss_cents": 35.0,
+        "expected_value_roi_pct": 31.8
       }
     },
     {
-      "operation_id": "OP-KALSHI-KCDEN-26NOV01",
-      "exchange": "Kalshi (Live Audited Track Record)",
-      "ticker": "KXNFLGAME-26NOV01KCDEN-KC",
-      "title": "KC Chiefs vs DEN Broncos — Live Audited Free-Roll Execution",
-      "category": "Sports & Event Derivatives (Verified Live Case)",
-      "status": "FREE_ROLL_LOCKED_LIVE",
+      "operation_id": "OP-BRZ-03-POLY-COPOM-NOV26",
+      "exchange": "Polymarket",
+      "ticker": "POLY-3347918 (Bank of Brazil Selic Decision in November: No Change — YES)",
+      "title": "Copom Holds Selic Target Rate Unchanged at November Meeting",
+      "category": "Brazil Central Bank (Copom)",
+      "brazil_volume_usd": 126098.64,
+      "contract_specific_volume_usd": 34814.18,
+      "status": "ACTIVE_IMMINENT_CATALYST",
       "orderbook": {
-        "entry_yes_cents": 53.75,
-        "yes_bid_cents": 77.0,
-        "yes_ask_cents": 78.0,
-        "spread_cents": 1.0,
-        "liquidity_usd": 36839786.0
+        "target_side": "YES (No Change in Selic at November Meeting)",
+        "entry_price_cents": 82.4,
+        "bid_cents": 81.6,
+        "ask_cents": 83.2,
+        "spread_cents": 1.6,
+        "liquidity_usd": 24117.97
       },
       "probabilities": {
-        "market_implied_prob_at_entry": 0.53,
-        "pessimists_mean_prob": 0.528,
-        "optimists_mean_prob": 0.715,
-        "judge_calibrated_prob": 0.6435,
-        "live_peak_prob_q3": 0.78
+        "market_implied_prob": 0.824,
+        "pessimists_mean_prob": 0.805,
+        "optimists_mean_prob": 0.91,
+        "judge_calibrated_prob": 0.872,
+        "edge_bps": 480,
+        "cvar_95_ruin_prob": 0.032
       },
-      "live_execution_audit": {
-        "initial_position_shares": 130.23,
-        "entry_avg_cents": 53.75,
-        "capital_invested_usd": 70.0,
-        "tranche_1_and_2_sold_shares": 104.0,
-        "cash_recovered_usd": 77.29,
-        "locked_net_profit_before_settlement_usd": 7.29,
-        "free_roll_remaining_shares": 26.23,
-        "free_roll_mark_to_market_usd": 19.86,
-        "total_live_roi_usd": 30.52,
-        "total_live_roi_pct": 43.6
+      "gabriel_torres_intel": {
+        "favorable_drivers": [
+          "With 2026 IPCA expectations at 5.00%-5.49% (above the 3.0% BCB target + 1.5% tolerance band), BCB communication signals caution against premature cuts.",
+          "Imminent settlement on Nov 4, 2026 (48-hour catalyst window) offers rapid capital turnover."
+        ],
+        "threat_drivers": [
+          "A surprise dovish split on the Copom board delivering a 25 bps cut (currently priced at 18.0c on POLY-3347919 with $47.3K volume)."
+        ]
+      },
+      "tribunal_5x5_verdict": {
+        "pessimists_summary": "5 Actuarial Pessimists assign an 19.5% probability to a surprise 25 bps cut if domestic activity data weakens, setting floor at 80.5%.",
+        "optimists_summary": "5 Actuarial Optimists cite unanchored 5%+ inflation expectations and DI curve pricing to project a 91.0% probability of a rate hold.",
+        "supreme_judge_decision": "APPROVED SHORT-DURATION CATALYST (p* = 87.2%, Edge = +4.80% over 82.4c)."
+      },
+      "tranche_execution_sheet": {
+        "reference_capital_usd": 1000.0,
+        "entry_price_cents": 82.4,
+        "total_contracts": 1213.59,
+        "tranches": [
+          {
+            "tranche": "Lot 1 — Pre-Announcement Drift Exit (40%)",
+            "allocation_pct": 40.0,
+            "contracts": 485.44,
+            "target_price_cents": 90.0,
+            "prob_touch_before_settlement": 0.91,
+            "gross_proceeds_usd": 436.89,
+            "net_profit_usd": 36.89,
+            "purpose": "Capture institutional consensus convergence on Wednesday afternoon."
+          },
+          {
+            "tranche": "Lot 2 — Final Hour Orderbook Exit (40%)",
+            "allocation_pct": 40.0,
+            "contracts": 485.44,
+            "target_price_cents": 95.0,
+            "prob_touch_before_settlement": 0.885,
+            "gross_proceeds_usd": 461.17,
+            "net_profit_usd": 61.17,
+            "purpose": "Recover $898.06 cash before official Copom statement release."
+          },
+          {
+            "tranche": "Lot 3 — Copom Official Communiqué Settlement (20%)",
+            "allocation_pct": 20.0,
+            "contracts": 242.72,
+            "target_price_cents": 100.0,
+            "prob_touch_before_settlement": 0.872,
+            "gross_proceeds_usd": 242.72,
+            "net_profit_usd": 42.72,
+            "purpose": "Hold through official BCB Copom decision at 18:30 BRT."
+          }
+        ],
+        "stop_loss_cents": 68.0,
+        "expected_value_roi_pct": 14.08
+      }
+    },
+    {
+      "operation_id": "OP-BRZ-04-ARB-TRUMP-FLAVIO-2026",
+      "exchange": "Polymarket vs. Kalshi (Cross-Exchange Arbitrage)",
+      "ticker": "POLY-6317343 (Ask 18.0c) vs. KALSHI-KXTRUMPFLAVIOMEET-26DEC01 (Last 22.0c / Bid 18.0c)",
+      "title": "US-Brazil Bilateral Meeting Arbitrage & Event Volatility Setup",
+      "category": "Brazil Geopolitics & Event Arbitrage",
+      "brazil_volume_usd": 90578.46,
+      "volume_24h_usd": 33972.62,
+      "status": "ACTIVE_ARBITRAGE_AND_MOMENTUM",
+      "orderbook": {
+        "target_side": "YES on Polymarket (Dec 31, 2026 expiry at 18.0c Ask)",
+        "entry_price_cents": 18.0,
+        "bid_cents": 17.0,
+        "ask_cents": 18.0,
+        "spread_cents": 1.0,
+        "liquidity_usd": 48217.13
+      },
+      "probabilities": {
+        "market_implied_prob": 0.175,
+        "kalshi_shorter_expiry_prob": 0.22,
+        "pessimists_mean_prob": 0.165,
+        "optimists_mean_prob": 0.285,
+        "judge_calibrated_prob": 0.234,
+        "edge_bps": 540,
+        "cvar_95_ruin_prob": 0.045
+      },
+      "gabriel_torres_intel": {
+        "favorable_drivers": [
+          "Highest 24-hour trading velocity among all Brazil political contracts ($33,972.62 in 24h volume + $48,217.13 active liquidity).",
+          "Temporal monotonicity violation: Polymarket's contract expires Dec 31, 2026 (30 days LONGER than Kalshi's Dec 1, 2026 contract) yet trades at 17.5c vs Kalshi's 22.0c last trade."
+        ],
+        "threat_drivers": [
+          "Binary diplomatic scheduling risk; requires strict tranche exits on media headline spikes rather than holding 100% to expiry."
+        ]
+      },
+      "tribunal_5x5_verdict": {
+        "pessimists_summary": "5 Actuarial Pessimists note that official calendar confirmation is binary and subject to diplomatic protocol delays, pricing base probability at 16.5%.",
+        "optimists_summary": "5 Actuarial Optimists exploit the temporal mispricing against Kalshi (22.0c) and the surge in 24h orderflow ($34K/day), pricing touch probability at 28.5%.",
+        "supreme_judge_decision": "APPROVED ASYMMETRIC VOLATILITY & ARBITRAGE SETUP (p* = 23.4%, Edge = +5.40%). Execute strict Lot 1 + Lot 2 Free-Roll on headline spikes."
+      },
+      "tranche_execution_sheet": {
+        "reference_capital_usd": 1000.0,
+        "entry_price_cents": 18.0,
+        "total_contracts": 5555.56,
+        "tranches": [
+          {
+            "tranche": "Lot 1 — Kalshi Parity Convergence Exit (40%)",
+            "allocation_pct": 40.0,
+            "contracts": 2222.22,
+            "target_price_cents": 24.0,
+            "prob_touch_before_settlement": 0.685,
+            "gross_proceeds_usd": 533.33,
+            "net_profit_usd": 133.33,
+            "purpose": "Sell first 40% as soon as Polymarket closes the gap with Kalshi's 22c-24c pricing."
+          },
+          {
+            "tranche": "Lot 2 — Principal Free-Roll Lock on Headline Spike (40%)",
+            "allocation_pct": 40.0,
+            "contracts": 2222.22,
+            "target_price_cents": 28.0,
+            "prob_touch_before_settlement": 0.54,
+            "gross_proceeds_usd": 622.22,
+            "net_profit_usd": 222.22,
+            "purpose": "Lot 1 + Lot 2 recover $1,155.55 (100% of $1,000 principal + $155.55 locked profit). Remaining 1,111.11 shares run 100% risk-free!"
+          },
+          {
+            "tranche": "Lot 3 — Official Confirmation Settlement Hold (20%)",
+            "allocation_pct": 20.0,
+            "contracts": 1111.11,
+            "target_price_cents": 100.0,
+            "prob_touch_before_settlement": 0.234,
+            "gross_proceeds_usd": 1111.11,
+            "net_profit_usd": 911.11,
+            "purpose": "Risk-free convex lottery ticket (+5.5x payoff) after principal is 100% banked."
+          }
+        ],
+        "stop_loss_cents": 11.0,
+        "expected_value_roi_pct": 38.4
       }
     }
   ],
   "compliance_envelope": {
     "reviewed_by": "Victoria Rossi (Camada 6) & Donald Ross (Camada 2)",
     "within_publisher_exclusion": true,
-    "disclaimer": "General quantitative scenario modeling and contract orderbook analytics distributed identically to all eligible BRZ.DESK subscribers. Not personalized investment or trading advice. Probability barrier simulations are mathematical outputs of the Argon Engine."
+    "scope_verification": "100% Brazil Prediction Markets with Verified Volume (>= $50,000 USD)",
+    "disclaimer": "General quantitative scenario modeling and contract orderbook analytics for high-volume Brazil prediction markets, distributed identically to all eligible BRZ.DESK subscribers. Not personalized investment or trading advice."
   }
 }
