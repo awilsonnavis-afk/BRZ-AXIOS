@@ -97,5 +97,7 @@
     - [firestore_brz_prediction_public.json](file:///c:/NWX/nwx-Argon/sandbox/runs/brz_news_daily_integration/firestore_brz_prediction_public.json) (`prediction_radar/latest` com todos os 23 contratos Brasil qualificados `>= US$ 10k`, Relatório Semanal `AXIOS` do Líder de Volume `US$ 574.5K USD/BRL`, Feed de Notícias Catalisadoras e Arbitragem Cross-Exchange).
     - [hunter_prediction_pautas.json](file:///c:/NWX/nwx-Argon/sandbox/runs/brz_news_daily_integration/hunter_prediction_pautas.json) (remoção de `Politics` das janelas principais em `focus.py`, 3 pautas com `capital_signal` e 2 Carrosséis de 6 slides com Hooks analíticos de 45–65 palavras focados em oportunidades de mercado).
   - [x] Criação do Canvas Interativo da Arquitetura GCP e UI em [grafo_prediction_gcp_canvas.html](file:///c:/NWX/nwx-Argon/reports/grafo_prediction_gcp_canvas.html) e documentação em [ARQUITETURA_INTEGRACAO_BRZ_NEWS_HUNTER_E_PREDICTION_DESK.md](file:///c:/NWX/nwx-Argon/reports/ARQUITETURA_INTEGRACAO_BRZ_NEWS_HUNTER_E_PREDICTION_DESK.md).
+  - [x] Implementação do Grafo v4.0 com Matriz de Saídas de Mitigação de Erro (`Drawdown Recovery & Air-Pocket Decompression`) em [argon_error_mitigation_engine.py](file:///c:/NWX/nwx-Argon/core/argon_error_mitigation_engine.py), [ARGON_V4_ERROR_MITIGATION_EXITS.json](file:///c:/NWX/nwx-Argon/sandbox/runs/ARGON_V4_ERROR_MITIGATION_EXITS.json) e [AUDITORIA_ERROS_E_MATRIZ_MITIGACAO_SAIDAS_V4.md](file:///c:/NWX/nwx-Argon/reports/AUDITORIA_ERROS_E_MATRIZ_MITIGACAO_SAIDAS_V4.md).
+
 
 
