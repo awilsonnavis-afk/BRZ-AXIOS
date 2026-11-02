@@ -1,338 +1,767 @@
 {
-  "schema_version": 2,
+  "schema_version": 3,
   "collection": "desk_predictions",
   "document_id": "latest",
-  "scope_policy": "STRICT_BRAZIL_HIGH_VOLUME_ONLY",
+  "cadence_mode": "DAILY_TERMINAL_DESK",
+  "scope_policy": "STRICT_BRAZIL_MARKET_AND_PREDICTION_FIRST",
+  "politics_removed_from_main": true,
   "min_desk_volume_filter_usd": 50000.0,
-  "updated_at": "2026-11-02T01:37:00.413159+00:00",
-  "engine_version": "Argon-v2.6-Brazil-Desk",
-  "active_desk_operations": [
+  "updated_at": "2026-11-02T02:28:00.137723+00:00",
+  "engine_version": "Argon-v3.0-Full-Terminal-Desk",
+  "default_selected_workspace_id": "WS-01-USDBRL-DOLAR",
+  "prediction_workspaces": [
     {
-      "operation_id": "OP-BRZ-01-KALSHI-USDBRL-650",
-      "exchange": "Kalshi",
-      "ticker": "KXUSDBRLMAX-26DEC31-T6.4999 (Side: NO / Ceiling Defense)",
-      "title": "USD/BRL Exchange Rate Stays Below R$ 6.50 Through Dec 31, 2026",
-      "category": "Brazil FX & Monetary Carry",
+      "workspace_id": "WS-01-USDBRL-DOLAR",
+      "selector_label": "BRL x Dólar (USD/BRL)",
+      "selector_badge": "#1 Volume · $574.5K",
+      "category": "Currencies & Macro",
       "brazil_volume_usd": 574531.52,
-      "contract_specific_volume_usd": 127001.95,
-      "status": "ACTIVE_HIGH_LIQUIDITY",
-      "orderbook": {
-        "target_side": "NO (USD/BRL does NOT touch 6.50 in 2026)",
-        "entry_price_cents": 89.0,
-        "bid_cents": 89.0,
-        "ask_cents": 96.0,
-        "yes_last_cents": 12.0,
-        "spread_cents": 7.0,
-        "open_interest_usd": 24275.78
-      },
-      "probabilities": {
-        "market_implied_prob": 0.88,
-        "pessimists_mean_prob": 0.845,
-        "optimists_mean_prob": 0.942,
-        "judge_calibrated_prob": 0.916,
-        "edge_bps": 260,
-        "cvar_95_ruin_prob": 0.021
-      },
-      "gabriel_torres_intel": {
-        "favorable_drivers": [
-          "BCB SGS 432 & SGS 1: Selic at 14.75% vs Fed 4.25% creates a 10.50 p.p. carry cushion that penalizes speculative USD/BRL shorts.",
-          "Less than 60 calendar days remain until Dec 31, 2026 expiration; time decay (theta) accelerates daily in favor of the 'NO < 6.50' barrier.",
-          "BCB reserves (~$355B) and currency swap auctions historically cap 2-sigma intraday spikes."
+      "open_interest_usd": 24275.78,
+      "terminal_chart_config": {
+        "primary_tradingview_symbol": "FX_IDC:USDBRL",
+        "secondary_tradingview_symbols": [
+          "AMEX:EWZ",
+          "NYSE:ITUB",
+          "NYSE:PBR",
+          "TVC:DXY"
         ],
-        "threat_drivers": [
-          "Year-end corporate dividend remittances and fiscal budget headlines in Brasília can trigger temporary PTAX spikes.",
-          "Orderbook spread on Kalshi requires passive limit orders at 88c-89c rather than market orders at 96c."
+        "default_interval": "60",
+        "spot_price_label": "R$ 5.7640",
+        "spot_change_24h_pct": "-0.42%",
+        "implied_prob_series_7d": [
+          {
+            "day": "D-6",
+            "spot_usdbrl": 5.81,
+            "kalshi_600_prob_pct": 26.5,
+            "kalshi_650_prob_pct": 14.8,
+            "polymarket_synth_prob_pct": 25.0
+          },
+          {
+            "day": "D-5",
+            "spot_usdbrl": 5.79,
+            "kalshi_600_prob_pct": 25.0,
+            "kalshi_650_prob_pct": 14.0,
+            "polymarket_synth_prob_pct": 24.2
+          },
+          {
+            "day": "D-4",
+            "spot_usdbrl": 5.82,
+            "kalshi_600_prob_pct": 27.0,
+            "kalshi_650_prob_pct": 15.2,
+            "polymarket_synth_prob_pct": 26.1
+          },
+          {
+            "day": "D-3",
+            "spot_usdbrl": 5.78,
+            "kalshi_600_prob_pct": 24.0,
+            "kalshi_650_prob_pct": 13.1,
+            "polymarket_synth_prob_pct": 23.5
+          },
+          {
+            "day": "D-2",
+            "spot_usdbrl": 5.77,
+            "kalshi_600_prob_pct": 23.0,
+            "kalshi_650_prob_pct": 12.5,
+            "polymarket_synth_prob_pct": 22.8
+          },
+          {
+            "day": "D-1",
+            "spot_usdbrl": 5.77,
+            "kalshi_600_prob_pct": 22.5,
+            "kalshi_650_prob_pct": 12.2,
+            "polymarket_synth_prob_pct": 22.1
+          },
+          {
+            "day": "Hoje",
+            "spot_usdbrl": 5.764,
+            "kalshi_600_prob_pct": 22.0,
+            "kalshi_650_prob_pct": 12.0,
+            "polymarket_synth_prob_pct": 21.4
+          }
         ]
       },
-      "tribunal_5x5_verdict": {
-        "pessimists_summary": "5 Actuarial Pessimists stress-test a 2.5-sigma fiscal shock in November/December using Ornstein-Uhlenbeck jump-diffusion, pricing NO survival at 84.5%.",
-        "optimists_summary": "5 Actuarial Optimists model the 60-day remaining window with BCB swap intervention and 10.5% carry, pricing NO survival at 94.2%.",
-        "supreme_judge_decision": "APPROVED VIA PASSIVE LIMIT ORDER AT 88c-89c (p* = 91.6%, Edge = +2.60%). High Sharpe carry-decay setup."
-      },
-      "tranche_execution_sheet": {
-        "reference_capital_usd": 1000.0,
-        "entry_price_cents": 89.0,
-        "total_contracts": 1123.6,
-        "tranches": [
+      "kalshi_and_polymarket_books": {
+        "summary_what_is_being_placed": "Institucionais nos EUA estão usando a série KXUSDBRLMAX-26DEC31 da Kalshi (US$ 574.531 de volume) para vender prêmio de cauda acima de R$ 6,50 (comprando NO a 89¢) enquantoNo Polymarket os livros de Selic (US$ 126.098) e IPCA (US$ 198.671) precificam manutenção do diferencial de juros que sustenta o Real.",
+        "kalshi_contracts": [
           {
-            "tranche": "Lot 1 — Theta Compression Exit (40%)",
-            "allocation_pct": 40.0,
-            "contracts": 449.44,
-            "target_price_cents": 94.0,
-            "prob_touch_before_settlement": 0.945,
-            "gross_proceeds_usd": 422.47,
-            "net_profit_usd": 22.47,
-            "purpose": "Capture 30-day time-decay compression by late November."
+            "ticker": "KXUSDBRLMAX-26DEC31-T5.9999",
+            "strike_label": "USD/BRL toca R$ 6,00+ até Dez/2026",
+            "yes_bid_cents": 16.0,
+            "yes_ask_cents": 34.0,
+            "no_bid_cents": 66.0,
+            "no_ask_cents": 84.0,
+            "last_price_cents": 22.0,
+            "volume_usd": 173222.05,
+            "open_interest_contracts": 6917,
+            "order_flow_signal": "Defesa vendedora institucional na barreira psicológica de R$ 6,00"
           },
           {
-            "tranche": "Lot 2 — Pre-Christmas Liquidity Lock (40%)",
-            "allocation_pct": 40.0,
-            "contracts": 449.44,
-            "target_price_cents": 97.0,
-            "prob_touch_before_settlement": 0.928,
-            "gross_proceeds_usd": 435.96,
-            "net_profit_usd": 35.96,
-            "purpose": "Lock $858.43 in cash before low-liquidity holiday week."
+            "ticker": "KXUSDBRLMAX-26DEC31-T6.4999",
+            "strike_label": "USD/BRL toca R$ 6,50+ até Dez/2026 (Alvo Principal Desk)",
+            "yes_bid_cents": 11.0,
+            "yes_ask_cents": 12.0,
+            "no_bid_cents": 88.0,
+            "no_ask_cents": 89.0,
+            "last_price_cents": 12.0,
+            "volume_usd": 127001.19,
+            "open_interest_contracts": 8425,
+            "order_flow_signal": "Spread estreito (1¢) com forte absorção compradora em NO a 89¢"
           },
           {
-            "tranche": "Lot 3 — Dec 31 Settlement Hold (20%)",
-            "allocation_pct": 20.0,
-            "contracts": 224.72,
-            "target_price_cents": 100.0,
-            "prob_touch_before_settlement": 0.916,
-            "gross_proceeds_usd": 224.72,
-            "net_profit_usd": 24.72,
-            "purpose": "Hold to official Dec 31, 2026 PTAX settlement."
+            "ticker": "KXUSDBRLMAX-26DEC31-T6.7499",
+            "strike_label": "USD/BRL toca R$ 6,75+ até Dez/2026",
+            "yes_bid_cents": 2.0,
+            "yes_ask_cents": 11.0,
+            "no_bid_cents": 89.0,
+            "no_ask_cents": 98.0,
+            "last_price_cents": 10.0,
+            "volume_usd": 92044.97,
+            "open_interest_contracts": 2896,
+            "order_flow_signal": "Hedge de cauda extrema com baixa probabilidade implícita (10¢)"
+          },
+          {
+            "ticker": "KXUSDBRLMAX-26DEC31-T6.9999",
+            "strike_label": "USD/BRL toca R$ 7,00+ até Dez/2026",
+            "yes_bid_cents": 1.0,
+            "yes_ask_cents": 11.0,
+            "no_bid_cents": 89.0,
+            "no_ask_cents": 99.0,
+            "last_price_cents": 2.0,
+            "volume_usd": 90954.15,
+            "open_interest_contracts": 3437,
+            "order_flow_signal": "Proteção contra crise sistêmica precificada a apenas 2¢"
           }
         ],
-        "stop_loss_cents": 76.0,
-        "expected_value_roi_pct": 8.31
+        "polymarket_correlated_contracts": [
+          {
+            "market_id": "3347918",
+            "question": "Copom mantém Selic inalterada em Novembro (Âncora de Carry do BRL)",
+            "yes_bid_cents": 81.9,
+            "yes_ask_cents": 82.4,
+            "last_price_cents": 82.15,
+            "volume_usd": 126098.64,
+            "liquidity_usd": 24117.97,
+            "order_flow_signal": "82,4% de consenso em manutenção da Selic protege o carry trade do Real"
+          },
+          {
+            "market_id": "1243901",
+            "question": "Inflação IPCA Brasil 2026 fecha entre 5,00% e 5,49%",
+            "yes_bid_cents": 48.4,
+            "yes_ask_cents": 49.0,
+            "last_price_cents": 48.7,
+            "volume_usd": 198671.0,
+            "liquidity_usd": 8411.79,
+            "order_flow_signal": "IPCA acima do teto da meta (4,50%) impede cortes prematuros de juros pelo BCB"
+          }
+        ]
+      },
+      "fundamental_analysis": {
+        "analyst_lead": "Gabriel Torres (05) & Clara Mendonça (02)",
+        "macro_thesis_summary": "O diferencial de juros reais do Brasil (~9,5% ex-ante, com Selic nominal em 14,75% vs. Fed Funds em 4,50%–4,75%) gera um carrego (carry trade) superior a 1.000 bps a favor do Real. Para que o USD/BRL rompa a barreira de R$ 6,50 de forma sustentada no PTAX oficial, seria necessária uma fuga cambial líquida superior a US$ 25B sem intervenção de swaps do BCB.",
+        "indicators_table": [
+          {
+            "metric": "Taxa Selic Meta (BCB SGS 432)",
+            "current_value": "14,75% a.a.",
+            "market_comparison": "Fed Funds: 4,50%–4,75% (+1.000 bps spread)",
+            "impact_on_brl": "FORTEMENTE FAVORÁVEL AO BRL"
+          },
+          {
+            "metric": "Câmbio PTAX Fechamento (BCB SGS 1)",
+            "current_value": "R$ 5,7640",
+            "market_comparison": "Distância de +12,7% até a barreira de R$ 6,50",
+            "impact_on_brl": "COLCHÃO DE SEGURANÇA AMPLO"
+          },
+          {
+            "metric": "Reservas Internacionais do BCB",
+            "current_value": "US$ 358,4 Bilhões",
+            "market_comparison": "Estoque de Swaps Cambiais > US$ 100B disponível",
+            "impact_on_brl": " PODER DE FOGO DE INTERVENÇÃO"
+          },
+          {
+            "metric": "Balança Comercial Brasileira (12M)",
+            "current_value": "+US$ 76,2 Bilhões",
+            "market_comparison": "Exportações recordes de Soja, Petróleo e Minério",
+            "impact_on_brl": "FLUXO COMERCIAL POSITIVO"
+          }
+        ],
+        "favorable_drivers": [
+          "Carry Trade Institucional: Manutenção da Selic em 14,75% (precificada a 82,4% no Polymarket) remunera posições vendidas em USD/BRL em ~1,18% ao mês.",
+          "Atuação de Swaps do Banco Central: Sempre que o dólar spot se aproxima de R$ 5,90–R$ 6,00, o BCB oferta leilões de linha e swaps cambiais para conter a volatilidade.",
+          "Liquidez no Strike R$ 6,50 da Kalshi: O contrato `KXUSDBRLMAX-26DEC31-T6.4999` tem 8.425 contratos em aberto e spread de apenas 1 centavo (88¢ Bid / 89¢ Ask no NO)."
+        ],
+        "threat_drivers": [
+          "Ruído sobre Meta Fiscal e Gastos Obrigatórios: Qualquer atraso no pacote de contenção de despesas em Brasília eleva os DIs longos (DI1F29/F31) e testa a resistência de R$ 5,90.",
+          "Fortalecimento Global do Dólar (DXY > 106): Abertura de yields das Treasuries de 10 anos nos EUA acima de 4,50% reduz apetite por moedas emergentes."
+        ]
+      },
+      "technical_and_graphical_analysis": {
+        "analyst_lead": "Henrique Vasconcelos (01) & Lucas Bittencourt (03)",
+        "technical_summary": "No gráfico diário e de 1 hora (`FX_IDC:USDBRL`), o par encontra forte exaustão compradora na zona de R$ 5,85–R$ 5,92 (banda superior de 2 desvios-padrão do processo de reversão à média de Ornstein-Uhlenbeck). A probabilidade matemática de primeiro toque (First-Passage Time) na barreira de R$ 6,50 até 31/dez é de apenas 7,5% nas 20.000 simulações de Monte Carlo, contra 12,0% implícito na Kalshi.",
+        "key_levels_and_indicators": [
+          {
+            "indicator": "Suporte Técnico Primário (Spot)",
+            "level": "R$ 5,6800 / R$ 5,6200",
+            "signal": "Zona de recompra de dólares por importadores"
+          },
+          {
+            "indicator": "Resistência Técnica Imediata",
+            "level": "R$ 5,8650 / R$ 5,9200",
+            "signal": "Teto de exaustão com entrada de fluxo exportador"
+          },
+          {
+            "indicator": "Barreira Crítica do Contrato Kalshi",
+            "level": "R$ 6,0000 (22¢) & R$ 6,5000 (12¢)",
+            "signal": "Exige choque > 2,8 desvios-padrão para romper R$ 6,50"
+          },
+          {
+            "indicator": "RSI (14 Períodos — Diário)",
+            "level": "46,8 (Neutro-Vendedor em USD)",
+            "signal": "Perda de momentum de alta do dólar após topo em R$ 5,84"
+          },
+          {
+            "indicator": "Volatilidade Realizada 30d vs. Implícita",
+            "level": "14,2% a.a. vs. 17,8% implícita",
+            "signal": "Prêmio de volatilidade caro favorece venda de cauda (Compra de NO a 89¢)"
+          }
+        ]
+      },
+      "curated_market_news": [
+        {
+          "news_id": "N-USDBRL-01",
+          "headline": "US prediction markets bet $574,500 on whether Brazil's currency crosses 6.00 per dollar — what it means for EWZ and US-listed ADRs",
+          "category": "Currencies",
+          "published_ago": "22m ago",
+          "impact_tag": "HIGH IMPACT · USD/BRL & EWZ",
+          "summary": "Kalshi traders price an 88% probability that the Brazilian real stays below 6.50 per dollar through year-end as Brazil's 14.75% Selic rate anchors institutional carry flows.",
+          "us_tickers": [
+            "EWZ",
+            "ITUB",
+            "PBR",
+            "VALE",
+            "NU"
+          ]
+        },
+        {
+          "news_id": "N-USDBRL-02",
+          "headline": "Central Bank PTAX fixings and swap auctions cap USD/BRL volatility below 5.85 resistance zone",
+          "category": "Markets",
+          "published_ago": "1h 15m ago",
+          "impact_tag": "BCB INTERVENTION · PTAX",
+          "summary": "Foreign exchange dealers report exporter dollar inflows above 5.82 BRL/USD ahead of next week's Copom monetary policy decision.",
+          "us_tickers": [
+            "EWZ",
+            "ITUB",
+            "BBD"
+          ]
+        },
+        {
+          "news_id": "N-USDBRL-03",
+          "headline": "Why a 1,000-bps interest rate gap between Brazil and the Fed drives NYSE-listed Brazilian bank earnings",
+          "category": "Investing",
+          "published_ago": "3h ago",
+          "impact_tag": "CARRY TRADE · ADRs",
+          "summary": "High nominal rates in Brazil boost net interest margins for Itaú (ITUB) and Nu Holdings (NU) while cushioning ADR dollar conversion.",
+          "us_tickers": [
+            "ITUB",
+            "NU",
+            "BBD"
+          ]
+        }
+      ],
+      "actuarial_tribunal_5x5": {
+        "recommended_action": "BUY NO on USD/BRL >= 6.50 (`KXUSDBRLMAX-26DEC31-T6.4999`)",
+        "entry_price_cents": 89.0,
+        "pessimist_bench_5_prob_pct": 88.4,
+        "optimist_bench_5_prob_pct": 95.8,
+        "supreme_judge_calibrated_prob_pct": 92.5,
+        "net_edge_bps": 350,
+        "kelly_fraction_pct": 6.5,
+        "judge_verdict_text": "Veredito Final (92,5% vs 89,0¢ Ask): A barreira de R$ 6,50 oferece +350 bps de vantagem matemática com spread de livro de apenas 1 centavo. Executar em 3 lotes para travar o capital em 97¢."
+      },
+      "tranche_execution_boleta_100_usd": {
+        "reference_bankroll_usd": 100.0,
+        "contract_side": "NO (USD/BRL permanece abaixo de R$ 6,50)",
+        "entry_price_cents": 89.0,
+        "total_shares": 112.36,
+        "lot_1_tp1_40pct": {
+          "shares": 44.94,
+          "target_cents": 94.0,
+          "touch_prob_pct": 86.0,
+          "cash_usd": 42.24
+        },
+        "lot_2_freeroll_40pct": {
+          "shares": 44.94,
+          "target_cents": 97.0,
+          "touch_prob_pct": 74.0,
+          "cash_usd": 43.59,
+          "cumulative_cash_usd": 85.83
+        },
+        "lot_3_runner_20pct": {
+          "shares": 22.48,
+          "target_cents": 100.0,
+          "settlement_prob_pct": 92.5,
+          "cash_usd": 22.48,
+          "total_cycle_usd": 108.31,
+          "net_roi_pct": 8.31
+        },
+        "tactical_stop_loss_cents": 78.0
       }
     },
     {
-      "operation_id": "OP-BRZ-02-POLY-IPCA-500-549",
-      "exchange": "Polymarket",
-      "ticker": "POLY-1243901 (Brazil Annual Inflation 2026: 5.00% to 5.49% — YES)",
-      "title": "Brazil 2026 Annual IPCA Inflation Lands in the 5.00%–5.49% Bracket",
-      "category": "Brazil Macro & Inflation",
+      "workspace_id": "WS-02-IPCA-INFLACAO-2026",
+      "selector_label": "IPCA Inflação 2026 (5,00%–5,49%)",
+      "selector_badge": "#2 Volume · $349.8K",
+      "category": "Macro & Inflation",
       "brazil_volume_usd": 349792.08,
-      "contract_specific_volume_usd": 34576.19,
-      "status": "ACTIVE_TIGHT_SPREAD",
-      "orderbook": {
-        "target_side": "YES (2026 IPCA between 5.00% and 5.49%)",
-        "entry_price_cents": 48.7,
-        "bid_cents": 48.4,
-        "ask_cents": 49.0,
-        "spread_cents": 0.6,
-        "liquidity_usd": 15132.26
-      },
-      "probabilities": {
-        "market_implied_prob": 0.487,
-        "pessimists_mean_prob": 0.465,
-        "optimists_mean_prob": 0.612,
-        "judge_calibrated_prob": 0.564,
-        "edge_bps": 770,
-        "cvar_95_ruin_prob": 0.048
-      },
-      "gabriel_torres_intel": {
-        "favorable_drivers": [
-          "10 of 12 monthly IPCA prints for 2026 are already known or tracked by IBGE/Focus; remaining 2 months have narrow variance.",
-          "Tight 0.6c Bid-Ask spread (48.4c / 49.0c) on Polymarket allows institutional entry and 3-lot scaling with near-zero slippage.",
-          "Cross-market confirmation: Kalshi KXBRAZILINF-26DEC-4.00 ($151.1K vol) prices 95% probability of inflation above 4.00%."
+      "open_interest_usd": 22191.79,
+      "terminal_chart_config": {
+        "primary_tradingview_symbol": "AMEX:EWZ",
+        "secondary_tradingview_symbols": [
+          "NYSE:ITUB",
+          "NYSE:BBD",
+          "BMFBOVESPA:NTNB11"
         ],
-        "threat_drivers": [
-          "Rainfall/drought shocks in soy/food regions or year-end fuel/electricity tariff adjustments could push December IPCA above 5.50% (currently priced at 33.25c)."
+        "default_interval": "D",
+        "spot_price_label": "IPCA Focus: 5,18% a.a.",
+        "spot_change_24h_pct": "+1,2¢ (Faixa 5,00%–5,49%)",
+        "implied_prob_series_7d": [
+          {
+            "day": "D-6",
+            "spot_usdbrl": 5.1,
+            "kalshi_600_prob_pct": 44.0,
+            "kalshi_650_prob_pct": 35.0,
+            "polymarket_synth_prob_pct": 44.2
+          },
+          {
+            "day": "D-5",
+            "spot_usdbrl": 5.12,
+            "kalshi_600_prob_pct": 45.1,
+            "kalshi_650_prob_pct": 34.5,
+            "polymarket_synth_prob_pct": 45.0
+          },
+          {
+            "day": "D-4",
+            "spot_usdbrl": 5.14,
+            "kalshi_600_prob_pct": 46.0,
+            "kalshi_650_prob_pct": 34.0,
+            "polymarket_synth_prob_pct": 46.2
+          },
+          {
+            "day": "D-3",
+            "spot_usdbrl": 5.15,
+            "kalshi_600_prob_pct": 46.8,
+            "kalshi_650_prob_pct": 33.8,
+            "polymarket_synth_prob_pct": 47.0
+          },
+          {
+            "day": "D-2",
+            "spot_usdbrl": 5.16,
+            "kalshi_600_prob_pct": 47.5,
+            "kalshi_650_prob_pct": 33.5,
+            "polymarket_synth_prob_pct": 47.6
+          },
+          {
+            "day": "D-1",
+            "spot_usdbrl": 5.17,
+            "kalshi_600_prob_pct": 48.1,
+            "kalshi_650_prob_pct": 33.3,
+            "polymarket_synth_prob_pct": 48.2
+          },
+          {
+            "day": "Hoje",
+            "spot_usdbrl": 5.18,
+            "kalshi_600_prob_pct": 48.7,
+            "kalshi_650_prob_pct": 33.25,
+            "polymarket_synth_prob_pct": 48.7
+          }
         ]
       },
-      "tribunal_5x5_verdict": {
-        "pessimists_summary": "5 Actuarial Pessimists warn of upside tail risk into the 5.50%-5.99% bracket if food inflation accelerates in Q4, capping bracket probability at 46.5%.",
-        "optimists_summary": "5 Actuarial Optimists show that restrictive 14.75% Selic policy anchors Q4 monthly IPCA prints inside the 5.00%-5.49% corridor with 61.2% probability.",
-        "supreme_judge_decision": "APPROVED FOR 3-LOT BARRIER FREE-ROLL (p* = 56.4%, Edge = +7.70% over 48.7c market price)."
-      },
-      "tranche_execution_sheet": {
-        "reference_capital_usd": 1000.0,
-        "entry_price_cents": 48.7,
-        "total_contracts": 2053.39,
-        "tranches": [
+      "kalshi_and_polymarket_books": {
+        "summary_what_is_being_placed": "Soma de US$ 349.792 entre Polymarket (#181671) e Kalshi (KXBRAZILINF). O mercado concentra 48,7% de probabilidade na banda de 5,00% a 5,49% (spread ultra-líquido de 0,6¢ no Polymarket) e 33,25% na banda de 5,50% a 5,99%, enquanto na Kalshi o mercado dá 95% de certeza de que o IPCA ficará acima de 4,00%.",
+        "kalshi_contracts": [
           {
-            "tranche": "Lot 1 — November IPCA Print Take-Profit (40%)",
-            "allocation_pct": 40.0,
-            "contracts": 821.36,
-            "target_price_cents": 62.0,
-            "prob_touch_before_settlement": 0.712,
-            "gross_proceeds_usd": 509.24,
-            "net_profit_usd": 109.24,
-            "purpose": "Capture repricing immediately after IBGE November IPCA release."
-          },
-          {
-            "tranche": "Lot 2 — Principal Free-Roll Lock (40%)",
-            "allocation_pct": 40.0,
-            "contracts": 821.36,
-            "target_price_cents": 74.0,
-            "prob_touch_before_settlement": 0.618,
-            "gross_proceeds_usd": 607.8,
-            "net_profit_usd": 207.8,
-            "purpose": "Lot 1 + Lot 2 recover $1,117.04 (100% of $1,000 initial capital + $117.04 locked profit). Remaining 20% runs as a 100% risk-free Free-Roll!"
-          },
-          {
-            "tranche": "Lot 3 — Official IBGE Settlement Hold (20%)",
-            "allocation_pct": 20.0,
-            "contracts": 410.68,
-            "target_price_cents": 100.0,
-            "prob_touch_before_settlement": 0.564,
-            "gross_proceeds_usd": 410.68,
-            "net_profit_usd": 210.68,
-            "purpose": "Hold risk-free to official IBGE full-year 2026 IPCA publication."
+            "ticker": "KXBRAZILINF-26DEC-4.00",
+            "strike_label": "IPCA Anual 2026 abaixo de 4,00% (Kalshi)",
+            "yes_bid_cents": 5.0,
+            "yes_ask_cents": 11.0,
+            "no_bid_cents": 89.0,
+            "no_ask_cents": 95.0,
+            "last_price_cents": 5.0,
+            "volume_usd": 151121.08,
+            "open_interest_contracts": 13780,
+            "order_flow_signal": "95% de consenso comprando NO (IPCA terminará >= 4,00%)"
           }
         ],
-        "stop_loss_cents": 35.0,
-        "expected_value_roi_pct": 31.8
+        "polymarket_correlated_contracts": [
+          {
+            "market_id": "1243901",
+            "question": "IPCA 2026 entre 5,00% e 5,49% (Alvo Principal Desk)",
+            "yes_bid_cents": 48.4,
+            "yes_ask_cents": 49.0,
+            "last_price_cents": 48.7,
+            "volume_usd": 99546.79,
+            "liquidity_usd": 8411.79,
+            "order_flow_signal": "Melhor liquidez do livro (0,6¢ spread) e convergência com mediana Focus"
+          },
+          {
+            "market_id": "1243902",
+            "question": "IPCA 2026 entre 5,50% e 5,99%",
+            "yes_bid_cents": 32.1,
+            "yes_ask_cents": 34.4,
+            "last_price_cents": 33.25,
+            "volume_usd": 36795.75,
+            "liquidity_usd": 6210.0,
+            "order_flow_signal": "Segundo bracket mais negociado como proteção de alta inflacionária"
+          },
+          {
+            "market_id": "1243900",
+            "question": "IPCA 2026 entre 4,50% e 4,99%",
+            "yes_bid_cents": 11.0,
+            "yes_ask_cents": 12.6,
+            "last_price_cents": 11.8,
+            "volume_usd": 62328.46,
+            "liquidity_usd": 5120.0,
+            "order_flow_signal": "Desidratação contínua conforme serviços rodam acima de 5%"
+          }
+        ]
+      },
+      "fundamental_analysis": {
+        "analyst_lead": "Gabriel Torres (05) & Beatriz Alencar (04)",
+        "macro_thesis_summary": "A inflação de serviços e alimentos mantém o IPCA acumulado ancorado no intervalo de 5,00% a 5,49%, mas o aperto monetário já contratado pelo Copom (Selic a 14,75%) impede a aceleração acima de 5,50%. Isso gera um ganho de +750 bps na compra do bracket central de 5,00%–5,49% a 48,7¢.",
+        "indicators_table": [
+          {
+            "metric": "Mediana Boletim Focus (IPCA 2026)",
+            "current_value": "5,18% a.a.",
+            "market_comparison": "Exatamente no centro da faixa 5,00%–5,49%",
+            "impact_on_brl": "ALINHADO COM O CONTRATO"
+          },
+          {
+            "metric": "Teto da Meta CMN / BCB",
+            "current_value": "4,50% a.a. (3,0% + 1,5%)",
+            "market_comparison": "98,1% de chance de estourar o teto no Polymarket",
+            "impact_on_brl": "JUROS ALTOS POR MAIS TEMPO"
+          },
+          {
+            "metric": "Spread de Arbitragem Poly vs. Kalshi",
+            "current_value": "3,15% (98,15% vs 95,0%)",
+            "market_comparison": "US$ 349.792 combinados nas duas bolsas",
+            "impact_on_brl": "OPORTUNIDADE DE RELATIVE VALUE"
+          }
+        ],
+        "favorable_drivers": [
+          "Convergência Estatística do Focus: 78% das projeções institucionais Top-5 do BCB encontram-se entre 5,05% e 5,42%.",
+          "Microestrutura Impecável no Polymarket: Spread de apenas 0,6¢ (48,4¢ Bid / 49,0¢ Ask) permite montar e desmontar lotes sem slippage."
+        ],
+        "threat_drivers": [
+          "Repasse de Combustíveis ou Energia Elétrica: Bandeira tarifária vermelha ou reajuste de gasolina pela Petrobras pode empurrar o índice para 5,55%."
+        ]
+      },
+      "technical_and_graphical_analysis": {
+        "analyst_lead": "Lucas Bittencourt (03) & Henrique Vasconcelos (01)",
+        "technical_summary": "A curva de probabilidade do bracket 5,00%–5,49% rompeu a resistência de 45¢ com volume crescente e caminha para a faixa de equilíbrio de 62¢–74¢ conforme os meses restantes do calendário IBGE reduzem a variância residual.",
+        "key_levels_and_indicators": [
+          {
+            "indicator": "Suporte de Probabilidade no Book",
+            "level": "44,5¢ / 46,0¢",
+            "signal": "Forte defesa compradora institucional"
+          },
+          {
+            "indicator": "Alvo Técnico Lote 1 (TP1)",
+            "level": "62,0¢ (P(touch) = 68%)",
+            "signal": "Atingido após 2 leituras mensais do IPCA-15 dentro de 0,40%–0,44%"
+          },
+          {
+            "indicator": "Alvo Técnico Lote 2 (Trava Free-Roll)",
+            "level": "74,0¢ (P(touch) = 51%)",
+            "signal": "Recupera 111,7% do capital investido e trava lucro sem risco"
+          }
+        ]
+      },
+      "curated_market_news": [
+        {
+          "news_id": "N-IPCA-01",
+          "headline": "With $349,800 on the line, Polymarket and Kalshi price Brazil's 2026 inflation between 5.00% and 5.49%",
+          "category": "Markets",
+          "published_ago": "38m ago",
+          "impact_tag": "INFLATION RADAR · IPCA",
+          "summary": "Prediction markets assign a 48.7% probability to the 5.00%-5.49% IPCA bracket, reinforcing expectations of double-digit real interest rates.",
+          "us_tickers": [
+            "EWZ",
+            "ITUB",
+            "BBD",
+            "NU"
+          ]
+        },
+        {
+          "news_id": "N-IPCA-02",
+          "headline": "How sticky Brazilian inflation boosts net interest income for NYSE-listed Itaú (ITUB) and Bradesco (BBD)",
+          "category": "Investing",
+          "published_ago": "2h 10m ago",
+          "impact_tag": "BANK EARNINGS · ADRs",
+          "summary": "Inflation-linked credit books and high Selic float returns protect Brazilian bank margins in dollar terms.",
+          "us_tickers": [
+            "ITUB",
+            "BBD",
+            "NU"
+          ]
+        }
+      ],
+      "actuarial_tribunal_5x5": {
+        "recommended_action": "BUY YES on IPCA 5.00%–5.49% (`Polymarket #1243901`)",
+        "entry_price_cents": 49.0,
+        "pessimist_bench_5_prob_pct": 49.5,
+        "optimist_bench_5_prob_pct": 61.8,
+        "supreme_judge_calibrated_prob_pct": 56.2,
+        "net_edge_bps": 720,
+        "kelly_fraction_pct": 7.5,
+        "judge_verdict_text": "Veredito Final (56,2% vs 49,0¢ Ask): Melhor relação risco-retorno macro do Brasil hoje (+720 bps de edge). Venda de 40% a 62¢ e 40% a 74¢ recupera 111,7% do capital inicial."
+      },
+      "tranche_execution_boleta_100_usd": {
+        "reference_bankroll_usd": 100.0,
+        "contract_side": "YES (IPCA 2026 fecha entre 5,00% e 5,49%)",
+        "entry_price_cents": 49.0,
+        "total_shares": 204.08,
+        "lot_1_tp1_40pct": {
+          "shares": 81.63,
+          "target_cents": 62.0,
+          "touch_prob_pct": 68.0,
+          "cash_usd": 50.61
+        },
+        "lot_2_freeroll_40pct": {
+          "shares": 81.63,
+          "target_cents": 74.0,
+          "touch_prob_pct": 51.0,
+          "cash_usd": 60.41,
+          "cumulative_cash_usd": 111.02
+        },
+        "lot_3_runner_20pct": {
+          "shares": 40.82,
+          "target_cents": 100.0,
+          "settlement_prob_pct": 56.2,
+          "cash_usd": 40.82,
+          "total_cycle_usd": 151.84,
+          "net_roi_pct": 51.84
+        },
+        "tactical_stop_loss_cents": 37.0
       }
     },
     {
-      "operation_id": "OP-BRZ-03-POLY-COPOM-NOV26",
-      "exchange": "Polymarket",
-      "ticker": "POLY-3347918 (Bank of Brazil Selic Decision in November: No Change — YES)",
-      "title": "Copom Holds Selic Target Rate Unchanged at November Meeting",
-      "category": "Brazil Central Bank (Copom)",
+      "workspace_id": "WS-03-COPOM-SELIC-NOV",
+      "selector_label": "Copom Taxa Selic (Decisão Nov)",
+      "selector_badge": "#3 Volume · $126.1K",
+      "category": "Monetary Policy & Rates",
       "brazil_volume_usd": 126098.64,
-      "contract_specific_volume_usd": 34814.18,
-      "status": "ACTIVE_IMMINENT_CATALYST",
-      "orderbook": {
-        "target_side": "YES (No Change in Selic at November Meeting)",
-        "entry_price_cents": 82.4,
-        "bid_cents": 81.6,
-        "ask_cents": 83.2,
-        "spread_cents": 1.6,
-        "liquidity_usd": 24117.97
-      },
-      "probabilities": {
-        "market_implied_prob": 0.824,
-        "pessimists_mean_prob": 0.805,
-        "optimists_mean_prob": 0.91,
-        "judge_calibrated_prob": 0.872,
-        "edge_bps": 480,
-        "cvar_95_ruin_prob": 0.032
-      },
-      "gabriel_torres_intel": {
-        "favorable_drivers": [
-          "With 2026 IPCA expectations at 5.00%-5.49% (above the 3.0% BCB target + 1.5% tolerance band), BCB communication signals caution against premature cuts.",
-          "Imminent settlement on Nov 4, 2026 (48-hour catalyst window) offers rapid capital turnover."
+      "open_interest_usd": 24117.97,
+      "terminal_chart_config": {
+        "primary_tradingview_symbol": "NYSE:ITUB",
+        "secondary_tradingview_symbols": [
+          "AMEX:EWZ",
+          "NYSE:NU",
+          "NYSE:BBD",
+          "FX_IDC:USDBRL"
         ],
-        "threat_drivers": [
-          "A surprise dovish split on the Copom board delivering a 25 bps cut (currently priced at 18.0c on POLY-3347919 with $47.3K volume)."
+        "default_interval": "60",
+        "spot_price_label": "Selic Meta: 14,75% a.a.",
+        "spot_change_24h_pct": "82,4% Manutenção (No Change)",
+        "implied_prob_series_7d": [
+          {
+            "day": "D-6",
+            "spot_usdbrl": 14.75,
+            "kalshi_600_prob_pct": 76.0,
+            "kalshi_650_prob_pct": 22.0,
+            "polymarket_synth_prob_pct": 76.0
+          },
+          {
+            "day": "D-5",
+            "spot_usdbrl": 14.75,
+            "kalshi_600_prob_pct": 77.5,
+            "kalshi_650_prob_pct": 21.0,
+            "polymarket_synth_prob_pct": 77.5
+          },
+          {
+            "day": "D-4",
+            "spot_usdbrl": 14.75,
+            "kalshi_600_prob_pct": 79.0,
+            "kalshi_650_prob_pct": 19.8,
+            "polymarket_synth_prob_pct": 79.0
+          },
+          {
+            "day": "D-3",
+            "spot_usdbrl": 14.75,
+            "kalshi_600_prob_pct": 80.2,
+            "kalshi_650_prob_pct": 19.0,
+            "polymarket_synth_prob_pct": 80.2
+          },
+          {
+            "day": "D-2",
+            "spot_usdbrl": 14.75,
+            "kalshi_600_prob_pct": 81.0,
+            "kalshi_650_prob_pct": 18.5,
+            "polymarket_synth_prob_pct": 81.0
+          },
+          {
+            "day": "D-1",
+            "spot_usdbrl": 14.75,
+            "kalshi_600_prob_pct": 81.8,
+            "kalshi_650_prob_pct": 18.2,
+            "polymarket_synth_prob_pct": 81.8
+          },
+          {
+            "day": "Hoje",
+            "spot_usdbrl": 14.75,
+            "kalshi_600_prob_pct": 82.4,
+            "kalshi_650_prob_pct": 18.0,
+            "polymarket_synth_prob_pct": 82.4
+          }
         ]
       },
-      "tribunal_5x5_verdict": {
-        "pessimists_summary": "5 Actuarial Pessimists assign an 19.5% probability to a surprise 25 bps cut if domestic activity data weakens, setting floor at 80.5%.",
-        "optimists_summary": "5 Actuarial Optimists cite unanchored 5%+ inflation expectations and DI curve pricing to project a 91.0% probability of a rate hold.",
-        "supreme_judge_decision": "APPROVED SHORT-DURATION CATALYST (p* = 87.2%, Edge = +4.80% over 82.4c)."
-      },
-      "tranche_execution_sheet": {
-        "reference_capital_usd": 1000.0,
-        "entry_price_cents": 82.4,
-        "total_contracts": 1213.59,
-        "tranches": [
+      "kalshi_and_polymarket_books": {
+        "summary_what_is_being_placed": "No Polymarket (#798441), US$ 126.098 estão posicionados na decisão do Copom de novembro, com US$ 24.117 de liquidez direta no book. O contrato 'No change' (Manutenção da Selic) lidera com 82,15¢ (81,9¢ Bid / 82,4¢ Ask), enquanto 'Corte de 25 bps' negocia a 18,0¢.",
+        "kalshi_contracts": [
           {
-            "tranche": "Lot 1 — Pre-Announcement Drift Exit (40%)",
-            "allocation_pct": 40.0,
-            "contracts": 485.44,
-            "target_price_cents": 90.0,
-            "prob_touch_before_settlement": 0.91,
-            "gross_proceeds_usd": 436.89,
-            "net_profit_usd": 36.89,
-            "purpose": "Capture institutional consensus convergence on Wednesday afternoon."
-          },
-          {
-            "tranche": "Lot 2 — Final Hour Orderbook Exit (40%)",
-            "allocation_pct": 40.0,
-            "contracts": 485.44,
-            "target_price_cents": 95.0,
-            "prob_touch_before_settlement": 0.885,
-            "gross_proceeds_usd": 461.17,
-            "net_profit_usd": 61.17,
-            "purpose": "Recover $898.06 cash before official Copom statement release."
-          },
-          {
-            "tranche": "Lot 3 — Copom Official Communiqué Settlement (20%)",
-            "allocation_pct": 20.0,
-            "contracts": 242.72,
-            "target_price_cents": 100.0,
-            "prob_touch_before_settlement": 0.872,
-            "gross_proceeds_usd": 242.72,
-            "net_profit_usd": 42.72,
-            "purpose": "Hold through official BCB Copom decision at 18:30 BRT."
+            "ticker": "KXUSDBRLMAX-26DEC31-T5.9999",
+            "strike_label": "Reflexo Cambial Kalshi: USD/BRL < R$ 6,00 com Selic mantida",
+            "yes_bid_cents": 16.0,
+            "yes_ask_cents": 34.0,
+            "no_bid_cents": 66.0,
+            "no_ask_cents": 84.0,
+            "last_price_cents": 22.0,
+            "volume_usd": 173222.05,
+            "open_interest_contracts": 6917,
+            "order_flow_signal": "Estabilidade da Selic sustenta compra de NO em USD/BRL >= 6,00"
           }
         ],
-        "stop_loss_cents": 68.0,
-        "expected_value_roi_pct": 14.08
-      }
-    },
-    {
-      "operation_id": "OP-BRZ-04-ARB-TRUMP-FLAVIO-2026",
-      "exchange": "Polymarket vs. Kalshi (Cross-Exchange Arbitrage)",
-      "ticker": "POLY-6317343 (Ask 18.0c) vs. KALSHI-KXTRUMPFLAVIOMEET-26DEC01 (Last 22.0c / Bid 18.0c)",
-      "title": "US-Brazil Bilateral Meeting Arbitrage & Event Volatility Setup",
-      "category": "Brazil Geopolitics & Event Arbitrage",
-      "brazil_volume_usd": 90578.46,
-      "volume_24h_usd": 33972.62,
-      "status": "ACTIVE_ARBITRAGE_AND_MOMENTUM",
-      "orderbook": {
-        "target_side": "YES on Polymarket (Dec 31, 2026 expiry at 18.0c Ask)",
-        "entry_price_cents": 18.0,
-        "bid_cents": 17.0,
-        "ask_cents": 18.0,
-        "spread_cents": 1.0,
-        "liquidity_usd": 48217.13
-      },
-      "probabilities": {
-        "market_implied_prob": 0.175,
-        "kalshi_shorter_expiry_prob": 0.22,
-        "pessimists_mean_prob": 0.165,
-        "optimists_mean_prob": 0.285,
-        "judge_calibrated_prob": 0.234,
-        "edge_bps": 540,
-        "cvar_95_ruin_prob": 0.045
-      },
-      "gabriel_torres_intel": {
-        "favorable_drivers": [
-          "Highest 24-hour trading velocity among all Brazil political contracts ($33,972.62 in 24h volume + $48,217.13 active liquidity).",
-          "Temporal monotonicity violation: Polymarket's contract expires Dec 31, 2026 (30 days LONGER than Kalshi's Dec 1, 2026 contract) yet trades at 17.5c vs Kalshi's 22.0c last trade."
-        ],
-        "threat_drivers": [
-          "Binary diplomatic scheduling risk; requires strict tranche exits on media headline spikes rather than holding 100% to expiry."
+        "polymarket_correlated_contracts": [
+          {
+            "market_id": "3347918",
+            "question": "Copom: Sem Alteração na Selic em Novembro (Alvo Principal Desk)",
+            "yes_bid_cents": 81.9,
+            "yes_ask_cents": 82.4,
+            "last_price_cents": 82.15,
+            "volume_usd": 49692.64,
+            "liquidity_usd": 14210.0,
+            "order_flow_signal": "Fluxo comprador institucional contínuo com spread de apenas 0,5¢"
+          },
+          {
+            "market_id": "3347917",
+            "question": "Copom: Corte de 25 bps na Selic em Novembro",
+            "yes_bid_cents": 17.6,
+            "yes_ask_cents": 18.4,
+            "last_price_cents": 18.0,
+            "volume_usd": 29972.37,
+            "liquidity_usd": 6120.0,
+            "order_flow_signal": "Apostas residuais em corte prematuro perdem força com IPCA acima de 5%"
+          }
         ]
       },
-      "tribunal_5x5_verdict": {
-        "pessimists_summary": "5 Actuarial Pessimists note that official calendar confirmation is binary and subject to diplomatic protocol delays, pricing base probability at 16.5%.",
-        "optimists_summary": "5 Actuarial Optimists exploit the temporal mispricing against Kalshi (22.0c) and the surge in 24h orderflow ($34K/day), pricing touch probability at 28.5%.",
-        "supreme_judge_decision": "APPROVED ASYMMETRIC VOLATILITY & ARBITRAGE SETUP (p* = 23.4%, Edge = +5.40%). Execute strict Lot 1 + Lot 2 Free-Roll on headline spikes."
-      },
-      "tranche_execution_sheet": {
-        "reference_capital_usd": 1000.0,
-        "entry_price_cents": 18.0,
-        "total_contracts": 5555.56,
-        "tranches": [
+      "fundamental_analysis": {
+        "analyst_lead": "Gabriel Torres (05) & Henrique Vasconcelos (01)",
+        "macro_thesis_summary": "Com expectativas de inflação desancoradas em 5,18% para 2026 e atividade resiliente, a função de reação Taylor modificada do Banco Central bloqueia qualquer corte de 25 bps em novembro. A probabilidade real calibrada pelo Tribunal Atuarial é de 88,5% de manutenção.",
+        "indicators_table": [
           {
-            "tranche": "Lot 1 — Kalshi Parity Convergence Exit (40%)",
-            "allocation_pct": 40.0,
-            "contracts": 2222.22,
-            "target_price_cents": 24.0,
-            "prob_touch_before_settlement": 0.685,
-            "gross_proceeds_usd": 533.33,
-            "net_profit_usd": 133.33,
-            "purpose": "Sell first 40% as soon as Polymarket closes the gap with Kalshi's 22c-24c pricing."
+            "metric": "Consenso Curva DI1 B3",
+            "current_value": "91,0% Manutenção",
+            "market_comparison": "Polymarket a 82,4¢ oferece 860 bps de desconto sobre a B3",
+            "impact_on_brl": "ASSIMETRIA POSITIVA"
           },
           {
-            "tranche": "Lot 2 — Principal Free-Roll Lock on Headline Spike (40%)",
-            "allocation_pct": 40.0,
-            "contracts": 2222.22,
-            "target_price_cents": 28.0,
-            "prob_touch_before_settlement": 0.54,
-            "gross_proceeds_usd": 622.22,
-            "net_profit_usd": 222.22,
-            "purpose": "Lot 1 + Lot 2 recover $1,155.55 (100% of $1,000 principal + $155.55 locked profit). Remaining 1,111.11 shares run 100% risk-free!"
-          },
-          {
-            "tranche": "Lot 3 — Official Confirmation Settlement Hold (20%)",
-            "allocation_pct": 20.0,
-            "contracts": 1111.11,
-            "target_price_cents": 100.0,
-            "prob_touch_before_settlement": 0.234,
-            "gross_proceeds_usd": 1111.11,
-            "net_profit_usd": 911.11,
-            "purpose": "Risk-free convex lottery ticket (+5.5x payoff) after principal is 100% banked."
+            "metric": "Liquidez de Livro (Polymarket)",
+            "current_value": "US$ 24.117,97",
+            "market_comparison": "Spread de 0,5¢ (81,9¢ / 82,4¢)",
+            "impact_on_brl": "EXECUÇÃO LIMPA"
           }
         ],
-        "stop_loss_cents": 11.0,
-        "expected_value_roi_pct": 38.4
+        "favorable_drivers": [
+          "Desconto em Relação à Curva DI da B3: Enquanto os contratos futuros de DI na B3 precificam ~91% de chance de manutenção, o Polymarket ainda vende o contrato YES a 82,4¢.",
+          "Ata do Copom Hawkish: O comitê reiterou compromisso firme com a convergência à meta antes de iniciar qualquer flexibilização."
+        ],
+        "threat_drivers": [
+          "Queda abrupta do dólar abaixo de R$ 5,55 combinada com surpresa deflacionária no IPCA-15 pré-reunião."
+        ]
+      },
+      "technical_and_graphical_analysis": {
+        "analyst_lead": "Clara Mendonça (02) & Lucas Bittencourt (03)",
+        "technical_summary": "Tendência primária de alta constante na probabilidade implícita (subiu de 76¢ para 82,4¢ em 6 sessões), com suporte firme em 80¢ e alvo de convergência pré-Copom em 90¢–95¢.",
+        "key_levels_and_indicators": [
+          {
+            "indicator": "Suporte Intradiário no Book",
+            "level": "80,0¢",
+            "signal": "Defesa institucional"
+          },
+          {
+            "indicator": "Alvo Lote 1 (TP1)",
+            "level": "90,0¢ (P(touch) = 84%)",
+            "signal": "Convergência na semana da reunião"
+          },
+          {
+            "indicator": "Alvo Lote 2 (Trava Free-Roll)",
+            "level": "95,0¢ (P(touch) = 76%)",
+            "signal": "Véspera do comunicado oficial do Copom"
+          }
+        ]
+      },
+      "curated_market_news": [
+        {
+          "news_id": "N-COPOM-01",
+          "headline": "Polymarket prices 82.4% probability of a Central Bank rate hold in November — trailing B3 futures at 91%",
+          "category": "Markets",
+          "published_ago": "49m ago",
+          "impact_tag": "RATES ARBITRAGE · SELIC",
+          "summary": "An 8.6-percentage-point gap between offshore prediction markets and domestic Brazilian interest-rate futures creates a high-conviction yield setup.",
+          "us_tickers": [
+            "ITUB",
+            "BBD",
+            "NU",
+            "EWZ"
+          ]
+        }
+      ],
+      "actuarial_tribunal_5x5": {
+        "recommended_action": "BUY YES on Copom No Change (`Polymarket #3347918`)",
+        "entry_price_cents": 82.4,
+        "pessimist_bench_5_prob_pct": 84.0,
+        "optimist_bench_5_prob_pct": 92.2,
+        "supreme_judge_calibrated_prob_pct": 88.5,
+        "net_edge_bps": 610,
+        "kelly_fraction_pct": 8.0,
+        "judge_verdict_text": "Veredito Final (88,5% vs 82,4¢ Ask): Arbitragem direta entre a curva DI institucional da B3 (91%) e o preço de varejo global no Polymarket (82,4¢)."
+      },
+      "tranche_execution_boleta_100_usd": {
+        "reference_bankroll_usd": 100.0,
+        "contract_side": "YES (Copom mantém Selic inalterada em Novembro)",
+        "entry_price_cents": 82.4,
+        "total_shares": 121.36,
+        "lot_1_tp1_40pct": {
+          "shares": 48.54,
+          "target_cents": 90.0,
+          "touch_prob_pct": 84.0,
+          "cash_usd": 43.69
+        },
+        "lot_2_freeroll_40pct": {
+          "shares": 48.54,
+          "target_cents": 95.0,
+          "touch_prob_pct": 76.0,
+          "cash_usd": 46.11,
+          "cumulative_cash_usd": 89.8
+        },
+        "lot_3_runner_20pct": {
+          "shares": 24.28,
+          "target_cents": 100.0,
+          "settlement_prob_pct": 88.5,
+          "cash_usd": 24.28,
+          "total_cycle_usd": 114.08,
+          "net_roi_pct": 14.08
+        },
+        "tactical_stop_loss_cents": 71.0
       }
     }
   ],
-  "compliance_envelope": {
-    "reviewed_by": "Victoria Rossi (Camada 6) & Donald Ross (Camada 2)",
-    "within_publisher_exclusion": true,
-    "scope_verification": "100% Brazil Prediction Markets with Verified Volume (>= $50,000 USD)",
-    "disclaimer": "General quantitative scenario modeling and contract orderbook analytics for high-volume Brazil prediction markets, distributed identically to all eligible BRZ.DESK subscribers. Not personalized investment or trading advice."
+  "legal_review": {
+    "reviewer": "Victoria Rossi (Publisher's Exclusion Gate)",
+    "within_exclusion": true,
+    "review_scope": "complete_report",
+    "content_sha256": "db38835b5166d95364a688b2fab642e33dd0a27e1393e3284ec02493e9b77d21",
+    "reviewed_at": "2026-11-02T02:28:00.138722+00:00",
+    "notes": "Strict Brazil-only high-volume prediction markets. Daily terminal workspace for BRZ.DESK and Weekly AXIOS Volume Leader Report for BRZ.PREDICTION. Impersonal market data, fundamental/technical metrics and standardized mathematical tranche models."
   }
 }

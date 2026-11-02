@@ -1,0 +1,1724 @@
+{
+  "generated_at_utc": "2026-11-02T01:46:11.371892+00:00",
+  "source_url": "https://kalshi.com/markets/kxnflgame/jogo-da-nfl?utm_source=kalshiweb_eventpage",
+  "post_mortem_kcden": {
+    "event_ticker": "KXNFLGAME-26NOV01KCDEN",
+    "title": "Kansas City vs Denver",
+    "total_final_volume_usd": 50201767.94,
+    "final_settlement": {
+      "KXNFLGAME-26NOV01KCDEN-DEN": {
+        "status": "finalized",
+        "result": "yes",
+        "last_price_cents": 99.0,
+        "volume_usd": 22704649.75
+      },
+      "KXNFLGAME-26NOV01KCDEN-KC": {
+        "status": "finalized",
+        "result": "no",
+        "last_price_cents": 1.0,
+        "volume_usd": 27497118.19
+      }
+    },
+    "user_real_execution_audit": {
+      "entry_price_cents": 53.75,
+      "initial_shares": 130.23,
+      "initial_cost_usd": 70.0,
+      "q3_partial_exit_80pct": {
+        "shares_sold": 104.0,
+        "exit_price_cents": 77.0,
+        "cash_realized_usd": 77.29,
+        "account_cash_balance_verified_in_print_usd": 80.65
+      },
+      "q4_reversal_impact_on_lot3_20pct": {
+        "remaining_shares": 26.23,
+        "final_settlement_value_usd": 0.0,
+        "principal_at_risk_usd": 0.0
+      },
+      "final_net_result": {
+        "if_held_100pct_to_expiration_usd": -70.0,
+        "if_held_100pct_roi_pct": -100.0,
+        "with_argon_3_lot_freeroll_cash_usd": 77.29,
+        "with_argon_3_lot_net_profit_usd": 7.29,
+        "with_argon_3_lot_net_roi_pct": 10.41,
+        "capital_saved_by_freeroll_protocol_usd": 77.29
+      }
+    }
+  },
+  "top_5_live_kxnflgame_operations": [
+    {
+      "event_ticker": "KXNFLGAME-26NOV01PHIWAS",
+      "title": "Philadelphia vs Washington",
+      "total_event_volume_usd": 11088264.83,
+      "away_team": "PHI",
+      "home_team": "WAS",
+      "markets": {
+        "WAS": {
+          "ticker": "KXNFLGAME-26NOV01PHIWAS-WAS",
+          "team_name": "Washington",
+          "status": "active",
+          "last_cents": 60.0,
+          "yes_bid_cents": 59.0,
+          "yes_ask_cents": 60.0,
+          "no_bid_cents": 40.0,
+          "no_ask_cents": 41.0,
+          "volume_usd": 3616292.66
+        },
+        "PHI": {
+          "ticker": "KXNFLGAME-26NOV01PHIWAS-PHI",
+          "team_name": "Philadelphia",
+          "status": "active",
+          "last_cents": 40.0,
+          "yes_bid_cents": 40.0,
+          "yes_ask_cents": 41.0,
+          "no_bid_cents": 59.0,
+          "no_ask_cents": 60.0,
+          "volume_usd": 7471972.17
+        }
+      },
+      "gabriel_torres_intel": {
+        "away_stats": {
+          "games": 7,
+          "total_off_epa": -44.14,
+          "off_epa_per_game": -6.31,
+          "passing_epa_per_game": -3.89,
+          "rushing_epa_per_game": -2.41,
+          "avg_cpoe": -3.38,
+          "pass_yds_per_game": 194.1,
+          "rush_yds_per_game": 87.7,
+          "total_tds": 16,
+          "turnovers_committed": 6,
+          "turnovers_per_game": 0.86,
+          "sacks_taken": 18,
+          "sacks_taken_per_game": 2.57,
+          "def_sacks": 8.0,
+          "def_sacks_per_game": 1.14,
+          "def_ints": 3,
+          "takeaways_estimated": 3
+        },
+        "home_stats": {
+          "games": 6,
+          "total_off_epa": -2.51,
+          "off_epa_per_game": -0.42,
+          "passing_epa_per_game": 0.73,
+          "rushing_epa_per_game": -1.15,
+          "avg_cpoe": 2.92,
+          "pass_yds_per_game": 214.2,
+          "rush_yds_per_game": 125.2,
+          "total_tds": 14,
+          "turnovers_committed": 2,
+          "turnovers_per_game": 0.33,
+          "sacks_taken": 14,
+          "sacks_taken_per_game": 2.33,
+          "def_sacks": 11.0,
+          "def_sacks_per_game": 1.83,
+          "def_ints": 3,
+          "takeaways_estimated": 3
+        },
+        "away_qb": {
+          "games": 5,
+          "pass_yds": 933.0,
+          "pass_tds": 8,
+          "ints": 3,
+          "pass_epa": -9.69,
+          "rush_yds": 107.0,
+          "rush_tds": 1,
+          "name": "Jalen Hurts"
+        },
+        "home_qb": {
+          "games": 4,
+          "pass_yds": 759.0,
+          "pass_tds": 5,
+          "ints": 0,
+          "pass_epa": 4.31,
+          "rush_yds": 213.0,
+          "rush_tds": 2,
+          "name": "Jayden Daniels"
+        },
+        "away_roster": {
+          "latest_roster_week": 8,
+          "inactives_and_ir_count": 8,
+          "key_absences": [
+            {
+              "name": "Jalen Hurts",
+              "pos": "QB",
+              "status": "RES"
+            },
+            {
+              "name": "Dameon Pierce",
+              "pos": "RB",
+              "status": "RES"
+            },
+            {
+              "name": "Tank Bigsby",
+              "pos": "RB",
+              "status": "RES"
+            },
+            {
+              "name": "Jakorian Bennett",
+              "pos": "DB",
+              "status": "RES"
+            },
+            {
+              "name": "Johnny Wilson",
+              "pos": "WR",
+              "status": "RES"
+            },
+            {
+              "name": "Andre' Sam",
+              "pos": "DB",
+              "status": "RES"
+            },
+            {
+              "name": "Will Shipley",
+              "pos": "RB",
+              "status": "RES"
+            },
+            {
+              "name": "Tucker Large",
+              "pos": "DB",
+              "status": "RES"
+            }
+          ],
+          "active_skill_players": [
+            {
+              "name": "Johnny Mundt",
+              "pos": "TE"
+            },
+            {
+              "name": "Dallas Goedert",
+              "pos": "TE"
+            },
+            {
+              "name": "Saquon Barkley",
+              "pos": "RB"
+            },
+            {
+              "name": "Marquise Brown",
+              "pos": "WR"
+            },
+            {
+              "name": "Elijah Mitchell",
+              "pos": "RB"
+            },
+            {
+              "name": "DeVonta Smith",
+              "pos": "WR"
+            },
+            {
+              "name": "Elijah Moore",
+              "pos": "WR"
+            },
+            {
+              "name": "Grant Calcaterra",
+              "pos": "TE"
+            }
+          ]
+        },
+        "home_roster": {
+          "latest_roster_week": 8,
+          "inactives_and_ir_count": 7,
+          "key_absences": [
+            {
+              "name": "Laremy Tunsil",
+              "pos": "OL",
+              "status": "RES"
+            },
+            {
+              "name": "Terry McLaurin",
+              "pos": "WR",
+              "status": "RES"
+            },
+            {
+              "name": "Leo Chenal",
+              "pos": "LB",
+              "status": "RES"
+            },
+            {
+              "name": "Javontae Jean-Baptiste",
+              "pos": "LB",
+              "status": "RES"
+            },
+            {
+              "name": "Jer'Zhan Newton",
+              "pos": "DL",
+              "status": "RES"
+            },
+            {
+              "name": "Jaylin Lane",
+              "pos": "WR",
+              "status": "RES"
+            },
+            {
+              "name": "Jacory Croskey-Merritt",
+              "pos": "RB",
+              "status": "RES"
+            }
+          ],
+          "active_skill_players": [
+            {
+              "name": "Stefon Diggs",
+              "pos": "WR"
+            },
+            {
+              "name": "Marcus Mariota",
+              "pos": "QB"
+            },
+            {
+              "name": "Austin Ekeler",
+              "pos": "RB"
+            },
+            {
+              "name": "Jeremy McNichols",
+              "pos": "RB"
+            },
+            {
+              "name": "Van Jefferson",
+              "pos": "WR"
+            },
+            {
+              "name": "Dyami Brown",
+              "pos": "WR"
+            },
+            {
+              "name": "John Bates",
+              "pos": "TE"
+            },
+            {
+              "name": "Rachaad White",
+              "pos": "RB"
+            }
+          ]
+        },
+        "favorable_drivers": [
+          "Eficiência Ofensiva (EPA): WAS registra -0.42 EPA/jogo (214.2 jds passe/j + 125.2 jds corridas/j) vs -6.31 EPA/jogo de PHI.",
+          "Performance do QB Titular (Jayden Daniels): 759.0 jardas aéreas, 5 TDs, 0 INTs e +4.31 Passing EPA acumulado na temporada 2026 (CPOE médio da equipe: +2.92%).",
+          "Trincheira & Proteção/Pressão: WAS soma 11.0 sacks defensivos (1.83/jogo) e 3 interceptações forçadas contra 6 turnovers totais cometidos por PHI.",
+          "Auditoria de Elenco Semanal (`weekly_rosters_2026.csv` Sem. 8): PHI possui 8 jogadores em status de baixa (`INA`/`RES`), incluindo Jalen Hurts (QB-RES), Dameon Pierce (RB-RES), Tank Bigsby (RB-RES), Jakorian Bennett (DB-RES)."
+        ],
+        "threat_drivers": [
+          "Ameaça do QB Adversário (Jalen Hurts): soma 933.0 jardas de passe, 8 TDs aéreos + 107.0 jardas terrestres (1 TDs corridos) e -9.69 Passing EPA.",
+          "Vulnerabilidade de Proteção e Turnovers de WAS: sofreu 14 sacks (2.33/jogo) e cometeu 2 turnovers até aqui.",
+          "Baixas Médicas de WAS (`INA`/`RES`): 7 ausências registradas (Laremy Tunsil (OL-RES), Terry McLaurin (WR-RES), Leo Chenal (LB-RES), Javontae Jean-Baptiste (LB-RES)).",
+          "Risco de Virada no 4º Quarto (Lição Empírica KC vs DEN): Jogos divisionais ou de horário nobre têm alta variância no Q4; é obrigatório executar a saída de 80% nos Lotes 1 e 2 assim que a probabilidade tocar 72¢–83¢ para travar o Free-Roll."
+        ]
+      },
+      "actuarial_tribunal_5x5": {
+        "recommended_team": "WAS",
+        "recommended_ticker": "KXNFLGAME-26NOV01PHIWAS-WAS",
+        "recommended_side": "YES · Washington (WAS)",
+        "market_entry_ask_cents": 60.0,
+        "market_bid_ask_spread_cents": 1.0,
+        "monte_carlo_20k_structural_prob_pct": 70.56,
+        "pessimist_bench_5_prob_pct": 59.6,
+        "optimist_bench_5_prob_pct": 72.6,
+        "supreme_judge_calibrated_prob_pct": 66.8,
+        "net_edge_bps": 680,
+        "judge_ruling_summary": "Entrada tática em YES Washington (KXNFLGAME-26NOV01PHIWAS-WAS) a 60.0¢. Bancada Pessimista estima 59.6%, Bancada Otimista estima 72.6%, Veredito Final do Juiz: 66.8% (+680 bps). Executar obrigatoriamente a trava de Free-Roll nos Lotes 1 e 2 durante picos intrajogo."
+      },
+      "boleta_100_usd": {
+        "reference_bankroll_usd": 100.0,
+        "recommended_contract_side": "YES · Washington (WAS)",
+        "entry_price_cents": 60.0,
+        "total_shares": 166.67,
+        "lot_1_tp1_40pct": {
+          "shares": 66.67,
+          "target_sell_cents": 72.0,
+          "touch_probability_pct": 63.6,
+          "cash_recovered_usd": 48.0,
+          "capital_recovered_pct": 48.0
+        },
+        "lot_2_freeroll_40pct": {
+          "shares": 66.67,
+          "target_sell_cents": 82.8,
+          "touch_probability_pct": 41.4,
+          "cash_recovered_usd": 55.2,
+          "cumulative_cash_l1_l2_usd": 103.2,
+          "principal_coverage_pct": 103.2,
+          "guaranteed_profit_even_if_reversal_usd": 3.2
+        },
+        "lot_3_runner_20pct": {
+          "shares": 33.33,
+          "target_settlement_cents": 100.0,
+          "settlement_win_prob_pct": 66.8,
+          "payout_if_settled_100c_usd": 33.33,
+          "total_cash_if_full_cycle_usd": 136.53,
+          "total_roi_if_full_cycle_pct": 36.53
+        },
+        "tactical_stop_loss_cents": 43.2
+      },
+      "boleta_1000_usd": {
+        "reference_bankroll_usd": 1000.0,
+        "recommended_contract_side": "YES · Washington (WAS)",
+        "entry_price_cents": 60.0,
+        "total_shares": 1666.67,
+        "lot_1_tp1_40pct": {
+          "shares": 666.67,
+          "target_sell_cents": 72.0,
+          "touch_probability_pct": 63.6,
+          "cash_recovered_usd": 480.0,
+          "capital_recovered_pct": 48.0
+        },
+        "lot_2_freeroll_40pct": {
+          "shares": 666.67,
+          "target_sell_cents": 82.8,
+          "touch_probability_pct": 41.4,
+          "cash_recovered_usd": 552.0,
+          "cumulative_cash_l1_l2_usd": 1032.0,
+          "principal_coverage_pct": 103.2,
+          "guaranteed_profit_even_if_reversal_usd": 32.0
+        },
+        "lot_3_runner_20pct": {
+          "shares": 333.33,
+          "target_settlement_cents": 100.0,
+          "settlement_win_prob_pct": 66.8,
+          "payout_if_settled_100c_usd": 333.33,
+          "total_cash_if_full_cycle_usd": 1365.33,
+          "total_roi_if_full_cycle_pct": 36.53
+        },
+        "tactical_stop_loss_cents": 43.2
+      }
+    },
+    {
+      "event_ticker": "KXNFLGAME-26NOV02CHISEA",
+      "title": "Chicago vs Seattle",
+      "total_event_volume_usd": 1138464.72,
+      "away_team": "CHI",
+      "home_team": "SEA",
+      "markets": {
+        "SEA": {
+          "ticker": "KXNFLGAME-26NOV02CHISEA-SEA",
+          "team_name": "Seattle",
+          "status": "active",
+          "last_cents": 62.0,
+          "yes_bid_cents": 61.0,
+          "yes_ask_cents": 62.0,
+          "no_bid_cents": 38.0,
+          "no_ask_cents": 39.0,
+          "volume_usd": 422033.38
+        },
+        "CHI": {
+          "ticker": "KXNFLGAME-26NOV02CHISEA-CHI",
+          "team_name": "Chicago",
+          "status": "active",
+          "last_cents": 39.0,
+          "yes_bid_cents": 38.0,
+          "yes_ask_cents": 39.0,
+          "no_bid_cents": 61.0,
+          "no_ask_cents": 62.0,
+          "volume_usd": 716431.34
+        }
+      },
+      "gabriel_torres_intel": {
+        "away_stats": {
+          "games": 7,
+          "total_off_epa": 18.88,
+          "off_epa_per_game": 2.7,
+          "passing_epa_per_game": 5.33,
+          "rushing_epa_per_game": -2.63,
+          "avg_cpoe": 5.58,
+          "pass_yds_per_game": 254.9,
+          "rush_yds_per_game": 154.3,
+          "total_tds": 21,
+          "turnovers_committed": 11,
+          "turnovers_per_game": 1.57,
+          "sacks_taken": 18,
+          "sacks_taken_per_game": 2.57,
+          "def_sacks": 19.0,
+          "def_sacks_per_game": 2.71,
+          "def_ints": 4,
+          "takeaways_estimated": 4
+        },
+        "home_stats": {
+          "games": 7,
+          "total_off_epa": -21.54,
+          "off_epa_per_game": -3.08,
+          "passing_epa_per_game": 1.95,
+          "rushing_epa_per_game": -5.03,
+          "avg_cpoe": 2.43,
+          "pass_yds_per_game": 246.6,
+          "rush_yds_per_game": 113.7,
+          "total_tds": 18,
+          "turnovers_committed": 13,
+          "turnovers_per_game": 1.86,
+          "sacks_taken": 16,
+          "sacks_taken_per_game": 2.29,
+          "def_sacks": 17.0,
+          "def_sacks_per_game": 2.43,
+          "def_ints": 8,
+          "takeaways_estimated": 8
+        },
+        "away_qb": {
+          "games": 4,
+          "pass_yds": 1020.0,
+          "pass_tds": 5,
+          "ints": 1,
+          "pass_epa": 41.71,
+          "rush_yds": 128.0,
+          "rush_tds": 2,
+          "name": "Caleb Williams"
+        },
+        "home_qb": {
+          "games": 6,
+          "pass_yds": 1290.0,
+          "pass_tds": 8,
+          "ints": 8,
+          "pass_epa": -9.8,
+          "rush_yds": 52.0,
+          "rush_tds": 0,
+          "name": "Sam Darnold"
+        },
+        "away_roster": {
+          "latest_roster_week": 8,
+          "inactives_and_ir_count": 11,
+          "key_absences": [
+            {
+              "name": "Cole Kmet",
+              "pos": "TE",
+              "status": "RES"
+            },
+            {
+              "name": "Dayo Odeyingbo",
+              "pos": "DL",
+              "status": "RES"
+            },
+            {
+              "name": "Tony Fields II",
+              "pos": "LB",
+              "status": "RES"
+            },
+            {
+              "name": "Nikola Kalinic",
+              "pos": "TE",
+              "status": "RES"
+            },
+            {
+              "name": "Braxton Jones",
+              "pos": "OL",
+              "status": "RES"
+            },
+            {
+              "name": "Brittain Brown",
+              "pos": "RB",
+              "status": "RES"
+            },
+            {
+              "name": "Dallis Flowers",
+              "pos": "DB",
+              "status": "RES"
+            },
+            {
+              "name": "Nephi Sewell",
+              "pos": "LB",
+              "status": "RES"
+            }
+          ],
+          "active_skill_players": [
+            {
+              "name": "Case Keenum",
+              "pos": "QB"
+            },
+            {
+              "name": "Kalif Raymond",
+              "pos": "WR"
+            },
+            {
+              "name": "D'Andre Swift",
+              "pos": "RB"
+            },
+            {
+              "name": "Tyson Bagent",
+              "pos": "QB"
+            },
+            {
+              "name": "Zavier Scott",
+              "pos": "RB"
+            },
+            {
+              "name": "Roschon Johnson",
+              "pos": "RB"
+            },
+            {
+              "name": "Caleb Williams",
+              "pos": "QB"
+            },
+            {
+              "name": "Rome Odunze",
+              "pos": "WR"
+            }
+          ]
+        },
+        "home_roster": {
+          "latest_roster_week": 8,
+          "inactives_and_ir_count": 7,
+          "key_absences": [
+            {
+              "name": "Jake Bobo",
+              "pos": "WR",
+              "status": "RES"
+            },
+            {
+              "name": "Robbie Ouzts",
+              "pos": "RB",
+              "status": "RES"
+            },
+            {
+              "name": "Mason Richman",
+              "pos": "OL",
+              "status": "RES"
+            },
+            {
+              "name": "Elijah Arroyo",
+              "pos": "TE",
+              "status": "RES"
+            },
+            {
+              "name": "Julian Neal",
+              "pos": "DB",
+              "status": "RES"
+            },
+            {
+              "name": "Bud Clark",
+              "pos": "DB",
+              "status": "RES"
+            },
+            {
+              "name": "Jadarian Price",
+              "pos": "RB",
+              "status": "RES"
+            }
+          ],
+          "active_skill_players": [
+            {
+              "name": "Eric Saubert",
+              "pos": "TE"
+            },
+            {
+              "name": "Cooper Kupp",
+              "pos": "WR"
+            },
+            {
+              "name": "Sam Darnold",
+              "pos": "QB"
+            },
+            {
+              "name": "Drew Lock",
+              "pos": "QB"
+            },
+            {
+              "name": "Irvin Charles",
+              "pos": "WR"
+            },
+            {
+              "name": "Rashid Shaheed",
+              "pos": "WR"
+            },
+            {
+              "name": "Velus Jones Jr.",
+              "pos": "RB"
+            },
+            {
+              "name": "Brady Russell",
+              "pos": "RB"
+            }
+          ]
+        },
+        "favorable_drivers": [
+          "Eficiência Ofensiva (EPA): CHI registra +2.70 EPA/jogo (254.9 jds passe/j + 154.3 jds corridas/j) vs -3.08 EPA/jogo de SEA.",
+          "Performance do QB Titular (Caleb Williams): 1020.0 jardas aéreas, 5 TDs, 1 INTs e +41.71 Passing EPA acumulado na temporada 2026 (CPOE médio da equipe: +5.58%).",
+          "Trincheira & Proteção/Pressão: CHI soma 19.0 sacks defensivos (2.71/jogo) e 4 interceptações forçadas contra 13 turnovers totais cometidos por SEA.",
+          "Auditoria de Elenco Semanal (`weekly_rosters_2026.csv` Sem. 8): SEA possui 7 jogadores em status de baixa (`INA`/`RES`), incluindo Jake Bobo (WR-RES), Robbie Ouzts (RB-RES), Mason Richman (OL-RES), Elijah Arroyo (TE-RES)."
+        ],
+        "threat_drivers": [
+          "Ameaça do QB Adversário (Sam Darnold): soma 1290.0 jardas de passe, 8 TDs aéreos + 52.0 jardas terrestres (0 TDs corridos) e -9.80 Passing EPA.",
+          "Vulnerabilidade de Proteção e Turnovers de CHI: sofreu 18 sacks (2.57/jogo) e cometeu 11 turnovers até aqui.",
+          "Baixas Médicas de CHI (`INA`/`RES`): 11 ausências registradas (Cole Kmet (TE-RES), Dayo Odeyingbo (DL-RES), Tony Fields II (LB-RES), Nikola Kalinic (TE-RES)).",
+          "Risco de Virada no 4º Quarto (Lição Empírica KC vs DEN): Jogos divisionais ou de horário nobre têm alta variância no Q4; é obrigatório executar a saída de 80% nos Lotes 1 e 2 assim que a probabilidade tocar 47¢–54¢ para travar o Free-Roll."
+        ]
+      },
+      "actuarial_tribunal_5x5": {
+        "recommended_team": "CHI",
+        "recommended_ticker": "KXNFLGAME-26NOV02CHISEA-CHI",
+        "recommended_side": "YES · Chicago (CHI)",
+        "market_entry_ask_cents": 39.0,
+        "market_bid_ask_spread_cents": 1.0,
+        "monte_carlo_20k_structural_prob_pct": 51.79,
+        "pessimist_bench_5_prob_pct": 39.6,
+        "optimist_bench_5_prob_pct": 52.6,
+        "supreme_judge_calibrated_prob_pct": 46.8,
+        "net_edge_bps": 780,
+        "judge_ruling_summary": "Entrada tática em YES Chicago (KXNFLGAME-26NOV02CHISEA-CHI) a 39.0¢. Bancada Pessimista estima 39.6%, Bancada Otimista estima 52.6%, Veredito Final do Juiz: 46.8% (+780 bps). Executar obrigatoriamente a trava de Free-Roll nos Lotes 1 e 2 durante picos intrajogo."
+      },
+      "boleta_100_usd": {
+        "reference_bankroll_usd": 100.0,
+        "recommended_contract_side": "YES · Chicago (CHI)",
+        "entry_price_cents": 39.0,
+        "total_shares": 256.41,
+        "lot_1_tp1_40pct": {
+          "shares": 102.56,
+          "target_sell_cents": 48.4,
+          "touch_probability_pct": 72.1,
+          "cash_recovered_usd": 49.64,
+          "capital_recovered_pct": 49.6
+        },
+        "lot_2_freeroll_40pct": {
+          "shares": 102.56,
+          "target_sell_cents": 56.2,
+          "touch_probability_pct": 53.6,
+          "cash_recovered_usd": 57.64,
+          "cumulative_cash_l1_l2_usd": 107.28,
+          "principal_coverage_pct": 107.3,
+          "guaranteed_profit_even_if_reversal_usd": 7.28
+        },
+        "lot_3_runner_20pct": {
+          "shares": 51.29,
+          "target_settlement_cents": 100.0,
+          "settlement_win_prob_pct": 46.8,
+          "payout_if_settled_100c_usd": 51.29,
+          "total_cash_if_full_cycle_usd": 158.57,
+          "total_roi_if_full_cycle_pct": 58.57
+        },
+        "tactical_stop_loss_cents": 26.5
+      },
+      "boleta_1000_usd": {
+        "reference_bankroll_usd": 1000.0,
+        "recommended_contract_side": "YES · Chicago (CHI)",
+        "entry_price_cents": 39.0,
+        "total_shares": 2564.1,
+        "lot_1_tp1_40pct": {
+          "shares": 1025.64,
+          "target_sell_cents": 48.4,
+          "touch_probability_pct": 72.1,
+          "cash_recovered_usd": 496.41,
+          "capital_recovered_pct": 49.6
+        },
+        "lot_2_freeroll_40pct": {
+          "shares": 1025.64,
+          "target_sell_cents": 56.2,
+          "touch_probability_pct": 53.6,
+          "cash_recovered_usd": 576.41,
+          "cumulative_cash_l1_l2_usd": 1072.82,
+          "principal_coverage_pct": 107.3,
+          "guaranteed_profit_even_if_reversal_usd": 72.82
+        },
+        "lot_3_runner_20pct": {
+          "shares": 512.82,
+          "target_settlement_cents": 100.0,
+          "settlement_win_prob_pct": 46.8,
+          "payout_if_settled_100c_usd": 512.82,
+          "total_cash_if_full_cycle_usd": 1585.64,
+          "total_roi_if_full_cycle_pct": 58.56
+        },
+        "tactical_stop_loss_cents": 26.5
+      }
+    },
+    {
+      "event_ticker": "KXNFLGAME-26NOV05JACBAL",
+      "title": "Jacksonville vs Baltimore",
+      "total_event_volume_usd": 100797.56,
+      "away_team": "JAC",
+      "home_team": "BAL",
+      "markets": {
+        "BAL": {
+          "ticker": "KXNFLGAME-26NOV05JACBAL-BAL",
+          "team_name": "Baltimore",
+          "status": "active",
+          "last_cents": 23.0,
+          "yes_bid_cents": 22.0,
+          "yes_ask_cents": 23.0,
+          "no_bid_cents": 77.0,
+          "no_ask_cents": 78.0,
+          "volume_usd": 38026.92
+        },
+        "JAC": {
+          "ticker": "KXNFLGAME-26NOV05JACBAL-JAC",
+          "team_name": "Jacksonville",
+          "status": "active",
+          "last_cents": 77.0,
+          "yes_bid_cents": 76.0,
+          "yes_ask_cents": 77.0,
+          "no_bid_cents": 23.0,
+          "no_ask_cents": 24.0,
+          "volume_usd": 62770.64
+        }
+      },
+      "gabriel_torres_intel": {
+        "away_stats": {
+          "games": 6,
+          "total_off_epa": 55.04,
+          "off_epa_per_game": 9.17,
+          "passing_epa_per_game": 8.89,
+          "rushing_epa_per_game": 0.29,
+          "avg_cpoe": 5.55,
+          "pass_yds_per_game": 246.7,
+          "rush_yds_per_game": 112.8,
+          "total_tds": 18,
+          "turnovers_committed": 4,
+          "turnovers_per_game": 0.67,
+          "sacks_taken": 10,
+          "sacks_taken_per_game": 1.67,
+          "def_sacks": 10.0,
+          "def_sacks_per_game": 1.67,
+          "def_ints": 7,
+          "takeaways_estimated": 7
+        },
+        "home_stats": {
+          "games": 7,
+          "total_off_epa": 38.03,
+          "off_epa_per_game": 5.43,
+          "passing_epa_per_game": 6.91,
+          "rushing_epa_per_game": -1.47,
+          "avg_cpoe": 5.08,
+          "pass_yds_per_game": 242.0,
+          "rush_yds_per_game": 141.7,
+          "total_tds": 19,
+          "turnovers_committed": 5,
+          "turnovers_per_game": 0.71,
+          "sacks_taken": 18,
+          "sacks_taken_per_game": 2.57,
+          "def_sacks": 16.0,
+          "def_sacks_per_game": 2.29,
+          "def_ints": 3,
+          "takeaways_estimated": 3
+        },
+        "away_qb": {
+          "games": 6,
+          "pass_yds": 1480.0,
+          "pass_tds": 14,
+          "ints": 4,
+          "pass_epa": 53.31,
+          "rush_yds": 70.0,
+          "rush_tds": 0,
+          "name": "Trevor Lawrence"
+        },
+        "home_qb": {
+          "games": 4,
+          "pass_yds": 967.0,
+          "pass_tds": 6,
+          "ints": 1,
+          "pass_epa": 37.34,
+          "rush_yds": 144.0,
+          "rush_tds": 1,
+          "name": "Lamar Jackson"
+        },
+        "away_roster": {
+          "latest_roster_week": 8,
+          "inactives_and_ir_count": 9,
+          "key_absences": [
+            {
+              "name": "Sam Mustipher",
+              "pos": "OL",
+              "status": "RES"
+            },
+            {
+              "name": "Patrick Mekari",
+              "pos": "OL",
+              "status": "RES"
+            },
+            {
+              "name": "Anton Harrison",
+              "pos": "OL",
+              "status": "RES"
+            },
+            {
+              "name": "Caleb Ransaw",
+              "pos": "DB",
+              "status": "RES"
+            },
+            {
+              "name": "BJ Green II",
+              "pos": "DL",
+              "status": "RES"
+            },
+            {
+              "name": "Jared Bartlett",
+              "pos": "LB",
+              "status": "RES"
+            },
+            {
+              "name": "Zach Durfee",
+              "pos": "DL",
+              "status": "RES"
+            },
+            {
+              "name": "Parker Hughes",
+              "pos": "LB",
+              "status": "RES"
+            }
+          ],
+          "active_skill_players": [
+            {
+              "name": "Ameer Abdullah",
+              "pos": "RB"
+            },
+            {
+              "name": "Jakobi Meyers",
+              "pos": "WR"
+            },
+            {
+              "name": "Quintin Morris",
+              "pos": "TE"
+            },
+            {
+              "name": "Trevor Lawrence",
+              "pos": "QB"
+            },
+            {
+              "name": "Parker Washington",
+              "pos": "WR"
+            },
+            {
+              "name": "Chris Rodriguez Jr.",
+              "pos": "RB"
+            },
+            {
+              "name": "Brenton Strange",
+              "pos": "TE"
+            },
+            {
+              "name": "Brian Thomas Jr.",
+              "pos": "WR"
+            }
+          ]
+        },
+        "home_roster": {
+          "latest_roster_week": 8,
+          "inactives_and_ir_count": 9,
+          "key_absences": [
+            {
+              "name": "Ethan Pocic",
+              "pos": "OL",
+              "status": "RES"
+            },
+            {
+              "name": "Durham Smythe",
+              "pos": "TE",
+              "status": "RES"
+            },
+            {
+              "name": "Danny Pinter",
+              "pos": "OL",
+              "status": "RES"
+            },
+            {
+              "name": "Skylar Thompson",
+              "pos": "QB",
+              "status": "RES"
+            },
+            {
+              "name": "Tavius Robinson",
+              "pos": "LB",
+              "status": "RES"
+            },
+            {
+              "name": "Jovaughn Gwyn",
+              "pos": "OL",
+              "status": "RES"
+            },
+            {
+              "name": "Bilhal Kone",
+              "pos": "DB",
+              "status": "RES"
+            },
+            {
+              "name": "Adam Randall",
+              "pos": "RB",
+              "status": "RES"
+            }
+          ],
+          "active_skill_players": [
+            {
+              "name": "Nick Vannett",
+              "pos": "TE"
+            },
+            {
+              "name": "Derrick Henry",
+              "pos": "RB"
+            },
+            {
+              "name": "Mark Andrews",
+              "pos": "TE"
+            },
+            {
+              "name": "Lamar Jackson",
+              "pos": "QB"
+            },
+            {
+              "name": "Justice Hill",
+              "pos": "RB"
+            },
+            {
+              "name": "Tyler Huntley",
+              "pos": "QB"
+            },
+            {
+              "name": "Rashod Bateman",
+              "pos": "WR"
+            },
+            {
+              "name": "Zay Flowers",
+              "pos": "WR"
+            }
+          ]
+        },
+        "favorable_drivers": [
+          "Eficiência Ofensiva (EPA): BAL registra +5.43 EPA/jogo (242.0 jds passe/j + 141.7 jds corridas/j) vs +9.17 EPA/jogo de JAC.",
+          "Performance do QB Titular (Lamar Jackson): 967.0 jardas aéreas, 6 TDs, 1 INTs e +37.34 Passing EPA acumulado na temporada 2026 (CPOE médio da equipe: +5.08%).",
+          "Trincheira & Proteção/Pressão: BAL soma 16.0 sacks defensivos (2.29/jogo) e 3 interceptações forçadas contra 4 turnovers totais cometidos por JAC.",
+          "Auditoria de Elenco Semanal (`weekly_rosters_2026.csv` Sem. 8): JAC possui 9 jogadores em status de baixa (`INA`/`RES`), incluindo Sam Mustipher (OL-RES), Patrick Mekari (OL-RES), Anton Harrison (OL-RES), Caleb Ransaw (DB-RES)."
+        ],
+        "threat_drivers": [
+          "Ameaça do QB Adversário (Trevor Lawrence): soma 1480.0 jardas de passe, 14 TDs aéreos + 70.0 jardas terrestres (0 TDs corridos) e +53.31 Passing EPA.",
+          "Vulnerabilidade de Proteção e Turnovers de BAL: sofreu 18 sacks (2.57/jogo) e cometeu 5 turnovers até aqui.",
+          "Baixas Médicas de BAL (`INA`/`RES`): 9 ausências registradas (Ethan Pocic (OL-RES), Durham Smythe (TE-RES), Danny Pinter (OL-RES), Skylar Thompson (QB-RES)).",
+          "Risco de Virada no 4º Quarto (Lição Empírica KC vs DEN): Jogos divisionais ou de horário nobre têm alta variância no Q4; é obrigatório executar a saída de 80% nos Lotes 1 e 2 assim que a probabilidade tocar 28¢–32¢ para travar o Free-Roll."
+        ]
+      },
+      "actuarial_tribunal_5x5": {
+        "recommended_team": "BAL",
+        "recommended_ticker": "KXNFLGAME-26NOV05JACBAL-BAL",
+        "recommended_side": "YES · Baltimore (BAL)",
+        "market_entry_ask_cents": 23.0,
+        "market_bid_ask_spread_cents": 1.0,
+        "monte_carlo_20k_structural_prob_pct": 48.16,
+        "pessimist_bench_5_prob_pct": 29.1,
+        "optimist_bench_5_prob_pct": 42.1,
+        "supreme_judge_calibrated_prob_pct": 36.2,
+        "net_edge_bps": 1320,
+        "judge_ruling_summary": "Entrada tática em YES Baltimore (KXNFLGAME-26NOV05JACBAL-BAL) a 23.0¢. Bancada Pessimista estima 29.1%, Bancada Otimista estima 42.1%, Veredito Final do Juiz: 36.2% (+1320 bps). Executar obrigatoriamente a trava de Free-Roll nos Lotes 1 e 2 durante picos intrajogo."
+      },
+      "boleta_100_usd": {
+        "reference_bankroll_usd": 100.0,
+        "recommended_contract_side": "YES · Baltimore (BAL)",
+        "entry_price_cents": 23.0,
+        "total_shares": 434.78,
+        "lot_1_tp1_40pct": {
+          "shares": 173.91,
+          "target_sell_cents": 28.5,
+          "touch_probability_pct": 93.4,
+          "cash_recovered_usd": 49.56,
+          "capital_recovered_pct": 49.6
+        },
+        "lot_2_freeroll_40pct": {
+          "shares": 173.91,
+          "target_sell_cents": 33.1,
+          "touch_probability_pct": 82.0,
+          "cash_recovered_usd": 57.56,
+          "cumulative_cash_l1_l2_usd": 107.12,
+          "principal_coverage_pct": 107.1,
+          "guaranteed_profit_even_if_reversal_usd": 7.12
+        },
+        "lot_3_runner_20pct": {
+          "shares": 86.96,
+          "target_settlement_cents": 100.0,
+          "settlement_win_prob_pct": 36.2,
+          "payout_if_settled_100c_usd": 86.96,
+          "total_cash_if_full_cycle_usd": 194.08,
+          "total_roi_if_full_cycle_pct": 94.08
+        },
+        "tactical_stop_loss_cents": 15.6
+      },
+      "boleta_1000_usd": {
+        "reference_bankroll_usd": 1000.0,
+        "recommended_contract_side": "YES · Baltimore (BAL)",
+        "entry_price_cents": 23.0,
+        "total_shares": 4347.83,
+        "lot_1_tp1_40pct": {
+          "shares": 1739.13,
+          "target_sell_cents": 28.5,
+          "touch_probability_pct": 93.4,
+          "cash_recovered_usd": 495.65,
+          "capital_recovered_pct": 49.6
+        },
+        "lot_2_freeroll_40pct": {
+          "shares": 1739.13,
+          "target_sell_cents": 33.1,
+          "touch_probability_pct": 82.0,
+          "cash_recovered_usd": 575.65,
+          "cumulative_cash_l1_l2_usd": 1071.3,
+          "principal_coverage_pct": 107.1,
+          "guaranteed_profit_even_if_reversal_usd": 71.3
+        },
+        "lot_3_runner_20pct": {
+          "shares": 869.57,
+          "target_settlement_cents": 100.0,
+          "settlement_win_prob_pct": 36.2,
+          "payout_if_settled_100c_usd": 869.57,
+          "total_cash_if_full_cycle_usd": 1940.87,
+          "total_roi_if_full_cycle_pct": 94.09
+        },
+        "tactical_stop_loss_cents": 15.6
+      }
+    },
+    {
+      "event_ticker": "KXNFLGAME-26NOV08LVSF",
+      "title": "Las Vegas vs San Francisco",
+      "total_event_volume_usd": 96366.09,
+      "away_team": "LV",
+      "home_team": "SF",
+      "markets": {
+        "SF": {
+          "ticker": "KXNFLGAME-26NOV08LVSF-SF",
+          "team_name": "San Francisco",
+          "status": "active",
+          "last_cents": 79.0,
+          "yes_bid_cents": 79.0,
+          "yes_ask_cents": 80.0,
+          "no_bid_cents": 20.0,
+          "no_ask_cents": 21.0,
+          "volume_usd": 36627.44
+        },
+        "LV": {
+          "ticker": "KXNFLGAME-26NOV08LVSF-LV",
+          "team_name": "Las Vegas",
+          "status": "active",
+          "last_cents": 21.0,
+          "yes_bid_cents": 20.0,
+          "yes_ask_cents": 21.0,
+          "no_bid_cents": 79.0,
+          "no_ask_cents": 80.0,
+          "volume_usd": 59738.65
+        }
+      },
+      "gabriel_torres_intel": {
+        "away_stats": {
+          "games": 7,
+          "total_off_epa": -4.7,
+          "off_epa_per_game": -0.67,
+          "passing_epa_per_game": 6.16,
+          "rushing_epa_per_game": -6.83,
+          "avg_cpoe": -0.8,
+          "pass_yds_per_game": 276.9,
+          "rush_yds_per_game": 74.7,
+          "total_tds": 19,
+          "turnovers_committed": 6,
+          "turnovers_per_game": 0.86,
+          "sacks_taken": 10,
+          "sacks_taken_per_game": 1.43,
+          "def_sacks": 16.0,
+          "def_sacks_per_game": 2.29,
+          "def_ints": 5,
+          "takeaways_estimated": 5
+        },
+        "home_stats": {
+          "games": 7,
+          "total_off_epa": 79.29,
+          "off_epa_per_game": 11.33,
+          "passing_epa_per_game": 9.03,
+          "rushing_epa_per_game": 2.29,
+          "avg_cpoe": 5.37,
+          "pass_yds_per_game": 249.7,
+          "rush_yds_per_game": 127.4,
+          "total_tds": 25,
+          "turnovers_committed": 8,
+          "turnovers_per_game": 1.14,
+          "sacks_taken": 7,
+          "sacks_taken_per_game": 1.0,
+          "def_sacks": 15.0,
+          "def_sacks_per_game": 2.14,
+          "def_ints": 3,
+          "takeaways_estimated": 3
+        },
+        "away_qb": {
+          "games": 7,
+          "pass_yds": 1877.0,
+          "pass_tds": 16,
+          "ints": 5,
+          "pass_epa": 38.48,
+          "rush_yds": 4.0,
+          "rush_tds": 0,
+          "name": "Kirk Cousins"
+        },
+        "home_qb": {
+          "games": 7,
+          "pass_yds": 1748.0,
+          "pass_tds": 15,
+          "ints": 4,
+          "pass_epa": 63.23,
+          "rush_yds": 161.0,
+          "rush_tds": 1,
+          "name": "Brock Purdy"
+        },
+        "away_roster": {
+          "latest_roster_week": 8,
+          "inactives_and_ir_count": 7,
+          "key_absences": [
+            {
+              "name": "Patrick Johnson",
+              "pos": "LB",
+              "status": "RES"
+            },
+            {
+              "name": "Chris Collier",
+              "pos": "RB",
+              "status": "RES"
+            },
+            {
+              "name": "Chigozie Anusiem",
+              "pos": "DB",
+              "status": "RES"
+            },
+            {
+              "name": "Brennan Jackson",
+              "pos": "LB",
+              "status": "RES"
+            },
+            {
+              "name": "Carter Runyon",
+              "pos": "TE",
+              "status": "RES"
+            },
+            {
+              "name": "Justin Pickett",
+              "pos": "OL",
+              "status": "RES"
+            },
+            {
+              "name": "Keyron Crawford",
+              "pos": "LB",
+              "status": "RES"
+            }
+          ],
+          "active_skill_players": [
+            {
+              "name": "Kirk Cousins",
+              "pos": "QB"
+            },
+            {
+              "name": "Ian Thomas",
+              "pos": "TE"
+            },
+            {
+              "name": "Cody White",
+              "pos": "WR"
+            },
+            {
+              "name": "Dareke Young",
+              "pos": "WR"
+            },
+            {
+              "name": "Jalen Nailor",
+              "pos": "WR"
+            },
+            {
+              "name": "Connor Heyward",
+              "pos": "RB"
+            },
+            {
+              "name": "Tre Tucker",
+              "pos": "WR"
+            },
+            {
+              "name": "Aidan O'Connell",
+              "pos": "QB"
+            }
+          ]
+        },
+        "home_roster": {
+          "latest_roster_week": 7,
+          "inactives_and_ir_count": 22,
+          "key_absences": [
+            {
+              "name": "Mike Evans",
+              "pos": "WR",
+              "status": "INA"
+            },
+            {
+              "name": "Demarcus Robinson",
+              "pos": "WR",
+              "status": "RES"
+            },
+            {
+              "name": "Luke Gifford",
+              "pos": "LB",
+              "status": "INA"
+            },
+            {
+              "name": "Nick Bosa",
+              "pos": "DL",
+              "status": "INA"
+            },
+            {
+              "name": "Deebo Samuel Sr.",
+              "pos": "WR",
+              "status": "INA"
+            },
+            {
+              "name": "Austen Pleasants",
+              "pos": "OL",
+              "status": "RES"
+            },
+            {
+              "name": "Darrick Forrest",
+              "pos": "DB",
+              "status": "RES"
+            },
+            {
+              "name": "Garret Wallow",
+              "pos": "LB",
+              "status": "INA"
+            }
+          ],
+          "active_skill_players": [
+            {
+              "name": "Kyle Juszczyk",
+              "pos": "RB"
+            },
+            {
+              "name": "Brandin Cooks",
+              "pos": "WR"
+            },
+            {
+              "name": "Christian McCaffrey",
+              "pos": "RB"
+            },
+            {
+              "name": "George Kittle",
+              "pos": "TE"
+            },
+            {
+              "name": "Christian Kirk",
+              "pos": "WR"
+            },
+            {
+              "name": "Luke Farrell",
+              "pos": "TE"
+            },
+            {
+              "name": "Mac Jones",
+              "pos": "QB"
+            },
+            {
+              "name": "Brock Purdy",
+              "pos": "QB"
+            }
+          ]
+        },
+        "favorable_drivers": [
+          "Eficiência Ofensiva (EPA): LV registra -0.67 EPA/jogo (276.9 jds passe/j + 74.7 jds corridas/j) vs +11.33 EPA/jogo de SF.",
+          "Performance do QB Titular (Kirk Cousins): 1877.0 jardas aéreas, 16 TDs, 5 INTs e +38.48 Passing EPA acumulado na temporada 2026 (CPOE médio da equipe: -0.80%).",
+          "Trincheira & Proteção/Pressão: LV soma 16.0 sacks defensivos (2.29/jogo) e 5 interceptações forçadas contra 8 turnovers totais cometidos por SF.",
+          "Auditoria de Elenco Semanal (`weekly_rosters_2026.csv` Sem. 8): SF possui 22 jogadores em status de baixa (`INA`/`RES`), incluindo Mike Evans (WR-INA), Demarcus Robinson (WR-RES), Luke Gifford (LB-INA), Nick Bosa (DL-INA)."
+        ],
+        "threat_drivers": [
+          "Ameaça do QB Adversário (Brock Purdy): soma 1748.0 jardas de passe, 15 TDs aéreos + 161.0 jardas terrestres (1 TDs corridos) e +63.23 Passing EPA.",
+          "Vulnerabilidade de Proteção e Turnovers de LV: sofreu 10 sacks (1.43/jogo) e cometeu 6 turnovers até aqui.",
+          "Baixas Médicas de LV (`INA`/`RES`): 7 ausências registradas (Patrick Johnson (LB-RES), Chris Collier (RB-RES), Chigozie Anusiem (DB-RES), Brennan Jackson (LB-RES)).",
+          "Risco de Virada no 4º Quarto (Lição Empírica KC vs DEN): Jogos divisionais ou de horário nobre têm alta variância no Q4; é obrigatório executar a saída de 80% nos Lotes 1 e 2 assim que a probabilidade tocar 25¢–29¢ para travar o Free-Roll."
+        ]
+      },
+      "actuarial_tribunal_5x5": {
+        "recommended_team": "LV",
+        "recommended_ticker": "KXNFLGAME-26NOV08LVSF-LV",
+        "recommended_side": "YES · Las Vegas (LV)",
+        "market_entry_ask_cents": 21.0,
+        "market_bid_ask_spread_cents": 1.0,
+        "monte_carlo_20k_structural_prob_pct": 41.74,
+        "pessimist_bench_5_prob_pct": 25.1,
+        "optimist_bench_5_prob_pct": 38.1,
+        "supreme_judge_calibrated_prob_pct": 32.2,
+        "net_edge_bps": 1120,
+        "judge_ruling_summary": "Entrada tática em YES Las Vegas (KXNFLGAME-26NOV08LVSF-LV) a 21.0¢. Bancada Pessimista estima 25.1%, Bancada Otimista estima 38.1%, Veredito Final do Juiz: 32.2% (+1120 bps). Executar obrigatoriamente a trava de Free-Roll nos Lotes 1 e 2 durante picos intrajogo."
+      },
+      "boleta_100_usd": {
+        "reference_bankroll_usd": 100.0,
+        "recommended_contract_side": "YES · Las Vegas (LV)",
+        "entry_price_cents": 21.0,
+        "total_shares": 476.19,
+        "lot_1_tp1_40pct": {
+          "shares": 190.48,
+          "target_sell_cents": 26.0,
+          "touch_probability_pct": 90.5,
+          "cash_recovered_usd": 49.52,
+          "capital_recovered_pct": 49.5
+        },
+        "lot_2_freeroll_40pct": {
+          "shares": 190.48,
+          "target_sell_cents": 30.2,
+          "touch_probability_pct": 79.9,
+          "cash_recovered_usd": 57.52,
+          "cumulative_cash_l1_l2_usd": 107.04,
+          "principal_coverage_pct": 107.0,
+          "guaranteed_profit_even_if_reversal_usd": 7.04
+        },
+        "lot_3_runner_20pct": {
+          "shares": 95.23,
+          "target_settlement_cents": 100.0,
+          "settlement_win_prob_pct": 32.2,
+          "payout_if_settled_100c_usd": 95.23,
+          "total_cash_if_full_cycle_usd": 202.27,
+          "total_roi_if_full_cycle_pct": 102.27
+        },
+        "tactical_stop_loss_cents": 14.3
+      },
+      "boleta_1000_usd": {
+        "reference_bankroll_usd": 1000.0,
+        "recommended_contract_side": "YES · Las Vegas (LV)",
+        "entry_price_cents": 21.0,
+        "total_shares": 4761.9,
+        "lot_1_tp1_40pct": {
+          "shares": 1904.76,
+          "target_sell_cents": 26.0,
+          "touch_probability_pct": 90.5,
+          "cash_recovered_usd": 495.24,
+          "capital_recovered_pct": 49.5
+        },
+        "lot_2_freeroll_40pct": {
+          "shares": 1904.76,
+          "target_sell_cents": 30.2,
+          "touch_probability_pct": 79.9,
+          "cash_recovered_usd": 575.24,
+          "cumulative_cash_l1_l2_usd": 1070.48,
+          "principal_coverage_pct": 107.0,
+          "guaranteed_profit_even_if_reversal_usd": 70.48
+        },
+        "lot_3_runner_20pct": {
+          "shares": 952.38,
+          "target_settlement_cents": 100.0,
+          "settlement_win_prob_pct": 32.2,
+          "payout_if_settled_100c_usd": 952.38,
+          "total_cash_if_full_cycle_usd": 2022.86,
+          "total_roi_if_full_cycle_pct": 102.29
+        },
+        "tactical_stop_loss_cents": 14.3
+      }
+    },
+    {
+      "event_ticker": "KXNFLGAME-26NOV08NYGPHI",
+      "title": "New York G vs Philadelphia",
+      "total_event_volume_usd": 47027.32,
+      "away_team": "NYG",
+      "home_team": "PHI",
+      "markets": {
+        "PHI": {
+          "ticker": "KXNFLGAME-26NOV08NYGPHI-PHI",
+          "team_name": "Philadelphia",
+          "status": "active",
+          "last_cents": 45.0,
+          "yes_bid_cents": 43.0,
+          "yes_ask_cents": 45.0,
+          "no_bid_cents": 55.0,
+          "no_ask_cents": 57.0,
+          "volume_usd": 7740.44
+        },
+        "NYG": {
+          "ticker": "KXNFLGAME-26NOV08NYGPHI-NYG",
+          "team_name": "New York G",
+          "status": "active",
+          "last_cents": 57.0,
+          "yes_bid_cents": 56.0,
+          "yes_ask_cents": 57.0,
+          "no_bid_cents": 43.0,
+          "no_ask_cents": 44.0,
+          "volume_usd": 39286.88
+        }
+      },
+      "gabriel_torres_intel": {
+        "away_stats": {
+          "games": 7,
+          "total_off_epa": 1.47,
+          "off_epa_per_game": 0.21,
+          "passing_epa_per_game": 1.6,
+          "rushing_epa_per_game": -1.39,
+          "avg_cpoe": -1.67,
+          "pass_yds_per_game": 243.1,
+          "rush_yds_per_game": 116.7,
+          "total_tds": 17,
+          "turnovers_committed": 10,
+          "turnovers_per_game": 1.43,
+          "sacks_taken": 21,
+          "sacks_taken_per_game": 3.0,
+          "def_sacks": 9.0,
+          "def_sacks_per_game": 1.29,
+          "def_ints": 6,
+          "takeaways_estimated": 6
+        },
+        "home_stats": {
+          "games": 7,
+          "total_off_epa": -44.14,
+          "off_epa_per_game": -6.31,
+          "passing_epa_per_game": -3.89,
+          "rushing_epa_per_game": -2.41,
+          "avg_cpoe": -3.38,
+          "pass_yds_per_game": 194.1,
+          "rush_yds_per_game": 87.7,
+          "total_tds": 16,
+          "turnovers_committed": 6,
+          "turnovers_per_game": 0.86,
+          "sacks_taken": 18,
+          "sacks_taken_per_game": 2.57,
+          "def_sacks": 8.0,
+          "def_sacks_per_game": 1.14,
+          "def_ints": 3,
+          "takeaways_estimated": 3
+        },
+        "away_qb": {
+          "games": 6,
+          "pass_yds": 957.0,
+          "pass_tds": 7,
+          "ints": 5,
+          "pass_epa": -20.17,
+          "rush_yds": 50.0,
+          "rush_tds": 1,
+          "name": "Jameis Winston"
+        },
+        "home_qb": {
+          "games": 5,
+          "pass_yds": 933.0,
+          "pass_tds": 8,
+          "ints": 3,
+          "pass_epa": -9.69,
+          "rush_yds": 107.0,
+          "rush_tds": 1,
+          "name": "Jalen Hurts"
+        },
+        "away_roster": {
+          "latest_roster_week": 7,
+          "inactives_and_ir_count": 19,
+          "key_absences": [
+            {
+              "name": "Roy Robertson-Harris",
+              "pos": "DL",
+              "status": "RES"
+            },
+            {
+              "name": "Braxton Berrios",
+              "pos": "WR",
+              "status": "RES"
+            },
+            {
+              "name": "Tremaine Edmunds",
+              "pos": "LB",
+              "status": "RES"
+            },
+            {
+              "name": "Gunner Olszewski",
+              "pos": "WR",
+              "status": "RES"
+            },
+            {
+              "name": "Brian Burns",
+              "pos": "LB",
+              "status": "RES"
+            },
+            {
+              "name": "Chauncey Golston",
+              "pos": "DL",
+              "status": "RES"
+            },
+            {
+              "name": "Greg Newsome II",
+              "pos": "DB",
+              "status": "INA"
+            },
+            {
+              "name": "Jevon Holland",
+              "pos": "DB",
+              "status": "INA"
+            }
+          ],
+          "active_skill_players": [
+            {
+              "name": "Chris Manhertz",
+              "pos": "TE"
+            },
+            {
+              "name": "Jameis Winston",
+              "pos": "QB"
+            },
+            {
+              "name": "Patrick Ricard",
+              "pos": "RB"
+            },
+            {
+              "name": "Devin Singletary",
+              "pos": "RB"
+            },
+            {
+              "name": "Darnell Mooney",
+              "pos": "WR"
+            },
+            {
+              "name": "Isaiah Likely",
+              "pos": "TE"
+            },
+            {
+              "name": "Charlie Jones",
+              "pos": "WR"
+            },
+            {
+              "name": "Jalin Hyatt",
+              "pos": "WR"
+            }
+          ]
+        },
+        "home_roster": {
+          "latest_roster_week": 8,
+          "inactives_and_ir_count": 8,
+          "key_absences": [
+            {
+              "name": "Jalen Hurts",
+              "pos": "QB",
+              "status": "RES"
+            },
+            {
+              "name": "Dameon Pierce",
+              "pos": "RB",
+              "status": "RES"
+            },
+            {
+              "name": "Tank Bigsby",
+              "pos": "RB",
+              "status": "RES"
+            },
+            {
+              "name": "Jakorian Bennett",
+              "pos": "DB",
+              "status": "RES"
+            },
+            {
+              "name": "Johnny Wilson",
+              "pos": "WR",
+              "status": "RES"
+            },
+            {
+              "name": "Andre' Sam",
+              "pos": "DB",
+              "status": "RES"
+            },
+            {
+              "name": "Will Shipley",
+              "pos": "RB",
+              "status": "RES"
+            },
+            {
+              "name": "Tucker Large",
+              "pos": "DB",
+              "status": "RES"
+            }
+          ],
+          "active_skill_players": [
+            {
+              "name": "Johnny Mundt",
+              "pos": "TE"
+            },
+            {
+              "name": "Dallas Goedert",
+              "pos": "TE"
+            },
+            {
+              "name": "Saquon Barkley",
+              "pos": "RB"
+            },
+            {
+              "name": "Marquise Brown",
+              "pos": "WR"
+            },
+            {
+              "name": "Elijah Mitchell",
+              "pos": "RB"
+            },
+            {
+              "name": "DeVonta Smith",
+              "pos": "WR"
+            },
+            {
+              "name": "Elijah Moore",
+              "pos": "WR"
+            },
+            {
+              "name": "Grant Calcaterra",
+              "pos": "TE"
+            }
+          ]
+        },
+        "favorable_drivers": [
+          "Eficiência Ofensiva (EPA): PHI registra -6.31 EPA/jogo (194.1 jds passe/j + 87.7 jds corridas/j) vs +0.21 EPA/jogo de NYG.",
+          "Performance do QB Titular (Jalen Hurts): 933.0 jardas aéreas, 8 TDs, 3 INTs e -9.69 Passing EPA acumulado na temporada 2026 (CPOE médio da equipe: -3.38%).",
+          "Trincheira & Proteção/Pressão: PHI soma 8.0 sacks defensivos (1.14/jogo) e 3 interceptações forçadas contra 10 turnovers totais cometidos por NYG.",
+          "Auditoria de Elenco Semanal (`weekly_rosters_2026.csv` Sem. 8): NYG possui 19 jogadores em status de baixa (`INA`/`RES`), incluindo Roy Robertson-Harris (DL-RES), Braxton Berrios (WR-RES), Tremaine Edmunds (LB-RES), Gunner Olszewski (WR-RES)."
+        ],
+        "threat_drivers": [
+          "Ameaça do QB Adversário (Jameis Winston): soma 957.0 jardas de passe, 7 TDs aéreos + 50.0 jardas terrestres (1 TDs corridos) e -20.17 Passing EPA.",
+          "Vulnerabilidade de Proteção e Turnovers de PHI: sofreu 18 sacks (2.57/jogo) e cometeu 6 turnovers até aqui.",
+          "Baixas Médicas de PHI (`INA`/`RES`): 8 ausências registradas (Jalen Hurts (QB-RES), Dameon Pierce (RB-RES), Tank Bigsby (RB-RES), Jakorian Bennett (DB-RES)).",
+          "Risco de Virada no 4º Quarto (Lição Empírica KC vs DEN): Jogos divisionais ou de horário nobre têm alta variância no Q4; é obrigatório executar a saída de 80% nos Lotes 1 e 2 assim que a probabilidade tocar 54¢–62¢ para travar o Free-Roll."
+        ]
+      },
+      "actuarial_tribunal_5x5": {
+        "recommended_team": "PHI",
+        "recommended_ticker": "KXNFLGAME-26NOV08NYGPHI-PHI",
+        "recommended_side": "YES · Philadelphia (PHI)",
+        "market_entry_ask_cents": 45.0,
+        "market_bid_ask_spread_cents": 2.0,
+        "monte_carlo_20k_structural_prob_pct": 60.7,
+        "pessimist_bench_5_prob_pct": 46.9,
+        "optimist_bench_5_prob_pct": 59.9,
+        "supreme_judge_calibrated_prob_pct": 54.0,
+        "net_edge_bps": 900,
+        "judge_ruling_summary": "Entrada tática em YES Philadelphia (KXNFLGAME-26NOV08NYGPHI-PHI) a 45.0¢. Bancada Pessimista estima 46.9%, Bancada Otimista estima 59.9%, Veredito Final do Juiz: 54.0% (+900 bps). Executar obrigatoriamente a trava de Free-Roll nos Lotes 1 e 2 durante picos intrajogo."
+      },
+      "boleta_100_usd": {
+        "reference_bankroll_usd": 100.0,
+        "recommended_contract_side": "YES · Philadelphia (PHI)",
+        "entry_price_cents": 45.0,
+        "total_shares": 222.22,
+        "lot_1_tp1_40pct": {
+          "shares": 88.89,
+          "target_sell_cents": 55.8,
+          "touch_probability_pct": 71.1,
+          "cash_recovered_usd": 49.6,
+          "capital_recovered_pct": 49.6
+        },
+        "lot_2_freeroll_40pct": {
+          "shares": 88.89,
+          "target_sell_cents": 64.8,
+          "touch_probability_pct": 50.3,
+          "cash_recovered_usd": 57.6,
+          "cumulative_cash_l1_l2_usd": 107.2,
+          "principal_coverage_pct": 107.2,
+          "guaranteed_profit_even_if_reversal_usd": 7.2
+        },
+        "lot_3_runner_20pct": {
+          "shares": 44.44,
+          "target_settlement_cents": 100.0,
+          "settlement_win_prob_pct": 54.0,
+          "payout_if_settled_100c_usd": 44.44,
+          "total_cash_if_full_cycle_usd": 151.64,
+          "total_roi_if_full_cycle_pct": 51.64
+        },
+        "tactical_stop_loss_cents": 30.6
+      },
+      "boleta_1000_usd": {
+        "reference_bankroll_usd": 1000.0,
+        "recommended_contract_side": "YES · Philadelphia (PHI)",
+        "entry_price_cents": 45.0,
+        "total_shares": 2222.22,
+        "lot_1_tp1_40pct": {
+          "shares": 888.89,
+          "target_sell_cents": 55.8,
+          "touch_probability_pct": 71.1,
+          "cash_recovered_usd": 496.0,
+          "capital_recovered_pct": 49.6
+        },
+        "lot_2_freeroll_40pct": {
+          "shares": 888.89,
+          "target_sell_cents": 64.8,
+          "touch_probability_pct": 50.3,
+          "cash_recovered_usd": 576.0,
+          "cumulative_cash_l1_l2_usd": 1072.0,
+          "principal_coverage_pct": 107.2,
+          "guaranteed_profit_even_if_reversal_usd": 72.0
+        },
+        "lot_3_runner_20pct": {
+          "shares": 444.44,
+          "target_settlement_cents": 100.0,
+          "settlement_win_prob_pct": 54.0,
+          "payout_if_settled_100c_usd": 444.44,
+          "total_cash_if_full_cycle_usd": 1516.44,
+          "total_roi_if_full_cycle_pct": 51.64
+        },
+        "tactical_stop_loss_cents": 30.6
+      }
+    }
+  ]
+}

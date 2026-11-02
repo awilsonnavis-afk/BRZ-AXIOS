@@ -1,13 +1,49 @@
 {
-  "schema_version": 2,
+  "schema_version": 3,
   "collection": "prediction_radar",
   "document_id": "latest",
+  "cadence_mode": "WEEKLY_REPORT_AND_FULL_RADAR",
   "scope_policy": "STRICT_BRAZIL_HIGH_VOLUME_ONLY",
+  "politics_removed_from_main": true,
   "min_brazil_volume_filter_usd": 10000.0,
-  "updated_at": "2026-11-02T01:37:00.412160+00:00",
+  "updated_at": "2026-11-02T02:28:00.137723+00:00",
   "window_focus": "open",
-  "headline": "BRZ.PREDICTION — High-Volume Brazil Contract Radar (Polymarket & Kalshi)",
-  "summary": "Live implied probabilities exclusively for Brazil prediction markets with verified institutional and retail volume (>= $10,000 USD on the Brazil leg), covering USD/BRL exchange-rate barriers, IPCA inflation, Copom Selic decisions, Supreme Court (STF) stability and bilateral relations.",
+  "headline": "BRZ.PREDICTION — All Brazil Markets, Market-Moving News & AXIOS Weekly Volume Report",
+  "axios_weekly_volume_leader_report": {
+    "report_id": "AXIOS-WEEKLY-VOL-LEADER-2026-11-02",
+    "orchestrator_author": "Axio Vance — Orquestrador & Líder Quantitativo (Equipe Argon)",
+    "cadence": "WEEKLY_MASTER_REPORT (Auto-Updated 4x/Day on Volume Shifts)",
+    "selected_by_rule": "HIGHEST_VERIFIED_BRAZIL_VOLUME_USD",
+    "featured_market_ticker": "KXUSDBRLMAX-26DEC31 (Kalshi) + Macro Rates Complex (Polymarket)",
+    "featured_market_title": "How High Will the US Dollar Get Against the Brazilian Real in 2026? (USD/BRL Barrier Complex)",
+    "featured_brazil_volume_usd": 574531.52,
+    "secondary_cluster_volume_usd": 475890.72,
+    "executive_headline": "AXIOS Weekly Volume Report: Why $1.05M in Brazil Prediction Volume Is Anchored on the Real (USD/BRL), IPCA Inflation and the 14.75% Selic Carry",
+    "executive_summary": "Nesta semana, o motor AXIOS identificou que o maior volume financeiro isolado em mercados preditivos sobre o Brasil está concentrado na série de barreiras cambiais USD/BRL da Kalshi (`KXUSDBRLMAX-26DEC31`, com US$ 574.531,52 negociados e 24.275 contratos em aberto), seguido imediatamente pelo cluster de Inflação IPCA 2026 (US$ 349.792,08) e Decisão Selic do Copom (US$ 126.098,64). Juntos, Câmbio, Inflação e Juros representam mais de US$ 1,05 milhão em volume real, mostrando que o capital institucional estrangeiro migrou o foco da política para a precificação pura de carrego (carry trade) e proteção cambial dos ADRs brasileiros listados em Nova York (`EWZ`, `PBR`, `VALE`, `ITUB`, `NU`).",
+    "sections": [
+      {
+        "section_number": 1,
+        "title": "1. Radiografia do Volume Principal: O que o Dinheiro Institucional está Colocando em USD/BRL",
+        "content": "A série `KXUSDBRLMAX-26DEC31` na Kalshi distribui US$ 574.531,52 em cinco strikes de barreira contínua até 31 de dezembro de 2026: R$ 6,00 (`US$ 173.222` vol, `22¢` Last), R$ 6,50 (`US$ 127.001` vol, `12¢` Last), R$ 6,75 (`US$ 92.045` vol, `10¢` Last), R$ 7,00 (`US$ 90.954` vol, `2¢` Last) e R$ 7,25 (`US$ 91.309` vol, `1¢` Last). O dado mais revelador para o cliente BRZ News é a compressão de spread no strike R$ 6,50 (`11¢ Bid / 12¢ Ask` no YES, ou `88¢ Bid / 89¢ Ask` no NO), onde 8.425 contratos permanecem abertos como hedge institucional de carteiras de ações brasileiras."
+      },
+      {
+        "section_number": 2,
+        "title": "2. Conexão Fundamentalista & Gráfica: Por que o Juro de 14,75% Protege a Barreira de R$ 6,50",
+        "content": "Cruzando o livro da Kalshi com os livros do Polymarket, o Gabriel Torres (Agente 05) e a Clara Mendonça (Agente 02) demonstram que a estabilidade cambial abaixo de R$ 6,00–R$ 6,50 é sustentada pelo diferencial de juros: o Polymarket precifica 48,7% de chance de o IPCA fechar entre 5,00% e 5,49% e 82,4% de chance de o Copom manter a Selic inalterada em 14,75%. No modelo estocástico de Ornstein-Uhlenbeck (Henrique Vasconcelos & Lucas Bittencourt, 20.000 simulações), esse diferencial de ~1.000 bps sobre o Fed Funds gera reversão à média toda vez que o dólar testa a zona gráfica de R$ 5,86–R$ 5,92."
+      },
+      {
+        "section_number": 3,
+        "title": "3. Mapa de Oportunidades para a Semana (Resumo das Boletas em 3 Lotes)",
+        "content": "• Operação Líder #1 (`Kalshi USD/BRL < 6,50`): Compra de `NO` a `89,0¢` (Veredito Juiz: `92,5%`, `+350 bps` de edge; Lote 1 a `94¢`, Lote 2 Free-Roll a `97¢`).\n• Operação Líder #2 (`Polymarket IPCA 5,00%–5,49%`): Compra de `YES` a `49,0¢` (Veredito Juiz: `56,2%`, `+720 bps` de edge; Lote 1 a `62¢`, Lote 2 Free-Roll a `74¢`).\n• Operação Líder #3 (`Polymarket Copom Selic Hold`): Compra de `YES` a `82,4¢` vs. `91,0%` implícito na B3 (`+610 bps` de edge; Lote 1 a `90¢`, Lote 2 Free-Roll a `95¢`)."
+      }
+    ],
+    "weekly_kpis": {
+      "leader_contract_volume_usd": 574531.52,
+      "top_3_macro_cluster_volume_usd": 1050422.24,
+      "total_brazil_qualified_volume_usd": 2555722.71,
+      "brier_calibration_target": 0.118
+    }
+  },
   "metrics_summary": {
     "total_scanned_brazil_markets": 28,
     "discarded_low_volume_or_settled": 5,
@@ -17,6 +53,51 @@
     "polymarket_qualified_volume_usd": 1774304.32,
     "kalshi_qualified_volume_usd": 781418.39
   },
+  "market_moving_news_feed": [
+    {
+      "news_id": "PRED-NEWS-01",
+      "headline": "US prediction markets bet $574,500 on whether Brazil's currency crosses 6.00 per dollar — what it means for EWZ and US-listed ADRs",
+      "category": "Currencies",
+      "linked_market_id": "KXUSDBRLMAX-26DEC31",
+      "brazil_volume_usd": 574531.52,
+      "us_tickers": [
+        "EWZ",
+        "ITUB",
+        "PBR",
+        "VALE",
+        "NU"
+      ],
+      "summary": "Kalshi's CFTC-regulated USD/BRL barrier contracts lead all Brazilian prediction volume this week, pricing an 88% probability that the real holds below 6.50 through December."
+    },
+    {
+      "news_id": "PRED-NEWS-02",
+      "headline": "With $349,800 in combined volume, Polymarket and Kalshi lock onto a 5.00%–5.49% Brazilian inflation range for 2026",
+      "category": "Markets",
+      "linked_market_id": "181671",
+      "brazil_volume_usd": 349792.08,
+      "us_tickers": [
+        "ITUB",
+        "BBD",
+        "EWZ",
+        "NU"
+      ],
+      "summary": "A 3.15-percentage-point cross-exchange spread between Polymarket and Kalshi inflation brackets highlights institutional positioning ahead of the next IBGE IPCA print."
+    },
+    {
+      "news_id": "PRED-NEWS-03",
+      "headline": "Offshore prediction markets price Copom rate hold at 82.4c while domestic B3 futures price 91% — inside the 860-bps rate gap",
+      "category": "Investing",
+      "linked_market_id": "798441",
+      "brazil_volume_usd": 126098.64,
+      "us_tickers": [
+        "ITUB",
+        "NU",
+        "BBD",
+        "EWZ"
+      ],
+      "summary": "Why Brazil's 14.75% Selic rate remains the strongest carry anchor in emerging markets and how prediction traders are pricing the November policy meeting."
+    }
+  ],
   "cross_exchange_arbitrage_brazil": [
     {
       "theme": "Brazil 2026 Annual Inflation (IPCA < 4.00% vs 5.00%-5.49%)",
@@ -35,18 +116,19 @@
       ]
     },
     {
-      "theme": "Trump x Flávio Bolsonaro Bilateral Meeting (Temporal Monotonicity Arbitrage)",
-      "polymarket_contract": "Will Trump meet with Flávio Bolsonaro in 2026? (#1267468 — $90,578 vol)",
-      "kalshi_contract": "KXTRUMPFLAVIOMEET-26DEC01 (By Dec 1, 2026)",
-      "polymarket_yes_ask": 0.18,
-      "kalshi_yes_bid_last": 0.22,
-      "spread_pct": 4.0,
-      "combined_brazil_volume_usd": 92510.0,
-      "mechanism": "Polymarket gives an extra 30 days (until Dec 31, 2026) at a lower price (17.5c / 18.0c Ask) than Kalshi's shorter Dec 1 deadline (22.0c Last / 18.0c Bid).",
+      "theme": "Copom Selic Hold vs USD/BRL 6.00 Barrier (Macro Carry Arbitrage)",
+      "polymarket_contract": "Bank of Brazil November Decision: No Change (#798441 — $126,098 vol)",
+      "kalshi_contract": "KXUSDBRLMAX-26DEC31-T5.9999 ($173,222 vol)",
+      "polymarket_yes_ask": 0.824,
+      "kalshi_no_ask": 0.84,
+      "spread_pct": 6.1,
+      "combined_brazil_volume_usd": 299320.69,
+      "mechanism": "Polymarket's 82.4c price on a Selic hold trails B3 DI futures (91%), while directly supporting Kalshi's 78% implied probability that USD/BRL stays below 6.00.",
       "exposed_us_tickers": [
-        "PBR",
         "EWZ",
-        "VALE"
+        "ITUB",
+        "NU",
+        "PBR"
       ]
     }
   ],
@@ -76,6 +158,7 @@
         "ITUB",
         "NU"
       ],
+      "desk_workspace_link": "WS-01-USDBRL-DOLAR",
       "url": "https://kalshi.com/markets/kxusdbrlmax"
     },
     {
@@ -103,6 +186,7 @@
         "ITUB",
         "NU"
       ],
+      "desk_workspace_link": "WS-03-COPOM-SELIC-NOV",
       "url": "https://polymarket.com/event/fall-elections-three-way-brazil-israel-us-senate-combo"
     },
     {
@@ -130,6 +214,7 @@
         "ITUB",
         "NU"
       ],
+      "desk_workspace_link": "WS-03-COPOM-SELIC-NOV",
       "url": "https://polymarket.com/event/alexandre-de-moraes-out-as-brazil-supreme-court-justice"
     },
     {
@@ -157,6 +242,7 @@
         "ITUB",
         "NU"
       ],
+      "desk_workspace_link": "WS-02-IPCA-INFLACAO-2026",
       "url": "https://polymarket.com/event/brazil-annual-inflation-2026"
     },
     {
@@ -184,6 +270,7 @@
         "ITUB",
         "NU"
       ],
+      "desk_workspace_link": "WS-03-COPOM-SELIC-NOV",
       "url": "https://kalshi.com/markets/kxbrazilinf"
     },
     {
@@ -211,6 +298,7 @@
         "ITUB",
         "NU"
       ],
+      "desk_workspace_link": "WS-03-COPOM-SELIC-NOV",
       "url": "https://polymarket.com/event/bank-of-brazil-decision-in-november-1785878499354"
     },
     {
@@ -238,6 +326,7 @@
         "ITUB",
         "NU"
       ],
+      "desk_workspace_link": "WS-03-COPOM-SELIC-NOV",
       "url": "https://polymarket.com/event/any-brazil-stf-justice-removed-by-impeachment-before-2027"
     },
     {
@@ -265,6 +354,7 @@
         "ITUB",
         "NU"
       ],
+      "desk_workspace_link": "WS-03-COPOM-SELIC-NOV",
       "url": "https://polymarket.com/event/will-trump-meet-with-flavio-bolsonaro-in-2026"
     },
     {
@@ -292,6 +382,7 @@
         "ITUB",
         "NU"
       ],
+      "desk_workspace_link": "WS-03-COPOM-SELIC-NOV",
       "url": "https://polymarket.com/event/who-will-trump-meet-with-in-2026"
     },
     {
@@ -319,6 +410,7 @@
         "ITUB",
         "NU"
       ],
+      "desk_workspace_link": "WS-03-COPOM-SELIC-NOV",
       "url": "https://polymarket.com/event/brco-gre-cam-2026-11-01"
     },
     {
@@ -346,6 +438,7 @@
         "ITUB",
         "NU"
       ],
+      "desk_workspace_link": "WS-03-COPOM-SELIC-NOV",
       "url": "https://polymarket.com/event/bank-of-brazil-decision-in-december-20260918"
     },
     {
@@ -373,6 +466,7 @@
         "ITUB",
         "NU"
       ],
+      "desk_workspace_link": "WS-03-COPOM-SELIC-NOV",
       "url": "https://polymarket.com/event/brazil-presidential-election-annulled-by-december-31-20261026114556736"
     },
     {
@@ -400,6 +494,7 @@
         "ITUB",
         "NU"
       ],
+      "desk_workspace_link": "WS-03-COPOM-SELIC-NOV",
       "url": "https://polymarket.com/event/2026-soccer-copa-libertadores-winner"
     },
     {
@@ -427,6 +522,7 @@
         "ITUB",
         "NU"
       ],
+      "desk_workspace_link": "WS-03-COPOM-SELIC-NOV",
       "url": "https://polymarket.com/event/will-lula-announce-nomination-of-a-supreme-court-minister-byptptpt-20260602182854659"
     },
     {
@@ -454,6 +550,7 @@
         "ITUB",
         "NU"
       ],
+      "desk_workspace_link": "WS-03-COPOM-SELIC-NOV",
       "url": "https://polymarket.com/event/who-will-trump-speak-to-by-october-31"
     },
     {
@@ -481,6 +578,7 @@
         "ITUB",
         "NU"
       ],
+      "desk_workspace_link": "WS-03-COPOM-SELIC-NOV",
       "url": "https://polymarket.com/event/flavio-bolsonaro-arrested-before-2027"
     },
     {
@@ -508,6 +606,7 @@
         "ITUB",
         "NU"
       ],
+      "desk_workspace_link": "WS-03-COPOM-SELIC-NOV",
       "url": "https://polymarket.com/event/flavio-bolsonaro-returns-to-brazil-by-20261028"
     },
     {
@@ -535,6 +634,7 @@
         "ITUB",
         "NU"
       ],
+      "desk_workspace_link": "WS-03-COPOM-SELIC-NOV",
       "url": "https://polymarket.com/event/copa-libertadores-2027-winner"
     },
     {
@@ -562,6 +662,7 @@
         "ITUB",
         "NU"
       ],
+      "desk_workspace_link": "WS-03-COPOM-SELIC-NOV",
       "url": "https://kalshi.com/markets/kxbrinfhigh"
     },
     {
@@ -589,6 +690,7 @@
         "ITUB",
         "NU"
       ],
+      "desk_workspace_link": "WS-03-COPOM-SELIC-NOV",
       "url": "https://kalshi.com/markets/kxbrazilu"
     },
     {
@@ -616,6 +718,7 @@
         "ITUB",
         "NU"
       ],
+      "desk_workspace_link": "WS-03-COPOM-SELIC-NOV",
       "url": "https://polymarket.com/event/jair-bolsonaro-released-from-custody-by-march-31-2027-1791185062998"
     },
     {
@@ -643,6 +746,7 @@
         "ITUB",
         "NU"
       ],
+      "desk_workspace_link": "WS-03-COPOM-SELIC-NOV",
       "url": "https://polymarket.com/event/who-will-be-ufc-light-heavyweight-champion-at-the-end-of-2026"
     },
     {
@@ -670,8 +774,9 @@
         "ITUB",
         "NU"
       ],
+      "desk_workspace_link": "WS-03-COPOM-SELIC-NOV",
       "url": "https://kalshi.com/markets/kxwc"
     }
   ],
-  "disclaimer": "BRZ.PREDICTION displays public prediction-market prices exclusively for high-volume Brazil contracts and quantitative calibration from the Argon Research Engine for informational and educational purposes only. Not investment or trading advice."
+  "disclaimer": "BRZ.PREDICTION displays public prediction-market prices for high-volume Brazil contracts, market-moving news and the weekly AXIOS Volume Leader Report for informational and educational purposes only."
 }
